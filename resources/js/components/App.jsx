@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Header from './common/header/Header';
 
 function App(props) {
     return (
         <>
+            <Header/>
             <h1>This is home</h1>
             {props.children}
         </>
