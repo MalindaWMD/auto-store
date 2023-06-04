@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './common/header/Header';
+import Home from './pages/Home';
 
 function App(props) {
     return (
         <>
             <Header/>
-            <h1>This is home</h1>
+
+            {/* TEMP */}
+            <Home/>
             {props.children}
         </>
     );

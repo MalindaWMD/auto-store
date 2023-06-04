@@ -158,7 +158,7 @@ export default function Header() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="bg-white">
+    <div className="bg-white relative z-40">
       {/* Mobile menu */}
       <MobileMenu show={open} as={Fragment} openAction={setOpen} navigation={navigation} currencies={currencies}/>
 
