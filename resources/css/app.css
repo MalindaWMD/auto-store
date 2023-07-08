@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* slick */
+.slick-arrow.slick-next{
+    right: 5px !important;
+    z-index: 2;
+}
+.slick-arrow.slick-prev{
+    left: 5px !important;
+    z-index: 2;
+}
+.slick-dots{
+    bottom: 10px !important;
+}
+
+/* Toastify */
+.Toastify__toast-container {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    top: 0 !important;
+}
+.Toastify__toast {
+    @apply w-full flex justify-center items-center m-0 rounded-none !important;
+}
+.Toastify__toast-body{
+    @apply max-w-7xl !important;
+}
+.Toastify__close-button{
+    @apply self-center !important;
+}
+.Toastify__toast--info{
+    @apply bg-blue-600 text-white !important;
+}
+.Toastify__toast--success{
+    @apply bg-green-600 text-white !important;
+}
+.Toastify__toast--error{
+    @apply bg-red-500 text-white !important;
+}
+.Toastify__toast--default{
+    @apply bg-indigo-100 text-black !important;
+}
+.Toastify__toast-icon svg{
+    fill: white !important;
+}
+.Toastify__close-button--light{
+    opacity: 1 !important;
+    color: white !important;
+}
+
+/* List */
+.list-disk{
+    list-style-type: disc;
+}

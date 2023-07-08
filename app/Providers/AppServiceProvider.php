@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Modifiers\CustomShippingModifier;
 use Illuminate\Support\ServiceProvider;
+use Lunar\Facades\ModelManifest;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,8 +19,20 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    public function boot(\Lunar\Base\ShippingModifiers $shippingModifiers): void
     {
-        //
+
+        // TODO REMOVE
+        \Auth::loginUsingId(1);
+
+        $shippingModifiers->add(
+            CustomShippingModifier::class
+        );
+
+        $models = collect([
+            \Lunar\Models\Product::class => \App\Models\Product::class,
+        ]);
+    
+        ModelManifest::register($models);
     }
 }
