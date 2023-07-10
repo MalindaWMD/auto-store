@@ -1,14 +1,15 @@
-import axios from "axios"
+import { useAxios } from "../hooks/axios"
+import { useCurrentPath, useQuery } from "../hooks/routes"
 
-export const getAllProducts = () => {
-    return axios.get('/products');
-}
+// If it's the search page, we need to perform search query
+export const performProductQuery = () => {
+    const query = useQuery()
+    const currentPath = useCurrentPath()
+    const searchQuery = query.get('q')
 
-export const getProduct = async (id) => {
-    try {
-        const res = await axios.get('/api/products/' + id);
-        return res.data.data;
-    } catch (err) {
-        return err.response.data;
+    if(currentPath == '/shop/search' && searchQuery){
+        return useAxios('/api/products/search', 'GET', { q: searchQuery });
     }
-  }
+    
+    return useAxios('/api/products', 'GET');
+}

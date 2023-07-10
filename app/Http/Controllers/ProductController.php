@@ -18,6 +18,22 @@ class ProductController extends Controller
     }
 
     /**
+     * Display a listing of the resource, for the given query
+     */
+    public function search(Request $request)
+    {
+        if( ! $request->q){
+            return $this->index();
+        }
+
+        // VALIDATE
+
+        $prodcuts = Product::search($request->q)->get();
+
+        return self::success(SimpleProductResource::collection($prodcuts));
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)

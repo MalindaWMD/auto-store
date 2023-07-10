@@ -12,12 +12,20 @@ export const useAxios = (url, method, payload) => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.request({
-          data: payload,
+
+        let requestData = {
           signal: controllerRef.current.signal,
           method,
           url,
-        });
+        }
+
+        if(method == 'GET'){
+          requestData['params'] = payload
+        }else{
+          requestData['data'] = payload
+        }
+
+        const response = await axios.request(requestData);
 
         setData(response.data.data)
 

@@ -14,8 +14,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Application data
 Route::get('app/data', [StorefrontController::class, 'getSiteData']);
 
+// Product
+Route::get('products/search', [ProductController::class, 'search']);
 Route::apiResource('products', ProductController::class)
         ->parameters([
             'products' => 'slug'
@@ -24,10 +27,14 @@ Route::apiResource('products', ProductController::class)
             return Controller::fail('Resource not found', 404);
         });
 
+// Cart
 Route::get('cart', [CartController::class, 'index']);
 Route::post('cart/add', [CartController::class, 'add']);
 Route::get('cart/shipping-options', [CartController::class, 'getShippingOptions']);
 
+// User
 Route::get('user', [UserController::class, 'index']);
 
+
+// Checkout
 Route::post('checkout', [CheckoutController::class, 'store']);

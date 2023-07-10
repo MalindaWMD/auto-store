@@ -17,7 +17,16 @@ const routes = [
     displayName: 'Home',
     element: <Home/>,
     index: true,
-    indexOrder: 1
+    indexOrder: 1,
+    errorElement: <NotFound/>
+  },
+  {
+    path: '/shop/search',
+    name: 'shop-search',
+    displayName: 'Shop',
+    element: <Shop/>,
+    index: false,
+    errorElement: <NotFound/>
   },
   {
     path: '/shop',
@@ -25,7 +34,8 @@ const routes = [
     displayName: 'Shop',
     element: <Shop/>,
     index: true,
-    indexOrder: 2
+    indexOrder: 2,
+    errorElement: <NotFound/>
   },
   {
     path: '/shop/product/:id',
@@ -35,29 +45,35 @@ const routes = [
   },
   {
     path: '/cart',
-    element: <Cart/>
+    element: <Cart/>,
+    errorElement: <NotFound/>
   },
   {
     path: '/checkout',
-    element: <Checkout/>
+    element: <Checkout/>,
+    errorElement: <NotFound/>
   },
   {
     path: '/user/orders',
-    element: <OrderHistory/>
+    element: <OrderHistory/>,
+    errorElement: <NotFound/>
   },
   {
     path: '/checkout/success',
-    element: <OrderPlaced/>
+    element: <OrderPlaced/>,
+    errorElement: <NotFound/>
   },
   {
     path: '/login',
     element: <Login/>,
-    index: false
+    index: false,
+    errorElement: <NotFound/>
   },
   {
     path: '/register',
     element: <Register/>,
-    index: false
+    index: false,
+    errorElement: <NotFound/>
   },
 ]
 

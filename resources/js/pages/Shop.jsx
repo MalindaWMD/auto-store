@@ -6,12 +6,17 @@ import MobileProductFilters from '../components/product/MobileProductFilters'
 import ProductCardLoading from '../components/loaders/ProductCardLoading'
 import { useProductFilters } from '../hooks/productFilters'
 import { useAxios } from '../hooks/axios'
+import { useLocation } from 'react-router-dom'
+import { useCurrentLocation, useQuery } from '../hooks/routes'
+import { performProductQuery } from '../actions/ProductActions'
 
 export default function Shop() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-  const filters = useProductFilters();
+  const filters = useProductFilters()
+  
+  const {data:products, isLoading} = performProductQuery()
 
-  const {data: products, isLoading} = useAxios('/api/products', 'GET');
+  let location = useLocation()
 
   return (
     <Layout>
