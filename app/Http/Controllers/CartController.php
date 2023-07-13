@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\CartItemResource;
+use App\Http\Resources\CartResource;
 use Illuminate\Http\Request;
 use Lunar\Facades\CartSession;
 use Lunar\Facades\ShippingManifest;
@@ -13,7 +14,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        return self::success($this->getCart());
+        return self::success(new CartResource(cart()));
     }
 
     public function add(Request $request)

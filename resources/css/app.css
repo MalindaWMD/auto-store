@@ -21,9 +21,10 @@
     padding: 0 !important;
     margin: 0 !important;
     top: 0 !important;
+    position: relative !important;
 }
 .Toastify__toast {
-    @apply w-full flex justify-center items-center m-0 rounded-none !important;
+    @apply w-full flex justify-center items-center m-0 rounded-none text-sm !important;
 }
 .Toastify__toast-body{
     @apply max-w-7xl !important;
@@ -54,4 +55,4 @@
 /* List */
 .list-disk{
     list-style-type: disc;
-}
+} 

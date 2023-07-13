@@ -1,19 +1,23 @@
 import App from "../App"
 
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import BrandSection from "../components/BrandSeciton"
 import TopBanner from "../components/TopBanner"
 import CategoryCards from "../components/CategoryCards"
 import SearchForm from "../components/SearchForm"
-import PromoSection from "../components/PromoSection"
 import Layout from "../components/Layout"
-import { useLocation } from "react-router"
+import BannerSlider from "../components/BannerSlider"
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import BannerSlider from "../components/BannerSlider"
+import { useContext } from "react"
+import { AppContext } from "../contexts/AppContext"
 
 export default function Home() {
+
+  const {user} = useContext(AppContext)
+
+  console.log(user)
+
   return <Layout>
     
     <TopBanner/>

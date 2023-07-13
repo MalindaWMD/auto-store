@@ -2,8 +2,9 @@ import { useState } from "react";
 import Footer from "./Footer";
 import Header from "./header/Header";
 import CartSlideOver from "./CartSlideOver";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import TContainer from "./TContainer";
 
 export default function Layout({ children }) {
 
@@ -12,7 +13,7 @@ export default function Layout({ children }) {
   return (
     <>
         <Header cartAction={() => setOpen(!open)} />
-        <ToastContainer/>
+          <TContainer/>
         {children}
         <CartSlideOver open={open} setOpen={setOpen} />
         <Footer />

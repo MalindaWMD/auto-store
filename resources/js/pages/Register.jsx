@@ -1,8 +1,82 @@
+import { useContext, useEffect, useState } from "react";
 import Layout from "../components/Layout";
+import ModalLoading from "../components/loaders/ModalLoading";
+import { useQuery } from "../hooks/routes";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../contexts/AppContext";
+import SocialLoginButtons from "../components/SocialLoginButtons";
+import { useAxiosPromise } from "../hooks/axios";
+import { toast } from "react-toastify";
+import { isAValidationError } from "../utils/connection";
+import ValidationError from "../components/ValidationError";
 
 export default function Register() {
+
+  const { user, setUser, isLoggedIn } = useContext(AppContext)
+  const [isLoading, setIsLoading] = useState()
+  const [validationErrors, setValidationErrors] = useState()
+  const query = useQuery()
+  const navigate = useNavigate()
+
+  // Navigate to previous page if already logged in
+  useEffect(() => {
+    if (isLoggedIn()) {
+      return navigate(-1)
+    }
+  }, [user])
+
+  const handleRegistrationResponse = (user) => {
+    setUser(user)
+
+    // if (query.get('redirect_to')) {
+    //   return navigate(query.get('redirect_to'))
+    // }
+
+    // return navigate('/')
+  }
+
+  // Handle submit action
+  const handleSubmit = (e) => {
+    console.log('asd');
+    e.preventDefault();
+
+    setIsLoading(true)
+
+    let form = e.target
+
+    let data = {
+      first_name: form.first_name.value,
+      last_name: form.last_name.value,
+      contact_no: form.contact_no.value,
+      email: form.email.value,
+      password: form.password.value,
+    }
+
+    console.log(data);
+
+    useAxiosPromise('/api/register', 'POST', data).then(res => {
+      if (res.status === 200) {
+        handleRegistrationResponse(res.data.data)
+      }
+
+      setIsLoading(false)
+      throw new Error('Error authenticating user')
+    }).catch(err => {
+       // Validation errors
+       if (isAValidationError(err.response)) {
+        setValidationErrors(err.response.data.errors)
+       }else{
+        let errResponse = err.response
+        toast.error(errResponse?.data.message || errResponse?.data.error || err)
+       }
+       setIsLoading(false)
+    })
+  }
+
+
   return (
     <Layout>
+      <ModalLoading open={isLoading} />
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
@@ -17,7 +91,60 @@ export default function Register() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
           <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-            <form className="space-y-6" action="#" method="POST">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="first_name" className="block text-sm font-medium leading-6 text-gray-900">
+                    First name
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="first_name"
+                      name="first_name"
+                      type="first_name"
+                      autoComplete="first_name"
+                      required
+                      className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                    <ValidationError errors={validationErrors?.first_name} />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="last_name" className="block text-sm font-medium leading-6 text-gray-900">
+                    Last name
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="last_name"
+                      name="last_name"
+                      type="last_name"
+                      autoComplete="last_name"
+                      required
+                      className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                    <ValidationError errors={validationErrors?.last_name} />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="contact_no" className="block text-sm font-medium leading-6 text-gray-900">
+                  Contact no
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="contact_no"
+                    name="contact_no"
+                    type="contact_no"
+                    autoComplete="contact_no"
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                  <ValidationError errors={validationErrors?.contact_no} />
+                </div>
+              </div>
+
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                   Email address
@@ -31,6 +158,7 @@ export default function Register() {
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
+                  <ValidationError errors={validationErrors?.email} />
                 </div>
               </div>
 
@@ -47,6 +175,7 @@ export default function Register() {
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
+                  <ValidationError errors={validationErrors?.password} />
                 </div>
               </div>
 
@@ -70,37 +199,15 @@ export default function Register() {
                 </div>
               </div>
 
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                <a
-                  href="#"
-                  className="flex w-full items-center justify-center gap-3 rounded-md bg-[#1D9BF0] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
-                >
-                  <svg className="h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
-                  </svg>
-                  <span className="text-sm font-semibold leading-6">Twitter</span>
-                </a>
-
-                <a
-                  href="#"
-                  className="flex w-full items-center justify-center gap-3 rounded-md bg-[#24292F] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#24292F]"
-                >
-                  <svg className="h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="text-sm font-semibold leading-6">GitHub</span>
-                </a>
+              <div className="mt-6">
+                <SocialLoginButtons afterLogin={handleRegistrationResponse} />
               </div>
             </div>
           </div>
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Already have an account?{' '}
-            <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+            <a href="/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
               Sign in
             </a>
           </p>

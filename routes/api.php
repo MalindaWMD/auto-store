@@ -4,11 +4,13 @@ use App\Http\Controllers\AppController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StorefrontController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -34,7 +36,7 @@ Route::get('cart/shipping-options', [CartController::class, 'getShippingOptions'
 
 // User
 Route::get('user', [UserController::class, 'index']);
-
+Route::post('login/google', [GoogleLoginController::class, 'store']);
 
 // Checkout
 Route::post('checkout', [CheckoutController::class, 'store']);

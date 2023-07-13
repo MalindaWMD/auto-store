@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\NewPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,5 @@ Route::get('/{path?}', function () {
 Route::get('/', function () {
     return view('app');
 });
+
+Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.reset');

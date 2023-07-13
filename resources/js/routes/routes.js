@@ -9,6 +9,8 @@ import Register from "../pages/Register"
 import ProductDetails from "../pages/ProductDetails"
 import NotFound from '../pages/errors/NotFound'
 import { createBrowserRouter } from "react-router-dom"
+import ForgotPassword from "../pages/ForgotPassword"
+import ResetPassword from "../pages/ResetPassword"
 
 const routes = [
   {
@@ -72,6 +74,18 @@ const routes = [
   {
     path: '/register',
     element: <Register/>,
+    index: false,
+    errorElement: <NotFound/>
+  },
+  {
+    path: '/forgot-password',
+    element: <ForgotPassword/>,
+    index: false,
+    errorElement: <NotFound/>
+  },
+  {
+    path: '/reset-password',
+    element: <ResetPassword/>,
     index: false,
     errorElement: <NotFound/>
   },

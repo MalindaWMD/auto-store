@@ -1506,6 +1506,9 @@ select {
 .h-px {
   height: 1px;
 }
+.h-screen {
+  height: 100vh;
+}
 .max-h-12 {
   max-height: 3rem;
 }
@@ -1731,9 +1734,6 @@ select {
 .justify-between {
   justify-content: space-between;
 }
-.gap-3 {
-  gap: 0.75rem;
-}
 .gap-4 {
   gap: 1rem;
 }
@@ -1941,14 +1941,6 @@ select {
 }
 .border-transparent {
   border-color: transparent;
-}
-.bg-\[\#1D9BF0\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(29 155 240 / var(--tw-bg-opacity));
-}
-.bg-\[\#24292F\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(36 41 47 / var(--tw-bg-opacity));
 }
 .bg-black {
   --tw-bg-opacity: 1;
@@ -2563,6 +2555,7 @@ select {
     padding: 0 !important;
     margin: 0 !important;
     top: 0 !important;
+    position: relative !important;
 }
 .Toastify__toast {
   margin: 0px !important;
@@ -2571,6 +2564,8 @@ select {
   align-items: center !important;
   justify-content: center !important;
   border-radius: 0px !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
 }
 .Toastify__toast-body {
   max-width: 80rem !important;
@@ -2750,12 +2745,6 @@ select {
 }
 .focus-visible\:outline-offset-\[-4px\]:focus-visible {
   outline-offset: -4px;
-}
-.focus-visible\:outline-\[\#1D9BF0\]:focus-visible {
-  outline-color: #1D9BF0;
-}
-.focus-visible\:outline-\[\#24292F\]:focus-visible {
-  outline-color: #24292F;
 }
 .focus-visible\:outline-indigo-600:focus-visible {
   outline-color: #4f46e5;
@@ -3545,4 +3534,4 @@ select {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-}
+} 

@@ -47,6 +47,7 @@ const ProductDeatils = ({product}) => {
       <RatingBar value={product.rating.average} total={product.rating.total_ratings} size="xs" />
 
       <div className="text-gray-500 text-xs font-medium mt-4">SKU: {product.stock.sku}</div>
+      <div className="text-gray-500 text-xs font-medium mt-1">Serial no: {product.serial_no}</div>
 
       <ProductAdditionalDetails details={product.additional_data}/>
       

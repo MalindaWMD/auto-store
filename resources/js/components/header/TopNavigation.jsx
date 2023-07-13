@@ -1,6 +1,22 @@
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { useAxios, useAxiosPromise } from '../../hooks/axios'
+import { useContext } from 'react'
+import { AppContext } from '../../contexts/AppContext'
+import { googleLogout } from '@react-oauth/google'
+import { removeCookie, setCookie } from '../../utils/cookies'
 
 export default function TopNavigation({ currencies }) {
+
+  const {setUser} = useContext(AppContext)
+
+  const logout = () => {
+    useAxiosPromise('/api/logout', 'POST').then(res => {
+      setUser(null)
+      removeCookie('user')
+      googleLogout()
+    })
+  }
+
   return (
     <div className="bg-gray-900">
       <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -34,6 +50,8 @@ export default function TopNavigation({ currencies }) {
             <a href="/register" className="text-sm font-medium text-white hover:text-gray-100">
               Create an account
             </a>
+
+            <button onClick={logout} className='text-white'>LOGOUT</button>
         </div>
       </div>
     </div>

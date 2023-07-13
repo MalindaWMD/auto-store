@@ -21,10 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(\Lunar\Base\ShippingModifiers $shippingModifiers): void
     {
-
-        // TODO REMOVE
-        \Auth::loginUsingId(1);
-
         $shippingModifiers->add(
             CustomShippingModifier::class
         );
