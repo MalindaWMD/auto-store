@@ -36,7 +36,6 @@ export default function ResetPassword() {
     }
 
     useAxiosPromise('/reset-password', 'POST', data).then(res => {
-      console.log(res)
       if (res.status == 200) {
         toast.success(res.data.message, { autoClose: 2000 })
       }

@@ -24,7 +24,6 @@ export default function ForgotPassword() {
     }
 
     useAxiosPromise('/forgot-password', 'POST', data).then(res => {
-      console.log(res)
       if (res.status == 200) {
         toast.success(res.data.message)
       }

@@ -37,7 +37,6 @@ export default function Register() {
 
   // Handle submit action
   const handleSubmit = (e) => {
-    console.log('asd');
     e.preventDefault();
 
     setIsLoading(true)
@@ -51,8 +50,6 @@ export default function Register() {
       email: form.email.value,
       password: form.password.value,
     }
-
-    console.log(data);
 
     useAxiosPromise('/api/register', 'POST', data).then(res => {
       if (res.status === 200) {
