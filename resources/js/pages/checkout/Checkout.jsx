@@ -82,8 +82,6 @@ export default function Checkout() {
   }
 
   const handleSubmit = () => {
-    console.log('FORM data', checkoutData)
-
     useAxiosPromise('/api/checkout', 'POST', checkoutData).then(res => {
       let order = res.data.data;
 

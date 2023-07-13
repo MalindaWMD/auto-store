@@ -6,7 +6,6 @@ export default function SocialLoginButtons({afterLogin}) {
 
   const onGoogleSuccess = response => {
     useAxiosPromise('/api/login/google', 'POST', { creds: response.credential }).then(res => {
-      console.log(res)
       if(afterLogin){
         afterLogin(res.data.data)
       }
@@ -15,7 +14,6 @@ export default function SocialLoginButtons({afterLogin}) {
 
   const onFacebookSuccess = response => {
     useAxiosPromise('/api/login/google', 'POST', { creds: response.credential }).then(res => {
-      console.log(res)
       if(afterLogin){
         afterLogin(res.data.data)
       }

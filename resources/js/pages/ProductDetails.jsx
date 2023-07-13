@@ -81,7 +81,6 @@ export default function ProductDeatils() {
   
       setIsLoading(false)
     }).catch( err => {
-      console.log(err.response);
       setIsLoading(false)
     })
   }

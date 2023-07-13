@@ -52,7 +52,6 @@ export const AppProvider = ({ children }) => {
   const loadCart = () => {
     useAxiosPromise('/api/cart', 'GET').then(res => {
       let cart = res.data.data
-      console.log(cart);
       if(cart) {
         setItems(cart.items)
       }
