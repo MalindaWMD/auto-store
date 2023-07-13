@@ -16,8 +16,8 @@ return [
         \Lunar\Models\Collection::class,
         \Lunar\Models\Product::class,
         \Lunar\Models\ProductOption::class,
-        \Lunar\Models\Order::class,
-        \Lunar\Models\Customer::class,
+        // \Lunar\Models\Order::class,
+        // \Lunar\Models\Customer::class,
         \Lunar\Models\Brand::class,
         // Below you can add your own models for indexing
     ],

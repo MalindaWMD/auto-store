@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\NewPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/{path?}', function () {
+    return view('app');
+})->where('path', '^(?!hub$).*$');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
+
+Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.reset');

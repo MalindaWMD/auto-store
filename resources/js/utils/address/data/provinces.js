@@ -1,0 +1,1 @@
+export default ['Western', 'Central', 'Eastern', 'North Central', 'Northern', 'North Western', 'Sabaragamuwa', 'Southern', 'Uva']

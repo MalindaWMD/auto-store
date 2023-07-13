@@ -13,16 +13,12 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, LunarUser;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // Auth providers
+    const AUTH_TYPE_DEFAULT = 'default';
+    const AUTH_TYPE_GOOGLE = 'google';
+    const AUTH_TYPE_FACEBOOK = 'facebook';
+
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -43,4 +39,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function customer()
+    {
+        return $this->customers->first();
+    }
 }
