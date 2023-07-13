@@ -14,7 +14,8 @@ class CartController extends Controller
 {
     public function index()
     {
-        return self::success(new CartResource(cart()));
+        $cart = cart();
+        return self::success($cart ? new CartResource($cart) : null);
     }
 
     public function add(Request $request)
