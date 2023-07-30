@@ -40,4 +40,9 @@ class Product extends \Lunar\Models\Product
             return $attributeList;
         });
     }
+
+    public function scopePublished(Builder $query) 
+    {
+        $query->where('status', 'published');
+    }
 }

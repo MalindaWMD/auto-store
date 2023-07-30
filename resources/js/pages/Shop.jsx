@@ -31,6 +31,7 @@ export default function Shop() {
                   ))}
 
                   { isLoading ? <ProductCardLoading count={3}/> : null }
+                  { !isLoading && !products ? <p>No product found</p> : null}
                   <div>
                   </div>
                 </div>

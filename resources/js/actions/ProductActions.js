@@ -5,11 +5,15 @@ import { useCurrentPath, useQuery } from "../hooks/routes"
 export const performProductQuery = () => {
     const query = useQuery()
     const currentPath = useCurrentPath()
-    const searchQuery = query.get('q')
+
+    // Query params
+    const search = query.get('q')
+    const type = query.get('type')
+    const brand = query.get('brand')
 
     if(currentPath == '/shop/search' && searchQuery){
-        return useAxios('/api/products/search', 'GET', { q: searchQuery });
+        return useAxios('/api/products/search', 'GET', { q: search, type: type, brand: brand });
     }
     
-    return useAxios('/api/products', 'GET');
+    return useAxios('/api/products', 'GET', { q: search, type: type, brand: brand });
 }

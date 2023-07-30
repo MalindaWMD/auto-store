@@ -106,7 +106,7 @@ export default function MobileMenu({ show, openAction, as, currencies }) {
                 </div>
                 <div className="flow-root">
                   <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                    Sign in
+                    Login
                   </a>
                 </div>
               </div>

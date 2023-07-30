@@ -16,7 +16,7 @@ export default function FlyoutMenus({ as }) {
                 <div className="relative flex">
                   <Popover.Button
                     className={classNames(
-                      open ? 'text-indigo-600' : 'text-gray-700 hover:text-gray-800',
+                      open ? 'text-indigo-600' : 'text-white hover:text-gray-800',
                       'relative flex items-center justify-center text-sm font-medium transition-colors duration-200 ease-out'
                     )}
                   >
@@ -68,7 +68,7 @@ export default function FlyoutMenus({ as }) {
                                   className="object-cover object-center"
                                 />
                               </div>
-                              <a href={item.href} className="mt-4 block font-medium text-gray-900">
+                              <a href={item.href} className="mt-4 block font-medium text-white">
                                 <span className="absolute inset-0 z-10" aria-hidden="true" />
                                 {item.name}
                               </a>
@@ -88,7 +88,8 @@ export default function FlyoutMenus({ as }) {
         ))}
 
         {navigation.pages.map((page) => (
-            <a key={page.name} href={page.path} className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
+            <a key={page.name} href={page.path} className="flex items-center text-sm font-medium text-white hover:text-gray-100">
+              <span className="h-5 w-5 mr-1">{page.icon}</span>
               {page.name}
             </a>
         ))}
