@@ -10,6 +10,7 @@ import {
   UsersIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
+import { classNames } from '../../utils/css'
 
 const navigation = [
   { name: 'Home', href: '#' },
@@ -25,10 +26,6 @@ const secondaryNavigation = [
   { name: 'Billing', href: '#', icon: CreditCardIcon, current: false },
   { name: 'Team members', href: '#', icon: UsersIcon, current: false },
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Profile() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

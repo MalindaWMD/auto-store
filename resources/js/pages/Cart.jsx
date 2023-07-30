@@ -219,10 +219,6 @@ const footerNavigation = {
   ],
 }
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 export default function Cart() {
   const [open, setOpen] = useState(false)
 

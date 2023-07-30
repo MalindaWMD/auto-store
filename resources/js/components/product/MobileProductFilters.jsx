@@ -1,6 +1,7 @@
 import { Dialog, Disclosure, Transition } from '@headlessui/react'
 import {  XMarkIcon } from '@heroicons/react/24/outline'
 import { useProductFilters } from '../../hooks/productFilters'
+import { classNames } from '../../utils/css'
 
 export default function MobileProductFilters({ open, openAction, as}) {
 
