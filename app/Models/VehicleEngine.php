@@ -10,6 +10,8 @@ class VehicleEngine extends Model
 {
     use HasFactory;
 
+    CONST CACHE_MODEL_ENGINES_PREFIX = 'vehicle_engines_model_';
+
     public $timestamps = false;
 
 
@@ -20,6 +22,16 @@ class VehicleEngine extends Model
 
     public static function getActiveByModel($modelId)
     {
-        return self::active()->where('model_id', $modelId)->get();
+        $key = self::CACHE_MODEL_ENGINES_PREFIX.$modelId;
+
+        if($result = \Cache::get($key)){
+            return $result;
+        }
+
+        $result = self::active()->where('model_id', $modelId)->get();
+
+        \Cache::forever($key, $result);
+
+        return $result;
     }
 }

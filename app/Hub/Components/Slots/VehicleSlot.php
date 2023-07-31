@@ -22,14 +22,20 @@ class VehicleSlot extends Component implements AbstractSlot
     public $models;
     public $engines;
 
+    protected $rules = [
+        'makerId' => 'required',
+        'modelId' => 'required',
+        'engineId' => 'required',
+    ];
+
     // Slot functions
     public function mount()
     { 
         $this->loadVehicleData();
 
         $this->makes = $this->loadMakers();
-        $this->models = $this->loadModels();
-        $this->engines = $this->loadEgines();
+        $this->loadModels();
+        $this->loadEgines();
     }
 
     public static function getName()
@@ -59,13 +65,15 @@ class VehicleSlot extends Component implements AbstractSlot
 
     public function updateSlotModel()
     {
+        $this->validate();
+
         $vehicle = Vehicle::firstOrCreate([
             'maker_id' => $this->makerId,
             'model_id' => $this->modelId,
             'engine_id' => $this->engineId,
         ]);
 
-        $this->slotModel->vehicles()->syncWithoutDetaching([$vehicle->id]);
+        $this->slotModel->vehicles()->sync([$vehicle->id]);
     }
 
     public function handleSlotSave($model, $data)
@@ -92,7 +100,7 @@ class VehicleSlot extends Component implements AbstractSlot
     // Loaders
     private function loadVehicleData()
     {
-        $vehicle = $this->slotModel->vehicles->first();
+        $vehicle = $this->slotModel->vehicles?->first();
 
         if($vehicle){
             $this->makerId = $vehicle->maker_id;
@@ -109,19 +117,19 @@ class VehicleSlot extends Component implements AbstractSlot
     private function loadModels()
     {
         if($this->makerId){
-            return VehicleModel::getActiveByMaker($this->makerId);
+            return $this->models = VehicleModel::getActiveByMaker($this->makerId);
         }
 
-        return [];
+        $this->models = collect();
     }
 
     private function loadEgines()
     {
         if($this->modelId){
-            return VehicleEngine::getActiveByModel($this->modelId);
+            return $this->engines = VehicleEngine::getActiveByModel($this->modelId);
         }
 
-        return [];
+        $this->engines = collect();
     }
 
     // Events
