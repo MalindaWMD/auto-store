@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+
+class VehicleModel extends Model
+{
+    use HasFactory;
+
+    public $timestamps = false;
+
+    public function scopeActive(Builder $query) 
+    {
+        $query->where('active', true);
+    }
+
+    public function make()
+    {
+        return $this->belongsTo(VehicleMake::class);
+    }
+
+    public function engines()
+    {
+        return $this->hasMany(VehicleEngine::class, 'model_id');
+    }
+
+    public function scopeGrouped()
+    {
+        return $this->get()->groupBy('group_name')->toBase();
+    }
+
+    public static function getActiveByMaker($makerId)
+    {
+        return self::active()->where('maker_id', $makerId)->get();
+    }
+}

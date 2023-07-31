@@ -27,6 +27,11 @@ class Product extends \Lunar\Models\Product
         return $this->where('slug', $slug);
     }
 
+    public function scopePublished(Builder $query) 
+    {
+        $query->where('status', 'published');
+    }
+
     public function attributeNames()
     {
         return \Cache::remember('mapped_attributes', 60 * 60 * 60 * 24, function () {
@@ -41,8 +46,8 @@ class Product extends \Lunar\Models\Product
         });
     }
 
-    public function scopePublished(Builder $query) 
+    public function vehicles()
     {
-        $query->where('status', 'published');
+        return $this->belongsToMany(Vehicle::class, 'product_vehicles', 'product_id', 'vehicle_id');
     }
 }

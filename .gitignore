@@ -5,6 +5,8 @@
 /public/storage
 /storage/*.key
 /vendor
+/database/seeders/models
+/database/seeders/engines
 .env
 .env.backup
 .env.production

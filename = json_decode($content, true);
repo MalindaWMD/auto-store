@@ -1,0 +1,3874 @@
+[90m= [39m"""
+  [32m{[39m\n
+  [32m   "name": "MERCEDES-BENZ",[39m\n
+  [32m   "models":{[39m\n
+  [32m         "469":{[39m\n
+  [32m            "groupId":"469",[39m\n
+  [32m            "groupName":"C-Class",[39m\n
+  [32m            "groupAlias":"c-klasse",[39m\n
+  [32m            "sort":25,[39m\n
+  [32m            "groupNameSelector":"C-Class",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "520":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class Saloon (W202)",[39m\n
+  [32m                  "nameSelector":"C-Class Saloon (W202)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.1993",[39m\n
+  [32m                  "yearOfConstrTo":"05.2000",[39m\n
+  [32m                  "modelAlias":"c-class-w202",[39m\n
+  [32m                  "modelId":"520",[39m\n
+  [32m                  "ratingSale":"321046",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":10[39m\n
+  [32m               },[39m\n
+  [32m               "1516":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class T-modell (S202)",[39m\n
+  [32m                  "nameSelector":"C-Class T-modell (S202)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.1996",[39m\n
+  [32m                  "yearOfConstrTo":"03.2001",[39m\n
+  [32m                  "modelAlias":"c-class-estate-s202",[39m\n
+  [32m                  "modelId":"1516",[39m\n
+  [32m                  "ratingSale":"90547",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":9[39m\n
+  [32m               },[39m\n
+  [32m               "4640":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class Saloon (W203)",[39m\n
+  [32m                  "nameSelector":"C-Class Saloon (W203)",[39m\n
+  [32m                  "yearOfConstrFrom":"05.2000",[39m\n
+  [32m                  "yearOfConstrTo":"08.2007",[39m\n
+  [32m                  "modelAlias":"c-class-w203",[39m\n
+  [32m                  "modelId":"4640",[39m\n
+  [32m                  "ratingSale":"653264",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":8[39m\n
+  [32m               },[39m\n
+  [32m               "4708":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class Coupe (CL203)",[39m\n
+  [32m                  "nameSelector":"C-Class Coupe (CL203)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2001",[39m\n
+  [32m                  "yearOfConstrTo":"06.2011",[39m\n
+  [32m                  "modelAlias":"c-class-coupe-cl203",[39m\n
+  [32m                  "modelId":"4708",[39m\n
+  [32m                  "ratingSale":"123969",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":7[39m\n
+  [32m               },[39m\n
+  [32m               "4754":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class T-modell (S203)",[39m\n
+  [32m                  "nameSelector":"C-Class T-modell (S203)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2001",[39m\n
+  [32m                  "yearOfConstrTo":"08.2007",[39m\n
+  [32m                  "modelAlias":"c-class-t-model-s203",[39m\n
+  [32m                  "modelId":"4754",[39m\n
+  [32m                  "ratingSale":"219494",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":6[39m\n
+  [32m               },[39m\n
+  [32m               "6224":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class Saloon (W204)",[39m\n
+  [32m                  "nameSelector":"C-Class Saloon (W204)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2007",[39m\n
+  [32m                  "yearOfConstrTo":"01.2014",[39m\n
+  [32m                  "modelAlias":"c-class-w204",[39m\n
+  [32m                  "modelId":"6224",[39m\n
+  [32m                  "ratingSale":"324958",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":5[39m\n
+  [32m               },[39m\n
+  [32m               "6437":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class T-modell (S204)",[39m\n
+  [32m                  "nameSelector":"C-Class T-modell (S204)",[39m\n
+  [32m                  "yearOfConstrFrom":"08.2007",[39m\n
+  [32m                  "yearOfConstrTo":"08.2014",[39m\n
+  [32m                  "modelAlias":"c-class-t-model-s204",[39m\n
+  [32m                  "modelId":"6437",[39m\n
+  [32m                  "ratingSale":"166163",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "9624":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class Coupe (C204)",[39m\n
+  [32m                  "nameSelector":"C-Class Coupe (C204)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2011",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"c-class-coupe-c204",[39m\n
+  [32m                  "modelId":"9624",[39m\n
+  [32m                  "ratingSale":"20078",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "11851":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class Saloon (W205)",[39m\n
+  [32m                  "nameSelector":"C-Class Saloon (W205)",[39m\n
+  [32m                  "yearOfConstrFrom":"07.2013",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"c-class-w205",[39m\n
+  [32m                  "modelId":"11851",[39m\n
+  [32m                  "ratingSale":"48970",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "12855":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class T-modell (S205)",[39m\n
+  [32m                  "nameSelector":"C-Class T-modell (S205)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2014",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"c-class-t-model-s205",[39m\n
+  [32m                  "modelId":"12855",[39m\n
+  [32m                  "ratingSale":"24091",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "14664":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class Coupe (C205)",[39m\n
+  [32m                  "nameSelector":"C-Class Coupe (C205)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.2015",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"c-class-coupe-c205",[39m\n
+  [32m                  "modelId":"14664",[39m\n
+  [32m                  "ratingSale":"5005",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "36610":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class Convertible (A205)",[39m\n
+  [32m                  "nameSelector":"C-Class Convertible (A205)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2016",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"c-class-convertible-a205",[39m\n
+  [32m                  "modelId":"36610",[39m\n
+  [32m                  "ratingSale":"1186",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "41824":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class Saloon (W206)",[39m\n
+  [32m                  "nameSelector":"C-Class Saloon (W206)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2021",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"c-class-w206",[39m\n
+  [32m                  "modelId":"41824",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "41835":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class T-Modell (S206)",[39m\n
+  [32m                  "nameSelector":"C-Class T-Modell (S206)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2021",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"c-class-t-model-s206",[39m\n
+  [32m                  "modelId":"41835",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "42667":{[39m\n
+  [32m                  "groupId":"469",[39m\n
+  [32m                  "groupName":"C-Class",[39m\n
+  [32m                  "groupAlias":"c-klasse",[39m\n
+  [32m                  "name":"C-Class All-Terrain (S206)",[39m\n
+  [32m                  "nameSelector":"C-Class All-Terrain (S206)",[39m\n
+  [32m                  "yearOfConstrFrom":"12.2021",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"c-class-all-terrain-s206",[39m\n
+  [32m                  "modelId":"42667",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"03.1993"[39m\n
+  [32m         },[39m\n
+  [32m         "477":{[39m\n
+  [32m            "groupId":"477",[39m\n
+  [32m            "groupName":"E-Class",[39m\n
+  [32m            "groupAlias":"e-class",[39m\n
+  [32m            "sort":20,[39m\n
+  [32m            "groupNameSelector":"E-Class",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "106":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Saloon (W124)",[39m\n
+  [32m                  "nameSelector":"E-Class Saloon (W124)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1993",[39m\n
+  [32m                  "yearOfConstrTo":"06.1996",[39m\n
+  [32m                  "modelAlias":"e-class-w124",[39m\n
+  [32m                  "modelId":"106",[39m\n
+  [32m                  "ratingSale":"64225",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":10[39m\n
+  [32m               },[39m\n
+  [32m               "3907":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Convertible (A124)",[39m\n
+  [32m                  "nameSelector":"E-Class Convertible (A124)",[39m\n
+  [32m                  "yearOfConstrFrom":"05.1993",[39m\n
+  [32m                  "yearOfConstrTo":"03.1998",[39m\n
+  [32m                  "modelAlias":"e-class-convertible-a124",[39m\n
+  [32m                  "modelId":"3907",[39m\n
+  [32m                  "ratingSale":"6245",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":12[39m\n
+  [32m               },[39m\n
+  [32m               "118":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class T-modell (S124)",[39m\n
+  [32m                  "nameSelector":"E-Class T-modell (S124)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.1993",[39m\n
+  [32m                  "yearOfConstrTo":"06.1996",[39m\n
+  [32m                  "modelAlias":"e-class-estate-s124",[39m\n
+  [32m                  "modelId":"118",[39m\n
+  [32m                  "ratingSale":"29309",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":9[39m\n
+  [32m               },[39m\n
+  [32m               "3448":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Coupe (C124)",[39m\n
+  [32m                  "nameSelector":"E-Class Coupe (C124)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.1993",[39m\n
+  [32m                  "yearOfConstrTo":"06.1997",[39m\n
+  [32m                  "modelAlias":"e-class-coupe-c124",[39m\n
+  [32m                  "modelId":"3448",[39m\n
+  [32m                  "ratingSale":"9979",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":11[39m\n
+  [32m               },[39m\n
+  [32m               "1314":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Saloon (W210)",[39m\n
+  [32m                  "nameSelector":"E-Class Saloon (W210)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.1995",[39m\n
+  [32m                  "yearOfConstrTo":"08.2003",[39m\n
+  [32m                  "modelAlias":"e-class-w210",[39m\n
+  [32m                  "modelId":"1314",[39m\n
+  [32m                  "ratingSale":"333322",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":8[39m\n
+  [32m               },[39m\n
+  [32m               "1539":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class T-modell (S210)",[39m\n
+  [32m                  "nameSelector":"E-Class T-modell (S210)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.1996",[39m\n
+  [32m                  "yearOfConstrTo":"03.2003",[39m\n
+  [32m                  "modelAlias":"e-class-estate-s210",[39m\n
+  [32m                  "modelId":"1539",[39m\n
+  [32m                  "ratingSale":"116575",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":7[39m\n
+  [32m               },[39m\n
+  [32m               "38771":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Platform %%%/ Chassis (VF210)",[39m\n
+  [32m                  "nameSelector":"E-Class Platform %%%/ Chassis (VF210)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.1996",[39m\n
+  [32m                  "yearOfConstrTo":"03.2003",[39m\n
+  [32m                  "modelAlias":"e-class-platform-chassis-vf210",[39m\n
+  [32m                  "modelId":"38771",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "4874":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Saloon (W211)",[39m\n
+  [32m                  "nameSelector":"E-Class Saloon (W211)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2002",[39m\n
+  [32m                  "yearOfConstrTo":"03.2009",[39m\n
+  [32m                  "modelAlias":"e-class-w211",[39m\n
+  [32m                  "modelId":"4874",[39m\n
+  [32m                  "ratingSale":"541043",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":6[39m\n
+  [32m               },[39m\n
+  [32m               "4947":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class T-modell (S211)",[39m\n
+  [32m                  "nameSelector":"E-Class T-modell (S211)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2003",[39m\n
+  [32m                  "yearOfConstrTo":"07.2009",[39m\n
+  [32m                  "modelAlias":"e-class-t-model-s211",[39m\n
+  [32m                  "modelId":"4947",[39m\n
+  [32m                  "ratingSale":"172070",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":5[39m\n
+  [32m               },[39m\n
+  [32m               "38735":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Platform %%%/ Chassis (VF211)",[39m\n
+  [32m                  "nameSelector":"E-Class Platform %%%/ Chassis (VF211)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2003",[39m\n
+  [32m                  "yearOfConstrTo":"07.2009",[39m\n
+  [32m                  "modelAlias":"e-class-platform-chassis-vf211",[39m\n
+  [32m                  "modelId":"38735",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "8034":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Saloon (W212)",[39m\n
+  [32m                  "nameSelector":"E-Class Saloon (W212)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2009",[39m\n
+  [32m                  "yearOfConstrTo":"12.2016",[39m\n
+  [32m                  "modelAlias":"e-class-w212",[39m\n
+  [32m                  "modelId":"8034",[39m\n
+  [32m                  "ratingSale":"168416",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "8035":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Coupe (C207)",[39m\n
+  [32m                  "nameSelector":"E-Class Coupe (C207)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2009",[39m\n
+  [32m                  "yearOfConstrTo":"12.2016",[39m\n
+  [32m                  "modelAlias":"e-class-coupe-c207",[39m\n
+  [32m                  "modelId":"8035",[39m\n
+  [32m                  "ratingSale":"29427",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "8160":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class T-modell (S212)",[39m\n
+  [32m                  "nameSelector":"E-Class T-modell (S212)",[39m\n
+  [32m                  "yearOfConstrFrom":"08.2009",[39m\n
+  [32m                  "yearOfConstrTo":"12.2016",[39m\n
+  [32m                  "modelAlias":"e-class-t-model-s212",[39m\n
+  [32m                  "modelId":"8160",[39m\n
+  [32m                  "ratingSale":"78026",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "8524":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Convertible (A207)",[39m\n
+  [32m                  "nameSelector":"E-Class Convertible (A207)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2010",[39m\n
+  [32m                  "yearOfConstrTo":"12.2016",[39m\n
+  [32m                  "modelAlias":"e-class-convertible-a207",[39m\n
+  [32m                  "modelId":"8524",[39m\n
+  [32m                  "ratingSale":"9797",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "36202":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Saloon (W213)",[39m\n
+  [32m                  "nameSelector":"E-Class Saloon (W213)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2016",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"e-class-w213",[39m\n
+  [32m                  "modelId":"36202",[39m\n
+  [32m                  "ratingSale":"9392",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "36766":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class T-modell (S213)",[39m\n
+  [32m                  "nameSelector":"E-Class T-modell (S213)",[39m\n
+  [32m                  "yearOfConstrFrom":"07.2016",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"e-class-t-model-s213",[39m\n
+  [32m                  "modelId":"36766",[39m\n
+  [32m                  "ratingSale":"3169",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "37424":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Coupe (C238)",[39m\n
+  [32m                  "nameSelector":"E-Class Coupe (C238)",[39m\n
+  [32m                  "yearOfConstrFrom":"12.2016",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"e-class-coupe-c238",[39m\n
+  [32m                  "modelId":"37424",[39m\n
+  [32m                  "ratingSale":"1182",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "37491":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class All-Terrain (S213)",[39m\n
+  [32m                  "nameSelector":"E-Class All-Terrain (S213)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2017",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"e-class-all-terrain-s213",[39m\n
+  [32m                  "modelId":"37491",[39m\n
+  [32m                  "ratingSale":"656",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38022":{[39m\n
+  [32m                  "groupId":"477",[39m\n
+  [32m                  "groupName":"E-Class",[39m\n
+  [32m                  "groupAlias":"e-class",[39m\n
+  [32m                  "name":"E-Class Convertible (A238)",[39m\n
+  [32m                  "nameSelector":"E-Class Convertible (A238)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2017",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"e-class-convertible-a238",[39m\n
+  [32m                  "modelId":"38022",[39m\n
+  [32m                  "ratingSale":"14",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"02.1993"[39m\n
+  [32m         },[39m\n
+  [32m         "464":{[39m\n
+  [32m            "groupId":"464",[39m\n
+  [32m            "groupName":"A-Class",[39m\n
+  [32m            "groupAlias":"a-class",[39m\n
+  [32m            "sort":28,[39m\n
+  [32m            "groupNameSelector":"A-Class",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "1982":{[39m\n
+  [32m                  "groupId":"464",[39m\n
+  [32m                  "groupName":"A-Class",[39m\n
+  [32m                  "groupAlias":"a-class",[39m\n
+  [32m                  "name":"A-Class (W168)",[39m\n
+  [32m                  "nameSelector":"A-Class (W168)",[39m\n
+  [32m                  "yearOfConstrFrom":"07.1997",[39m\n
+  [32m                  "yearOfConstrTo":"08.2004",[39m\n
+  [32m                  "modelAlias":"a-class-w168",[39m\n
+  [32m                  "modelId":"1982",[39m\n
+  [32m                  "ratingSale":"411536",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "5165":{[39m\n
+  [32m                  "groupId":"464",[39m\n
+  [32m                  "groupName":"A-Class",[39m\n
+  [32m                  "groupAlias":"a-class",[39m\n
+  [32m                  "name":"A-Class (W169)",[39m\n
+  [32m                  "nameSelector":"A-Class (W169)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2004",[39m\n
+  [32m                  "yearOfConstrTo":"06.2012",[39m\n
+  [32m                  "modelAlias":"a-class-w169",[39m\n
+  [32m                  "modelId":"5165",[39m\n
+  [32m                  "ratingSale":"339437",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "10342":{[39m\n
+  [32m                  "groupId":"464",[39m\n
+  [32m                  "groupName":"A-Class",[39m\n
+  [32m                  "groupAlias":"a-class",[39m\n
+  [32m                  "name":"A-Class (W176)",[39m\n
+  [32m                  "nameSelector":"A-Class (W176)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2012",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"a-class-w176",[39m\n
+  [32m                  "modelId":"10342",[39m\n
+  [32m                  "ratingSale":"111433",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38539":{[39m\n
+  [32m                  "groupId":"464",[39m\n
+  [32m                  "groupName":"A-Class",[39m\n
+  [32m                  "groupAlias":"a-class",[39m\n
+  [32m                  "name":"A-Class (W177)",[39m\n
+  [32m                  "nameSelector":"A-Class (W177)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"a-class-w177",[39m\n
+  [32m                  "modelId":"38539",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38880":{[39m\n
+  [32m                  "groupId":"464",[39m\n
+  [32m                  "groupName":"A-Class",[39m\n
+  [32m                  "groupAlias":"a-class",[39m\n
+  [32m                  "name":"A-Class Saloon (W177)",[39m\n
+  [32m                  "nameSelector":"A-Class Saloon (W177)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"a-class-saloon-w177",[39m\n
+  [32m                  "modelId":"38880",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"07.1997"[39m\n
+  [32m         },[39m\n
+  [32m         "468":{[39m\n
+  [32m            "groupId":"468",[39m\n
+  [32m            "groupName":"B-Class",[39m\n
+  [32m            "groupAlias":"b-class",[39m\n
+  [32m            "sort":27,[39m\n
+  [32m            "groupNameSelector":"B-Class",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "5396":{[39m\n
+  [32m                  "groupId":"468",[39m\n
+  [32m                  "groupName":"B-Class",[39m\n
+  [32m                  "groupAlias":"b-class",[39m\n
+  [32m                  "name":"B-Class (W245)",[39m\n
+  [32m                  "nameSelector":"B-Class (W245)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2005",[39m\n
+  [32m                  "yearOfConstrTo":"11.2011",[39m\n
+  [32m                  "modelAlias":"b-class-w245",[39m\n
+  [32m                  "modelId":"5396",[39m\n
+  [32m                  "ratingSale":"331160",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "9769":{[39m\n
+  [32m                  "groupId":"468",[39m\n
+  [32m                  "groupName":"B-Class",[39m\n
+  [32m                  "groupAlias":"b-class",[39m\n
+  [32m                  "name":"B-Class (W246, W242)",[39m\n
+  [32m                  "nameSelector":"B-Class (W246, W242)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.2011",[39m\n
+  [32m                  "yearOfConstrTo":"12.2018",[39m\n
+  [32m                  "modelAlias":"b-class-w246-w242",[39m\n
+  [32m                  "modelId":"9769",[39m\n
+  [32m                  "ratingSale":"81992",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "39199":{[39m\n
+  [32m                  "groupId":"468",[39m\n
+  [32m                  "groupName":"B-Class",[39m\n
+  [32m                  "groupAlias":"b-class",[39m\n
+  [32m                  "name":"B-Class (W247)",[39m\n
+  [32m                  "nameSelector":"B-Class (W247)",[39m\n
+  [32m                  "yearOfConstrFrom":"12.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"b-class-w247",[39m\n
+  [32m                  "modelId":"39199",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"03.2005"[39m\n
+  [32m         },[39m\n
+  [32m         "463":{[39m\n
+  [32m            "groupId":"463",[39m\n
+  [32m            "groupName":"190",[39m\n
+  [32m            "groupAlias":"190",[39m\n
+  [32m            "sort":32,[39m\n
+  [32m            "groupNameSelector":"190",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "52":{[39m\n
+  [32m                  "groupId":"463",[39m\n
+  [32m                  "groupName":"190",[39m\n
+  [32m                  "groupAlias":"190",[39m\n
+  [32m                  "name":"190 (W201)",[39m\n
+  [32m                  "nameSelector":"190 (W201)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.1982",[39m\n
+  [32m                  "yearOfConstrTo":"08.1993",[39m\n
+  [32m                  "modelAlias":"190-w201",[39m\n
+  [32m                  "modelId":"52",[39m\n
+  [32m                  "ratingSale":"255536",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"10.1982"[39m\n
+  [32m         },[39m\n
+  [32m         "473":{[39m\n
+  [32m            "groupId":"473",[39m\n
+  [32m            "groupName":"CLK",[39m\n
+  [32m            "groupAlias":"clk",[39m\n
+  [32m            "sort":22,[39m\n
+  [32m            "groupNameSelector":"CLK",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "1981":{[39m\n
+  [32m                  "groupId":"473",[39m\n
+  [32m                  "groupName":"CLK",[39m\n
+  [32m                  "groupAlias":"clk",[39m\n
+  [32m                  "name":"CLK Coupe (C208)",[39m\n
+  [32m                  "nameSelector":"CLK Coupe (C208)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.1997",[39m\n
+  [32m                  "yearOfConstrTo":"09.2002",[39m\n
+  [32m                  "modelAlias":"clk-c208",[39m\n
+  [32m                  "modelId":"1981",[39m\n
+  [32m                  "ratingSale":"95744",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "3558":{[39m\n
+  [32m                  "groupId":"473",[39m\n
+  [32m                  "groupName":"CLK",[39m\n
+  [32m                  "groupAlias":"clk",[39m\n
+  [32m                  "name":"CLK Convertible (A208)",[39m\n
+  [32m                  "nameSelector":"CLK Convertible (A208)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.1998",[39m\n
+  [32m                  "yearOfConstrTo":"03.2002",[39m\n
+  [32m                  "modelAlias":"clk-convertible-a208",[39m\n
+  [32m                  "modelId":"3558",[39m\n
+  [32m                  "ratingSale":"25502",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "4889":{[39m\n
+  [32m                  "groupId":"473",[39m\n
+  [32m                  "groupName":"CLK",[39m\n
+  [32m                  "groupAlias":"clk",[39m\n
+  [32m                  "name":"CLK Coupe (C209)",[39m\n
+  [32m                  "nameSelector":"CLK Coupe (C209)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2002",[39m\n
+  [32m                  "yearOfConstrTo":"05.2009",[39m\n
+  [32m                  "modelAlias":"clk-c209",[39m\n
+  [32m                  "modelId":"4889",[39m\n
+  [32m                  "ratingSale":"121281",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "4974":{[39m\n
+  [32m                  "groupId":"473",[39m\n
+  [32m                  "groupName":"CLK",[39m\n
+  [32m                  "groupAlias":"clk",[39m\n
+  [32m                  "name":"CLK Convertible (A209)",[39m\n
+  [32m                  "nameSelector":"CLK Convertible (A209)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2003",[39m\n
+  [32m                  "yearOfConstrTo":"03.2010",[39m\n
+  [32m                  "modelAlias":"clk-convertible-a209",[39m\n
+  [32m                  "modelId":"4974",[39m\n
+  [32m                  "ratingSale":"31278",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"06.1997"[39m\n
+  [32m         },[39m\n
+  [32m         "496":{[39m\n
+  [32m            "groupId":"496",[39m\n
+  [32m            "groupName":"S-Class",[39m\n
+  [32m            "groupAlias":"s-class",[39m\n
+  [32m            "sort":13,[39m\n
+  [32m            "groupNameSelector":"S-Class",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "524":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Saloon (W108, W109)",[39m\n
+  [32m                  "nameSelector":"S-Class Saloon (W108, W109)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1966",[39m\n
+  [32m                  "yearOfConstrTo":"08.1972",[39m\n
+  [32m                  "modelAlias":"s-class-w108-w109",[39m\n
+  [32m                  "modelId":"524",[39m\n
+  [32m                  "ratingSale":"22709",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":12[39m\n
+  [32m               },[39m\n
+  [32m               "557":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Saloon (W116)",[39m\n
+  [32m                  "nameSelector":"S-Class Saloon (W116)",[39m\n
+  [32m                  "yearOfConstrFrom":"08.1972",[39m\n
+  [32m                  "yearOfConstrTo":"07.1980",[39m\n
+  [32m                  "modelAlias":"s-class-w116",[39m\n
+  [32m                  "modelId":"557",[39m\n
+  [32m                  "ratingSale":"22054",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":11[39m\n
+  [32m               },[39m\n
+  [32m               "29":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Saloon (W126)",[39m\n
+  [32m                  "nameSelector":"S-Class Saloon (W126)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.1979",[39m\n
+  [32m                  "yearOfConstrTo":"06.1991",[39m\n
+  [32m                  "modelAlias":"s-class-w126",[39m\n
+  [32m                  "modelId":"29",[39m\n
+  [32m                  "ratingSale":"52289",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":10[39m\n
+  [32m               },[39m\n
+  [32m               "35":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Coupe (C126)",[39m\n
+  [32m                  "nameSelector":"S-Class Coupe (C126)",[39m\n
+  [32m                  "yearOfConstrFrom":"08.1980",[39m\n
+  [32m                  "yearOfConstrTo":"06.1991",[39m\n
+  [32m                  "modelAlias":"s-class-coupe-c126",[39m\n
+  [32m                  "modelId":"35",[39m\n
+  [32m                  "ratingSale":"20511",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":9[39m\n
+  [32m               },[39m\n
+  [32m               "47":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Saloon (W140)",[39m\n
+  [32m                  "nameSelector":"S-Class Saloon (W140)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1991",[39m\n
+  [32m                  "yearOfConstrTo":"10.1998",[39m\n
+  [32m                  "modelAlias":"s-class-w140",[39m\n
+  [32m                  "modelId":"47",[39m\n
+  [32m                  "ratingSale":"42331",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":8[39m\n
+  [32m               },[39m\n
+  [32m               "43":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Coupe (C140)",[39m\n
+  [32m                  "nameSelector":"S-Class Coupe (C140)",[39m\n
+  [32m                  "yearOfConstrFrom":"07.1992",[39m\n
+  [32m                  "yearOfConstrTo":"02.1999",[39m\n
+  [32m                  "modelAlias":"s-class-coupe-c140",[39m\n
+  [32m                  "modelId":"43",[39m\n
+  [32m                  "ratingSale":"5517",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":7[39m\n
+  [32m               },[39m\n
+  [32m               "3575":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Saloon (W220)",[39m\n
+  [32m                  "nameSelector":"S-Class Saloon (W220)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.1998",[39m\n
+  [32m                  "yearOfConstrTo":"08.2005",[39m\n
+  [32m                  "modelAlias":"s-class-w220",[39m\n
+  [32m                  "modelId":"3575",[39m\n
+  [32m                  "ratingSale":"113324",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":6[39m\n
+  [32m               },[39m\n
+  [32m               "4095":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Coupe (C215)",[39m\n
+  [32m                  "nameSelector":"S-Class Coupe (C215)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.1999",[39m\n
+  [32m                  "yearOfConstrTo":"08.2006",[39m\n
+  [32m                  "modelAlias":"s-class-coupe-c215",[39m\n
+  [32m                  "modelId":"4095",[39m\n
+  [32m                  "ratingSale":"14803",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":5[39m\n
+  [32m               },[39m\n
+  [32m               "5455":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Saloon (W221)",[39m\n
+  [32m                  "nameSelector":"S-Class Saloon (W221)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2005",[39m\n
+  [32m                  "yearOfConstrTo":"12.2013",[39m\n
+  [32m                  "modelAlias":"s-class-w221",[39m\n
+  [32m                  "modelId":"5455",[39m\n
+  [32m                  "ratingSale":"61609",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "5599":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Coupe (C216)",[39m\n
+  [32m                  "nameSelector":"S-Class Coupe (C216)",[39m\n
+  [32m                  "yearOfConstrFrom":"05.2006",[39m\n
+  [32m                  "yearOfConstrTo":"12.2013",[39m\n
+  [32m                  "modelAlias":"s-class-coupe-c216",[39m\n
+  [32m                  "modelId":"5599",[39m\n
+  [32m                  "ratingSale":"5853",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "11234":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Saloon (W222, V222, X222)",[39m\n
+  [32m                  "nameSelector":"S-Class Saloon (W222, V222, X222)",[39m\n
+  [32m                  "yearOfConstrFrom":"05.2013",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"s-class-w222-v222-x222",[39m\n
+  [32m                  "modelId":"11234",[39m\n
+  [32m                  "ratingSale":"6315",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "11949":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Coupe (C217)",[39m\n
+  [32m                  "nameSelector":"S-Class Coupe (C217)",[39m\n
+  [32m                  "yearOfConstrFrom":"04.2014",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"s-class-coupe-c217",[39m\n
+  [32m                  "modelId":"11949",[39m\n
+  [32m                  "ratingSale":"1047",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "14923":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Convertible (A217)",[39m\n
+  [32m                  "nameSelector":"S-Class Convertible (A217)",[39m\n
+  [32m                  "yearOfConstrFrom":"12.2015",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"s-class-convertible-a217",[39m\n
+  [32m                  "modelId":"14923",[39m\n
+  [32m                  "ratingSale":"211",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "41092":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Saloon (W223)",[39m\n
+  [32m                  "nameSelector":"S-Class Saloon (W223)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2020",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"s-class-w223",[39m\n
+  [32m                  "modelId":"41092",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "41795":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class (V223)",[39m\n
+  [32m                  "nameSelector":"S-Class (V223)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2020",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"s-class-v223",[39m\n
+  [32m                  "modelId":"41795",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "41934":{[39m\n
+  [32m                  "groupId":"496",[39m\n
+  [32m                  "groupName":"S-Class",[39m\n
+  [32m                  "groupAlias":"s-class",[39m\n
+  [32m                  "name":"S-Class Saloon (Z223)",[39m\n
+  [32m                  "nameSelector":"S-Class Saloon (Z223)",[39m\n
+  [32m                  "yearOfConstrFrom":"04.2021",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"s-class-z223",[39m\n
+  [32m                  "modelId":"41934",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1966"[39m\n
+  [32m         },[39m\n
+  [32m         "487":{[39m\n
+  [32m            "groupId":"487",[39m\n
+  [32m            "groupName":"ML-Class",[39m\n
+  [32m            "groupAlias":"m-class",[39m\n
+  [32m            "sort":15,[39m\n
+  [32m            "groupNameSelector":"ML-Class",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "3414":{[39m\n
+  [32m                  "groupId":"487",[39m\n
+  [32m                  "groupName":"M-Class",[39m\n
+  [32m                  "groupAlias":"m-class",[39m\n
+  [32m                  "name":"ML-Class (W163)",[39m\n
+  [32m                  "nameSelector":"ML-Class (W163)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1998",[39m\n
+  [32m                  "yearOfConstrTo":"06.2005",[39m\n
+  [32m                  "modelAlias":"m_class-w163",[39m\n
+  [32m                  "modelId":"3414",[39m\n
+  [32m                  "ratingSale":"385630",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "5415":{[39m\n
+  [32m                  "groupId":"487",[39m\n
+  [32m                  "groupName":"M-Class",[39m\n
+  [32m                  "groupAlias":"m-class",[39m\n
+  [32m                  "name":"ML-Class (W164)",[39m\n
+  [32m                  "nameSelector":"ML-Class (W164)",[39m\n
+  [32m                  "yearOfConstrFrom":"07.2005",[39m\n
+  [32m                  "yearOfConstrTo":"12.2012",[39m\n
+  [32m                  "modelAlias":"m_class-w164",[39m\n
+  [32m                  "modelId":"5415",[39m\n
+  [32m                  "ratingSale":"212426",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "9800":{[39m\n
+  [32m                  "groupId":"487",[39m\n
+  [32m                  "groupName":"M-Class",[39m\n
+  [32m                  "groupAlias":"m-class",[39m\n
+  [32m                  "name":"ML-Class (W166)",[39m\n
+  [32m                  "nameSelector":"ML-Class (W166)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2011",[39m\n
+  [32m                  "yearOfConstrTo":"12.2015",[39m\n
+  [32m                  "modelAlias":"m_class-w166",[39m\n
+  [32m                  "modelId":"9800",[39m\n
+  [32m                  "ratingSale":"40074",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"02.1998"[39m\n
+  [32m         },[39m\n
+  [32m         "514":{[39m\n
+  [32m            "groupId":"514",[39m\n
+  [32m            "groupName":"VITO",[39m\n
+  [32m            "groupAlias":"vito",[39m\n
+  [32m            "sort":2,[39m\n
+  [32m            "groupNameSelector":"VITO",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "1487":{[39m\n
+  [32m                  "groupId":"514",[39m\n
+  [32m                  "groupName":"VITO",[39m\n
+  [32m                  "groupAlias":"vito",[39m\n
+  [32m                  "name":"Vito Minibus (W638)",[39m\n
+  [32m                  "nameSelector":"Vito Minibus (W638)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1996",[39m\n
+  [32m                  "yearOfConstrTo":"07.2003",[39m\n
+  [32m                  "modelAlias":"vito-bus-638",[39m\n
+  [32m                  "modelId":"1487",[39m\n
+  [32m                  "ratingSale":"96836",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":7[39m\n
+  [32m               },[39m\n
+  [32m               "4058":{[39m\n
+  [32m                  "groupId":"514",[39m\n
+  [32m                  "groupName":"VITO",[39m\n
+  [32m                  "groupAlias":"vito",[39m\n
+  [32m                  "name":"Vito Van (W638)",[39m\n
+  [32m                  "nameSelector":"Vito Van (W638)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.1997",[39m\n
+  [32m                  "yearOfConstrTo":"07.2003",[39m\n
+  [32m                  "modelAlias":"vito-box-638",[39m\n
+  [32m                  "modelId":"4058",[39m\n
+  [32m                  "ratingSale":"113775",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":6[39m\n
+  [32m               },[39m\n
+  [32m               "5013":{[39m\n
+  [32m                  "groupId":"514",[39m\n
+  [32m                  "groupName":"VITO",[39m\n
+  [32m                  "groupAlias":"vito",[39m\n
+  [32m                  "name":"Vito Minibus (W639)",[39m\n
+  [32m                  "nameSelector":"Vito Minibus (W639)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2003",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"vito-bus-w639",[39m\n
+  [32m                  "modelId":"5013",[39m\n
+  [32m                  "ratingSale":"126360",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":5[39m\n
+  [32m               },[39m\n
+  [32m               "5014":{[39m\n
+  [32m                  "groupId":"514",[39m\n
+  [32m                  "groupName":"VITO",[39m\n
+  [32m                  "groupAlias":"vito",[39m\n
+  [32m                  "name":"Vito Mixto (W639)",[39m\n
+  [32m                  "nameSelector":"Vito Mixto (W639)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2003",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"vito-mixto-box-w639",[39m\n
+  [32m                  "modelId":"5014",[39m\n
+  [32m                  "ratingSale":"168393",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "13076":{[39m\n
+  [32m                  "groupId":"514",[39m\n
+  [32m                  "groupName":"VITO",[39m\n
+  [32m                  "groupAlias":"vito",[39m\n
+  [32m                  "name":"Vito Van (W447)",[39m\n
+  [32m                  "nameSelector":"Vito Van (W447)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.2014",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"vito-box-w447",[39m\n
+  [32m                  "modelId":"13076",[39m\n
+  [32m                  "ratingSale":"13601",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "13077":{[39m\n
+  [32m                  "groupId":"514",[39m\n
+  [32m                  "groupName":"VITO",[39m\n
+  [32m                  "groupAlias":"vito",[39m\n
+  [32m                  "name":"Vito Dualiner (W447)",[39m\n
+  [32m                  "nameSelector":"Vito Dualiner (W447)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.2014",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"vito-mixto-w447",[39m\n
+  [32m                  "modelId":"13077",[39m\n
+  [32m                  "ratingSale":"5144",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "13078":{[39m\n
+  [32m                  "groupId":"514",[39m\n
+  [32m                  "groupName":"VITO",[39m\n
+  [32m                  "groupAlias":"vito",[39m\n
+  [32m                  "name":"Vito Tourer (W447)",[39m\n
+  [32m                  "nameSelector":"Vito Tourer (W447)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.2014",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"vito-tourer-w447",[39m\n
+  [32m                  "modelId":"13078",[39m\n
+  [32m                  "ratingSale":"11568",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "41008":{[39m\n
+  [32m                  "groupId":"514",[39m\n
+  [32m                  "groupName":"VITO",[39m\n
+  [32m                  "groupAlias":"vito",[39m\n
+  [32m                  "name":"eVITO Tourer (W447)",[39m\n
+  [32m                  "nameSelector":"eVITO Tourer (W447)",[39m\n
+  [32m                  "yearOfConstrFrom":"04.2019",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"evito-tourer-w447",[39m\n
+  [32m                  "modelId":"41008",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"02.1996"[39m\n
+  [32m         },[39m\n
+  [32m         "499":{[39m\n
+  [32m            "groupId":"499",[39m\n
+  [32m            "groupName":"SLK",[39m\n
+  [32m            "groupAlias":"slk",[39m\n
+  [32m            "sort":11,[39m\n
+  [32m            "groupNameSelector":"SLK",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "1583":{[39m\n
+  [32m                  "groupId":"499",[39m\n
+  [32m                  "groupName":"SLK",[39m\n
+  [32m                  "groupAlias":"slk",[39m\n
+  [32m                  "name":"SLK (R170)",[39m\n
+  [32m                  "nameSelector":"SLK (R170)",[39m\n
+  [32m                  "yearOfConstrFrom":"04.1996",[39m\n
+  [32m                  "yearOfConstrTo":"04.2004",[39m\n
+  [32m                  "modelAlias":"slk-r170",[39m\n
+  [32m                  "modelId":"1583",[39m\n
+  [32m                  "ratingSale":"147838",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "5109":{[39m\n
+  [32m                  "groupId":"499",[39m\n
+  [32m                  "groupName":"SLK",[39m\n
+  [32m                  "groupAlias":"slk",[39m\n
+  [32m                  "name":"SLK (R171)",[39m\n
+  [32m                  "nameSelector":"SLK (R171)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2004",[39m\n
+  [32m                  "yearOfConstrTo":"02.2011",[39m\n
+  [32m                  "modelAlias":"slk-r171",[39m\n
+  [32m                  "modelId":"5109",[39m\n
+  [32m                  "ratingSale":"87505",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "9201":{[39m\n
+  [32m                  "groupId":"499",[39m\n
+  [32m                  "groupName":"SLK",[39m\n
+  [32m                  "groupAlias":"slk",[39m\n
+  [32m                  "name":"SLK (R172)",[39m\n
+  [32m                  "nameSelector":"SLK (R172)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2011",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"slk-r172",[39m\n
+  [32m                  "modelId":"9201",[39m\n
+  [32m                  "ratingSale":"13486",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"04.1996"[39m\n
+  [32m         },[39m\n
+  [32m         "501":{[39m\n
+  [32m            "groupId":"501",[39m\n
+  [32m            "groupName":"SPRINTER",[39m\n
+  [32m            "groupAlias":"sprinter",[39m\n
+  [32m            "sort":8,[39m\n
+  [32m            "groupNameSelector":"SPRINTER",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "1313":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 2-T Platform%%%/Chassis (W901, W902)",[39m\n
+  [32m                  "nameSelector":"Sprinter 2-T Platform%%%/Chassis (W901, W902)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1995",[39m\n
+  [32m                  "yearOfConstrTo":"05.2006",[39m\n
+  [32m                  "modelAlias":"sprinter-2-t-platform-chassis-901-902",[39m\n
+  [32m                  "modelId":"1313",[39m\n
+  [32m                  "ratingSale":"6915",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":23[39m\n
+  [32m               },[39m\n
+  [32m               "2039":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 2-T Van (W901, W902)",[39m\n
+  [32m                  "nameSelector":"Sprinter 2-T Van (W901, W902)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1995",[39m\n
+  [32m                  "yearOfConstrTo":"05.2006",[39m\n
+  [32m                  "modelAlias":"sprinter-2-t-box-901-902",[39m\n
+  [32m                  "modelId":"2039",[39m\n
+  [32m                  "ratingSale":"36058",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":24[39m\n
+  [32m               },[39m\n
+  [32m               "2040":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 2-T Minibus (W901, W902)",[39m\n
+  [32m                  "nameSelector":"Sprinter 2-T Minibus (W901, W902)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1995",[39m\n
+  [32m                  "yearOfConstrTo":"05.2006",[39m\n
+  [32m                  "modelAlias":"sprinter-2-t-bus-901-902",[39m\n
+  [32m                  "modelId":"2040",[39m\n
+  [32m                  "ratingSale":"22320",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":25[39m\n
+  [32m               },[39m\n
+  [32m               "2041":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3-T Minibus (W903)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3-T Minibus (W903)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1995",[39m\n
+  [32m                  "yearOfConstrTo":"05.2006",[39m\n
+  [32m                  "modelAlias":"sprinter-3-t-bus-903",[39m\n
+  [32m                  "modelId":"2041",[39m\n
+  [32m                  "ratingSale":"55697",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":22[39m\n
+  [32m               },[39m\n
+  [32m               "3505":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3-T Platform%%%/Chassis (W903)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3-T Platform%%%/Chassis (W903)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1995",[39m\n
+  [32m                  "yearOfConstrTo":"05.2006",[39m\n
+  [32m                  "modelAlias":"sprinter-3-t-platform-chassis-903",[39m\n
+  [32m                  "modelId":"3505",[39m\n
+  [32m                  "ratingSale":"25800",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":20[39m\n
+  [32m               },[39m\n
+  [32m               "3906":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3-T Van (W903)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3-T Van (W903)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1995",[39m\n
+  [32m                  "yearOfConstrTo":"05.2006",[39m\n
+  [32m                  "modelAlias":"sprinter-3-t-box-903",[39m\n
+  [32m                  "modelId":"3906",[39m\n
+  [32m                  "ratingSale":"62105",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":21[39m\n
+  [32m               },[39m\n
+  [32m               "4662":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 4-T Minibus (W904)",[39m\n
+  [32m                  "nameSelector":"Sprinter 4-T Minibus (W904)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1996",[39m\n
+  [32m                  "yearOfConstrTo":"05.2006",[39m\n
+  [32m                  "modelAlias":"sprinter-4-t-bus-904",[39m\n
+  [32m                  "modelId":"4662",[39m\n
+  [32m                  "ratingSale":"6804",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":19[39m\n
+  [32m               },[39m\n
+  [32m               "4663":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 4-T Van (W904)",[39m\n
+  [32m                  "nameSelector":"Sprinter 4-T Van (W904)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1996",[39m\n
+  [32m                  "yearOfConstrTo":"05.2006",[39m\n
+  [32m                  "modelAlias":"sprinter-4-t-box-904",[39m\n
+  [32m                  "modelId":"4663",[39m\n
+  [32m                  "ratingSale":"21185",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":18[39m\n
+  [32m               },[39m\n
+  [32m               "4664":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 4-T Platform%%%/Chassis (W904)",[39m\n
+  [32m                  "nameSelector":"Sprinter 4-T Platform%%%/Chassis (W904)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1996",[39m\n
+  [32m                  "yearOfConstrTo":"05.2006",[39m\n
+  [32m                  "modelAlias":"sprinter-4-t-platform-chassis-904",[39m\n
+  [32m                  "modelId":"4664",[39m\n
+  [32m                  "ratingSale":"17161",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":17[39m\n
+  [32m               },[39m\n
+  [32m               "9517":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter Dumptruck (W905)",[39m\n
+  [32m                  "nameSelector":"Sprinter Dumptruck (W905)",[39m\n
+  [32m                  "yearOfConstrFrom":"04.2001",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-dumptruck-905",[39m\n
+  [32m                  "modelId":"9517",[39m\n
+  [32m                  "ratingSale":"2176",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":15[39m\n
+  [32m               },[39m\n
+  [32m               "9518":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 5-T Platform%%%/Chassis (W905)",[39m\n
+  [32m                  "nameSelector":"Sprinter 5-T Platform%%%/Chassis (W905)",[39m\n
+  [32m                  "yearOfConstrFrom":"04.2001",[39m\n
+  [32m                  "yearOfConstrTo":"05.2006",[39m\n
+  [32m                  "modelAlias":"sprinter-5-t-platform-chassis-905",[39m\n
+  [32m                  "modelId":"9518",[39m\n
+  [32m                  "ratingSale":"2106",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":16[39m\n
+  [32m               },[39m\n
+  [32m               "5586":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3-T Minibus (W906)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3-T Minibus (W906)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-t-bus-906",[39m\n
+  [32m                  "modelId":"5586",[39m\n
+  [32m                  "ratingSale":"6487",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":11[39m\n
+  [32m               },[39m\n
+  [32m               "5587":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3-T Van (W906)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3-T Van (W906)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-t-box-906",[39m\n
+  [32m                  "modelId":"5587",[39m\n
+  [32m                  "ratingSale":"20532",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":10[39m\n
+  [32m               },[39m\n
+  [32m               "5588":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3-T Platform%%%/Chassis (W906)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3-T Platform%%%/Chassis (W906)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-t-platform-chassis-906",[39m\n
+  [32m                  "modelId":"5588",[39m\n
+  [32m                  "ratingSale":"2118",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":9[39m\n
+  [32m               },[39m\n
+  [32m               "5589":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3.5-T Minibus (W906)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3.5-T Minibus (W906)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-5-t-bus-906",[39m\n
+  [32m                  "modelId":"5589",[39m\n
+  [32m                  "ratingSale":"31059",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":14[39m\n
+  [32m               },[39m\n
+  [32m               "5590":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3.5-T Van (W906)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3.5-T Van (W906)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-5-t-box-906",[39m\n
+  [32m                  "modelId":"5590",[39m\n
+  [32m                  "ratingSale":"85368",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":13[39m\n
+  [32m               },[39m\n
+  [32m               "5591":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3.5-T Platform%%%/Chassis (W906)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3.5-T Platform%%%/Chassis (W906)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-5-t-platform-chassis-906",[39m\n
+  [32m                  "modelId":"5591",[39m\n
+  [32m                  "ratingSale":"21994",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":12[39m\n
+  [32m               },[39m\n
+  [32m               "5593":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 5-T Van (W906)",[39m\n
+  [32m                  "nameSelector":"Sprinter 5-T Van (W906)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-5-t-box-906",[39m\n
+  [32m                  "modelId":"5593",[39m\n
+  [32m                  "ratingSale":"16042",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "5594":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 5-T Platform%%%/Chassis (W906)",[39m\n
+  [32m                  "nameSelector":"Sprinter 5-T Platform%%%/Chassis (W906)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-5-t-platform-chassis-906",[39m\n
+  [32m                  "modelId":"5594",[39m\n
+  [32m                  "ratingSale":"11714",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "8505":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 4.6-T Van (W906)",[39m\n
+  [32m                  "nameSelector":"Sprinter 4.6-T Van (W906)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-4-6-t-box-906",[39m\n
+  [32m                  "modelId":"8505",[39m\n
+  [32m                  "ratingSale":"3033",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":6[39m\n
+  [32m               },[39m\n
+  [32m               "8506":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 4.6-T Platform%%%/Chassis (906)",[39m\n
+  [32m                  "nameSelector":"Sprinter 4.6-T Platform%%%/Chassis (906)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-4-6-t-platform-chassis-906",[39m\n
+  [32m                  "modelId":"8506",[39m\n
+  [32m                  "ratingSale":"3614",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":7[39m\n
+  [32m               },[39m\n
+  [32m               "11596":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 4.6-T Minibus",[39m\n
+  [32m                  "nameSelector":"Sprinter 4.6-T Minibus",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-4-6-t-bus",[39m\n
+  [32m                  "modelId":"11596",[39m\n
+  [32m                  "ratingSale":"641",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":8[39m\n
+  [32m               },[39m\n
+  [32m               "11597":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 5-T Minibus",[39m\n
+  [32m                  "nameSelector":"Sprinter 5-T Minibus",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-5-t-bus",[39m\n
+  [32m                  "modelId":"11597",[39m\n
+  [32m                  "ratingSale":"2263",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":5[39m\n
+  [32m               },[39m\n
+  [32m               "11491":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter Classic 4.6-T Minibus (W909)",[39m\n
+  [32m                  "nameSelector":"Sprinter Classic 4.6-T Minibus (W909)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2013",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-classic-4-6-t-bus-909",[39m\n
+  [32m                  "modelId":"11491",[39m\n
+  [32m                  "ratingSale":"866",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "11492":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter Classic 3.5-T Van (W909)",[39m\n
+  [32m                  "nameSelector":"Sprinter Classic 3.5-T Van (W909)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2013",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-classic-3-5-t-box-909",[39m\n
+  [32m                  "modelId":"11492",[39m\n
+  [32m                  "ratingSale":"2989",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "40428":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter Classic 4,6-t Van (W909)",[39m\n
+  [32m                  "nameSelector":"Sprinter Classic 4,6-t Van (W909)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2017",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-classic-4-6-t-van-909",[39m\n
+  [32m                  "modelId":"40428",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38709":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3-t Minibus (907)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3-t Minibus (907)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-t-bus-907",[39m\n
+  [32m                  "modelId":"38709",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38705":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3-t Van (910)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3-t Van (910)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-t-box-910",[39m\n
+  [32m                  "modelId":"38705",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38711":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3-t Platform %%%/ Chassis (910)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3-t Platform %%%/ Chassis (910)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-t-platform-chassis-910",[39m\n
+  [32m                  "modelId":"38711",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38710":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3.5-t Tourer (907)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3.5-t Tourer (907)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-5-t-bus-907",[39m\n
+  [32m                  "modelId":"38710",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38706":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3.5-t Van (907, 910)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3.5-t Van (907, 910)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-5-t-box-907-910",[39m\n
+  [32m                  "modelId":"38706",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38712":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 3.5-t Platform %%%/ Chassis (907, 910)",[39m\n
+  [32m                  "nameSelector":"Sprinter 3.5-t Platform %%%/ Chassis (907, 910)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-3-5-t-platform-chassis-907-910",[39m\n
+  [32m                  "modelId":"38712",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38707":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 4-t Van (907, 910)",[39m\n
+  [32m                  "nameSelector":"Sprinter 4-t Van (907, 910)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-4-t-box-907-910",[39m\n
+  [32m                  "modelId":"38707",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38713":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 4-t Platform %%%/ Chassis (907)",[39m\n
+  [32m                  "nameSelector":"Sprinter 4-t Platform %%%/ Chassis (907)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-4-t-platform-chassis-907",[39m\n
+  [32m                  "modelId":"38713",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38708":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 5-t Van (907)",[39m\n
+  [32m                  "nameSelector":"Sprinter 5-t Van (907)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-5-t-box-907",[39m\n
+  [32m                  "modelId":"38708",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38714":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 5-t Platform %%%/ Chassis (907)",[39m\n
+  [32m                  "nameSelector":"Sprinter 5-t Platform %%%/ Chassis (907)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-5-t-platform-chassis-907",[39m\n
+  [32m                  "modelId":"38714",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "40226":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 4-t Tourer (907)",[39m\n
+  [32m                  "nameSelector":"Sprinter 4-t Tourer (907)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-4-t-tourer-bus-907",[39m\n
+  [32m                  "modelId":"40226",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "40227":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"Sprinter 5-t Tourer Minibus (907)",[39m\n
+  [32m                  "nameSelector":"Sprinter 5-t Tourer Minibus (907)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2019",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sprinter-5-t-tourer-bus-907",[39m\n
+  [32m                  "modelId":"40227",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "40688":{[39m\n
+  [32m                  "groupId":"501",[39m\n
+  [32m                  "groupName":"SPRINTER",[39m\n
+  [32m                  "groupAlias":"sprinter",[39m\n
+  [32m                  "name":"eSprinter Van (B910)",[39m\n
+  [32m                  "nameSelector":"eSprinter Van (B910)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2020",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"esprinter-van-b910",[39m\n
+  [32m                  "modelId":"40688",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1995"[39m\n
+  [32m         },[39m\n
+  [32m         "498":{[39m\n
+  [32m            "groupId":"498",[39m\n
+  [32m            "groupName":"SL",[39m\n
+  [32m            "groupAlias":"sl",[39m\n
+  [32m            "sort":12,[39m\n
+  [32m            "groupNameSelector":"SL",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "566":{[39m\n
+  [32m                  "groupId":"498",[39m\n
+  [32m                  "groupName":"SL",[39m\n
+  [32m                  "groupAlias":"sl",[39m\n
+  [32m                  "name":"SL Convertible (W121)",[39m\n
+  [32m                  "nameSelector":"SL Convertible (W121)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1955",[39m\n
+  [32m                  "yearOfConstrTo":"12.1963",[39m\n
+  [32m                  "modelAlias":"sl-w121",[39m\n
+  [32m                  "modelId":"566",[39m\n
+  [32m                  "ratingSale":"8130",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":7[39m\n
+  [32m               },[39m\n
+  [32m               "1778":{[39m\n
+  [32m                  "groupId":"498",[39m\n
+  [32m                  "groupName":"SL",[39m\n
+  [32m                  "groupAlias":"sl",[39m\n
+  [32m                  "name":"SL Convertible (R198)",[39m\n
+  [32m                  "nameSelector":"SL Convertible (R198)",[39m\n
+  [32m                  "yearOfConstrFrom":"05.1957",[39m\n
+  [32m                  "yearOfConstrTo":"02.1963",[39m\n
+  [32m                  "modelAlias":"sl-r198",[39m\n
+  [32m                  "modelId":"1778",[39m\n
+  [32m                  "ratingSale":"438",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":6[39m\n
+  [32m               },[39m\n
+  [32m               "570":{[39m\n
+  [32m                  "groupId":"498",[39m\n
+  [32m                  "groupName":"SL",[39m\n
+  [32m                  "groupAlias":"sl",[39m\n
+  [32m                  "name":"SL Convertible (R107)",[39m\n
+  [32m                  "nameSelector":"SL Convertible (R107)",[39m\n
+  [32m                  "yearOfConstrFrom":"05.1971",[39m\n
+  [32m                  "yearOfConstrTo":"12.1989",[39m\n
+  [32m                  "modelAlias":"sl-r107",[39m\n
+  [32m                  "modelId":"570",[39m\n
+  [32m                  "ratingSale":"69655",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":5[39m\n
+  [32m               },[39m\n
+  [32m               "3445":{[39m\n
+  [32m                  "groupId":"498",[39m\n
+  [32m                  "groupName":"SL",[39m\n
+  [32m                  "groupAlias":"sl",[39m\n
+  [32m                  "name":"SL Coupe (C107)",[39m\n
+  [32m                  "nameSelector":"SL Coupe (C107)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1972",[39m\n
+  [32m                  "yearOfConstrTo":"08.1985",[39m\n
+  [32m                  "modelAlias":"sl-coupe-c107",[39m\n
+  [32m                  "modelId":"3445",[39m\n
+  [32m                  "ratingSale":"11536",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "39":{[39m\n
+  [32m                  "groupId":"498",[39m\n
+  [32m                  "groupName":"SL",[39m\n
+  [32m                  "groupAlias":"sl",[39m\n
+  [32m                  "name":"SL Convertible (R129)",[39m\n
+  [32m                  "nameSelector":"SL Convertible (R129)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.1989",[39m\n
+  [32m                  "yearOfConstrTo":"12.2001",[39m\n
+  [32m                  "modelAlias":"sl-r129",[39m\n
+  [32m                  "modelId":"39",[39m\n
+  [32m                  "ratingSale":"78863",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "4806":{[39m\n
+  [32m                  "groupId":"498",[39m\n
+  [32m                  "groupName":"SL",[39m\n
+  [32m                  "groupAlias":"sl",[39m\n
+  [32m                  "name":"SL Convertible (R230)",[39m\n
+  [32m                  "nameSelector":"SL Convertible (R230)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.2001",[39m\n
+  [32m                  "yearOfConstrTo":"01.2012",[39m\n
+  [32m                  "modelAlias":"sl-r230",[39m\n
+  [32m                  "modelId":"4806",[39m\n
+  [32m                  "ratingSale":"40042",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "10172":{[39m\n
+  [32m                  "groupId":"498",[39m\n
+  [32m                  "groupName":"SL",[39m\n
+  [32m                  "groupAlias":"sl",[39m\n
+  [32m                  "name":"SL Convertible (R231)",[39m\n
+  [32m                  "nameSelector":"SL Convertible (R231)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2012",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sl-r231",[39m\n
+  [32m                  "modelId":"10172",[39m\n
+  [32m                  "ratingSale":"2283",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "42833":{[39m\n
+  [32m                  "groupId":"498",[39m\n
+  [32m                  "groupName":"SL",[39m\n
+  [32m                  "groupAlias":"sl",[39m\n
+  [32m                  "name":"SL Convertible (R232)",[39m\n
+  [32m                  "nameSelector":"SL Convertible (R232)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2022",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sl-r232",[39m\n
+  [32m                  "modelId":"42833",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1955"[39m\n
+  [32m         },[39m\n
+  [32m         "479":{[39m\n
+  [32m            "groupId":"479",[39m\n
+  [32m            "groupName":"G-Class",[39m\n
+  [32m            "groupAlias":"g-class",[39m\n
+  [32m            "sort":19,[39m\n
+  [32m            "groupNameSelector":"G-Class",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "60":{[39m\n
+  [32m                  "groupId":"479",[39m\n
+  [32m                  "groupName":"G-Class",[39m\n
+  [32m                  "groupAlias":"g-class",[39m\n
+  [32m                  "name":"G-Class Off-Road (W460)",[39m\n
+  [32m                  "nameSelector":"G-Class Off-Road (W460)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.1979",[39m\n
+  [32m                  "yearOfConstrTo":"08.1993",[39m\n
+  [32m                  "modelAlias":"g-class-w460",[39m\n
+  [32m                  "modelId":"60",[39m\n
+  [32m                  "ratingSale":"52102",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "38804":{[39m\n
+  [32m                  "groupId":"479",[39m\n
+  [32m                  "groupName":"G-Class",[39m\n
+  [32m                  "groupAlias":"g-class",[39m\n
+  [32m                  "name":"G-Class Cabrio (W460)",[39m\n
+  [32m                  "nameSelector":"G-Class Cabrio (W460)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.1979",[39m\n
+  [32m                  "yearOfConstrTo":"08.1993",[39m\n
+  [32m                  "modelAlias":"g-class-cabrio-w460",[39m\n
+  [32m                  "modelId":"38804",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "65":{[39m\n
+  [32m                  "groupId":"479",[39m\n
+  [32m                  "groupName":"G-Class",[39m\n
+  [32m                  "groupAlias":"g-class",[39m\n
+  [32m                  "name":"G-Class Off-Road (W463)",[39m\n
+  [32m                  "nameSelector":"G-Class Off-Road (W463)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1989",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"g-class-w463",[39m\n
+  [32m                  "modelId":"65",[39m\n
+  [32m                  "ratingSale":"40388",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "2015":{[39m\n
+  [32m                  "groupId":"479",[39m\n
+  [32m                  "groupName":"G-Class",[39m\n
+  [32m                  "groupAlias":"g-class",[39m\n
+  [32m                  "name":"G-Class Off-Road Cabrio (W463)",[39m\n
+  [32m                  "nameSelector":"G-Class Off-Road Cabrio (W463)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1989",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"g-class-cabrio-w463",[39m\n
+  [32m                  "modelId":"2015",[39m\n
+  [32m                  "ratingSale":"3641",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "4077":{[39m\n
+  [32m                  "groupId":"479",[39m\n
+  [32m                  "groupName":"G-Class",[39m\n
+  [32m                  "groupAlias":"g-class",[39m\n
+  [32m                  "name":"G-Class Off-Road (W461)",[39m\n
+  [32m                  "nameSelector":"G-Class Off-Road (W461)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1989",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"g-class-w461",[39m\n
+  [32m                  "modelId":"4077",[39m\n
+  [32m                  "ratingSale":"11428",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38417":{[39m\n
+  [32m                  "groupId":"479",[39m\n
+  [32m                  "groupName":"G-Class",[39m\n
+  [32m                  "groupAlias":"g-class",[39m\n
+  [32m                  "name":"G-Class (W463)",[39m\n
+  [32m                  "nameSelector":"G-Class (W463)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"g-class-w463-2018",[39m\n
+  [32m                  "modelId":"38417",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"03.1979"[39m\n
+  [32m         },[39m\n
+  [32m         "484":{[39m\n
+  [32m            "groupId":"484",[39m\n
+  [32m            "groupName":"124-Series",[39m\n
+  [32m            "groupAlias":"kombi",[39m\n
+  [32m            "sort":29,[39m\n
+  [32m            "groupNameSelector":"124-Series",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "18":{[39m\n
+  [32m                  "groupId":"484",[39m\n
+  [32m                  "groupName":"124-Series",[39m\n
+  [32m                  "groupAlias":"kombi",[39m\n
+  [32m                  "name":"W124 Saloon (W124)",[39m\n
+  [32m                  "nameSelector":"W124 Saloon (W124)",[39m\n
+  [32m                  "yearOfConstrFrom":"12.1984",[39m\n
+  [32m                  "yearOfConstrTo":"08.1993",[39m\n
+  [32m                  "modelAlias":"saloon-w124",[39m\n
+  [32m                  "modelId":"18",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "24":{[39m\n
+  [32m                  "groupId":"484",[39m\n
+  [32m                  "groupName":"124-Series",[39m\n
+  [32m                  "groupAlias":"kombi",[39m\n
+  [32m                  "name":"W124 Estate (S124)",[39m\n
+  [32m                  "nameSelector":"W124 Estate (S124)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1985",[39m\n
+  [32m                  "yearOfConstrTo":"07.1993",[39m\n
+  [32m                  "modelAlias":"kombi-estate-s124",[39m\n
+  [32m                  "modelId":"24",[39m\n
+  [32m                  "ratingSale":"56731",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "12":{[39m\n
+  [32m                  "groupId":"484",[39m\n
+  [32m                  "groupName":"124-Series",[39m\n
+  [32m                  "groupAlias":"kombi",[39m\n
+  [32m                  "name":"W124 Coupe (C124)",[39m\n
+  [32m                  "nameSelector":"W124 Coupe (C124)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.1987",[39m\n
+  [32m                  "yearOfConstrTo":"05.1993",[39m\n
+  [32m                  "modelAlias":"coupe-c124",[39m\n
+  [32m                  "modelId":"12",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "96":{[39m\n
+  [32m                  "groupId":"484",[39m\n
+  [32m                  "groupName":"124-Series",[39m\n
+  [32m                  "groupAlias":"kombi",[39m\n
+  [32m                  "name":"W124 Convertible (A124)",[39m\n
+  [32m                  "nameSelector":"W124 Convertible (A124)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1991",[39m\n
+  [32m                  "yearOfConstrTo":"06.1993",[39m\n
+  [32m                  "modelAlias":"cabriolet-a124",[39m\n
+  [32m                  "modelId":"96",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"12.1984"[39m\n
+  [32m         },[39m\n
+  [32m         "476":{[39m\n
+  [32m            "groupId":"476",[39m\n
+  [32m            "groupName":"123-Series",[39m\n
+  [32m            "groupAlias":"coupe",[39m\n
+  [32m            "sort":30,[39m\n
+  [32m            "groupNameSelector":"123-Series",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "571":{[39m\n
+  [32m                  "groupId":"476",[39m\n
+  [32m                  "groupName":"123-Series",[39m\n
+  [32m                  "groupAlias":"coupe",[39m\n
+  [32m                  "name":"W123 Saloon (W123)",[39m\n
+  [32m                  "nameSelector":"W123 Saloon (W123)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1976",[39m\n
+  [32m                  "yearOfConstrTo":"12.1985",[39m\n
+  [32m                  "modelAlias":"saloon-w123",[39m\n
+  [32m                  "modelId":"571",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "4":{[39m\n
+  [32m                  "groupId":"476",[39m\n
+  [32m                  "groupName":"123-Series",[39m\n
+  [32m                  "groupAlias":"coupe",[39m\n
+  [32m                  "name":"W123 Coupe (C123)",[39m\n
+  [32m                  "nameSelector":"W123 Coupe (C123)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.1977",[39m\n
+  [32m                  "yearOfConstrTo":"12.1985",[39m\n
+  [32m                  "modelAlias":"coupe-c123",[39m\n
+  [32m                  "modelId":"4",[39m\n
+  [32m                  "ratingSale":"22033",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "9":{[39m\n
+  [32m                  "groupId":"476",[39m\n
+  [32m                  "groupName":"123-Series",[39m\n
+  [32m                  "groupAlias":"coupe",[39m\n
+  [32m                  "name":"W123 Estate (S123)",[39m\n
+  [32m                  "nameSelector":"W123 Estate (S123)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1977",[39m\n
+  [32m                  "yearOfConstrTo":"12.1986",[39m\n
+  [32m                  "modelAlias":"kombi-estate-s123",[39m\n
+  [32m                  "modelId":"9",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1976"[39m\n
+  [32m         },[39m\n
+  [32m         "513":{[39m\n
+  [32m            "groupId":"513",[39m\n
+  [32m            "groupName":"VIANO",[39m\n
+  [32m            "groupAlias":"viano",[39m\n
+  [32m            "sort":3,[39m\n
+  [32m            "groupNameSelector":"VIANO",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "5012":{[39m\n
+  [32m                  "groupId":"513",[39m\n
+  [32m                  "groupName":"VIANO",[39m\n
+  [32m                  "groupAlias":"viano",[39m\n
+  [32m                  "name":"Viano (W639)",[39m\n
+  [32m                  "nameSelector":"Viano (W639)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2003",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"viano-w639",[39m\n
+  [32m                  "modelId":"5012",[39m\n
+  [32m                  "ratingSale":"115384",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"09.2003"[39m\n
+  [32m         },[39m\n
+  [32m         "511":{[39m\n
+  [32m            "groupId":"511",[39m\n
+  [32m            "groupName":"VANEO",[39m\n
+  [32m            "groupAlias":"vaneo",[39m\n
+  [32m            "sort":5,[39m\n
+  [32m            "groupNameSelector":"VANEO",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "4810":{[39m\n
+  [32m                  "groupId":"511",[39m\n
+  [32m                  "groupName":"VANEO",[39m\n
+  [32m                  "groupAlias":"vaneo",[39m\n
+  [32m                  "name":"Vaneo (W414)",[39m\n
+  [32m                  "nameSelector":"Vaneo (W414)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2002",[39m\n
+  [32m                  "yearOfConstrTo":"07.2005",[39m\n
+  [32m                  "modelAlias":"vaneo-414",[39m\n
+  [32m                  "modelId":"4810",[39m\n
+  [32m                  "ratingSale":"42400",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"02.2002"[39m\n
+  [32m         },[39m\n
+  [32m         "461":{[39m\n
+  [32m            "groupId":"461",[39m\n
+  [32m            "groupName":"MB 100",[39m\n
+  [32m            "groupAlias":"100",[39m\n
+  [32m            "sort":16,[39m\n
+  [32m            "groupNameSelector":"MB 100",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "530":{[39m\n
+  [32m                  "groupId":"461",[39m\n
+  [32m                  "groupName":"100",[39m\n
+  [32m                  "groupAlias":"100",[39m\n
+  [32m                  "name":"MB 100 Minibus (W631)",[39m\n
+  [32m                  "nameSelector":"MB 100 Minibus (W631)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1988",[39m\n
+  [32m                  "yearOfConstrTo":"04.1996",[39m\n
+  [32m                  "modelAlias":"100-bus-631",[39m\n
+  [32m                  "modelId":"530",[39m\n
+  [32m                  "ratingSale":"6844",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "2050":{[39m\n
+  [32m                  "groupId":"461",[39m\n
+  [32m                  "groupName":"100",[39m\n
+  [32m                  "groupAlias":"100",[39m\n
+  [32m                  "name":"MB 100 Van (W631)",[39m\n
+  [32m                  "nameSelector":"MB 100 Van (W631)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1988",[39m\n
+  [32m                  "yearOfConstrTo":"04.1996",[39m\n
+  [32m                  "modelAlias":"100-box-631",[39m\n
+  [32m                  "modelId":"2050",[39m\n
+  [32m                  "ratingSale":"9370",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "4821":{[39m\n
+  [32m                  "groupId":"461",[39m\n
+  [32m                  "groupName":"100",[39m\n
+  [32m                  "groupAlias":"100",[39m\n
+  [32m                  "name":"MB 100 Platform%%%/Chassis (W631)",[39m\n
+  [32m                  "nameSelector":"MB 100 Platform%%%/Chassis (W631)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1988",[39m\n
+  [32m                  "yearOfConstrTo":"02.1996",[39m\n
+  [32m                  "modelAlias":"100-platform-chassis-631",[39m\n
+  [32m                  "modelId":"4821",[39m\n
+  [32m                  "ratingSale":"3224",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "9038":{[39m\n
+  [32m                  "groupId":"461",[39m\n
+  [32m                  "groupName":"100",[39m\n
+  [32m                  "groupAlias":"100",[39m\n
+  [32m                  "name":"MB 100 Van",[39m\n
+  [32m                  "nameSelector":"MB 100 Van",[39m\n
+  [32m                  "yearOfConstrFrom":"11.1999",[39m\n
+  [32m                  "yearOfConstrTo":"05.2005",[39m\n
+  [32m                  "modelAlias":"mb100-box-kpa",[39m\n
+  [32m                  "modelId":"9038",[39m\n
+  [32m                  "ratingSale":"1697",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"02.1988"[39m\n
+  [32m         },[39m\n
+  [32m         "503":{[39m\n
+  [32m            "groupId":"503",[39m\n
+  [32m            "groupName":"T1",[39m\n
+  [32m            "groupAlias":"t1-bus",[39m\n
+  [32m            "sort":7,[39m\n
+  [32m            "groupNameSelector":"T1",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "2014":{[39m\n
+  [32m                  "groupId":"503",[39m\n
+  [32m                  "groupName":"T1 Bus",[39m\n
+  [32m                  "groupAlias":"t1-bus",[39m\n
+  [32m                  "name":"T1 Platform%%%/Chassis (W602)",[39m\n
+  [32m                  "nameSelector":"T1 Platform%%%/Chassis (W602)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1977",[39m\n
+  [32m                  "yearOfConstrTo":"02.1996",[39m\n
+  [32m                  "modelAlias":"t1-platform-chassis-602",[39m\n
+  [32m                  "modelId":"2014",[39m\n
+  [32m                  "ratingSale":"16106",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":7[39m\n
+  [32m               },[39m\n
+  [32m               "3504":{[39m\n
+  [32m                  "groupId":"503",[39m\n
+  [32m                  "groupName":"T1 Bus",[39m\n
+  [32m                  "groupAlias":"t1-bus",[39m\n
+  [32m                  "name":"T1 Platform%%%/Chassis (W601)",[39m\n
+  [32m                  "nameSelector":"T1 Platform%%%/Chassis (W601)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1977",[39m\n
+  [32m                  "yearOfConstrTo":"02.1996",[39m\n
+  [32m                  "modelAlias":"t1-platform-chassis-601",[39m\n
+  [32m                  "modelId":"3504",[39m\n
+  [32m                  "ratingSale":"7240",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":8[39m\n
+  [32m               },[39m\n
+  [32m               "1749":{[39m\n
+  [32m                  "groupId":"503",[39m\n
+  [32m                  "groupName":"T1 Bus",[39m\n
+  [32m                  "groupAlias":"t1-bus",[39m\n
+  [32m                  "name":"T1 Minibus (W602)",[39m\n
+  [32m                  "nameSelector":"T1 Minibus (W602)",[39m\n
+  [32m                  "yearOfConstrFrom":"04.1977",[39m\n
+  [32m                  "yearOfConstrTo":"02.1996",[39m\n
+  [32m                  "modelAlias":"t1-bus-602",[39m\n
+  [32m                  "modelId":"1749",[39m\n
+  [32m                  "ratingSale":"5535",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":6[39m\n
+  [32m               },[39m\n
+  [32m               "473":{[39m\n
+  [32m                  "groupId":"503",[39m\n
+  [32m                  "groupName":"T1 Bus",[39m\n
+  [32m                  "groupAlias":"t1-bus",[39m\n
+  [32m                  "name":"T1 Minibus (W601)",[39m\n
+  [32m                  "nameSelector":"T1 Minibus (W601)",[39m\n
+  [32m                  "yearOfConstrFrom":"05.1977",[39m\n
+  [32m                  "yearOfConstrTo":"02.1996",[39m\n
+  [32m                  "modelAlias":"t1-bus-601",[39m\n
+  [32m                  "modelId":"473",[39m\n
+  [32m                  "ratingSale":"17558",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":5[39m\n
+  [32m               },[39m\n
+  [32m               "2013":{[39m\n
+  [32m                  "groupId":"503",[39m\n
+  [32m                  "groupName":"T1 Bus",[39m\n
+  [32m                  "groupAlias":"t1-bus",[39m\n
+  [32m                  "name":"T1 Van (601, 611)",[39m\n
+  [32m                  "nameSelector":"T1 Van (601, 611)",[39m\n
+  [32m                  "yearOfConstrFrom":"05.1977",[39m\n
+  [32m                  "yearOfConstrTo":"02.1996",[39m\n
+  [32m                  "modelAlias":"t1-box-601",[39m\n
+  [32m                  "modelId":"2013",[39m\n
+  [32m                  "ratingSale":"12903",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "9510":{[39m\n
+  [32m                  "groupId":"503",[39m\n
+  [32m                  "groupName":"T1 Bus",[39m\n
+  [32m                  "groupAlias":"t1-bus",[39m\n
+  [32m                  "name":"T1%%%/TN Box Body %%%/ Estate",[39m\n
+  [32m                  "nameSelector":"T1%%%/TN Box Body %%%/ Estate",[39m\n
+  [32m                  "yearOfConstrFrom":"07.1981",[39m\n
+  [32m                  "yearOfConstrTo":"06.1995",[39m\n
+  [32m                  "modelAlias":"t1-tn-box-body-estate",[39m\n
+  [32m                  "modelId":"9510",[39m\n
+  [32m                  "ratingSale":"10602",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "9511":{[39m\n
+  [32m                  "groupId":"503",[39m\n
+  [32m                  "groupName":"T1 Bus",[39m\n
+  [32m                  "groupAlias":"t1-bus",[39m\n
+  [32m                  "name":"T1%%%/TN Platform%%%/Chassis",[39m\n
+  [32m                  "nameSelector":"T1%%%/TN Platform%%%/Chassis",[39m\n
+  [32m                  "yearOfConstrFrom":"07.1981",[39m\n
+  [32m                  "yearOfConstrTo":"06.1995",[39m\n
+  [32m                  "modelAlias":"t1-tn-platform-chassis",[39m\n
+  [32m                  "modelId":"9511",[39m\n
+  [32m                  "ratingSale":"10163",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "3909":{[39m\n
+  [32m                  "groupId":"503",[39m\n
+  [32m                  "groupName":"T1 Bus",[39m\n
+  [32m                  "groupAlias":"t1-bus",[39m\n
+  [32m                  "name":"T1 Van (W602)",[39m\n
+  [32m                  "nameSelector":"T1 Van (W602)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.1982",[39m\n
+  [32m                  "yearOfConstrTo":"02.1996",[39m\n
+  [32m                  "modelAlias":"t1-box-602",[39m\n
+  [32m                  "modelId":"3909",[39m\n
+  [32m                  "ratingSale":"28542",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1977"[39m\n
+  [32m         },[39m\n
+  [32m         "474":{[39m\n
+  [32m            "groupId":"474",[39m\n
+  [32m            "groupName":"CLS",[39m\n
+  [32m            "groupAlias":"cls",[39m\n
+  [32m            "sort":21,[39m\n
+  [32m            "groupNameSelector":"CLS",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "5118":{[39m\n
+  [32m                  "groupId":"474",[39m\n
+  [32m                  "groupName":"CLS",[39m\n
+  [32m                  "groupAlias":"cls",[39m\n
+  [32m                  "name":"CLS Coupe (C219)",[39m\n
+  [32m                  "nameSelector":"CLS Coupe (C219)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.2004",[39m\n
+  [32m                  "yearOfConstrTo":"02.2011",[39m\n
+  [32m                  "modelAlias":"cls-c219",[39m\n
+  [32m                  "modelId":"5118",[39m\n
+  [32m                  "ratingSale":"73261",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "9052":{[39m\n
+  [32m                  "groupId":"474",[39m\n
+  [32m                  "groupName":"CLS",[39m\n
+  [32m                  "groupAlias":"cls",[39m\n
+  [32m                  "name":"CLS Coupe (C218)",[39m\n
+  [32m                  "nameSelector":"CLS Coupe (C218)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2011",[39m\n
+  [32m                  "yearOfConstrTo":"12.2017",[39m\n
+  [32m                  "modelAlias":"cls-c218",[39m\n
+  [32m                  "modelId":"9052",[39m\n
+  [32m                  "ratingSale":"12472",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "10848":{[39m\n
+  [32m                  "groupId":"474",[39m\n
+  [32m                  "groupName":"CLS",[39m\n
+  [32m                  "groupAlias":"cls",[39m\n
+  [32m                  "name":"CLS Shooting Brake (X218)",[39m\n
+  [32m                  "nameSelector":"CLS Shooting Brake (X218)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.2012",[39m\n
+  [32m                  "yearOfConstrTo":"12.2017",[39m\n
+  [32m                  "modelAlias":"cls-shooting-brake-x218",[39m\n
+  [32m                  "modelId":"10848",[39m\n
+  [32m                  "ratingSale":"5457",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38362":{[39m\n
+  [32m                  "groupId":"474",[39m\n
+  [32m                  "groupName":"CLS",[39m\n
+  [32m                  "groupAlias":"cls",[39m\n
+  [32m                  "name":"CLS (C257)",[39m\n
+  [32m                  "nameSelector":"CLS (C257)",[39m\n
+  [32m                  "yearOfConstrFrom":"12.2017",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"cls-c257",[39m\n
+  [32m                  "modelId":"38362",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"10.2004"[39m\n
+  [32m         },[39m\n
+  [32m         "510":{[39m\n
+  [32m            "groupId":"510",[39m\n
+  [32m            "groupName":"V-Class",[39m\n
+  [32m            "groupAlias":"v-class",[39m\n
+  [32m            "sort":1,[39m\n
+  [32m            "groupNameSelector":"V-Class",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "4078":{[39m\n
+  [32m                  "groupId":"510",[39m\n
+  [32m                  "groupName":"V-Class",[39m\n
+  [32m                  "groupAlias":"v-class",[39m\n
+  [32m                  "name":"V-Class (W638%%%/2)",[39m\n
+  [32m                  "nameSelector":"V-Class (W638%%%/2)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1996",[39m\n
+  [32m                  "yearOfConstrTo":"07.2003",[39m\n
+  [32m                  "modelAlias":"v-class-638-2",[39m\n
+  [32m                  "modelId":"4078",[39m\n
+  [32m                  "ratingSale":"43430",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "11889":{[39m\n
+  [32m                  "groupId":"510",[39m\n
+  [32m                  "groupName":"V-Class",[39m\n
+  [32m                  "groupAlias":"v-class",[39m\n
+  [32m                  "name":"V-Class (W447)",[39m\n
+  [32m                  "nameSelector":"V-Class (W447)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2014",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"v-class-w447",[39m\n
+  [32m                  "modelId":"11889",[39m\n
+  [32m                  "ratingSale":"15035",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"02.1996"[39m\n
+  [32m         },[39m\n
+  [32m         "504":{[39m\n
+  [32m            "groupId":"504",[39m\n
+  [32m            "groupName":"T2",[39m\n
+  [32m            "groupAlias":"t2",[39m\n
+  [32m            "sort":6,[39m\n
+  [32m            "groupNameSelector":"T2",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "9500":{[39m\n
+  [32m                  "groupId":"504",[39m\n
+  [32m                  "groupName":"T2",[39m\n
+  [32m                  "groupAlias":"t2",[39m\n
+  [32m                  "name":"T2%%%/L Box Body %%%/ Estate",[39m\n
+  [32m                  "nameSelector":"T2%%%/L Box Body %%%/ Estate",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1968",[39m\n
+  [32m                  "yearOfConstrTo":"12.1988",[39m\n
+  [32m                  "modelAlias":"t2-l-box-body-estate",[39m\n
+  [32m                  "modelId":"9500",[39m\n
+  [32m                  "ratingSale":"19592",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":10[39m\n
+  [32m               },[39m\n
+  [32m               "9501":{[39m\n
+  [32m                  "groupId":"504",[39m\n
+  [32m                  "groupName":"T2",[39m\n
+  [32m                  "groupAlias":"t2",[39m\n
+  [32m                  "name":"T2%%%/L Dumptruck",[39m\n
+  [32m                  "nameSelector":"T2%%%/L Dumptruck",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1968",[39m\n
+  [32m                  "yearOfConstrTo":"12.1988",[39m\n
+  [32m                  "modelAlias":"t2-l-dumptruck",[39m\n
+  [32m                  "modelId":"9501",[39m\n
+  [32m                  "ratingSale":"2432",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":9[39m\n
+  [32m               },[39m\n
+  [32m               "9503":{[39m\n
+  [32m                  "groupId":"504",[39m\n
+  [32m                  "groupName":"T2",[39m\n
+  [32m                  "groupAlias":"t2",[39m\n
+  [32m                  "name":"T2%%%/L Platform%%%/Chassis",[39m\n
+  [32m                  "nameSelector":"T2%%%/L Platform%%%/Chassis",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1968",[39m\n
+  [32m                  "yearOfConstrTo":"12.1988",[39m\n
+  [32m                  "modelAlias":"t2-l-platform-chassis",[39m\n
+  [32m                  "modelId":"9503",[39m\n
+  [32m                  "ratingSale":"9620",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":8[39m\n
+  [32m               },[39m\n
+  [32m               "9502":{[39m\n
+  [32m                  "groupId":"504",[39m\n
+  [32m                  "groupName":"T2",[39m\n
+  [32m                  "groupAlias":"t2",[39m\n
+  [32m                  "name":"T2%%%/L Municipal Vehicle",[39m\n
+  [32m                  "nameSelector":"T2%%%/L Municipal Vehicle",[39m\n
+  [32m                  "yearOfConstrFrom":"06.1972",[39m\n
+  [32m                  "yearOfConstrTo":"08.1982",[39m\n
+  [32m                  "modelAlias":"t2-l-municipal-vehicle",[39m\n
+  [32m                  "modelId":"9502",[39m\n
+  [32m                  "ratingSale":"1731",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":6[39m\n
+  [32m               },[39m\n
+  [32m               "9506":{[39m\n
+  [32m                  "groupId":"504",[39m\n
+  [32m                  "groupName":"T2",[39m\n
+  [32m                  "groupAlias":"t2",[39m\n
+  [32m                  "name":"T2%%%/LN1 Box Body %%%/ Estate",[39m\n
+  [32m                  "nameSelector":"T2%%%/LN1 Box Body %%%/ Estate",[39m\n
+  [32m                  "yearOfConstrFrom":"04.1986",[39m\n
+  [32m                  "yearOfConstrTo":"12.1994",[39m\n
+  [32m                  "modelAlias":"t2-ln1-box-body-estate",[39m\n
+  [32m                  "modelId":"9506",[39m\n
+  [32m                  "ratingSale":"12893",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":5[39m\n
+  [32m               },[39m\n
+  [32m               "9507":{[39m\n
+  [32m                  "groupId":"504",[39m\n
+  [32m                  "groupName":"T2",[39m\n
+  [32m                  "groupAlias":"t2",[39m\n
+  [32m                  "name":"T2%%%/LN1 Dumptruck",[39m\n
+  [32m                  "nameSelector":"T2%%%/LN1 Dumptruck",[39m\n
+  [32m                  "yearOfConstrFrom":"04.1986",[39m\n
+  [32m                  "yearOfConstrTo":"12.1994",[39m\n
+  [32m                  "modelAlias":"t2-ln1-dumptruck",[39m\n
+  [32m                  "modelId":"9507",[39m\n
+  [32m                  "ratingSale":"3215",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "9508":{[39m\n
+  [32m                  "groupId":"504",[39m\n
+  [32m                  "groupName":"T2",[39m\n
+  [32m                  "groupAlias":"t2",[39m\n
+  [32m                  "name":"T2%%%/LN1 Platform%%%/Chassis",[39m\n
+  [32m                  "nameSelector":"T2%%%/LN1 Platform%%%/Chassis",[39m\n
+  [32m                  "yearOfConstrFrom":"04.1986",[39m\n
+  [32m                  "yearOfConstrTo":"12.1994",[39m\n
+  [32m                  "modelAlias":"t2-ln1-platform-chassis",[39m\n
+  [32m                  "modelId":"9508",[39m\n
+  [32m                  "ratingSale":"7153",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "9509":{[39m\n
+  [32m                  "groupId":"504",[39m\n
+  [32m                  "groupName":"T2",[39m\n
+  [32m                  "groupAlias":"t2",[39m\n
+  [32m                  "name":"T2%%%/LN1 Cab with engine",[39m\n
+  [32m                  "nameSelector":"T2%%%/LN1 Cab with engine",[39m\n
+  [32m                  "yearOfConstrFrom":"04.1986",[39m\n
+  [32m                  "yearOfConstrTo":"12.1994",[39m\n
+  [32m                  "modelAlias":"t2-ln1-cab-with-engine",[39m\n
+  [32m                  "modelId":"9509",[39m\n
+  [32m                  "ratingSale":"319",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "9505":{[39m\n
+  [32m                  "groupId":"504",[39m\n
+  [32m                  "groupName":"T2",[39m\n
+  [32m                  "groupAlias":"t2",[39m\n
+  [32m                  "name":"T2%%%/LN1 Minibus",[39m\n
+  [32m                  "nameSelector":"T2%%%/LN1 Minibus",[39m\n
+  [32m                  "yearOfConstrFrom":"07.1987",[39m\n
+  [32m                  "yearOfConstrTo":"12.1992",[39m\n
+  [32m                  "modelAlias":"t2-ln1-bus",[39m\n
+  [32m                  "modelId":"9505",[39m\n
+  [32m                  "ratingSale":"2167",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1968"[39m\n
+  [32m         },[39m\n
+  [32m         "495":{[39m\n
+  [32m            "groupId":"495",[39m\n
+  [32m            "groupName":"R-Class",[39m\n
+  [32m            "groupAlias":"r-class",[39m\n
+  [32m            "sort":14,[39m\n
+  [32m            "groupNameSelector":"R-Class",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "5463":{[39m\n
+  [32m                  "groupId":"495",[39m\n
+  [32m                  "groupName":"R-Class",[39m\n
+  [32m                  "groupAlias":"r-class",[39m\n
+  [32m                  "name":"R-Class (W251, V251)",[39m\n
+  [32m                  "nameSelector":"R-Class (W251, V251)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2005",[39m\n
+  [32m                  "yearOfConstrTo":"10.2017",[39m\n
+  [32m                  "modelAlias":"r-class-w251-v251",[39m\n
+  [32m                  "modelId":"5463",[39m\n
+  [32m                  "ratingSale":"53746",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.2005"[39m\n
+  [32m         },[39m\n
+  [32m         "480":{[39m\n
+  [32m            "groupId":"480",[39m\n
+  [32m            "groupName":"GL",[39m\n
+  [32m            "groupAlias":"gl",[39m\n
+  [32m            "sort":17,[39m\n
+  [32m            "groupNameSelector":"GL",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "5521":{[39m\n
+  [32m                  "groupId":"480",[39m\n
+  [32m                  "groupName":"GL",[39m\n
+  [32m                  "groupAlias":"gl",[39m\n
+  [32m                  "name":"GL (X164)",[39m\n
+  [32m                  "nameSelector":"GL (X164)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2006",[39m\n
+  [32m                  "yearOfConstrTo":"12.2012",[39m\n
+  [32m                  "modelAlias":"gl-class-x164",[39m\n
+  [32m                  "modelId":"5521",[39m\n
+  [32m                  "ratingSale":"25011",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "11184":{[39m\n
+  [32m                  "groupId":"480",[39m\n
+  [32m                  "groupName":"GL",[39m\n
+  [32m                  "groupAlias":"gl",[39m\n
+  [32m                  "name":"GL (X166)",[39m\n
+  [32m                  "nameSelector":"GL (X166)",[39m\n
+  [32m                  "yearOfConstrFrom":"07.2012",[39m\n
+  [32m                  "yearOfConstrTo":"12.2015",[39m\n
+  [32m                  "modelAlias":"gl-class-x166",[39m\n
+  [32m                  "modelId":"11184",[39m\n
+  [32m                  "ratingSale":"4266",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"09.2006"[39m\n
+  [32m         },[39m\n
+  [32m         "470":{[39m\n
+  [32m            "groupId":"470",[39m\n
+  [32m            "groupName":"111-Series",[39m\n
+  [32m            "groupAlias":"cabriolet",[39m\n
+  [32m            "sort":31,[39m\n
+  [32m            "groupNameSelector":"111-Series",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "534":{[39m\n
+  [32m                  "groupId":"470",[39m\n
+  [32m                  "groupName":"111-Series",[39m\n
+  [32m                  "groupAlias":"cabriolet",[39m\n
+  [32m                  "name":"W111 Coupe (W111)",[39m\n
+  [32m                  "nameSelector":"W111 Coupe (W111)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1961",[39m\n
+  [32m                  "yearOfConstrTo":"12.1971",[39m\n
+  [32m                  "modelAlias":"coupe-w111",[39m\n
+  [32m                  "modelId":"534",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "3385":{[39m\n
+  [32m                  "groupId":"470",[39m\n
+  [32m                  "groupName":"111-Series",[39m\n
+  [32m                  "groupAlias":"cabriolet",[39m\n
+  [32m                  "name":"W111 Convertible (W111)",[39m\n
+  [32m                  "nameSelector":"W111 Convertible (W111)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1969",[39m\n
+  [32m                  "yearOfConstrTo":"12.1971",[39m\n
+  [32m                  "modelAlias":"cabriolet-w111",[39m\n
+  [32m                  "modelId":"3385",[39m\n
+  [32m                  "ratingSale":"2254",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1961"[39m\n
+  [32m         },[39m\n
+  [32m         "512":{[39m\n
+  [32m            "groupId":"512",[39m\n
+  [32m            "groupName":"VARIO",[39m\n
+  [32m            "groupAlias":"vario",[39m\n
+  [32m            "sort":4,[39m\n
+  [32m            "groupNameSelector":"VARIO",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "9512":{[39m\n
+  [32m                  "groupId":"512",[39m\n
+  [32m                  "groupName":"VARIO",[39m\n
+  [32m                  "groupAlias":"vario",[39m\n
+  [32m                  "name":"Vario Minibus",[39m\n
+  [32m                  "nameSelector":"Vario Minibus",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1996",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"vario-bus",[39m\n
+  [32m                  "modelId":"9512",[39m\n
+  [32m                  "ratingSale":"3827",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":5[39m\n
+  [32m               },[39m\n
+  [32m               "9513":{[39m\n
+  [32m                  "groupId":"512",[39m\n
+  [32m                  "groupName":"VARIO",[39m\n
+  [32m                  "groupAlias":"vario",[39m\n
+  [32m                  "name":"Vario Box Body %%%/ Estate",[39m\n
+  [32m                  "nameSelector":"Vario Box Body %%%/ Estate",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1996",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"vario-box-body-estate",[39m\n
+  [32m                  "modelId":"9513",[39m\n
+  [32m                  "ratingSale":"5645",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":4[39m\n
+  [32m               },[39m\n
+  [32m               "9514":{[39m\n
+  [32m                  "groupId":"512",[39m\n
+  [32m                  "groupName":"VARIO",[39m\n
+  [32m                  "groupAlias":"vario",[39m\n
+  [32m                  "name":"Vario Dumptruck",[39m\n
+  [32m                  "nameSelector":"Vario Dumptruck",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1996",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"vario-dumptruck",[39m\n
+  [32m                  "modelId":"9514",[39m\n
+  [32m                  "ratingSale":"6580",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "9515":{[39m\n
+  [32m                  "groupId":"512",[39m\n
+  [32m                  "groupName":"VARIO",[39m\n
+  [32m                  "groupAlias":"vario",[39m\n
+  [32m                  "name":"Vario Platform %%%/ Chassis",[39m\n
+  [32m                  "nameSelector":"Vario Platform %%%/ Chassis",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1996",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"vario-platform-chassis",[39m\n
+  [32m                  "modelId":"9515",[39m\n
+  [32m                  "ratingSale":"5711",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "9516":{[39m\n
+  [32m                  "groupId":"512",[39m\n
+  [32m                  "groupName":"VARIO",[39m\n
+  [32m                  "groupAlias":"vario",[39m\n
+  [32m                  "name":"Vario Cab with engine",[39m\n
+  [32m                  "nameSelector":"Vario Cab with engine",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1996",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"vario-cab-with-engine",[39m\n
+  [32m                  "modelId":"9516",[39m\n
+  [32m                  "ratingSale":"935",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"09.1996"[39m\n
+  [32m         },[39m\n
+  [32m         "500":{[39m\n
+  [32m            "groupId":"500",[39m\n
+  [32m            "groupName":"SLR",[39m\n
+  [32m            "groupAlias":"slr",[39m\n
+  [32m            "sort":10,[39m\n
+  [32m            "groupNameSelector":"SLR",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "5119":{[39m\n
+  [32m                  "groupId":"500",[39m\n
+  [32m                  "groupName":"SLR",[39m\n
+  [32m                  "groupAlias":"slr",[39m\n
+  [32m                  "name":"SLR Coupe (R199)",[39m\n
+  [32m                  "nameSelector":"SLR Coupe (R199)",[39m\n
+  [32m                  "yearOfConstrFrom":"04.2004",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"slr-r199",[39m\n
+  [32m                  "modelId":"5119",[39m\n
+  [32m                  "ratingSale":"271",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "7366":{[39m\n
+  [32m                  "groupId":"500",[39m\n
+  [32m                  "groupName":"SLR",[39m\n
+  [32m                  "groupAlias":"slr",[39m\n
+  [32m                  "name":"SLR Roadster (R199)",[39m\n
+  [32m                  "nameSelector":"SLR Roadster (R199)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.2006",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"slr-roadster-r199",[39m\n
+  [32m                  "modelId":"7366",[39m\n
+  [32m                  "ratingSale":"231",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"04.2004"[39m\n
+  [32m         },[39m\n
+  [32m         "1356":{[39m\n
+  [32m            "groupId":"1356",[39m\n
+  [32m            "groupName":"GLE",[39m\n
+  [32m            "groupAlias":"gle",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"GLE",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "13831":{[39m\n
+  [32m                  "groupId":"1356",[39m\n
+  [32m                  "groupName":"GLE",[39m\n
+  [32m                  "groupAlias":"gle",[39m\n
+  [32m                  "name":"GLE Coupe (C292)",[39m\n
+  [32m                  "nameSelector":"GLE Coupe (C292)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2015",[39m\n
+  [32m                  "yearOfConstrTo":"10.2019",[39m\n
+  [32m                  "modelAlias":"gle-coupe-c292",[39m\n
+  [32m                  "modelId":"13831",[39m\n
+  [32m                  "ratingSale":"1201",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "13966":{[39m\n
+  [32m                  "groupId":"1356",[39m\n
+  [32m                  "groupName":"GLE",[39m\n
+  [32m                  "groupAlias":"gle",[39m\n
+  [32m                  "name":"GLE Off-Road (W166)",[39m\n
+  [32m                  "nameSelector":"GLE Off-Road (W166)",[39m\n
+  [32m                  "yearOfConstrFrom":"04.2015",[39m\n
+  [32m                  "yearOfConstrTo":"10.2018",[39m\n
+  [32m                  "modelAlias":"gle-w166",[39m\n
+  [32m                  "modelId":"13966",[39m\n
+  [32m                  "ratingSale":"1737",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "39123":{[39m\n
+  [32m                  "groupId":"1356",[39m\n
+  [32m                  "groupName":"GLE",[39m\n
+  [32m                  "groupAlias":"gle",[39m\n
+  [32m                  "name":"GLE (W167)",[39m\n
+  [32m                  "nameSelector":"GLE (W167)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"gle-w167",[39m\n
+  [32m                  "modelId":"39123",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "40161":{[39m\n
+  [32m                  "groupId":"1356",[39m\n
+  [32m                  "groupName":"GLE",[39m\n
+  [32m                  "groupAlias":"gle",[39m\n
+  [32m                  "name":"GLE Coupe (C167)",[39m\n
+  [32m                  "nameSelector":"GLE Coupe (C167)",[39m\n
+  [32m                  "yearOfConstrFrom":"11.2019",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"gle-coupe-c167",[39m\n
+  [32m                  "modelId":"40161",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"03.2015"[39m\n
+  [32m         },[39m\n
+  [32m         "2374":{[39m\n
+  [32m            "groupId":"2374",[39m\n
+  [32m            "groupName":"O",[39m\n
+  [32m            "groupAlias":"o",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"O",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "5047":{[39m\n
+  [32m                  "groupId":"2374",[39m\n
+  [32m                  "groupName":"O",[39m\n
+  [32m                  "groupAlias":"o",[39m\n
+  [32m                  "name":"O309 Minibus",[39m\n
+  [32m                  "nameSelector":"O309 Minibus",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1968",[39m\n
+  [32m                  "yearOfConstrTo":"02.1989",[39m\n
+  [32m                  "modelAlias":"o-309-1968",[39m\n
+  [32m                  "modelId":"5047",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1968"[39m\n
+  [32m         },[39m\n
+  [32m         "1357":{[39m\n
+  [32m            "groupId":"1357",[39m\n
+  [32m            "groupName":"GLC",[39m\n
+  [32m            "groupAlias":"glc",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"GLC",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "14305":{[39m\n
+  [32m                  "groupId":"1357",[39m\n
+  [32m                  "groupName":"GLC",[39m\n
+  [32m                  "groupAlias":"glc",[39m\n
+  [32m                  "name":"GLC Off-Road (X253)",[39m\n
+  [32m                  "nameSelector":"GLC Off-Road (X253)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2015",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"glc-x253",[39m\n
+  [32m                  "modelId":"14305",[39m\n
+  [32m                  "ratingSale":"5245",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "36676":{[39m\n
+  [32m                  "groupId":"1357",[39m\n
+  [32m                  "groupName":"GLC",[39m\n
+  [32m                  "groupAlias":"glc",[39m\n
+  [32m                  "name":"GLC Coupe (C253)",[39m\n
+  [32m                  "nameSelector":"GLC Coupe (C253)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2016",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"glc-coupe-c253",[39m\n
+  [32m                  "modelId":"36676",[39m\n
+  [32m                  "ratingSale":"1590",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"06.2015"[39m\n
+  [32m         },[39m\n
+  [32m         "1358":{[39m\n
+  [32m            "groupId":"1358",[39m\n
+  [32m            "groupName":"GLS",[39m\n
+  [32m            "groupAlias":"gls",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"GLS",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "14799":{[39m\n
+  [32m                  "groupId":"1358",[39m\n
+  [32m                  "groupName":"GLS",[39m\n
+  [32m                  "groupAlias":"gls",[39m\n
+  [32m                  "name":"GLS (X166)",[39m\n
+  [32m                  "nameSelector":"GLS (X166)",[39m\n
+  [32m                  "yearOfConstrFrom":"11.2015",[39m\n
+  [32m                  "yearOfConstrTo":"04.2019",[39m\n
+  [32m                  "modelAlias":"gls-x166",[39m\n
+  [32m                  "modelId":"14799",[39m\n
+  [32m                  "ratingSale":"348",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "39512":{[39m\n
+  [32m                  "groupId":"1358",[39m\n
+  [32m                  "groupName":"GLS",[39m\n
+  [32m                  "groupAlias":"gls",[39m\n
+  [32m                  "name":"GLS (X167)",[39m\n
+  [32m                  "nameSelector":"GLS (X167)",[39m\n
+  [32m                  "yearOfConstrFrom":"04.2019",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"gls-x167",[39m\n
+  [32m                  "modelId":"39512",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"11.2015"[39m\n
+  [32m         },[39m\n
+  [32m         "1359":{[39m\n
+  [32m            "groupId":"1359",[39m\n
+  [32m            "groupName":"SLC",[39m\n
+  [32m            "groupAlias":"slc",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"SLC",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "14966":{[39m\n
+  [32m                  "groupId":"1359",[39m\n
+  [32m                  "groupName":"SLC",[39m\n
+  [32m                  "groupAlias":"slc",[39m\n
+  [32m                  "name":"SLC (R172)",[39m\n
+  [32m                  "nameSelector":"SLC (R172)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2016",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"slc-r172",[39m\n
+  [32m                  "modelId":"14966",[39m\n
+  [32m                  "ratingSale":"516",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.2016"[39m\n
+  [32m         },[39m\n
+  [32m         "1598":{[39m\n
+  [32m            "groupId":"1598",[39m\n
+  [32m            "groupName":"X-Class",[39m\n
+  [32m            "groupAlias":"x-class",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"X-Class",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "38214":{[39m\n
+  [32m                  "groupId":"1598",[39m\n
+  [32m                  "groupName":"X-Class",[39m\n
+  [32m                  "groupAlias":"x-class",[39m\n
+  [32m                  "name":"X-Class (470)",[39m\n
+  [32m                  "nameSelector":"X-Class (470)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2017",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"x-class-470",[39m\n
+  [32m                  "modelId":"38214",[39m\n
+  [32m                  "ratingSale":"38",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38381":{[39m\n
+  [32m                  "groupId":"1598",[39m\n
+  [32m                  "groupName":"X-Class",[39m\n
+  [32m                  "groupAlias":"x-class",[39m\n
+  [32m                  "name":"X-Class Platform%%%/Chassis (470)",[39m\n
+  [32m                  "nameSelector":"X-Class Platform%%%/Chassis (470)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2017",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"x-class-platform-chassis-470",[39m\n
+  [32m                  "modelId":"38381",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"09.2017"[39m\n
+  [32m         },[39m\n
+  [32m         "2053":{[39m\n
+  [32m            "groupId":"2053",[39m\n
+  [32m            "groupName":"EQC",[39m\n
+  [32m            "groupAlias":"eqc",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"EQC",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "39522":{[39m\n
+  [32m                  "groupId":"2053",[39m\n
+  [32m                  "groupName":"EQC",[39m\n
+  [32m                  "groupAlias":"eqc",[39m\n
+  [32m                  "name":"EQC (N293)",[39m\n
+  [32m                  "nameSelector":"EQC (N293)",[39m\n
+  [32m                  "yearOfConstrFrom":"05.2019",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"eqc-n293",[39m\n
+  [32m                  "modelId":"39522",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"05.2019"[39m\n
+  [32m         },[39m\n
+  [32m         "2170":{[39m\n
+  [32m            "groupId":"2170",[39m\n
+  [32m            "groupName":"GLB",[39m\n
+  [32m            "groupAlias":"glb",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"GLB",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "39859":{[39m\n
+  [32m                  "groupId":"2170",[39m\n
+  [32m                  "groupName":"GLB",[39m\n
+  [32m                  "groupAlias":"glb",[39m\n
+  [32m                  "name":"GLB (X247)",[39m\n
+  [32m                  "nameSelector":"GLB (X247)",[39m\n
+  [32m                  "yearOfConstrFrom":"08.2019",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"glb-class-x247",[39m\n
+  [32m                  "modelId":"39859",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"08.2019"[39m\n
+  [32m         },[39m\n
+  [32m         "2171":{[39m\n
+  [32m            "groupId":"2171",[39m\n
+  [32m            "groupName":"MARCO POLO",[39m\n
+  [32m            "groupAlias":"marco-polo",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"MARCO POLO",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "40214":{[39m\n
+  [32m                  "groupId":"2171",[39m\n
+  [32m                  "groupName":"MARCO POLO",[39m\n
+  [32m                  "groupAlias":"marco-polo",[39m\n
+  [32m                  "name":"Marco Polo Camper (W447)",[39m\n
+  [32m                  "nameSelector":"Marco Polo Camper (W447)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2015",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"marco-polo-camper-w447",[39m\n
+  [32m                  "modelId":"40214",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"03.2015"[39m\n
+  [32m         },[39m\n
+  [32m         "2231":{[39m\n
+  [32m            "groupId":"2231",[39m\n
+  [32m            "groupName":"EQA",[39m\n
+  [32m            "groupAlias":"eqa",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"EQA",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "41810":{[39m\n
+  [32m                  "groupId":"2231",[39m\n
+  [32m                  "groupName":"EQA",[39m\n
+  [32m                  "groupAlias":"eqa",[39m\n
+  [32m                  "name":"EQA (H243)",[39m\n
+  [32m                  "nameSelector":"EQA (H243)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2021",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"eqa-h243",[39m\n
+  [32m                  "modelId":"41810",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"02.2021"[39m\n
+  [32m         },[39m\n
+  [32m         "2232":{[39m\n
+  [32m            "groupId":"2232",[39m\n
+  [32m            "groupName":"EQS",[39m\n
+  [32m            "groupAlias":"eqs",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"EQS",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "42210":{[39m\n
+  [32m                  "groupId":"2232",[39m\n
+  [32m                  "groupName":"EQS",[39m\n
+  [32m                  "groupAlias":"eqs",[39m\n
+  [32m                  "name":"EQS (V297)",[39m\n
+  [32m                  "nameSelector":"EQS (V297)",[39m\n
+  [32m                  "yearOfConstrFrom":"08.2021",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"eqs-v297",[39m\n
+  [32m                  "modelId":"42210",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"08.2021"[39m\n
+  [32m         },[39m\n
+  [32m         "2368":{[39m\n
+  [32m            "groupId":"2368",[39m\n
+  [32m            "groupName":"CITARO",[39m\n
+  [32m            "groupAlias":"citaro",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"CITARO",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "3432":{[39m\n
+  [32m                  "groupId":"2368",[39m\n
+  [32m                  "groupName":"CITARO",[39m\n
+  [32m                  "groupAlias":"citaro",[39m\n
+  [32m                  "name":"Citaro (O 530)",[39m\n
+  [32m                  "nameSelector":"Citaro (O 530)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1998",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"citaro-o-530-1998",[39m\n
+  [32m                  "modelId":"3432",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1998"[39m\n
+  [32m         },[39m\n
+  [32m         "2369":{[39m\n
+  [32m            "groupId":"2369",[39m\n
+  [32m            "groupName":"EQB",[39m\n
+  [32m            "groupAlias":"eqb",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"EQB",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "42441":{[39m\n
+  [32m                  "groupId":"2369",[39m\n
+  [32m                  "groupName":"EQB",[39m\n
+  [32m                  "groupAlias":"eqb",[39m\n
+  [32m                  "name":"EQB (X243)",[39m\n
+  [32m                  "nameSelector":"EQB (X243)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2021",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"eqb-x243",[39m\n
+  [32m                  "modelId":"42441",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"09.2021"[39m\n
+  [32m         },[39m\n
+  [32m         "2370":{[39m\n
+  [32m            "groupId":"2370",[39m\n
+  [32m            "groupName":"EQE",[39m\n
+  [32m            "groupAlias":"eqe",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"EQE",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "42442":{[39m\n
+  [32m                  "groupId":"2370",[39m\n
+  [32m                  "groupName":"EQE",[39m\n
+  [32m                  "groupAlias":"eqe",[39m\n
+  [32m                  "name":"EQE (V295)",[39m\n
+  [32m                  "nameSelector":"EQE (V295)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2022",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"eqe-v295",[39m\n
+  [32m                  "modelId":"42442",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"02.2022"[39m\n
+  [32m         },[39m\n
+  [32m         "2371":{[39m\n
+  [32m            "groupId":"2371",[39m\n
+  [32m            "groupName":"EQV",[39m\n
+  [32m            "groupAlias":"eqv",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"EQV",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "42007":{[39m\n
+  [32m                  "groupId":"2371",[39m\n
+  [32m                  "groupName":"EQV",[39m\n
+  [32m                  "groupAlias":"eqv",[39m\n
+  [32m                  "name":"EQV (W447)",[39m\n
+  [32m                  "nameSelector":"EQV (W447)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2020",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"eqv-w447",[39m\n
+  [32m                  "modelId":"42007",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"06.2020"[39m\n
+  [32m         },[39m\n
+  [32m         "2372":{[39m\n
+  [32m            "groupId":"2372",[39m\n
+  [32m            "groupName":"INTOURO",[39m\n
+  [32m            "groupAlias":"intouro",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"INTOURO",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "9609":{[39m\n
+  [32m                  "groupId":"2372",[39m\n
+  [32m                  "groupName":"INTOURO",[39m\n
+  [32m                  "groupAlias":"intouro",[39m\n
+  [32m                  "name":"Intouro (O 560)",[39m\n
+  [32m                  "nameSelector":"Intouro (O 560)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2005",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"intouro-2005",[39m\n
+  [32m                  "modelId":"9609",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.2005"[39m\n
+  [32m         },[39m\n
+  [32m         "2373":{[39m\n
+  [32m            "groupId":"2373",[39m\n
+  [32m            "groupName":"MB",[39m\n
+  [32m            "groupAlias":"mb",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"MB",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "42121":{[39m\n
+  [32m                  "groupId":"2373",[39m\n
+  [32m                  "groupName":"MB",[39m\n
+  [32m                  "groupAlias":"mb",[39m\n
+  [32m                  "name":"MB 100 Minibus",[39m\n
+  [32m                  "nameSelector":"MB 100 Minibus",[39m\n
+  [32m                  "yearOfConstrFrom":"11.1999",[39m\n
+  [32m                  "yearOfConstrTo":"05.2005",[39m\n
+  [32m                  "modelAlias":"mb-bus-w661",[39m\n
+  [32m                  "modelId":"42121",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"11.1999"[39m\n
+  [32m         },[39m\n
+  [32m         "1347":{[39m\n
+  [32m            "groupId":"1347",[39m\n
+  [32m            "groupName":"PONTON",[39m\n
+  [32m            "groupAlias":"ponton",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"PONTON",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "561":{[39m\n
+  [32m                  "groupId":"1347",[39m\n
+  [32m                  "groupName":"PONTON",[39m\n
+  [32m                  "groupAlias":"ponton",[39m\n
+  [32m                  "name":"Ponton (W120)",[39m\n
+  [32m                  "nameSelector":"Ponton (W120)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1953",[39m\n
+  [32m                  "yearOfConstrTo":"12.1962",[39m\n
+  [32m                  "modelAlias":"ponton-w120",[39m\n
+  [32m                  "modelId":"561",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "3580":{[39m\n
+  [32m                  "groupId":"1347",[39m\n
+  [32m                  "groupName":"PONTON",[39m\n
+  [32m                  "groupAlias":"ponton",[39m\n
+  [32m                  "name":"Ponton (W180)",[39m\n
+  [32m                  "nameSelector":"Ponton (W180)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1954",[39m\n
+  [32m                  "yearOfConstrTo":"12.1959",[39m\n
+  [32m                  "modelAlias":"ponton-w180",[39m\n
+  [32m                  "modelId":"3580",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "13106":{[39m\n
+  [32m                  "groupId":"1347",[39m\n
+  [32m                  "groupName":"PONTON",[39m\n
+  [32m                  "groupAlias":"ponton",[39m\n
+  [32m                  "name":"Ponton (W105)",[39m\n
+  [32m                  "nameSelector":"Ponton (W105)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.1956",[39m\n
+  [32m                  "yearOfConstrTo":"07.1959",[39m\n
+  [32m                  "modelAlias":"ponton-w105",[39m\n
+  [32m                  "modelId":"13106",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "3579":{[39m\n
+  [32m                  "groupId":"1347",[39m\n
+  [32m                  "groupName":"PONTON",[39m\n
+  [32m                  "groupAlias":"ponton",[39m\n
+  [32m                  "name":"Ponton (W128)",[39m\n
+  [32m                  "nameSelector":"Ponton (W128)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1958",[39m\n
+  [32m                  "yearOfConstrTo":"08.1959",[39m\n
+  [32m                  "modelAlias":"ponton-w128",[39m\n
+  [32m                  "modelId":"3579",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "3578":{[39m\n
+  [32m                  "groupId":"1347",[39m\n
+  [32m                  "groupName":"PONTON",[39m\n
+  [32m                  "groupAlias":"ponton",[39m\n
+  [32m                  "name":"Ponton (W121)",[39m\n
+  [32m                  "nameSelector":"Ponton (W121)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1959",[39m\n
+  [32m                  "yearOfConstrTo":"12.1961",[39m\n
+  [32m                  "modelAlias":"ponton-w121",[39m\n
+  [32m                  "modelId":"3578",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1953"[39m\n
+  [32m         },[39m\n
+  [32m         "1070":{[39m\n
+  [32m            "groupId":"1070",[39m\n
+  [32m            "groupName":"CLC",[39m\n
+  [32m            "groupAlias":"clc-klasse",[39m\n
+  [32m            "sort":23,[39m\n
+  [32m            "groupNameSelector":"CLC",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "7365":{[39m\n
+  [32m                  "groupId":"1070",[39m\n
+  [32m                  "groupName":"CLC",[39m\n
+  [32m                  "groupAlias":"clc-klasse",[39m\n
+  [32m                  "name":"CLC (CL203)",[39m\n
+  [32m                  "nameSelector":"CLC (CL203)",[39m\n
+  [32m                  "yearOfConstrFrom":"05.2008",[39m\n
+  [32m                  "yearOfConstrTo":"06.2011",[39m\n
+  [32m                  "modelAlias":"clc-class-cl203",[39m\n
+  [32m                  "modelId":"7365",[39m\n
+  [32m                  "ratingSale":"16770",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"05.2008"[39m\n
+  [32m         },[39m\n
+  [32m         "1071":{[39m\n
+  [32m            "groupId":"1071",[39m\n
+  [32m            "groupName":"GLK",[39m\n
+  [32m            "groupAlias":"glk",[39m\n
+  [32m            "sort":18,[39m\n
+  [32m            "groupNameSelector":"GLK",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "7580":{[39m\n
+  [32m                  "groupId":"1071",[39m\n
+  [32m                  "groupName":"GLK",[39m\n
+  [32m                  "groupAlias":"glk",[39m\n
+  [32m                  "name":"GLK (X204)",[39m\n
+  [32m                  "nameSelector":"GLK (X204)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2008",[39m\n
+  [32m                  "yearOfConstrTo":"12.2015",[39m\n
+  [32m                  "modelAlias":"glk-class-x204",[39m\n
+  [32m                  "modelId":"7580",[39m\n
+  [32m                  "ratingSale":"69794",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"06.2008"[39m\n
+  [32m         },[39m\n
+  [32m         "1072":{[39m\n
+  [32m            "groupId":"1072",[39m\n
+  [32m            "groupName":"SLS AMG",[39m\n
+  [32m            "groupAlias":"sls-amg",[39m\n
+  [32m            "sort":9,[39m\n
+  [32m            "groupNameSelector":"SLS AMG",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "8533":{[39m\n
+  [32m                  "groupId":"1072",[39m\n
+  [32m                  "groupName":"SLS AMG",[39m\n
+  [32m                  "groupAlias":"sls-amg",[39m\n
+  [32m                  "name":"SLS AMG Coupe (C197)",[39m\n
+  [32m                  "nameSelector":"SLS AMG Coupe (C197)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2010",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sls-amg-c197",[39m\n
+  [32m                  "modelId":"8533",[39m\n
+  [32m                  "ratingSale":"938",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "9654":{[39m\n
+  [32m                  "groupId":"1072",[39m\n
+  [32m                  "groupName":"SLS AMG",[39m\n
+  [32m                  "groupAlias":"sls-amg",[39m\n
+  [32m                  "name":"SLS AMG Roadster (R197)",[39m\n
+  [32m                  "nameSelector":"SLS AMG Roadster (R197)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2011",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"sls-amg-convertible-a197",[39m\n
+  [32m                  "modelId":"9654",[39m\n
+  [32m                  "ratingSale":"246",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"03.2010"[39m\n
+  [32m         },[39m\n
+  [32m         "1073":{[39m\n
+  [32m            "groupId":"1073",[39m\n
+  [32m            "groupName":"CITAN",[39m\n
+  [32m            "groupAlias":"citan",[39m\n
+  [32m            "sort":26,[39m\n
+  [32m            "groupNameSelector":"CITAN",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "10803":{[39m\n
+  [32m                  "groupId":"1073",[39m\n
+  [32m                  "groupName":"CITAN",[39m\n
+  [32m                  "groupAlias":"citan",[39m\n
+  [32m                  "name":"Citan Dualiner (W415)",[39m\n
+  [32m                  "nameSelector":"Citan Dualiner (W415)",[39m\n
+  [32m                  "yearOfConstrFrom":"11.2012",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"citan-mixto-415",[39m\n
+  [32m                  "modelId":"10803",[39m\n
+  [32m                  "ratingSale":"2200",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "10861":{[39m\n
+  [32m                  "groupId":"1073",[39m\n
+  [32m                  "groupName":"CITAN",[39m\n
+  [32m                  "groupAlias":"citan",[39m\n
+  [32m                  "name":"Citan Panel Van (W415)",[39m\n
+  [32m                  "nameSelector":"Citan Panel Van (W415)",[39m\n
+  [32m                  "yearOfConstrFrom":"11.2012",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"citan-box-415",[39m\n
+  [32m                  "modelId":"10861",[39m\n
+  [32m                  "ratingSale":"7980",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":3[39m\n
+  [32m               },[39m\n
+  [32m               "10862":{[39m\n
+  [32m                  "groupId":"1073",[39m\n
+  [32m                  "groupName":"CITAN",[39m\n
+  [32m                  "groupAlias":"citan",[39m\n
+  [32m                  "name":"Citan Traveliner %%%/ Estate (415)",[39m\n
+  [32m                  "nameSelector":"Citan Traveliner %%%/ Estate (415)",[39m\n
+  [32m                  "yearOfConstrFrom":"11.2012",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"citan-kombi-415",[39m\n
+  [32m                  "modelId":"10862",[39m\n
+  [32m                  "ratingSale":"3540",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "42391":{[39m\n
+  [32m                  "groupId":"1073",[39m\n
+  [32m                  "groupName":"CITAN",[39m\n
+  [32m                  "groupAlias":"citan",[39m\n
+  [32m                  "name":"Citan II Van (420)",[39m\n
+  [32m                  "nameSelector":"Citan II Van (420)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2021",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"citan-box-body-mpv-w420",[39m\n
+  [32m                  "modelId":"42391",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "42392":{[39m\n
+  [32m                  "groupId":"1073",[39m\n
+  [32m                  "groupName":"CITAN",[39m\n
+  [32m                  "groupAlias":"citan",[39m\n
+  [32m                  "name":"Citan II Tourer (W420)",[39m\n
+  [32m                  "nameSelector":"Citan II Tourer (W420)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.2021",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"citan-tourer-w420",[39m\n
+  [32m                  "modelId":"42392",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"11.2012"[39m\n
+  [32m         },[39m\n
+  [32m         "1074":{[39m\n
+  [32m            "groupId":"1074",[39m\n
+  [32m            "groupName":"CLA",[39m\n
+  [32m            "groupAlias":"cla",[39m\n
+  [32m            "sort":24,[39m\n
+  [32m            "groupNameSelector":"CLA",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "11050":{[39m\n
+  [32m                  "groupId":"1074",[39m\n
+  [32m                  "groupName":"CLA",[39m\n
+  [32m                  "groupAlias":"cla",[39m\n
+  [32m                  "name":"CLA Coupe (C117)",[39m\n
+  [32m                  "nameSelector":"CLA Coupe (C117)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2013",[39m\n
+  [32m                  "yearOfConstrTo":"03.2019",[39m\n
+  [32m                  "modelAlias":"cla-coupe-c117",[39m\n
+  [32m                  "modelId":"11050",[39m\n
+  [32m                  "ratingSale":"35638",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":2[39m\n
+  [32m               },[39m\n
+  [32m               "13518":{[39m\n
+  [32m                  "groupId":"1074",[39m\n
+  [32m                  "groupName":"CLA",[39m\n
+  [32m                  "groupAlias":"cla",[39m\n
+  [32m                  "name":"CLA Estate (X117)",[39m\n
+  [32m                  "nameSelector":"CLA Estate (X117)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.2015",[39m\n
+  [32m                  "yearOfConstrTo":"03.2019",[39m\n
+  [32m                  "modelAlias":"cla-shooting-brake-x117",[39m\n
+  [32m                  "modelId":"13518",[39m\n
+  [32m                  "ratingSale":"13003",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "39446":{[39m\n
+  [32m                  "groupId":"1074",[39m\n
+  [32m                  "groupName":"CLA",[39m\n
+  [32m                  "groupAlias":"cla",[39m\n
+  [32m                  "name":"CLA Coupe (C118)",[39m\n
+  [32m                  "nameSelector":"CLA Coupe (C118)",[39m\n
+  [32m                  "yearOfConstrFrom":"03.2019",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"cla-c118",[39m\n
+  [32m                  "modelId":"39446",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "39629":{[39m\n
+  [32m                  "groupId":"1074",[39m\n
+  [32m                  "groupName":"CLA",[39m\n
+  [32m                  "groupAlias":"cla",[39m\n
+  [32m                  "name":"CLA Shooting Brake (X118)",[39m\n
+  [32m                  "nameSelector":"CLA Shooting Brake (X118)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.2019",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"cla-shooting-brake-x118",[39m\n
+  [32m                  "modelId":"39629",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.2013"[39m\n
+  [32m         },[39m\n
+  [32m         "1344":{[39m\n
+  [32m            "groupId":"1344",[39m\n
+  [32m            "groupName":"HECKFLOSSE",[39m\n
+  [32m            "groupAlias":"heckflosse",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"HECKFLOSSE",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "529":{[39m\n
+  [32m                  "groupId":"1344",[39m\n
+  [32m                  "groupName":"HECKFLOSSE",[39m\n
+  [32m                  "groupAlias":"heckflosse",[39m\n
+  [32m                  "name":"Heckflosse (W110)",[39m\n
+  [32m                  "nameSelector":"Heckflosse (W110)",[39m\n
+  [32m                  "yearOfConstrFrom":"08.1959",[39m\n
+  [32m                  "yearOfConstrTo":"02.1968",[39m\n
+  [32m                  "modelAlias":"heckflosse-w110",[39m\n
+  [32m                  "modelId":"529",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "3577":{[39m\n
+  [32m                  "groupId":"1344",[39m\n
+  [32m                  "groupName":"HECKFLOSSE",[39m\n
+  [32m                  "groupAlias":"heckflosse",[39m\n
+  [32m                  "name":"Heckflosse (W111, W112)",[39m\n
+  [32m                  "nameSelector":"Heckflosse (W111, W112)",[39m\n
+  [32m                  "yearOfConstrFrom":"08.1959",[39m\n
+  [32m                  "yearOfConstrTo":"01.1968",[39m\n
+  [32m                  "modelAlias":"heckflosse-w111-w112",[39m\n
+  [32m                  "modelId":"3577",[39m\n
+  [32m                  "ratingSale":"2975",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"08.1959"[39m\n
+  [32m         },[39m\n
+  [32m         "1345":{[39m\n
+  [32m            "groupId":"1345",[39m\n
+  [32m            "groupName":"PAGODE",[39m\n
+  [32m            "groupAlias":"pagode",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"PAGODE",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "538":{[39m\n
+  [32m                  "groupId":"1345",[39m\n
+  [32m                  "groupName":"PAGODE",[39m\n
+  [32m                  "groupAlias":"pagode",[39m\n
+  [32m                  "name":"Pagode Convertible (W113)",[39m\n
+  [32m                  "nameSelector":"Pagode Convertible (W113)",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1963",[39m\n
+  [32m                  "yearOfConstrTo":"12.1971",[39m\n
+  [32m                  "modelAlias":"pagode-w113",[39m\n
+  [32m                  "modelId":"538",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1963"[39m\n
+  [32m         },[39m\n
+  [32m         "1346":{[39m\n
+  [32m            "groupId":"1346",[39m\n
+  [32m            "groupName":"%%%/8",[39m\n
+  [32m            "groupAlias":"8",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"%%%/8",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "548":{[39m\n
+  [32m                  "groupId":"1346",[39m\n
+  [32m                  "groupName":"%%%/8",[39m\n
+  [32m                  "groupAlias":"8",[39m\n
+  [32m                  "name":"%%%/8 (W114) Saloon",[39m\n
+  [32m                  "nameSelector":"%%%/8 (W114) Saloon",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1968",[39m\n
+  [32m                  "yearOfConstrTo":"11.1976",[39m\n
+  [32m                  "modelAlias":"8-w114",[39m\n
+  [32m                  "modelId":"548",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "552":{[39m\n
+  [32m                  "groupId":"1346",[39m\n
+  [32m                  "groupName":"%%%/8",[39m\n
+  [32m                  "groupAlias":"8",[39m\n
+  [32m                  "name":"%%%/8 (W115) Saloon",[39m\n
+  [32m                  "nameSelector":"%%%/8 (W115) Saloon",[39m\n
+  [32m                  "yearOfConstrFrom":"01.1968",[39m\n
+  [32m                  "yearOfConstrTo":"01.1977",[39m\n
+  [32m                  "modelAlias":"8-w115",[39m\n
+  [32m                  "modelId":"552",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "543":{[39m\n
+  [32m                  "groupId":"1346",[39m\n
+  [32m                  "groupName":"%%%/8",[39m\n
+  [32m                  "groupAlias":"8",[39m\n
+  [32m                  "name":"%%%/8 (W114) Coupe",[39m\n
+  [32m                  "nameSelector":"%%%/8 (W114) Coupe",[39m\n
+  [32m                  "yearOfConstrFrom":"04.1969",[39m\n
+  [32m                  "yearOfConstrTo":"02.1977",[39m\n
+  [32m                  "modelAlias":"8-coupe-w114",[39m\n
+  [32m                  "modelId":"543",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"01.1968"[39m\n
+  [32m         },[39m\n
+  [32m         "1355":{[39m\n
+  [32m            "groupId":"1355",[39m\n
+  [32m            "groupName":"AMG GT",[39m\n
+  [32m            "groupAlias":"amg-gt",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"AMG GT",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "13198":{[39m\n
+  [32m                  "groupId":"1355",[39m\n
+  [32m                  "groupName":"AMG GT",[39m\n
+  [32m                  "groupAlias":"amg-gt",[39m\n
+  [32m                  "name":"AMG GT (C190)",[39m\n
+  [32m                  "nameSelector":"AMG GT (C190)",[39m\n
+  [32m                  "yearOfConstrFrom":"10.2014",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"amg-gt-gt-s-c190",[39m\n
+  [32m                  "modelId":"13198",[39m\n
+  [32m                  "ratingSale":"748",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "37244":{[39m\n
+  [32m                  "groupId":"1355",[39m\n
+  [32m                  "groupName":"AMG GT",[39m\n
+  [32m                  "groupAlias":"amg-gt",[39m\n
+  [32m                  "name":"AMG GT Roadster (R190)",[39m\n
+  [32m                  "nameSelector":"AMG GT Roadster (R190)",[39m\n
+  [32m                  "yearOfConstrFrom":"11.2016",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"amg-gt-roadster-r190",[39m\n
+  [32m                  "modelId":"37244",[39m\n
+  [32m                  "ratingSale":"49",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               },[39m\n
+  [32m               "38838":{[39m\n
+  [32m                  "groupId":"1355",[39m\n
+  [32m                  "groupName":"AMG GT",[39m\n
+  [32m                  "groupAlias":"amg-gt",[39m\n
+  [32m                  "name":"AMG GT (X290)",[39m\n
+  [32m                  "nameSelector":"AMG GT (X290)",[39m\n
+  [32m                  "yearOfConstrFrom":"07.2018",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"amg-gt-x290",[39m\n
+  [32m                  "modelId":"38838",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"10.2014"[39m\n
+  [32m         },[39m\n
+  [32m         "1348":{[39m\n
+  [32m            "groupId":"1348",[39m\n
+  [32m            "groupName":"170",[39m\n
+  [32m            "groupAlias":"170",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"170",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "1746":{[39m\n
+  [32m                  "groupId":"1348",[39m\n
+  [32m                  "groupName":"170",[39m\n
+  [32m                  "groupAlias":"170",[39m\n
+  [32m                  "name":"170 (W170)",[39m\n
+  [32m                  "nameSelector":"170 (W170)",[39m\n
+  [32m                  "yearOfConstrFrom":"06.1946",[39m\n
+  [32m                  "yearOfConstrTo":"02.1958",[39m\n
+  [32m                  "modelAlias":"170-w170",[39m\n
+  [32m                  "modelId":"1746",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"06.1946"[39m\n
+  [32m         },[39m\n
+  [32m         "1349":{[39m\n
+  [32m            "groupId":"1349",[39m\n
+  [32m            "groupName":"HENSCHEL",[39m\n
+  [32m            "groupAlias":"henschel",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"HENSCHEL",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "2012":{[39m\n
+  [32m                  "groupId":"1349",[39m\n
+  [32m                  "groupName":"HENSCHEL",[39m\n
+  [32m                  "groupAlias":"henschel",[39m\n
+  [32m                  "name":"Henschel 2-t",[39m\n
+  [32m                  "nameSelector":"Henschel 2-t",[39m\n
+  [32m                  "yearOfConstrFrom":"02.1973",[39m\n
+  [32m                  "yearOfConstrTo":"12.1977",[39m\n
+  [32m                  "modelAlias":"henschel-2-t",[39m\n
+  [32m                  "modelId":"2012",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"02.1973"[39m\n
+  [32m         },[39m\n
+  [32m         "1350":{[39m\n
+  [32m            "groupId":"1350",[39m\n
+  [32m            "groupName":"GULLWING",[39m\n
+  [32m            "groupAlias":"gullwing",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"GULLWING",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "3497":{[39m\n
+  [32m                  "groupId":"1350",[39m\n
+  [32m                  "groupName":"GULLWING",[39m\n
+  [32m                  "groupAlias":"gullwing",[39m\n
+  [32m                  "name":"300 SL Gullwing Coupe (W198)",[39m\n
+  [32m                  "nameSelector":"300 SL Gullwing Coupe (W198)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1954",[39m\n
+  [32m                  "yearOfConstrTo":"05.1957",[39m\n
+  [32m                  "modelAlias":"gullwing-w198",[39m\n
+  [32m                  "modelId":"3497",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"09.1954"[39m\n
+  [32m         },[39m\n
+  [32m         "1351":{[39m\n
+  [32m            "groupId":"1351",[39m\n
+  [32m            "groupName":"PULLMANN",[39m\n
+  [32m            "groupAlias":"pullmann",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"PULLMANN",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "4061":{[39m\n
+  [32m                  "groupId":"1351",[39m\n
+  [32m                  "groupName":"PULLMANN",[39m\n
+  [32m                  "groupAlias":"pullmann",[39m\n
+  [32m                  "name":"Pullmann (W100)",[39m\n
+  [32m                  "nameSelector":"Pullmann (W100)",[39m\n
+  [32m                  "yearOfConstrFrom":"09.1963",[39m\n
+  [32m                  "yearOfConstrTo":"01.1979",[39m\n
+  [32m                  "modelAlias":"pullmann-w100",[39m\n
+  [32m                  "modelId":"4061",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"09.1963"[39m\n
+  [32m         },[39m\n
+  [32m         "1353":{[39m\n
+  [32m            "groupId":"1353",[39m\n
+  [32m            "groupName":"GLA",[39m\n
+  [32m            "groupAlias":"gla",[39m\n
+  [32m            "sort":0,[39m\n
+  [32m            "groupNameSelector":"GLA",[39m\n
+  [32m            "items":{[39m\n
+  [32m               "11743":{[39m\n
+  [32m                  "groupId":"1353",[39m\n
+  [32m                  "groupName":"GLA",[39m\n
+  [32m                  "groupAlias":"gla",[39m\n
+  [32m                  "name":"GLA (X156)",[39m\n
+  [32m                  "nameSelector":"GLA (X156)",[39m\n
+  [32m                  "yearOfConstrFrom":"12.2013",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"gla-class-x156",[39m\n
+  [32m                  "modelId":"11743",[39m\n
+  [32m                  "ratingSale":"9114",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":0[39m\n
+  [32m               },[39m\n
+  [32m               "40514":{[39m\n
+  [32m                  "groupId":"1353",[39m\n
+  [32m                  "groupName":"GLA",[39m\n
+  [32m                  "groupAlias":"gla",[39m\n
+  [32m                  "name":"GLA (H247)",[39m\n
+  [32m                  "nameSelector":"GLA (H247)",[39m\n
+  [32m                  "yearOfConstrFrom":"02.2020",[39m\n
+  [32m                  "yearOfConstrTo":"...",[39m\n
+  [32m                  "modelAlias":"gla-h247",[39m\n
+  [32m                  "modelId":"40514",[39m\n
+  [32m                  "ratingSale":"0",[39m\n
+  [32m                  "top":0,[39m\n
+  [32m                  "sort":1[39m\n
+  [32m               }[39m\n
+  [32m            },[39m\n
+  [32m            "yearOfConstrFrom":"12.2013"[39m\n
+  [32m         }[39m\n
+  [32m      },[39m\n
+  [32m}[39m
+  """
+

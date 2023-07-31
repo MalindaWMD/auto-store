@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Modifiers\CustomShippingModifier;
 use Illuminate\Support\ServiceProvider;
+use Livewire\ObjectPrybar;
 use Lunar\Facades\ModelManifest;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,5 +31,23 @@ class AppServiceProvider extends ServiceProvider
         ]);
     
         ModelManifest::register($models);
+
+        if ($this->app['livewire']->isLivewireRequest()) {
+            $this->bypassMiddleware([
+                TrimStrings::class,
+                ConvertEmptyStringsToNull::class,
+            ]);
+        }
+    }
+
+    protected function bypassMiddleware(array $middlewareToExclude)
+    {
+        $kernel = $this->app->make(\Illuminate\Contracts\Http\Kernel::class);
+        
+        $openKernel = new ObjectPrybar($kernel);
+        
+        $middleware = $openKernel->getProperty('middleware');
+        
+        $openKernel->setProperty('middleware', array_diff($middleware, $middlewareToExclude));
     }
 }
