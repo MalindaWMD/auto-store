@@ -31,7 +31,7 @@ class ProductResource extends JsonResource
 
         $data = [
             'id' => $product->id,
-            'brand' => $product->brand->name,
+            'brand' => $this->getBrand(),
             'slug' => $product->slug,
             'prices' => $this->getSimplePrices(),
             'images' => $simple ? $this->getImageData($media->first()) : $media,
@@ -82,5 +82,13 @@ class ProductResource extends JsonResource
         }
 
         return $associations;
+    }
+
+    public function getBrand()
+    {
+        return [
+            'name' => $this->brand->name,
+            'image' => $this->brand->getMedia('images')->first()?->original_url,
+        ];
     }
 }

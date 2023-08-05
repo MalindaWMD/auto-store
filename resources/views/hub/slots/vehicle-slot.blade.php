@@ -1,3 +1,5 @@
+
+
 <div class="overflow-hidden shadow sm:rounded-md">
 	<div class="flex-col px-4 py-5 space-y-4 bg-white sm:p-6">
 		<header>
@@ -8,14 +10,14 @@
 
 		<div class="space-y-4">
 			<div class="w-1/3">
-				<x-hub::input.group :label="'Make'" :required="true" for="vehicle_make">
-					<x-hub::input.select id="vehicle_make" wire:model="makerId">
-						<option value="">Select make</option>
-						@foreach($this->makes as $make)
-						<option value="{{ $make['id'] }}" wire:key="{{ $make['id'] }}">{{ $make['name'] }}</option>
-						@endforeach
-					</x-hub::input.select>
-				</x-hub::input.group>
+					<x-hub::input.group :label="'Make'" :required="true" for="vehicle_make">
+						<x-hub::input.select id="vehicle_make" wire:model="makerId">
+							<option value="">Select make</option>
+							@foreach($this->makes as $make)
+							<option value="{{ $make['id'] }}" wire:key="{{ $make['id'] }}">{{ $make['name'] }}</option>
+							@endforeach
+						</x-hub::input.select>
+					</x-hub::input.group>
 			</div>
 
 			<div class="w-1/3">

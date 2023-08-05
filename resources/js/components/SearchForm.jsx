@@ -8,7 +8,7 @@ export default function SearchForm({ plain=false, size='md', className}) {
 
   return (
     <div className={ classNames(className,  !plain ? 'shadow-md border rounded-md p-6' : '') }>
-      <form action="/shop/search" method="GET">
+      <form action="/shop" method="GET">
 
         <h3 className="mb-3 font-bold">Select your vehicle to search for parts</h3>
 

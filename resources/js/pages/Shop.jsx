@@ -1,20 +1,18 @@
 import { Fragment, useState } from 'react'
-import ProductCard from '../components/product/ProductCard'
-import Layout from '../components/Layout'
-import ProductFilters from '../components/product/ProductFilters'
-import MobileProductFilters from '../components/product/MobileProductFilters'
-import ProductCardLoading from '../components/loaders/ProductCardLoading'
-import { useProductFilters } from '../hooks/productFilters'
-import { useAxios } from '../hooks/axios'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { useCurrentLocation, useCurrentPath, useCurrentRoute, useQuery } from '../hooks/routes'
 import { performProductQuery } from '../actions/ProductActions'
+import Layout from '../components/Layout'
+import ProductCardLoading from '../components/loaders/ProductCardLoading'
+import MobileProductFilters from '../components/product/MobileProductFilters'
+import ProductCard from '../components/product/ProductCard'
+import ProductFilters from '../components/product/ProductFilters'
+import { useProductFilters } from '../hooks/productFilters'
 
 export default function Shop() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const filters = useProductFilters()
   
   const {data:products, isLoading} = performProductQuery()
+  
   return (
     <Layout>
       <div className="bg-white">

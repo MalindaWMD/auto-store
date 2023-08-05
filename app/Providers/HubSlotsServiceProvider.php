@@ -7,6 +7,7 @@ use App\Hub\Components\Slots\VehicleSlot;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Lunar\Hub\Facades\Slot;
+use Lunar\Hub\LunarHub;
 
 class HubSlotsServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,7 @@ class HubSlotsServiceProvider extends ServiceProvider
     {
         $this->registerSeoSlot();
         $this->registerVehicleSlot();
+        $this->registerAssets();
     }
 
     private function registerSeoSlot()
@@ -39,5 +41,10 @@ class HubSlotsServiceProvider extends ServiceProvider
         Livewire::component('hub.components.products.slots.vehicle-slot', VehicleSlot::class);
         Slot::register('product.create', VehicleSlot::class);
         Slot::register('product.show', VehicleSlot::class);
+    }
+
+    private function registerAssets()
+    {
+        LunarHub::script('custom-hub-scripts', __DIR__.'/../../resources/views/hub/js/script.js');
     }
 }

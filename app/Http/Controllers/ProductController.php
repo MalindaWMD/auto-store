@@ -14,11 +14,17 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Product::published()->newQuery();
+        $query = Product::with('brand');
 
         // search
         if($request->q){
-            $query->search($request->q);
+            $query = Product::search($request->q);
+        }
+
+        if($request->collection){
+            $query->whereHas('collections', function($q) use($request) {
+                $q->where(config('lunar.database.table_prefix').'collections.id', $request->collection);
+            });
         }
 
         // type filter
@@ -32,7 +38,7 @@ class ProductController extends Controller
             $query->where('brand_id', $request->brand);
         }
 
-        $prodcuts = $query->get();
+        $prodcuts = $query->where('status', 'published')->get();
 
         return self::success(SimpleProductResource::collection($prodcuts));
     }

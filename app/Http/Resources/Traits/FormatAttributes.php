@@ -67,7 +67,7 @@ trait FormatAttributes
             return null;
         }
 
-        return $value->get($locale);        
+        return $value->get($locale) ?: $value;        
     }
 
     public function getLocale()

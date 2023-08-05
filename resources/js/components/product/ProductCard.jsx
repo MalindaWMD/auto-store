@@ -3,14 +3,14 @@ import ProductPriceCard from './ProductPriceCard'
 import { Link } from 'react-router-dom'
 import RatingBar from '../RatingBar'
 
-const ProductImage = () => {
+const ProductImage = ({image, brand}) => {
   return (
     <div className="flex flex-col justify-start items-center">
       <a href="#">
-        <img className="w-1/3 self-start justify-self-start" src="https://cdn.autodoc.de/brands/thumbs/152.png?m=2&ccf=68956265" alt="" />
+        <img className="w-1/3 self-start justify-self-start" src={brand?.image} alt="" />
       </a>
       <div className="flex justify-center items-center w-full h-full">
-        <img src="https://cdn.autodoc.de/thumb?id=16627508&m=2&n=0&lng=en&ccf=94077840" alt="" />
+        <img src={image?.original_url} alt="" />
       </div>
     </div>
   )
@@ -85,10 +85,13 @@ const StockStatus = () => {
   )
 }
 
-export default function ProductCard({ product }) {  
+export default function ProductCard({ product }) {
+
+  console.log(product)
+
   return (
     <div className="grid grid-cols-4 grid-gap-6 py-5 hover:bg-gray-50 rounded-sm">
-      <ProductImage />
+      <ProductImage image={product.image} brand={product.brand} />
       <ProductDeatils product={product}/>
       <PriceDeatils product={product}/>
     </div>
