@@ -19,6 +19,6 @@ Route::get('/{path?}', function () {
 
 Route::get('/', function () {
     return view('app');
-});
+})->name('app');
 
 Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.reset');

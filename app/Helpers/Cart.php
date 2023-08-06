@@ -3,7 +3,7 @@ use Lunar\Facades\CartSession;
 use Lunar\Models\Cart;
 
 if (! function_exists('cart')) {
-    function cart($userId=null) {
+    function cart() {
         $cart = CartSession::current();
 
         if (!$cart && auth()->check()) {

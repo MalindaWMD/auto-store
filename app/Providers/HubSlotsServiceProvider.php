@@ -9,6 +9,8 @@ use Livewire\Livewire;
 use Lunar\Hub\Facades\Slot;
 use Lunar\Hub\LunarHub;
 
+use Lunar\Hub\Facades\Menu;
+
 class HubSlotsServiceProvider extends ServiceProvider
 {
     /**

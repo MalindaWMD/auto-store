@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
 
         $models = collect([
             \Lunar\Models\Product::class => \App\Models\Product::class,
+            \Lunar\Models\ProductType::class => \App\Models\ProductType::class,
         ]);
     
         ModelManifest::register($models);

@@ -37,23 +37,39 @@ const ItemsList = ({ items }) => {
 }
 
 const Footer = () => {
+  const { cartTotal, emptyCart } = useCart();
+
+  const clearCart = () => {
+    emptyCart()
+  }
+
   return (
-    <Link to={'/checkout'} className="w-full rounded-md text-center bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-5">
-      Checkout
-    </Link>
+    <div className="flex flex-col w-full">
+      
+      <dl>
+      <div className="text-right">
+          <button className="text-sm text-red-600" onClick={clearCart}>Clear cart</button>
+        </div>
+        <div className="flex items-center justify-between py-4">
+          <dt className="text-base font-medium text-gray-900">Total</dt>
+          <dd className="text-base font-medium text-gray-900"><Price value={cartTotal} /></dd>
+        </div>
+      </dl>
+
+      <Link to={'/checkout'} className="w-full rounded-md text-center bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-5">
+        Checkout
+      </Link>
+    </div>
   )
 }
 
 export default function CartSlideOver({ open, setOpen }) {
 
-  const { items, cartTotal } = useCart();
+  const { items } = useCart();
 
   return (
-    <SlideOver open={open} setOpen={setOpen} title={'Your shopping cart'} footer={<Footer/>}>
+    <SlideOver open={open} setOpen={setOpen} title={'Your shopping cart'} footer={<Footer />}>
       <ItemsList items={items} />
-      <h4>
-        <b>Total: <Price value={cartTotal} /></b>
-      </h4>
     </SlideOver>
   )
 }

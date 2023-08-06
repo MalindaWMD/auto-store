@@ -40,7 +40,7 @@ class ProductController extends Controller
 
         $prodcuts = $query->where('status', 'published')->paginate(20);
 
-        return self::success(SimpleProductResource::collection($prodcuts));
+        return self::success(SimpleProductResource::collection($prodcuts), true);
     }
 
     /**

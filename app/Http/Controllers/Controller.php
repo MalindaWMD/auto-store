@@ -10,13 +10,18 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public static function success($data)
+    public static function success($data, $paginated=false)
     {
-        return response()->json([
+        $responseData = [
             'success' => true,
             'data' => $data,
-            'pagination' => self::getPagination($data),
-        ]);
+        ];
+
+        if($paginated){
+            $responseData['pagination'] = self::getPagination($data);
+        }
+
+        return response()->json($responseData);
     }
 
     public static function fail($errors, $status=500, $type='generic')
