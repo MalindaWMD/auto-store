@@ -22,6 +22,8 @@ class VehicleSlot extends Component implements AbstractSlot
     public $models;
     public $engines;
 
+    public $vehicles;
+
     protected $rules = [
         'makerId' => 'required',
         'modelId' => 'required',
@@ -31,11 +33,15 @@ class VehicleSlot extends Component implements AbstractSlot
     // Slot functions
     public function mount()
     { 
-        $this->loadVehicleData();
+        // $this->loadVehicleData();
 
         $this->makes = $this->loadMakers();
         $this->loadModels();
         $this->loadEgines();
+
+        $this->vehicles = [];
+
+        $this->loadRelatedVehicles();
     }
 
     public static function getName()
@@ -65,15 +71,24 @@ class VehicleSlot extends Component implements AbstractSlot
 
     public function updateSlotModel()
     {
-        $this->validate();
+        $this->slotModel->vehicles()->detach();
 
-        $vehicle = Vehicle::firstOrCreate([
-            'maker_id' => $this->makerId,
-            'model_id' => $this->modelId,
-            'engine_id' => $this->engineId,
-        ]);
+        $vehicles = array_keys($this->vehicles);
 
-        $this->slotModel->vehicles()->sync([$vehicle->id]);
+        foreach($vehicles as $vehicle){
+            $detatils = explode(':', $vehicle);
+
+             $vehicle = Vehicle::firstOrCreate([
+                'maker_id' => $detatils[0],
+                'model_id' => $detatils[1],
+                'engine_id' => $detatils[2],
+            ]);
+
+            $this->slotModel->vehicles()->syncWithoutDetaching([$vehicle->id]);
+        }
+
+        $this->slotModel->related_vehicles = implode(',', $vehicles);
+        $this->slotModel->save();
     }
 
     public function handleSlotSave($model, $data)
@@ -84,6 +99,24 @@ class VehicleSlot extends Component implements AbstractSlot
     public function render()
     {
         return view('hub.slots.vehicle-slot');
+    }
+
+    public function addVehicle()
+    {
+        if($this->makerId && $this->modelId && $this->engineId){
+            $this->vehicles[$this->getVehicleCode()] = [
+                $this->makes->find($this->makerId)?->name => $this->makerId,
+                $this->models->find($this->modelId)?->name => $this->modelId,
+                $this->engines->find($this->engineId)?->name => $this->engineId,
+            ];
+        }
+    }
+
+    public function removeVehicle($code)
+    {
+        if(isset($this->vehicles[$code])){
+            unset($this->vehicles[$code]);
+        }
     }
 
     // Getters
@@ -111,7 +144,7 @@ class VehicleSlot extends Component implements AbstractSlot
 
     private function loadMakers()
     {
-        return VehicleMake::active()->get()->toArray();
+        return VehicleMake::active()->get();
     }
 
     private function loadModels()
@@ -132,14 +165,42 @@ class VehicleSlot extends Component implements AbstractSlot
         $this->engines = collect();
     }
 
+    private function loadRelatedVehicles()
+    {
+        $vehicles = $this->slotModel->vehicles;
+
+        if(!$vehicles){
+            return;
+        }
+
+        foreach($vehicles as $vehicle){
+            $code = implode(':', [$vehicle->maker_id, $vehicle->model_id, $vehicle->engine_id]);
+            $this->vehicles[ $code ] = [
+                $vehicle->make->name => $vehicle->maker_id,
+                $vehicle->model->name => $vehicle->model_id,
+                $vehicle->engine->name => $vehicle->engine_id,
+            ];
+        }
+
+        // dd($vehicles->toArray());
+    }
+
     // Events
     public function updatedMakerId($value)
     {
+        $this->models = collect();
+        $this->engines = collect();
+
         $this->loadModels();
     }
 
     public function updatedModelId($value)
     {
         $this->loadEgines();
+    }
+
+    private function getVehicleCode()
+    {
+        return implode(':', [$this->makerId, $this->modelId ,$this->engineId]);
     }
 }
