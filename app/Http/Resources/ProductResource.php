@@ -25,7 +25,7 @@ class ProductResource extends JsonResource
         ]);
     }
 
-    public function getBasicDetails($product, $simple=false)
+    public function getBasicDetails($product, $simple = false)
     {
         $media = $product->getMedia('images');
 
@@ -38,7 +38,7 @@ class ProductResource extends JsonResource
             'ratings' => $this->ratings,
             'additional_data' => $this->getAdditionalAttributes(),
         ];
-        
+
         return array_merge($data, $this->getMandatoryAttributes());
     }
 
@@ -55,7 +55,7 @@ class ProductResource extends JsonResource
     public function getSimplePrices()
     {
         $prices = [];
-        foreach($this->prices as $price){
+        foreach ($this->prices as $price) {
             $prices[] = $this->formatPrice($price);
         }
 
@@ -77,7 +77,7 @@ class ProductResource extends JsonResource
         $dbAssociations = $this->associations()->with('target')->get();
         $associations = [];
 
-        foreach($dbAssociations as $assoc){
+        foreach ($dbAssociations as $assoc) {
             $associations[] = $this->getBasicDetails($assoc->target, true);
         }
 

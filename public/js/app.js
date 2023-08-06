@@ -7623,19 +7623,22 @@ var performProductQuery = function performProductQuery() {
   var type = query.get('type');
   var brand = query.get('brand');
   var collection = query.get('collection');
+  var page = query.get('page');
   if (currentPath == '/shop/search' && searchQuery) {
     return (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_0__.useAxios)('/api/products/search', 'GET', {
       q: search,
       type: type,
       brand: brand,
-      collection: collection
+      collection: collection,
+      page: page
     });
   }
   return (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_0__.useAxios)('/api/products', 'GET', {
     q: search,
     type: type,
     brand: brand,
-    collection: collection
+    collection: collection,
+    page: page
   });
 };
 
@@ -8306,6 +8309,53 @@ function Modal(_ref) {
           })
         })
       })]
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/Pagination.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/Pagination.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Pagination)
+/* harmony export */ });
+/* harmony import */ var _hooks_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../hooks/routes */ "./resources/js/hooks/routes.js");
+/* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/css */ "./resources/js/utils/css.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Pagination(_ref) {
+  var pagination = _ref.pagination;
+  if (!pagination) {
+    return null;
+  }
+  if (pagination.total <= pagination.per_page) {
+    return null;
+  }
+  var totalPages = Math.ceil(pagination.total / pagination.per_page);
+  var query = (0,_hooks_routes__WEBPACK_IMPORTED_MODULE_0__.useQuery)();
+  var links = [];
+  for (var page = 1; page <= totalPages; page++) {
+    query.set('page', page);
+    links.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+      href: '/shop?' + query.toString(),
+      className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_1__.classNames)("inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 cursor-pointer", page == pagination.current_page ? "border-indigo-500 text-indigo-600" : 'border-transparent'),
+      children: page
+    }, page));
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
+    className: "flex items-center justify-center border-t border-gray-200 px-4 sm:px-0",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "hidden md:-mt-px md:flex",
+      children: links
     })
   });
 }
@@ -10630,7 +10680,6 @@ var StockStatus = function StockStatus() {
 };
 function ProductCard(_ref5) {
   var product = _ref5.product;
-  console.log(product);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "grid grid-cols-4 grid-gap-6 py-5 hover:bg-gray-50 rounded-sm",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ProductImage, {
@@ -11269,7 +11318,7 @@ var useAxios = function useAxios(url, method, payload) {
             return axios.request(requestData);
           case 5:
             response = _context.sent;
-            setData(response.data.data);
+            setData(response.data);
             _context.next = 12;
             break;
           case 9:
@@ -11288,10 +11337,11 @@ var useAxios = function useAxios(url, method, payload) {
     }))();
   }, []);
   return {
-    data: data,
+    data: data === null || data === void 0 ? void 0 : data.data,
     error: error,
     isLoading: isLoading,
-    cancel: cancel
+    cancel: cancel,
+    pagination: data === null || data === void 0 ? void 0 : data.pagination
   };
 };
 var useAxiosPromise = function useAxiosPromise(url, method, payload) {
@@ -14461,13 +14511,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_product_ProductCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/product/ProductCard */ "./resources/js/components/product/ProductCard.jsx");
 /* harmony import */ var _components_product_ProductFilters__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/product/ProductFilters */ "./resources/js/components/product/ProductFilters.jsx");
 /* harmony import */ var _hooks_productFilters__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../hooks/productFilters */ "./resources/js/hooks/productFilters.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Pagination__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Pagination */ "./resources/js/components/Pagination.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -14486,39 +14538,45 @@ function Shop() {
   var filters = (0,_hooks_productFilters__WEBPACK_IMPORTED_MODULE_7__.useProductFilters)();
   var _performProductQuery = (0,_actions_ProductActions__WEBPACK_IMPORTED_MODULE_1__.performProductQuery)(),
     products = _performProductQuery.data,
-    isLoading = _performProductQuery.isLoading;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    isLoading = _performProductQuery.isLoading,
+    pagination = _performProductQuery.pagination;
+  console.log('pagination', pagination);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
       className: "bg-white",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_product_MobileProductFilters__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_product_MobileProductFilters__WEBPACK_IMPORTED_MODULE_4__["default"], {
           open: mobileFiltersOpen,
           openAction: setMobileFiltersOpen,
           as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("main", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("main", {
           className: "mx-auto max-w-2xl px-4 lg:max-w-7xl lg:px-8",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "pb-24 pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_product_ProductFilters__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_product_ProductFilters__WEBPACK_IMPORTED_MODULE_6__["default"], {
               filters: filters
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("section", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("section", {
               "aria-labelledby": "product-heading",
               className: "mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
                 id: "product-heading",
                 className: "sr-only",
                 children: "Products"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "grid grid-cols-1 gap-y-4 divide-y divide-gray-200",
                 children: [products && products.map(function (product, index) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_product_ProductCard__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_product_ProductCard__WEBPACK_IMPORTED_MODULE_5__["default"], {
                     product: product
                   }, index);
-                }), isLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_loaders_ProductCardLoading__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                }), isLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_loaders_ProductCardLoading__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   count: 3
-                }) : null, !isLoading && !products ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+                }) : null, !isLoading && !products ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
                   children: "No product found"
-                }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {})]
+                }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Pagination__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                    pagination: pagination
+                  })
+                })]
               })]
             })]
           })

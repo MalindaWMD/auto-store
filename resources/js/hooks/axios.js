@@ -19,15 +19,15 @@ export const useAxios = (url, method, payload) => {
           url,
         }
 
-        if(method == 'GET'){
+        if (method == 'GET') {
           requestData['params'] = payload
-        }else{
+        } else {
           requestData['data'] = payload
         }
 
         const response = await axios.request(requestData);
 
-        setData(response.data.data)
+        setData(response.data)
 
       } catch (error) {
         setError(error.message);
@@ -37,7 +37,13 @@ export const useAxios = (url, method, payload) => {
     })();
   }, []);
 
-  return { data, error, isLoading, cancel };
+  return {
+    data: data?.data,
+    error,
+    isLoading,
+    cancel,
+    pagination: data?.pagination
+  };
 };
 
 export const useAxiosPromise = (url, method, payload) => {

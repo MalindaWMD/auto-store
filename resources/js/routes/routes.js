@@ -23,8 +23,6 @@ const routes = [
     element: <Editor/>,
     index: false,
   },
-
-
   {
     path: '/',
     name: 'home',

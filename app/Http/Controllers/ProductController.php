@@ -38,7 +38,7 @@ class ProductController extends Controller
             $query->where('brand_id', $request->brand);
         }
 
-        $prodcuts = $query->where('status', 'published')->get();
+        $prodcuts = $query->where('status', 'published')->paginate(20);
 
         return self::success(SimpleProductResource::collection($prodcuts));
     }

@@ -15,6 +15,7 @@ class Controller extends BaseController
         return response()->json([
             'success' => true,
             'data' => $data,
+            'pagination' => self::getPagination($data),
         ]);
     }
 
@@ -25,5 +26,18 @@ class Controller extends BaseController
             'type' => $type,
             'error' => $errors,
         ], $status);
+    }
+
+    private static function getPagination($data)
+    {
+        if($data){
+            return [
+                'per_page' => $data->perPage(), 
+                'current_page' => $data->currentPage(),
+                'total' => $data->total(),
+            ];
+        }
+
+        return [];
     }
 }

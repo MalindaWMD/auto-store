@@ -10,7 +10,7 @@ class Product extends \Lunar\Models\Product
 {
     use Rateable;
 
-    public static $cacheTags = ['products'];
+    public static $cacheAttributesPrefix = 'product_type_attributes_';
 
     protected static function booted()
     {
@@ -38,16 +38,20 @@ class Product extends \Lunar\Models\Product
 
     public function attributeNames()
     {
-        return \Cache::remember('mapped_attributes', 60 * 60 * 60 * 24, function () {
-            $mappedAttributeList = $this->getModel()->mappedAttributes()->pluck('name', 'handle');
-
-            $attributeList = [];
-            foreach ($mappedAttributeList as $handle => $attr) {
-                $attributeList[$handle] = $attr->get(app()->getLocale());
-            }
-
+        if($attributeList = \Cache::get(self::$cacheAttributesPrefix . $this->product_type_id)){
             return $attributeList;
-        });
+        }
+
+        $mappedAttributeList = $this->mappedAttributes()->pluck('name', 'handle');
+
+        $attributeList = [];
+        foreach ($mappedAttributeList as $handle => $attr) {
+            $attributeList[$handle] = $attr->get(app()->getLocale());
+        }
+
+        \Cache::put(self::$cacheAttributesPrefix . $this->product_type_id, $attributeList, 60 * 60 * 24);
+
+        return $attributeList;
     }
 
     public function vehicles()

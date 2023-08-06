@@ -11,10 +11,11 @@ export const performProductQuery = () => {
     const type = query.get('type')
     const brand = query.get('brand')
     const collection = query.get('collection')
+    const page = query.get('page')
 
     if(currentPath == '/shop/search' && searchQuery){
-        return useAxios('/api/products/search', 'GET', { q: search, type: type, brand: brand, collection: collection });
+        return useAxios('/api/products/search', 'GET', { q: search, type: type, brand: brand, collection: collection, page: page });
     }
     
-    return useAxios('/api/products', 'GET', { q: search, type: type, brand: brand, collection: collection });
+    return useAxios('/api/products', 'GET', { q: search, type: type, brand: brand, collection: collection, page: page });
 }

@@ -86,9 +86,6 @@ const StockStatus = () => {
 }
 
 export default function ProductCard({ product }) {
-
-  console.log(product)
-
   return (
     <div className="grid grid-cols-4 grid-gap-6 py-5 hover:bg-gray-50 rounded-sm">
       <ProductImage image={product.image} brand={product.brand} />
