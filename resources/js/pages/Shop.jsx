@@ -14,8 +14,6 @@ export default function Shop() {
 
   const { data: products, isLoading, pagination } = performProductQuery()
 
-  console.log('pagination', pagination);
-
   return (
     <Layout>
       <div className="bg-white">

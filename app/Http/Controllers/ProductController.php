@@ -38,6 +38,11 @@ class ProductController extends Controller
             $query->where('brand_id', $request->brand);
         }
 
+        if($request->maker && $request->model && $request->engine){
+            $code = "{$request->maker}:{$request->model}:{$request->engine}";
+            $query->where('related_vehicles', 'LIKE', "%$code%");
+        }
+
         $prodcuts = $query->where('status', 'published')->paginate(20);
 
         return self::success(SimpleProductResource::collection($prodcuts), true);
