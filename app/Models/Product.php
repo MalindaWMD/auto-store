@@ -22,7 +22,7 @@ class Product extends \Lunar\Models\Product
             $product->slug = Str::slug("$name-{$product->id}");
 
             // Update OE Numbers in products table for easier search
-            $product->oe_numbers = $product->attribute_data->get('oe_numbers')?->getValue();
+            $product->oe_numbers = optional($product->attribute_data->get('oe_numbers'))->getValue();
         });
     }
 
