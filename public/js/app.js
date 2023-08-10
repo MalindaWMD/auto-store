@@ -12668,10 +12668,12 @@ function Login() {
   }, [user]);
   var handleLoginResponse = function handleLoginResponse(user) {
     setUser(user);
-    if (query.get('redirect_to')) {
-      return navigate(query.get('redirect_to'));
-    }
-    return navigate(-1);
+
+    // if (query.get('redirect_to')) {
+    //   return navigate(query.get('redirect_to'))
+    // }
+
+    // return navigate(-1)
   };
 
   // Handle submit action
