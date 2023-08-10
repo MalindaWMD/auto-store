@@ -19,7 +19,7 @@ class FrontendUserResource extends JsonResource
         $customer = $this->customers()->first();
 
         $data['customer'] = $customer;
-        $data['customer']['address'] = $customer->addresses()->latest()->first();
+        $data['customer']['address'] = $customer?->addresses()->latest()->first();
 
         return $data;
     }
