@@ -19,7 +19,7 @@
     <div id="app"></div>
 
 
-    {{-- <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script> --}}
+    <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
     <script src="{{mix('js/app.js')}}"></script>
 </body>
 </html>
