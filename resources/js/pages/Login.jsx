@@ -27,11 +27,11 @@ export default function Login() {
   const handleLoginResponse = (user) => {
     setUser(user)
 
-    // if (query.get('redirect_to')) {
-    //   return navigate(query.get('redirect_to'))
-    // }
+    if (query.get('redirect_to')) {
+      return navigate(query.get('redirect_to'))
+    }
 
-    // return navigate(-1)
+    return navigate(-1)
   }
 
   // Handle submit action
