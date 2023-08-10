@@ -2,7 +2,7 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { classNames } from '../utils/css'
 import { useQuery } from '../hooks/routes'
 
-export default function SearchForm({ plain=false, size='md', className}) {
+export default function SearchForm({ plain=false, className}) {
 
   const query = useQuery()
 
@@ -17,15 +17,14 @@ export default function SearchForm({ plain=false, size='md', className}) {
             Maker
           </label>
           <div className="mt-2">
-            <input
-              type="text"
-              name="maker"
-              id="maker"
-              autoComplete="maker"
-              placeholder="Select vehicle maker"
-              defaultValue={query.get('maker')}
+
+            <select 
+              name="make" 
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
+            >
+              <option value="" className="text-gray-100">Select make</option>
+
+            </select>
           </div>
         </div>
 

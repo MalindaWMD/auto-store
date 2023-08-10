@@ -169,7 +169,7 @@ export default function Checkout() {
                     id="phone-no"
                     name="phone-no"
                     autoComplete="phone"
-                    value={checkoutData.shippingAddress.contact_phone || ''}
+                    value={checkoutData.shippingAddress?.contact_phone || ''}
                     onChange={(e) => handleAddressInputChange('shipping', 'contact_phone', e.target.value)}
                     className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
@@ -186,7 +186,7 @@ export default function Checkout() {
                     id="email-address"
                     name="email-address"
                     autoComplete="email"
-                    value={checkoutData.shippingAddress.contact_email || ''}
+                    value={checkoutData.shippingAddress?.contact_email || ''}
                     onChange={(e) => handleAddressInputChange('shipping', 'contact_email', e.target.value)}
                     className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />

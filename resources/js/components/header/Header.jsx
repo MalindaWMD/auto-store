@@ -3,6 +3,7 @@ import { Fragment, useState } from 'react'
 import CartIcon from './CartIcon'
 import FlyoutMenus from './FlyOutMenus'
 import MobileMenu from './MobileMenu'
+import { useAxiosPromise } from '../../hooks/axios'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
 
@@ -72,13 +73,13 @@ export default function Header(props) {
                         Register
                       </a>
 
-                      {/* <button onClick={() => {
+                      <button onClick={() => {
                         useAxiosPromise('/api/logout', 'POST').then(res => {
-                          setUser(null)
+                          // setUser(null)
                           removeCookie('user')
                           googleLogout()
                         })
-                      }} className='text-white'>LOGOUT</button> */}
+                      }} className='text-white'>LOGOUT</button>
 
                         <CartIcon cartAction={props.cartAction}/>
                     </div>

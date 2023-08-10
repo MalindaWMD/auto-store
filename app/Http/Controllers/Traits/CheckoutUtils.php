@@ -30,7 +30,7 @@ trait CheckoutUtils
     private function saveAddresses($shippingAddress, $billingAddress)
     {
         if (auth()->check()) {
-            $lastAddress = auth()->user()->customer()->addresses->last()->toArray();
+            $lastAddress = auth()->user()->customer()->addresses->last()?->toArray();
 
             if ($this->isADifferentAddress($lastAddress, $shippingAddress)) {
                 $this->shippingAddress = $this->saveAddress($shippingAddress);
@@ -41,7 +41,7 @@ trait CheckoutUtils
             if ($billingAddress && $this->isADifferentAddress($lastAddress, $billingAddress)) {
                 $this->billingAddress = $this->saveAddress($billingAddress);
             }else{
-                $this->billingAddress = $lastAddress;
+                $this->billingAddress = $this->shippingAddress;
             }
 
             return;
@@ -58,6 +58,10 @@ trait CheckoutUtils
 
     private function isADifferentAddress($existing, $address)
     {
+        if( ! $existing){
+            return true;
+        }
+
         return count(array_diff_assoc(\Arr::only($existing, $this->basicAddressFields), \Arr::only($address, $this->basicAddressFields))) > 0;
     }
 

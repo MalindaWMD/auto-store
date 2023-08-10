@@ -8,6 +8,7 @@ use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StorefrontController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VehicleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
@@ -40,3 +41,8 @@ Route::post('login/google', [GoogleLoginController::class, 'store']);
 
 // Checkout
 Route::post('checkout', [CheckoutController::class, 'store']);
+
+// Vehicle
+Route::get('vehicles/makes', [VehicleController::class, 'getMakes']);
+Route::get('vehicles/models/{id}', [VehicleController::class, 'getModels']);
+Route::get('vehicles/makes/{id}', [VehicleController::class, 'getEngines']);
