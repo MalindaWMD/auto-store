@@ -7724,12 +7724,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../routes/routes */ "./resources/js/routes/routes.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var react_use_cart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-use-cart */ "./node_modules/react-use-cart/dist/react-use-cart.esm.js");
 /* harmony import */ var _contexts_AppContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../contexts/AppContext */ "./resources/js/contexts/AppContext.js");
-/* harmony import */ var _hooks_axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../hooks/axios */ "./resources/js/hooks/axios.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -7738,9 +7736,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Application() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_use_cart__WEBPACK_IMPORTED_MODULE_3__.CartProvider, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_contexts_AppContext__WEBPACK_IMPORTED_MODULE_4__.AppProvider, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.RouterProvider, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_use_cart__WEBPACK_IMPORTED_MODULE_3__.CartProvider, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_contexts_AppContext__WEBPACK_IMPORTED_MODULE_4__.AppProvider, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.RouterProvider, {
         router: _routes_routes__WEBPACK_IMPORTED_MODULE_2__.browserRouter
       })
     })
@@ -7749,8 +7747,8 @@ function Application() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Application);
 if (document.getElementById('app')) {
   var Index = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.getElementById("app"));
-  Index.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)((react__WEBPACK_IMPORTED_MODULE_0___default().StrictMode), {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Application, {})
+  Index.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)((react__WEBPACK_IMPORTED_MODULE_0___default().StrictMode), {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Application, {})
   }));
 }
 
@@ -15134,11 +15132,16 @@ function Checkout() {
     _useState10 = _slicedToArray(_useState9, 2),
     validationErrors = _useState10[0],
     setValidationErrors = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState12 = _slicedToArray(_useState11, 2),
+    order = _useState12[0],
+    setOrder = _useState12[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setIsLoading(true);
     if (isEmpty) {
       navigate('/shop');
     }
+    console.log(user);
     if (user) {
       (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_3__.useAxiosPromise)('/api/cart/shipping-options', 'GET').then(function (res) {
         var options = res.data.data;
@@ -15166,7 +15169,7 @@ function Checkout() {
   };
   var handleSubmit = function handleSubmit() {
     (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_3__.useAxiosPromise)('/api/checkout', 'POST', checkoutData).then(function (res) {
-      var order = res.data.data;
+      setOrder(res.data.data);
       setShowOrderStatus(true);
 
       // Clear local cart
@@ -15188,6 +15191,58 @@ function Checkout() {
       children: "Loading..."
     });
   }
+
+  // Put the payment variables here
+  var payment = {
+    sandbox: true,
+    // if the account is sandbox or real
+    merchant_id: '211526',
+    // Replace your Merchant ID
+    return_url: 'http://localhost/return',
+    cancel_url: 'http://localhost/cancel',
+    notify_url: 'http://localhost/notify',
+    order_id: order === null || order === void 0 ? void 0 : order.id,
+    items: order === null || order === void 0 ? void 0 : order.reference,
+    amount: order === null || order === void 0 ? void 0 : order.total,
+    currency: 'LKR',
+    first_name: 'Saman',
+    last_name: 'Perera',
+    email: 'samanp@gmail.com',
+    phone: '0771234567',
+    address: 'No.1, Galle Road',
+    city: 'Colombo',
+    country: 'Sri Lanka',
+    delivery_address: 'No. 46, Galle road, Kalutara South',
+    // optional field
+    delivery_city: 'Kalutara',
+    // optional field
+    delivery_country: 'Sri Lanka',
+    // optional field
+    custom_1: '',
+    // optional field
+    custom_2: '' // optional field
+  };
+
+  // Called when user completed the payment. It can be a successful payment or failure
+  window.payhere.onCompleted = function onCompleted(orderId) {
+    console.log("Payment completed. OrderID:" + orderId);
+    //Note: validate the payment and show success or failure page to the customer
+  };
+
+  // Called when user closes the payment without completing
+  window.payhere.onDismissed = function onDismissed() {
+    //Note: Prompt user to pay again or show an error page
+    console.log("Payment dismissed");
+  };
+
+  // Called when error happens when initializing payment such as invalid parameters
+  window.payhere.onError = function onError(error) {
+    // Note: show an error page
+    console.log("Error:" + error);
+  };
+  function pay() {
+    window.payhere.startPayment(payment);
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
     className: "relative bg-white",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(_components_Modal__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -15200,7 +15255,10 @@ function Checkout() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
         className: "text-sm text-gray-500 mb-5",
         children: "Your order is in transit. We'll notify you about further updates."
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Link, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+        onClick: pay,
+        children: "Pay with Payhere"
+      }), ";", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Link, {
         to: '/shop',
         className: "justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500",
         children: "Continue shopping"
