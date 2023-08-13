@@ -33,6 +33,9 @@ Route::apiResource('products', ProductController::class)
 Route::get('cart', [CartController::class, 'index']);
 Route::post('cart/add', [CartController::class, 'add']);
 Route::get('cart/shipping-options', [CartController::class, 'getShippingOptions']);
+Route::post('cart/clear', [CartController::class, 'clear']);
+Route::post('cart/update', [CartController::class, 'updateItem']);
+Route::post('cart/remove', [CartController::class, 'removeItem']);
 
 // User
 Route::get('user', [UserController::class, 'index']);

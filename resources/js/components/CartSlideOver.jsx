@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from 'react'
+import { Fragment, useContext, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import SlideOver from './SlideOver'
@@ -7,7 +7,9 @@ import { useCart } from 'react-use-cart'
 import Price from './Price'
 import { useAxios, useAxiosPromise } from '../hooks/axios'
 
-const ItemsList = ({ items }) => {
+const ItemsList = () => {
+  const { items } = useCart();
+
   if (!items || items.length == 0) {
     return (
       <p>Your cart is empty</p>
@@ -40,7 +42,14 @@ const Footer = () => {
   const { cartTotal, emptyCart } = useCart();
 
   const clearCart = () => {
-    emptyCart()
+
+    useAxiosPromise('/api/cart/clear', 'POST').then(res => {
+      if(res.data.data.success){
+        emptyCart()
+      }
+    }).catch(err => {
+
+    })
   }
 
   return (
@@ -56,7 +65,11 @@ const Footer = () => {
         </div>
       </dl>
 
-      <Link to={'/checkout'} className="w-full rounded-md text-center bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-5">
+      <Link to={'/cart'} className="w-full mb-2 rounded-md text-center bg-indigo-400 px-3 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-inset focus:ring-indigo-200 focus:ring-offset-2">
+        View cart
+      </Link>
+
+      <Link to={'/checkout'} className="w-full rounded-md text-center bg-indigo-600 px-3 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-inset focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-5">
         Checkout
       </Link>
     </div>
@@ -64,12 +77,9 @@ const Footer = () => {
 }
 
 export default function CartSlideOver({ open, setOpen }) {
-
-  const { items } = useCart();
-
   return (
     <SlideOver open={open} setOpen={setOpen} title={'Your shopping cart'} footer={<Footer />}>
-      <ItemsList items={items} />
+      <ItemsList/>
     </SlideOver>
   )
 }

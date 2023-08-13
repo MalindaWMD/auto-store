@@ -67,9 +67,10 @@ export default function ProductDeatils() {
   const handleAddToCart = () => {
     useAxiosPromise('/api/cart/add', 'POST', {variant: selectedVariant.id}).then(res => {
       let data = res.data.data
+
       addItem(data, data.qty || 1)
 
-      toast.info(<CartSuccessMessage total={cartTotal}/>, {
+      toast.info(<CartSuccessMessage total={cartTotal + data.price}/>, {
         containerId: 'left-toast-container'
       })
 

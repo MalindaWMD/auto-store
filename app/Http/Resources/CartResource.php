@@ -25,7 +25,7 @@ class CartResource extends JsonResource
         $this->load('lines.purchasable');
         $items = $this->lines->map(function ($line) {
             return [
-                'id' => $line->id,
+                'id' => $line->purchasable->id,
                 'price' => $this->getPrice($line->purchasable),
                 'product' => $this->getProduct($line->purchasable),
                 'quantity' => $line->quantity,

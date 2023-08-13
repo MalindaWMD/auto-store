@@ -1,5 +1,7 @@
 import { Tab } from '@headlessui/react'
 import { classNames } from '../../utils/css'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 
 export default function ProductImageGallery({ images }) {
 
@@ -44,10 +46,9 @@ export default function ProductImageGallery({ images }) {
         {Object.keys(images).map((key) => {
           let image = images[key]
           return <Tab.Panel key={key}>
-            <img
-              src={image.original_url}
-              className="h-full w-full object-contain object-center sm:rounded-lg"
-            />
+            <Zoom>
+              <img src={image.original_url} className="h-full w-full object-contain object-center sm:rounded-lg"/>
+            </Zoom>
           </Tab.Panel>
         })}
       </Tab.Panels>

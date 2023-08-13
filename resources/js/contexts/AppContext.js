@@ -33,12 +33,12 @@ export const AppProvider = ({ children }) => {
   }
 
   const loadUser = async () => {
-    let cookieData = getCookie('user')
-    if ( ! cookieData) {
-      setUser(cookieData)
-      setIsLoading(false)
-      return
-    }
+    // let cookieData = getCookie('user')
+    // if ( ! cookieData) {
+    //   setUser(cookieData)
+    //   setIsLoading(false)
+    //   return
+    // }
 
     useAxiosPromise('/api/user', 'GET').then(res => {
       setUser(res.data.data)

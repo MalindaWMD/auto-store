@@ -1,15 +1,19 @@
 import { Bars3Icon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
-import { Fragment, useState } from 'react'
+import { Fragment, useContext, useState } from 'react'
 import CartIcon from './CartIcon'
 import FlyoutMenus from './FlyOutMenus'
 import MobileMenu from './MobileMenu'
 import { useAxiosPromise } from '../../hooks/axios'
 import { removeCookie } from '../../utils/cookies'
+import { googleLogout } from '@react-oauth/google'
+import { AppContext } from '../../contexts/AppContext'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
 
 export default function Header(props) {
   const [open, setOpen] = useState(false)
+
+  const { user, setUser } = useContext(AppContext)
 
   return (
     <div className="relative z-40">
@@ -67,16 +71,22 @@ export default function Header(props) {
                   <div className="flex items-center lg:ml-8">
                     {/* Cart */}
                     <div className="flex justify-end items-center ml-4 lg:ml-8">
-                      <a href="/login" className="text-sm font-medium text-white hover:text-gray-100 mr-3">
-                        Login
-                      </a>
-                      <a href="/register" className="text-sm font-medium text-white hover:text-gray-100 mr-4">
-                        Register
-                      </a>
+
+                      { ! user && 
+                        <>
+                          <a href="/login" className="text-sm font-medium text-white hover:text-gray-100 mr-3">
+                            Login
+                          </a>
+                          <a href="/register" className="text-sm font-medium text-white hover:text-gray-100 mr-4">
+                            Register
+                          </a>
+                        </>
+                      }
+                      
 
                       <button onClick={() => {
                         useAxiosPromise('/api/logout', 'POST').then(res => {
-                          // setUser(null)
+                          setUser(null)
                           removeCookie('user')
                           googleLogout()
                         })
