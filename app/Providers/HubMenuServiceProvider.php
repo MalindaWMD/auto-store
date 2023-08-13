@@ -32,6 +32,7 @@ class HubMenuServiceProvider extends ServiceProvider
                 ->name('Image scrapper')
                 ->handle('hub.utils.scrappers.images')
                 ->route('hub.utils.scrappers.image.index')
+                ->gate('view-utils')
                 ->icon('photograph');
         });
     }

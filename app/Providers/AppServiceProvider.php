@@ -6,6 +6,7 @@ use App\Modifiers\CustomShippingModifier;
 use Illuminate\Support\ServiceProvider;
 use Livewire\ObjectPrybar;
 use Lunar\Facades\ModelManifest;
+use Lunar\Hub\Auth\Manifest;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -39,6 +40,13 @@ class AppServiceProvider extends ServiceProvider
                 ConvertEmptyStringsToNull::class,
             ]);
         }
+
+        app()->make(Manifest::class)->addPermission(function ($permission) {
+            $permission->name = 'Access utils';
+            $permission->handle = 'view-utils';
+            $permission->description= 'Allows the user to access util tools.';
+            $permission->firstParty = true;
+       }); 
     }
 
     protected function bypassMiddleware(array $middlewareToExclude)
