@@ -170,6 +170,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\HubSlotsServiceProvider::class,
+        App\Providers\HubMenuServiceProvider::class,
+        App\Providers\HubComponentServiceProvider::class,
     ])->toArray(),
 
     /*
