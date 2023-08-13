@@ -18,6 +18,8 @@ class VehicleSlot extends Component implements AbstractSlot
     public $modelId;
     public $engineId;
 
+    public $oeNumbers = [];
+
     public $makes;
     public $models;
     public $engines;
@@ -42,6 +44,8 @@ class VehicleSlot extends Component implements AbstractSlot
         $this->vehicles = [];
 
         $this->loadRelatedVehicles();
+
+        $this->oeNumbers = explode(',', $this->slotModel->oe_numbers);
     }
 
     public static function getName()
@@ -88,6 +92,7 @@ class VehicleSlot extends Component implements AbstractSlot
         }
 
         $this->slotModel->related_vehicles = implode(',', $vehicles);
+        $this->slotModel->oe_numbers = implode(',', $this->oeNumbers);
         $this->slotModel->save();
     }
 

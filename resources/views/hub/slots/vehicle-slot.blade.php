@@ -38,7 +38,6 @@
 						@endforeach
 					</x-hub::input.select>
 				</x-hub::input.group>
-
 				<button class=" bg-sky-600 rounded-md px-3 py-1 text-white" wire:click="addVehicle">Add</button>
 			</div>
 
@@ -58,5 +57,12 @@
 				@endforeach
 			</div>
 		</div>
+
+		<hr>
+
+		<x-hub::input.group :label="'OE Numbers'" for="oe_numbers">
+			<x-tag-input id="oe_numbers" wire:model="oeNumbers"/>
+		</x-hub::input.group>
+
 	</div>
 </div>

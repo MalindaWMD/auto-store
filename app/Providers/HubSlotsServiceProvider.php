@@ -26,7 +26,7 @@ class HubSlotsServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->registerSeoSlot();
+        // $this->registerSeoSlot();
         $this->registerVehicleSlot();
         $this->registerAssets();
     }
@@ -47,6 +47,10 @@ class HubSlotsServiceProvider extends ServiceProvider
 
     private function registerAssets()
     {
+        LunarHub::remoteScript('https://code.jquery.com/jquery-3.7.0.min.js"');
         LunarHub::script('custom-hub-scripts', __DIR__.'/../../resources/views/hub/js/script.js');
+
+        // LunarHub::style('custom-hub-styles', __DIR__.'/../../resources/views/hub/css/style.css');
+
     }
 }
