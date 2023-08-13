@@ -19,7 +19,14 @@ class Product extends \Lunar\Models\Product
         static::saving(function (Product $product) {
             // update slug
             $name = $product->attribute_data->get('name')->getValue()->first()->getValue();
-            $product->slug = Str::slug("$name-{$product->id}");
+            $slug = Str::slug("$name-{$product->id}");
+
+            $product->slug = $slug;
+
+            if($variant = $product->variants->first()){
+                $variant->sku = $slug;
+                $variant->save();
+            }
         });
     }
 

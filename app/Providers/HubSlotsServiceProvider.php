@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Hub\Components\Slots\ProductIdentifiersSlot;
 use App\Hub\Components\Slots\SeoSlot;
 use App\Hub\Components\Slots\VehicleSlot;
 use Illuminate\Support\ServiceProvider;
@@ -28,6 +29,7 @@ class HubSlotsServiceProvider extends ServiceProvider
     {
         // $this->registerSeoSlot();
         $this->registerVehicleSlot();
+        $this->registerProductIdentifiersSlot();
         $this->registerAssets();
     }
 
@@ -43,6 +45,13 @@ class HubSlotsServiceProvider extends ServiceProvider
         Livewire::component('hub.components.products.slots.vehicle-slot', VehicleSlot::class);
         Slot::register('product.create', VehicleSlot::class);
         Slot::register('product.show', VehicleSlot::class);
+    }
+
+    private function registerProductIdentifiersSlot()
+    {
+        Livewire::component('hub.components.products.slots.product-identifiers-slot', ProductIdentifiersSlot::class);
+        Slot::register('product.create', ProductIdentifiersSlot::class);
+        Slot::register('product.show', ProductIdentifiersSlot::class);
     }
 
     private function registerAssets()
