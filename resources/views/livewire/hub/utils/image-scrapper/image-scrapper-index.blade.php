@@ -11,7 +11,9 @@
 				<div class="mb-4">
 					<p>How to use?</p>
 					<ol class="list-disc list-inside">
-						<li>- Get the product id from the url in AutoDoc.</li>
+						<li>
+							- Get the product id from the url in AutoDoc. <i>(ex:- <span class="text-gray-500">https://www.autodoc.co.uk/stark/</span> <span class="bg-amber-100">7927425)</span></i>
+						</li>
 						<li>- Paste in the following input.</li>
 						<li>- Click <span class="font-medium">"Get images"</span></li>
 						<li>- <span class="font-medium">"Download all images"</span> will download all the images, including 360 images of the given product as a zip file.</li>
