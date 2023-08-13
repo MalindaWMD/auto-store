@@ -44,6 +44,7 @@ Route::post('/hub/download', function(Request $request) {
             }
         }
     }catch(\Exception $e){
+        print_r([$e->getMessage(), $e->getLine(), $e->getFile()]);
         return 'Error downloading images. <a href="/hub/image-scrapper">Go back</a>';
     }
 
