@@ -10,7 +10,7 @@ class VehicleEngine extends Model
 {
     use HasFactory;
 
-    CONST CACHE_MODEL_ENGINES_PREFIX = 'vehicle_engines_model_';
+    CONST CACHE_PREFIX = 'vehicle_engines_';
 
     public $timestamps = false;
 
@@ -22,7 +22,7 @@ class VehicleEngine extends Model
 
     public static function getActiveByModel($modelId)
     {
-        $key = self::CACHE_MODEL_ENGINES_PREFIX.$modelId;
+        $key = self::CACHE_PREFIX.$modelId;
 
         if($result = \Cache::get($key)){
             return $result;

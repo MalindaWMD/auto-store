@@ -122,7 +122,7 @@ class VehicleSlot extends Component implements AbstractSlot
     // Getters
     public function getModels()
     {
-        return $this->models->groupBy('group_name')->toBase();
+        return $this->models->sortBy('group_name')->groupBy('group_name')->toBase()->toArray();
     }
 
     public function getEngines()

@@ -20,7 +20,7 @@
 				<x-hub::input.group :label="'Model'" :required="true" for="vehicle_model">
 					<x-hub::input.select id="vehicle_model" wire:model="modelId">
 						<option value="">Select model</option>
-						@foreach($this->getModels() as $groupName => $model)
+						@foreach($this->getModels() as $groupName => $models)
 							<optgroup label="{{$groupName}}">
 								@foreach ($models as $model)
 									<option value="{{ $model['id'] }}" wire:key="{{ $model['id'] }}">{{ $model['name'] }}</option>

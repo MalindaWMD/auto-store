@@ -10,6 +10,8 @@ class VehicleModel extends Model
 {
     use HasFactory;
 
+    CONST CACHE_PREFIX = 'vehicle_models_';
+
     public $timestamps = false;
 
     public function scopeActive(Builder $query) 
@@ -34,6 +36,16 @@ class VehicleModel extends Model
 
     public static function getActiveByMaker($makerId)
     {
-        return self::active()->where('maker_id', $makerId)->get();
+        $key = self::CACHE_PREFIX.$makerId;
+
+        if($result = \Cache::get($key)){
+            return $result;
+        }
+
+        $result = self::active()->where('maker_id', $makerId)->get();
+
+        \Cache::forever($key, $result);
+
+        return $result;
     }
 }
