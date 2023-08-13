@@ -42,7 +42,7 @@ class VehicleModel extends Model
             return $result;
         }
 
-        $result = self::active()->where('maker_id', $makerId)->get();
+        $result = self::active()->where('maker_id', $makerId)->whereHas('engines')->get();
 
         \Cache::forever($key, $result);
 
