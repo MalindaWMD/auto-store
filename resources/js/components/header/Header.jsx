@@ -8,6 +8,14 @@ import { removeCookie } from '../../utils/cookies'
 import { googleLogout } from '@react-oauth/google'
 import { AppContext } from '../../contexts/AppContext'
 
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { classNames } from '../../utils/css'
+import UserMenu from '../UserMenu'
+import SigninLinks from '../SinginLinks'
+
+
+
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
 
 export default function Header(props) {
@@ -18,7 +26,7 @@ export default function Header(props) {
   return (
     <div className="relative z-40">
       {/* Mobile menu */}
-      <MobileMenu show={open} as={Fragment} openAction={setOpen} currencies={currencies}/>
+      <MobileMenu show={open} as={Fragment} openAction={setOpen} currencies={currencies} />
 
       <header className="relative">
         <nav aria-label="Top">
@@ -36,7 +44,7 @@ export default function Header(props) {
 
                 <div className="hidden h-full lg:flex">
                   {/* Flyout menus */}
-                  <FlyoutMenus as={Fragment}/>
+                  <FlyoutMenus as={Fragment} />
                 </div>
 
                 {/* Mobile menu and search (lg-) */}
@@ -72,27 +80,11 @@ export default function Header(props) {
                     {/* Cart */}
                     <div className="flex justify-end items-center ml-4 lg:ml-8">
 
-                      { ! user && 
-                        <>
-                          <a href="/login" className="text-sm font-medium text-white hover:text-gray-100 mr-3">
-                            Login
-                          </a>
-                          <a href="/register" className="text-sm font-medium text-white hover:text-gray-100 mr-4">
-                            Register
-                          </a>
-                        </>
-                      }
-                      
+                      { ! user && <SigninLinks />}
 
-                      <button onClick={() => {
-                        useAxiosPromise('/api/logout', 'POST').then(res => {
-                          setUser(null)
-                          removeCookie('user')
-                          googleLogout()
-                        })
-                      }} className='text-white'>LOGOUT</button>
+                      <CartIcon cartAction={props.cartAction} />
 
-                        <CartIcon cartAction={props.cartAction}/>
+                      {user && <UserMenu user={user} />}
                     </div>
                   </div>
                 </div>
