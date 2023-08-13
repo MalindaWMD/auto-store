@@ -1,6 +1,11 @@
 import { Fragment } from "react"
 
 export default function ProductFaq({ faqs }) {
+
+  if( ! faqs){
+    return null
+  }
+
   return (
     <>
       <h3 className="sr-only">Frequently Asked Questions</h3>

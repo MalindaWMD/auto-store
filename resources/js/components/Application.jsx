@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import { browserRouter } from '../routes/routes'
 import { RouterProvider } from "react-router-dom"
 import { CartProvider } from "react-use-cart"
 import { AppProvider } from '../contexts/AppContext'
+import { useAxios, useAxiosPromise } from '../hooks/axios'
 
 function Application() {
-    return (
+  return (
     <CartProvider>
       <AppProvider>
-            <RouterProvider router={browserRouter} />
+        <RouterProvider router={browserRouter} />
       </AppProvider>
     </CartProvider>
   );

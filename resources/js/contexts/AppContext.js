@@ -11,7 +11,7 @@ export const AppProvider = ({ children }) => {
   const [appData, setAppData] = useState()
   const [user, setUser] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
-  const {items, setItems, addItem} = useCart()
+  const {setItems, emptyCart} = useCart()
 
   const isLoggedIn = () => {
     return user !== null && user !== undefined
@@ -34,7 +34,7 @@ export const AppProvider = ({ children }) => {
 
   const loadUser = async () => {
     let cookieData = getCookie('user')
-    if (cookieData) {
+    if ( ! cookieData) {
       setUser(cookieData)
       setIsLoading(false)
       return
@@ -54,6 +54,8 @@ export const AppProvider = ({ children }) => {
       let cart = res.data.data
       if(cart) {
         setItems(cart.items)
+      }else{
+        emptyCart()
       }
     }).catch(err => { 
       console.log(err)

@@ -4,6 +4,7 @@ import CartIcon from './CartIcon'
 import FlyoutMenus from './FlyOutMenus'
 import MobileMenu from './MobileMenu'
 import { useAxiosPromise } from '../../hooks/axios'
+import { removeCookie } from '../../utils/cookies'
 
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
 

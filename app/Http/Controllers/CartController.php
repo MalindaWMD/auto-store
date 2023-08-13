@@ -20,6 +20,10 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
+        if( ! auth()->check()){
+            return $this->fail('Signin required', 401);
+        }
+
         $this->validate($request, [
             'variant' => 'required'
         ]);

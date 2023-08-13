@@ -1,66 +1,41 @@
-import { useState, Fragment, useEffect, useContext } from 'react'
-import { RadioGroup, Tab } from '@headlessui/react'
-import { StarIcon } from '@heroicons/react/20/solid'
+import { Tab } from '@headlessui/react'
 import { HeartIcon } from '@heroicons/react/24/outline'
-import { classNames } from '../utils/css'
+import { Fragment, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { useAxios, useAxiosPromise } from '../hooks/axios'
-import ProductPriceCard from '../components/product/ProductPriceCard'
-import RatingBar from '../components/RatingBar'
-import ShareButtons from '../components/ShareButtons'
-import RelatedProducts from '../components/RelatedProducts'
-import Layout from '../components/Layout'
-import Skeleton from 'react-loading-skeleton'
-import ProductVariants from '../components/product/ProductVariants'
-import ProductImageGallery from '../components/product/ProductImageGallery'
-import CustomerReviews from '../components/product/CustomerReviews'
-import ProductFaq from '../components/product/ProductFaqs'
-import ProductDescription from '../components/product/ProductDescription'
+import { useNavigate } from "react-router-dom";
 import { useCart } from 'react-use-cart'
+import Layout from '../components/Layout'
+import RatingBar from '../components/RatingBar'
+import RelatedProducts from '../components/RelatedProducts'
+import ShareButtons from '../components/ShareButtons'
+import ProductLoading from '../components/loaders/ProductLoading'
+import CustomerReviews from '../components/product/CustomerReviews'
+import ProductDescription from '../components/product/ProductDescription'
+import ProductImageGallery from '../components/product/ProductImageGallery'
+import ProductPriceCard from '../components/product/ProductPriceCard'
+import ProductVariants from '../components/product/ProductVariants'
+import { useAxiosPromise } from '../hooks/axios'
+import { classNames } from '../utils/css'
+import { toast } from 'react-toastify';
+import Price from '../components/Price';
 
-const faqs = [
-
-
-  {
-    question: 'What format are these icons?',
-    answer:
-      'The icons are in SVG (Scalable Vector Graphic) format. They can be imported into your design tool of choice and used directly in code.',
-  },
-  {
-    question: 'Can I use the icons at different sizes?',
-    answer:
-      "Yes. The icons are drawn on a 24 x 24 pixel grid, but the icons can be scaled to different sizes as needed. We don't recommend going smaller than 20 x 20 or larger than 64 x 64 to retain legibility and visual balance.",
-  },
-  // More FAQs...
-]
-
-export const ProductLoading = () => {
+const CartSuccessMessage = ({total}) => {
   return (
-    <Layout>
-      <div className="bg-white">
-        <div className="mx-auto max-w-2xl px-8  pb-16 sm:px-6 sm:pt-16 sm:pb-24 lg:max-w-7xl lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
-            <div>
-              <Skeleton className="w-1/3 pb-[50%] lg:w-1/2 lg:pb-[100%] mb-5" />
-            </div>
-            <div>
-              <Skeleton />
-              <Skeleton className="h-8" />
-              <Skeleton className="h-14 mt-4" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </Layout>
+    <div>
+      <p>Cart updated</p>
+      {total && <small>Your total is <Price value={total}/></small>}
+    </div>
   )
 }
 
 export default function ProductDeatils() {
   const { id } = useParams()
+  const navigate = useNavigate()
+
   const [selectedVariant, setSelectedVariant] = useState()
   const [product, setProduct] = useState()
   const [isLoading, setIsLoading] = useState(true)
-  const { addItem } = useCart()
+  const { addItem, cartTotal} = useCart()
 
   useEffect(() => {
     loadData()
@@ -93,8 +68,17 @@ export default function ProductDeatils() {
     useAxiosPromise('/api/cart/add', 'POST', {variant: selectedVariant.id}).then(res => {
       let data = res.data.data
       addItem(data, data.qty || 1)
+
+      toast.info(<CartSuccessMessage total={cartTotal}/>, {
+        containerId: 'left-toast-container'
+      })
+
     }).catch( err => {
-      console.log(err);
+      if(err.response.status === 401){
+        return navigate('/login?redirect_to=/shop/product/' + id)
+      }
+
+      console.log(err)
     })
   }
 
@@ -137,18 +121,6 @@ export default function ProductDeatils() {
                       >
                         Customer Reviews
                       </Tab>
-                      <Tab
-                        className={({ selected }) =>
-                          classNames(
-                            selected
-                              ? 'border-indigo-600 text-indigo-600'
-                              : 'border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-800',
-                            'whitespace-nowrap border-b-2 py-6 text-sm font-medium'
-                          )
-                        }
-                      >
-                        FAQ
-                      </Tab>
                     </Tab.List>
                   </div>
                   <Tab.Panels as={Fragment}>
@@ -158,12 +130,6 @@ export default function ProductDeatils() {
                     <Tab.Panel className="-mb-10">
                       <CustomerReviews reviews={product.ratings} />
                     </Tab.Panel>
-
-                    <Tab.Panel className="text-sm text-gray-500">
-                      <ProductFaq faqs={faqs} />
-                    </Tab.Panel>
-
-
                   </Tab.Panels>
                 </Tab.Group>
               </div>

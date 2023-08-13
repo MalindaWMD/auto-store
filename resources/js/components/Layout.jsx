@@ -13,7 +13,8 @@ export default function Layout({ children }) {
   return (
     <>
         <Header cartAction={() => setOpen(!open)} />
-          <TContainer/>
+          {/* <TContainer id={'center–toast-container'}/> */}
+          <TContainer id={'left-toast-container'} position='top-right'/>
         {children}
         <CartSlideOver open={open} setOpen={setOpen} />
         <Footer />
