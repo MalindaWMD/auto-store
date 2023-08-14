@@ -58,11 +58,6 @@ const routes = [
     errorElement: <NotFound/>
   },
   {
-    path: '/user/orders',
-    element: <OrderHistory/>,
-    errorElement: <NotFound/>
-  },
-  {
     path: '/checkout/success',
     element: <OrderPlaced/>,
     errorElement: <NotFound/>
@@ -93,6 +88,25 @@ const routes = [
   },
   {
     path: '/user/profile',
+    element: <UserProfile/>,
+    index: false,
+    errorElement: <NotFound/>
+  },
+  {
+    path: '/user/wishlist',
+    element: <UserProfile/>,
+    index: false,
+    errorElement: <NotFound/>
+  },
+  {
+    path: '/user/orders',
+    element: <UserProfile/>,
+    // element: <OrderHistory/>,
+    index: false,
+    errorElement: <NotFound/>
+  },
+  {
+    path: '/user/refunds',
     element: <UserProfile/>,
     index: false,
     errorElement: <NotFound/>

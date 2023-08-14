@@ -30,7 +30,7 @@ export const useAxios = (url, method, payload) => {
         setData(response.data)
 
       } catch (error) {
-        setError(error.message);
+        setError(error.response);
       } finally {
         setIsLoading(false);
       }

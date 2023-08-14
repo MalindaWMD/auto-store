@@ -44,11 +44,10 @@ const Footer = () => {
   const clearCart = () => {
 
     useAxiosPromise('/api/cart/clear', 'POST').then(res => {
-      if(res.data.data.success){
+      if(res.status == 200){
         emptyCart()
       }
     }).catch(err => {
-
     })
   }
 

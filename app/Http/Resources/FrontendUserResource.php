@@ -14,7 +14,7 @@ class FrontendUserResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $data = $this->only(['id', 'name', 'email', 'phone_no']);
+        $data = $this->only(['id', 'name', 'email', 'phone_no', 'auth_type']);
 
         $customer = $this->customers()->first();
 

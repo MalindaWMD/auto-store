@@ -10,7 +10,7 @@ class ProductResource extends JsonResource
 {
     use FormatAttributes;
 
-    public $mandatoryAttributes = ['serial_no', 'name', 'short_description', 'description'];
+    public $mandatoryAttributes = ['name', 'short_description', 'description'];
 
     /**
      * Transform the resource into an array.
@@ -31,6 +31,7 @@ class ProductResource extends JsonResource
 
         $data = [
             'id' => $product->id,
+            'serial_no' => $product->serial_no,
             'brand' => $this->getBrand(),
             'slug' => $product->slug,
             'prices' => $this->getSimplePrices(),

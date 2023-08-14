@@ -22,7 +22,7 @@ const Component = ({ value, type }) => {
       </p>
 
     case 'save':
-      return <span className="text-xs text-gray-600 font-medium">Save {' '}
+      return <span className="text-xs text-green-600 font-medium">Save {' '}
         <Price value={value}/>
       </span>
 

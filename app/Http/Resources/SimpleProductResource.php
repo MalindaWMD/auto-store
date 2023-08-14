@@ -16,6 +16,7 @@ class SimpleProductResource extends ProductResource
     {
         $data = [
             'id' => $this->id,
+            'serial_no' => $this->serial_no,
             'brand' => $this->getBrand(),
             'price' => $this->formatPrice($this->prices->first()),
             'slug' => $this->slug,

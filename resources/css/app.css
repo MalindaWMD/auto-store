@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.tooltip {
+    @apply invisible absolute;
+  }
+  
+  .has-tooltip:hover .tooltip {
+    @apply visible z-50;
+  }
+
 /* slick */
 .slick-arrow.slick-next{
     right: 5px !important;

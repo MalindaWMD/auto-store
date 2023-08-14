@@ -7970,7 +7970,7 @@ var Footer = function Footer() {
     emptyCart = _useCart2.emptyCart;
   var clearCart = function clearCart() {
     (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_4__.useAxiosPromise)('/api/cart/clear', 'POST').then(function (res) {
-      if (res.data.data.success) {
+      if (res.status == 200) {
         emptyCart();
       }
     })["catch"](function (err) {});
@@ -8671,7 +8671,7 @@ function SearchForm(_ref) {
       open: showHelpModal,
       setOpen: setShowHelpModal,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "text-xs text-left",
+        className: "text-xs text-left pt-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
           className: "mb-3",
           children: "Search for spare parts using the following combinations."
@@ -11373,7 +11373,7 @@ var Component = function Component(_ref) {
       });
     case 'save':
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-        className: "text-xs text-gray-600 font-medium",
+        className: "text-xs text-green-600 font-medium",
         children: ["Save ", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Price__WEBPACK_IMPORTED_MODULE_0__["default"], {
           value: value
         })]
@@ -11720,7 +11720,7 @@ var useAxios = function useAxios(url, method, payload) {
           case 9:
             _context.prev = 9;
             _context.t0 = _context["catch"](0);
-            setError(_context.t0.message);
+            setError(_context.t0.response);
           case 12:
             _context.prev = 12;
             setIsLoading(false);
@@ -14623,18 +14623,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Layout */ "./resources/js/components/Layout.jsx");
-/* harmony import */ var _components_loaders_ModalLoading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/loaders/ModalLoading */ "./resources/js/components/loaders/ModalLoading.jsx");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/radio-group/radio-group.js");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/switch/switch.js");
-/* harmony import */ var _heroicons_react_20_solid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @heroicons/react/20/solid */ "./node_modules/@heroicons/react/20/solid/esm/QuestionMarkCircleIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/UserCircleIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/CogIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/KeyIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/BellIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/CreditCardIcon.js");
-/* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/css */ "./resources/js/utils/css.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/UserCircleIcon.js");
+/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/ArchiveBoxIcon.js");
+/* harmony import */ var _hooks_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/routes */ "./resources/js/hooks/routes.js");
+/* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/css */ "./resources/js/utils/css.js");
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Layout */ "./resources/js/components/Layout.jsx");
+/* harmony import */ var _user_Orders__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user/Orders */ "./resources/js/pages/user/Orders.jsx");
+/* harmony import */ var _user_Profile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user/Profile */ "./resources/js/pages/user/Profile.jsx");
+/* harmony import */ var _user_Refunds__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user/Refunds */ "./resources/js/pages/user/Refunds.jsx");
+/* harmony import */ var _user_Wishlist__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user/Wishlist */ "./resources/js/pages/user/Wishlist.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -14651,448 +14649,62 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var user = {
-  name: 'Lisa Marie',
-  email: 'lisamarie@example.com',
-  imageUrl: 'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80'
-};
+
 var navigation = [{
-  name: 'Dashboard',
-  href: '#'
-}, {
-  name: 'Jobs',
-  href: '#'
-}, {
-  name: 'Applicants',
-  href: '#'
-}, {
-  name: 'Company',
-  href: '#'
-}];
-var userNavigation = [{
-  name: 'Your Profile',
-  href: '#'
-}, {
-  name: 'Settings',
-  href: '#'
-}, {
-  name: 'Sign out',
-  href: '#'
-}];
-var subNavigation = [{
   name: 'Profile',
-  href: '#',
-  icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_5__["default"],
-  current: false
-}, {
-  name: 'Orders',
-  href: '#',
-  icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_6__["default"],
-  current: false
-}, {
-  name: 'Orders',
-  href: '#',
-  icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_7__["default"],
-  current: false
-}, {
-  name: 'Wishlist',
-  href: '#',
-  icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_8__["default"],
-  current: false
-}, {
-  name: 'Refund',
-  href: '#',
+  href: '/user/profile',
   icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_9__["default"],
-  current: true
-}];
-var plans = [{
-  name: 'Startup',
-  priceMonthly: 29,
-  priceYearly: 290,
-  limit: 'Up to 5 active job postings'
+  current: true,
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_user_Profile__WEBPACK_IMPORTED_MODULE_5__["default"], {})
 }, {
-  name: 'Business',
-  priceMonthly: 99,
-  priceYearly: 990,
-  limit: 'Up to 25 active job postings'
-}, {
-  name: 'Enterprise',
-  priceMonthly: 249,
-  priceYearly: 2490,
-  limit: 'Unlimited active job postings'
-}];
-var payments = [{
-  id: 1,
-  date: '1/1/2020',
-  datetime: '2020-01-01',
-  description: 'Business Plan - Annual Billing',
-  amount: 'CA$109.00',
-  href: '#'
+  name: 'Orders',
+  href: '/user/orders',
+  icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_10__["default"],
+  current: false,
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_user_Orders__WEBPACK_IMPORTED_MODULE_4__["default"], {})
 }
-// More payments...
+// { name: 'Wishlist', href: '/user/wishlist', icon: HeartIcon, current: false, component: <Wishlist/> },
+// { name: 'Refunds', href: '/user/refunds', icon: ReceiptRefundIcon, current: false, component: <Refunds/> },
 ];
 
 function UserProfile() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _navigation$filter$;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(((_navigation$filter$ = navigation.filter(function (nav) {
+      return nav.href === (0,_hooks_routes__WEBPACK_IMPORTED_MODULE_1__.useCurrentPath)();
+    })[0]) === null || _navigation$filter$ === void 0 ? void 0 : _navigation$filter$.component) || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_user_Profile__WEBPACK_IMPORTED_MODULE_5__["default"], {})),
     _useState2 = _slicedToArray(_useState, 2),
-    isLoading = _useState2[0],
-    setIsLoading = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(plans[1]),
-    _useState4 = _slicedToArray(_useState3, 2),
-    selectedPlan = _useState4[0],
-    setSelectedPlan = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-    _useState6 = _slicedToArray(_useState5, 2),
-    annualBillingEnabled = _useState6[0],
-    setAnnualBillingEnabled = _useState6[1];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_components_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_loaders_ModalLoading__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      open: isLoading
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    component = _useState2[0],
+    setComponent = _useState2[1];
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: "flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("main", {
         className: "mx-auto max-w-7xl pb-10 lg:px-8 lg:py-12",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "lg:grid lg:grid-cols-12 lg:gap-x-5",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("aside", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("aside", {
             className: "px-2 py-6 sm:px-6 lg:col-span-3 lg:px-0 lg:py-0",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("nav", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("nav", {
               className: "space-y-1",
-              children: subNavigation.map(function (item) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
+              children: navigation.map(function (item) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("a", {
                   href: item.href,
-                  className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_3__.classNames)(item.current ? 'bg-gray-50 text-indigo-600 hover:bg-white' : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900', 'group flex items-center rounded-md px-3 py-2 text-sm font-medium'),
-                  "aria-current": item.current ? 'page' : undefined,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(item.icon, {
-                    className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_3__.classNames)(item.current ? 'text-indigo-500' : 'text-gray-400 group-hover:text-gray-500', '-ml-1 mr-3 h-6 w-6 flex-shrink-0'),
+                  className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_2__.classNames)(item.href === (0,_hooks_routes__WEBPACK_IMPORTED_MODULE_1__.useCurrentPath)() ? 'bg-gray-50 text-indigo-600 hover:bg-white' : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900', 'group flex items-center rounded-md px-3 py-2 text-sm font-medium'),
+                  "aria-current": item.href === (0,_hooks_routes__WEBPACK_IMPORTED_MODULE_1__.useCurrentPath)() ? 'page' : undefined,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(item.icon, {
+                    className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_2__.classNames)(item.href === (0,_hooks_routes__WEBPACK_IMPORTED_MODULE_1__.useCurrentPath)() ? 'text-indigo-500' : 'text-gray-400 group-hover:text-gray-500', '-ml-1 mr-3 h-6 w-6 flex-shrink-0'),
                     "aria-hidden": "true"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                     className: "truncate",
                     children: item.name
                   })]
                 }, item.name);
               })
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "space-y-6 sm:px-6 lg:col-span-9 lg:px-0",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
-              "aria-labelledby": "payment-details-heading",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
-                action: "#",
-                method: "POST",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "shadow sm:overflow-hidden sm:rounded-md",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                    className: "bg-white px-4 py-6 sm:p-6",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-                        id: "payment-details-heading",
-                        className: "text-lg font-medium leading-6 text-gray-900",
-                        children: "Payment details"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                        className: "mt-1 text-sm text-gray-500",
-                        children: "Update your billing information. Please note that updating your location could affect your tax rates."
-                      })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                      className: "mt-6 grid grid-cols-4 gap-6",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                        className: "col-span-4 sm:col-span-2",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                          htmlFor: "first-name",
-                          className: "block text-sm font-medium leading-6 text-gray-900",
-                          children: "First name"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                          type: "text",
-                          name: "first-name",
-                          id: "first-name",
-                          autoComplete: "cc-given-name",
-                          className: "mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-900 sm:text-sm sm:leading-6"
-                        })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                        className: "col-span-4 sm:col-span-2",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                          htmlFor: "last-name",
-                          className: "block text-sm font-medium leading-6 text-gray-900",
-                          children: "Last name"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                          type: "text",
-                          name: "last-name",
-                          id: "last-name",
-                          autoComplete: "cc-family-name",
-                          className: "mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-900 sm:text-sm sm:leading-6"
-                        })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                        className: "col-span-4 sm:col-span-2",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                          htmlFor: "email-address",
-                          className: "block text-sm font-medium leading-6 text-gray-900",
-                          children: "Email address"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                          type: "text",
-                          name: "email-address",
-                          id: "email-address",
-                          autoComplete: "email",
-                          className: "mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-900 sm:text-sm sm:leading-6"
-                        })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                        className: "col-span-4 sm:col-span-1",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                          htmlFor: "expiration-date",
-                          className: "block text-sm font-medium leading-6 text-gray-900",
-                          children: "Expration date"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                          type: "text",
-                          name: "expiration-date",
-                          id: "expiration-date",
-                          autoComplete: "cc-exp",
-                          className: "mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-900 sm:text-sm sm:leading-6",
-                          placeholder: "MM / YY"
-                        })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                        className: "col-span-4 sm:col-span-1",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
-                          htmlFor: "security-code",
-                          className: "flex items-center text-sm font-medium leading-6 text-gray-900",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                            children: "Security code"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_heroicons_react_20_solid__WEBPACK_IMPORTED_MODULE_10__["default"], {
-                            className: "ml-1 h-5 w-5 flex-shrink-0 text-gray-300",
-                            "aria-hidden": "true"
-                          })]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                          type: "text",
-                          name: "security-code",
-                          id: "security-code",
-                          autoComplete: "cc-csc",
-                          className: "mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-900 sm:text-sm sm:leading-6"
-                        })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                        className: "col-span-4 sm:col-span-2",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                          htmlFor: "country",
-                          className: "block text-sm font-medium leading-6 text-gray-900",
-                          children: "Country"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
-                          id: "country",
-                          name: "country",
-                          autoComplete: "country-name",
-                          className: "mt-2 block w-full rounded-md border-0 bg-white px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-gray-900 sm:text-sm sm:leading-6",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                            children: "United States"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                            children: "Canada"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                            children: "Mexico"
-                          })]
-                        })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                        className: "col-span-4 sm:col-span-2",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                          htmlFor: "postal-code",
-                          className: "block text-sm font-medium leading-6 text-gray-900",
-                          children: "ZIP / Postal code"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                          type: "text",
-                          name: "postal-code",
-                          id: "postal-code",
-                          autoComplete: "postal-code",
-                          className: "mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-900 sm:text-sm sm:leading-6"
-                        })]
-                      })]
-                    })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                    className: "bg-gray-50 px-4 py-3 text-right sm:px-6",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-                      type: "submit",
-                      className: "inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900",
-                      children: "Save"
-                    })
-                  })]
-                })
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
-              "aria-labelledby": "plan-heading",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
-                action: "#",
-                method: "POST",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "shadow sm:overflow-hidden sm:rounded-md",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                    className: "space-y-6 bg-white px-4 py-6 sm:p-6",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-                        id: "plan-heading",
-                        className: "text-lg font-medium leading-6 text-gray-900",
-                        children: "Plan"
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_11__.RadioGroup, {
-                      value: selectedPlan,
-                      onChange: setSelectedPlan,
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_11__.RadioGroup.Label, {
-                        className: "sr-only",
-                        children: "Pricing plans"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                        className: "relative -space-y-px rounded-md bg-white",
-                        children: plans.map(function (plan, planIdx) {
-                          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_11__.RadioGroup.Option, {
-                            value: plan,
-                            className: function className(_ref) {
-                              var checked = _ref.checked;
-                              return (0,_utils_css__WEBPACK_IMPORTED_MODULE_3__.classNames)(planIdx === 0 ? 'rounded-tl-md rounded-tr-md' : '', planIdx === plans.length - 1 ? 'rounded-bl-md rounded-br-md' : '', checked ? 'z-10 border-indigo-200 bg-indigo-50' : 'border-gray-200', 'relative flex cursor-pointer flex-col border p-4 focus:outline-none md:grid md:grid-cols-3 md:pr-6');
-                            },
-                            children: function children(_ref2) {
-                              var active = _ref2.active,
-                                checked = _ref2.checked;
-                              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-                                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
-                                  className: "flex items-center text-sm",
-                                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                                    className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_3__.classNames)(checked ? 'bg-indigo-500 border-transparent' : 'bg-white border-gray-300', active ? 'ring-2 ring-offset-2 ring-gray-900' : '', 'h-4 w-4 rounded-full border flex items-center justify-center'),
-                                    "aria-hidden": "true",
-                                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                                      className: "rounded-full bg-white w-1.5 h-1.5"
-                                    })
-                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_11__.RadioGroup.Label, {
-                                    as: "span",
-                                    className: "ml-3 font-medium text-gray-900",
-                                    children: plan.name
-                                  })]
-                                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_11__.RadioGroup.Description, {
-                                  as: "span",
-                                  className: "ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-center",
-                                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
-                                    className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_3__.classNames)(checked ? 'text-indigo-900' : 'text-gray-900', 'font-medium'),
-                                    children: ["$", plan.priceMonthly, " / mo"]
-                                  }), ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
-                                    className: checked ? 'text-indigo-700' : 'text-gray-500',
-                                    children: ["($", plan.priceYearly, " / yr)"]
-                                  })]
-                                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_11__.RadioGroup.Description, {
-                                  as: "span",
-                                  className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_3__.classNames)(checked ? 'text-indigo-700' : 'text-gray-500', 'ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-right'),
-                                  children: plan.limit
-                                })]
-                              });
-                            }
-                          }, plan.name);
-                        })
-                      })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_12__.Switch.Group, {
-                      as: "div",
-                      className: "flex items-center",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_12__.Switch, {
-                        checked: annualBillingEnabled,
-                        onChange: setAnnualBillingEnabled,
-                        className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_3__.classNames)(annualBillingEnabled ? 'bg-indigo-500' : 'bg-gray-200', 'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2'),
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                          "aria-hidden": "true",
-                          className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_3__.classNames)(annualBillingEnabled ? 'translate-x-5' : 'translate-x-0', 'inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out')
-                        })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_12__.Switch.Label, {
-                        as: "span",
-                        className: "ml-3 text-sm",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                          className: "font-medium text-gray-900",
-                          children: "Annual billing"
-                        }), ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                          className: "text-gray-500",
-                          children: "(Save 10%)"
-                        })]
-                      })]
-                    })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                    className: "bg-gray-50 px-4 py-3 text-right sm:px-6",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-                      type: "submit",
-                      className: "inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900",
-                      children: "Save"
-                    })
-                  })]
-                })
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
-              "aria-labelledby": "billing-history-heading",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                className: "bg-white pt-6 shadow sm:overflow-hidden sm:rounded-md",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                  className: "px-4 sm:px-6",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-                    id: "billing-history-heading",
-                    className: "text-lg font-medium leading-6 text-gray-900",
-                    children: "Billing history"
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                  className: "mt-6 flex flex-col",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                    className: "-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                      className: "inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                        className: "overflow-hidden border-t border-gray-200",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("table", {
-                          className: "min-w-full divide-y divide-gray-200",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("thead", {
-                            className: "bg-gray-50",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
-                              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
-                                scope: "col",
-                                className: "px-6 py-3 text-left text-sm font-semibold text-gray-900",
-                                children: "Date"
-                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
-                                scope: "col",
-                                className: "px-6 py-3 text-left text-sm font-semibold text-gray-900",
-                                children: "Description"
-                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
-                                scope: "col",
-                                className: "px-6 py-3 text-left text-sm font-semibold text-gray-900",
-                                children: "Amount"
-                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
-                                scope: "col",
-                                className: "relative px-6 py-3 text-left text-sm font-medium text-gray-500",
-                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                                  className: "sr-only",
-                                  children: "View receipt"
-                                })
-                              })]
-                            })
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
-                            className: "divide-y divide-gray-200 bg-white",
-                            children: payments.map(function (payment) {
-                              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
-                                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
-                                  className: "whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900",
-                                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("time", {
-                                    dateTime: payment.datetime,
-                                    children: payment.date
-                                  })
-                                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
-                                  className: "whitespace-nowrap px-6 py-4 text-sm text-gray-500",
-                                  children: payment.description
-                                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
-                                  className: "whitespace-nowrap px-6 py-4 text-sm text-gray-500",
-                                  children: payment.amount
-                                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
-                                  className: "whitespace-nowrap px-6 py-4 text-right text-sm font-medium",
-                                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-                                    href: payment.href,
-                                    className: "text-indigo-600 hover:text-indigo-900",
-                                    children: "View receipt"
-                                  })
-                                })]
-                              }, payment.id);
-                            })
-                          })]
-                        })
-                      })
-                    })
-                  })
-                })]
-              })
-            })]
-          })]
+          }), component]
         })
       })
-    })]
+    })
   });
 }
 
@@ -16301,6 +15913,527 @@ function OrderHistory() {
 
 /***/ }),
 
+/***/ "./resources/js/pages/user/Orders.jsx":
+/*!********************************************!*\
+  !*** ./resources/js/pages/user/Orders.jsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Orders)
+/* harmony export */ });
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/menu/menu.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/transitions/transition.js");
+/* harmony import */ var _heroicons_react_20_solid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @heroicons/react/20/solid */ "./node_modules/@heroicons/react/20/solid/esm/EllipsisVerticalIcon.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/css */ "./resources/js/utils/css.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var orders = [{
+  number: 'WU88191111',
+  href: '#',
+  invoiceHref: '#',
+  createdDate: 'Jul 6, 2021',
+  createdDatetime: '2021-07-06',
+  deliveredDate: 'July 12, 2021',
+  deliveredDatetime: '2021-07-12',
+  total: '$160.00',
+  products: [{
+    id: 1,
+    name: 'Micro Backpack',
+    description: 'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
+    href: '#',
+    price: '$70.00',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
+    imageAlt: 'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.'
+  }, {
+    id: 2,
+    name: 'Micro Backpack',
+    description: 'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
+    href: '#',
+    price: '$70.00',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
+    imageAlt: 'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.'
+  }, {
+    id: 3,
+    name: 'Micro Backpack',
+    description: 'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
+    href: '#',
+    price: '$70.00',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
+    imageAlt: 'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.'
+  }, {
+    id: 4,
+    name: 'Micro Backpack',
+    description: 'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
+    href: '#',
+    price: '$70.00',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
+    imageAlt: 'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.'
+  }, {
+    id: 5,
+    name: 'Micro Backpack',
+    description: 'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
+    href: '#',
+    price: '$70.00',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
+    imageAlt: 'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.'
+  }, {
+    id: 6,
+    name: 'Micro Backpack',
+    description: 'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
+    href: '#',
+    price: '$70.00',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
+    imageAlt: 'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.'
+  }
+  // More products...
+  ]
+}
+// More orders...
+];
+
+function Orders() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "space-y-6 sm:px-6 lg:col-span-9 lg:px-0",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+      "aria-labelledby": "payment-details-heading",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "mb-4",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          className: "text-base font-semibold leading-7 text-gray-900",
+          children: "Order history"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          className: "mt-1 text-sm leading-6 text-gray-500",
+          children: "Check the status of recent orders, manage returns, and discover similar products."
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "mx-auto max-w-3xl space-y-8 sm:px-4 lg:max-w-4xl lg:px-0",
+        children: orders.map(function (order) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "border-b border-t border-gray-200 bg-white shadow-sm sm:rounded-lg sm:border",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
+              className: "sr-only",
+              children: ["Order placed on ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("time", {
+                dateTime: order.createdDatetime,
+                children: order.createdDate
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "flex items-center border-b border-gray-200 p-4 sm:grid sm:grid-cols-4 sm:gap-x-6 sm:p-6",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("dl", {
+                className: "grid flex-1 grid-cols-3 gap-x-6 text-sm sm:col-span-3 sm:grid-cols-4 lg:col-span-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dt", {
+                    className: "font-medium text-gray-900",
+                    children: "Order number"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dd", {
+                    className: "mt-1 text-gray-500",
+                    children: order.number
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "hidden sm:block",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dt", {
+                    className: "font-medium text-gray-900",
+                    children: "Date placed"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dd", {
+                    className: "mt-1 text-gray-500",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("time", {
+                      dateTime: order.createdDatetime,
+                      children: order.createdDate
+                    })
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "hidden sm:block",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dt", {
+                    className: "font-medium text-gray-900",
+                    children: "Date delivered"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dd", {
+                    className: "mt-1 text-gray-500",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("time", {
+                      dateTime: order.createdDatetime,
+                      children: order.createdDate
+                    })
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dt", {
+                    className: "font-medium text-gray-900",
+                    children: "Total amount"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dd", {
+                    className: "mt-1 font-medium text-gray-900",
+                    children: order.total
+                  })]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Menu, {
+                as: "div",
+                className: "relative flex justify-end lg:hidden",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "flex items-center",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Menu.Button, {
+                    className: "-m-2 flex items-center p-2 text-gray-400 hover:text-gray-500",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+                      className: "sr-only",
+                      children: ["Options for order ", order.number]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_heroicons_react_20_solid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                      className: "h-6 w-6",
+                      "aria-hidden": "true"
+                    })]
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_5__.Transition, {
+                  as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
+                  enter: "transition ease-out duration-100",
+                  enterFrom: "transform opacity-0 scale-95",
+                  enterTo: "transform opacity-100 scale-100",
+                  leave: "transition ease-in duration-75",
+                  leaveFrom: "transform opacity-100 scale-100",
+                  leaveTo: "transform opacity-0 scale-95",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Menu.Items, {
+                    className: "absolute right-0 z-10 mt-2 w-40 origin-bottom-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                      className: "py-1",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Menu.Item, {
+                        children: function children(_ref) {
+                          var active = _ref.active;
+                          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                            href: order.href,
+                            className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_1__.classNames)(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'),
+                            children: "View"
+                          });
+                        }
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Menu.Item, {
+                        children: function children(_ref2) {
+                          var active = _ref2.active;
+                          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                            href: order.invoiceHref,
+                            className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_1__.classNames)(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'),
+                            children: "Invoice"
+                          });
+                        }
+                      })]
+                    })
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "hidden lg:col-span-1 lg:flex lg:items-center lg:justify-end lg:space-x-4",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+                  href: order.href,
+                  className: "flex items-center justify-center rounded-md border border-gray-300 bg-white px-2.5 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none ",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                    children: "Request refund"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                    className: "sr-only",
+                    children: order.number
+                  })]
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "grid grid-cols-4 gap-4 px-4",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "col-span-2"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "col-span-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+                  className: "sr-only",
+                  children: "Items"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "divide-y",
+                  children: order.products.map(function (product) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                      className: "flex justify-between items-center",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                        className: "h-10 w-10 flex-shrink-0 overflow-hidden rounded-lg bg-gray-200 sm:h-20 sm:w-20 hover:border-2 hover:border-blue-600",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                          src: product.imageSrc,
+                          alt: product.imageAlt,
+                          className: "h-full w-full object-cover object-center"
+                        })
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
+                          className: "text-sm",
+                          children: product.name
+                        })
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                          className: "text-sm mt-2 sm:mt-0",
+                          children: product.price
+                        })
+                      })]
+                    }, product.id);
+                  })
+                })]
+              })]
+            })]
+          }, order.number);
+        })
+      })]
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/user/Profile.jsx":
+/*!*********************************************!*\
+  !*** ./resources/js/pages/user/Profile.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Profile)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _hooks_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/axios */ "./resources/js/hooks/axios.js");
+/* harmony import */ var _components_loaders_ModalLoading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/loaders/ModalLoading */ "./resources/js/components/loaders/ModalLoading.jsx");
+/* harmony import */ var _components_ValidationError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/ValidationError */ "./resources/js/components/ValidationError.jsx");
+/* harmony import */ var _utils_connection__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/connection */ "./resources/js/utils/connection.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+function Profile() {
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useNavigate)();
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState2 = _slicedToArray(_useState, 2),
+    validationErrors = _useState2[0],
+    setValidationErrors = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    isPageLoading = _useState4[0],
+    setIsPageLoading = _useState4[1];
+  var _useAxios = (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_1__.useAxios)('/api/user'),
+    user = _useAxios.data,
+    isLoading = _useAxios.isLoading,
+    error = _useAxios.error;
+  if (error) {
+    return navigate('/');
+  }
+  var handelSubmit = function handelSubmit(e) {
+    e.preventDefault();
+    setIsPageLoading(true);
+    setValidationErrors();
+    var data = new FormData(e.target);
+    (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_1__.useAxiosPromise)('/api/user/update', 'POST', data).then(function (res) {
+      setIsPageLoading(false);
+      react_toastify__WEBPACK_IMPORTED_MODULE_5__.toast.success('Profile information updated successfully');
+      e.target.reset();
+    })["catch"](function (err) {
+      setIsPageLoading(false);
+
+      // Validation errors
+      if ((0,_utils_connection__WEBPACK_IMPORTED_MODULE_4__.isAValidationError)(err.response)) {
+        setValidationErrors(err.response.data.errors);
+      } else {
+        react_toastify__WEBPACK_IMPORTED_MODULE_5__.toast.error(err.response.data.error);
+      }
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_loaders_ModalLoading__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      open: isLoading || isPageLoading
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "space-y-6 sm:px-6 lg:col-span-9 lg:px-0",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("section", {
+        "aria-labelledby": "payment-details-heading",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("form", {
+          action: "#",
+          method: "POST",
+          autoComplete: "off",
+          onSubmit: handelSubmit,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "shadow sm:overflow-hidden sm:rounded-md",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "bg-white px-4 py-6 sm:p-6",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
+                  id: "payment-details-heading",
+                  className: "text-lg font-medium leading-6 text-gray-900",
+                  children: "Personal details"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                  className: "mt-1 text-sm text-gray-500",
+                  children: "Update your personal details. You cannot change your password if you have registered with us using Facebook or Google."
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "mt-6 grid grid-cols-4 gap-6",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  className: "col-span-4 sm:col-span-2",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                    htmlFor: "name",
+                    className: "block text-sm font-medium leading-6 text-gray-900",
+                    children: "Name"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                    type: "text",
+                    name: "name",
+                    id: "name",
+                    autoComplete: "cc-given-name",
+                    defaultValue: user === null || user === void 0 ? void 0 : user.name,
+                    className: "mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6",
+                    required: true
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ValidationError__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                    errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors.name
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "col-span-4 sm:col-span-2"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  className: "col-span-4 sm:col-span-2",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                    htmlFor: "email-address",
+                    className: "block text-sm font-medium leading-6 text-gray-900",
+                    children: "Email address"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                    type: "email",
+                    id: "email-address",
+                    defaultValue: user === null || user === void 0 ? void 0 : user.email,
+                    className: "mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6",
+                    readOnly: true
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ValidationError__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                    errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors.email
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "col-span-4 sm:col-span-2"
+                }), (user === null || user === void 0 ? void 0 : user.auth_type) == 'default' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "col-span-4 sm:col-span-2",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+                      htmlFor: "postal-code",
+                      className: "inline-flex items-center text-sm font-medium leading-6 text-gray-900",
+                      children: ["Password", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                        className: "has-tooltip text-xs ml-1 text-blue-600",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                          className: "tooltip rounded shadow-lg p-1 -mt-[95px] bg-white border border-blue-600 text-xs px-3 text-black",
+                          children: ["Password should be a combination of,", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
+                            className: "list-disc list-inside",
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+                              children: "Uppercase characters (A \u2013 Z)"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+                              children: "Lowercase characters (a \u2013 z)"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+                              children: "Base 10 digits (0 \u2013 9)"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+                              children: "Non-alphanumeric (For example: !, $, #, or %)"
+                            })]
+                          })]
+                        }), "(Rules)"]
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                      type: "password",
+                      name: "password",
+                      id: "password",
+                      autoComplete: "off",
+                      className: "mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ValidationError__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                      errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors.password
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "col-span-4 sm:col-span-2",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                      htmlFor: "postal-code",
+                      className: "block text-sm font-medium leading-6 text-gray-900",
+                      children: "Confirm password"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                      type: "password",
+                      name: "password_confirmation",
+                      id: "password-confirmation",
+                      autoComplete: "off",
+                      className: "mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ValidationError__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                      errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors.password_confirmation
+                    })]
+                  })]
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "bg-gray-50 px-4 py-3 text-right sm:px-6",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                type: "submit",
+                className: "inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-900",
+                children: "Save"
+              })
+            })]
+          })
+        })
+      })
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/user/Refunds.jsx":
+/*!*********************************************!*\
+  !*** ./resources/js/pages/user/Refunds.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Refunds)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+function Refunds() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "space-y-6 sm:px-6 lg:col-span-9 lg:px-0",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("section", {
+      "aria-labelledby": "payment-details-heading",
+      children: "Refunds"
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/user/Wishlist.jsx":
+/*!**********************************************!*\
+  !*** ./resources/js/pages/user/Wishlist.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Wishlist)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+function Wishlist() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "space-y-6 sm:px-6 lg:col-span-9 lg:px-0",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("section", {
+      "aria-labelledby": "payment-details-heading",
+      children: "Wishlist"
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/routes/routes.js":
 /*!***************************************!*\
   !*** ./resources/js/routes/routes.js ***!
@@ -16380,10 +16513,6 @@ var routes = [{
   element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_checkout_Checkout__WEBPACK_IMPORTED_MODULE_1__["default"], {}),
   errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
 }, {
-  path: '/user/orders',
-  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_profile_OrderHistory__WEBPACK_IMPORTED_MODULE_4__["default"], {}),
-  errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-}, {
   path: '/checkout/success',
   element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_OrderPlaced__WEBPACK_IMPORTED_MODULE_3__["default"], {}),
   errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
@@ -16409,6 +16538,22 @@ var routes = [{
   errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
 }, {
   path: '/user/profile',
+  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_UserProfile__WEBPACK_IMPORTED_MODULE_12__["default"], {}),
+  index: false,
+  errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+}, {
+  path: '/user/wishlist',
+  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_UserProfile__WEBPACK_IMPORTED_MODULE_12__["default"], {}),
+  index: false,
+  errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+}, {
+  path: '/user/orders',
+  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_UserProfile__WEBPACK_IMPORTED_MODULE_12__["default"], {}),
+  // element: <OrderHistory/>,
+  index: false,
+  errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+}, {
+  path: '/user/refunds',
   element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_UserProfile__WEBPACK_IMPORTED_MODULE_12__["default"], {}),
   index: false,
   errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
@@ -66776,36 +66921,6 @@ var Ce=(t=>(t[t.RegisterOption=0]="RegisterOption",t[t.UnregisterOption=1]="Unre
 
 /***/ }),
 
-/***/ "./node_modules/@headlessui/react/dist/components/switch/switch.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@headlessui/react/dist/components/switch/switch.js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Switch: () => (/* binding */ Ge)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _utils_render_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/render.js */ "./node_modules/@headlessui/react/dist/utils/render.js");
-/* harmony import */ var _hooks_use_id_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../hooks/use-id.js */ "./node_modules/@headlessui/react/dist/hooks/use-id.js");
-/* harmony import */ var _keyboard_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../keyboard.js */ "./node_modules/@headlessui/react/dist/components/keyboard.js");
-/* harmony import */ var _utils_bugs_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/bugs.js */ "./node_modules/@headlessui/react/dist/utils/bugs.js");
-/* harmony import */ var _label_label_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../label/label.js */ "./node_modules/@headlessui/react/dist/components/label/label.js");
-/* harmony import */ var _description_description_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../description/description.js */ "./node_modules/@headlessui/react/dist/components/description/description.js");
-/* harmony import */ var _hooks_use_resolve_button_type_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../hooks/use-resolve-button-type.js */ "./node_modules/@headlessui/react/dist/hooks/use-resolve-button-type.js");
-/* harmony import */ var _hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../hooks/use-sync-refs.js */ "./node_modules/@headlessui/react/dist/hooks/use-sync-refs.js");
-/* harmony import */ var _internal_hidden_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../internal/hidden.js */ "./node_modules/@headlessui/react/dist/internal/hidden.js");
-/* harmony import */ var _utils_form_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/form.js */ "./node_modules/@headlessui/react/dist/utils/form.js");
-/* harmony import */ var _hooks_use_event_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/use-event.js */ "./node_modules/@headlessui/react/dist/hooks/use-event.js");
-/* harmony import */ var _hooks_use_controllable_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../hooks/use-controllable.js */ "./node_modules/@headlessui/react/dist/hooks/use-controllable.js");
-/* harmony import */ var _hooks_use_disposables_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../hooks/use-disposables.js */ "./node_modules/@headlessui/react/dist/hooks/use-disposables.js");
-let y=(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);y.displayName="GroupContext";let Y=react__WEBPACK_IMPORTED_MODULE_0__.Fragment;function Z(s){var d;let[n,p]=(0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),[c,f]=(0,_label_label_js__WEBPACK_IMPORTED_MODULE_1__.useLabels)(),[r,h]=(0,_description_description_js__WEBPACK_IMPORTED_MODULE_2__.useDescriptions)(),l=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({switch:n,setSwitch:p,labelledby:c,describedby:r}),[n,p,c,r]),T={},b=s;return react__WEBPACK_IMPORTED_MODULE_0__.createElement(h,{name:"Switch.Description"},react__WEBPACK_IMPORTED_MODULE_0__.createElement(f,{name:"Switch.Label",props:{htmlFor:(d=l.switch)==null?void 0:d.id,onClick(t){n&&(t.currentTarget.tagName==="LABEL"&&t.preventDefault(),n.click(),n.focus({preventScroll:!0}))}}},react__WEBPACK_IMPORTED_MODULE_0__.createElement(y.Provider,{value:l},(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_3__.render)({ourProps:T,theirProps:b,defaultTag:Y,name:"Switch.Group"}))))}let ee="button";function te(s,n){let p=(0,_hooks_use_id_js__WEBPACK_IMPORTED_MODULE_4__.useId)(),{id:c=`headlessui-switch-${p}`,checked:f,defaultChecked:r=!1,onChange:h,name:l,value:T,form:b,...d}=s,t=(0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(y),u=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),D=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_5__.useSyncRefs)(u,n,t===null?null:t.setSwitch),[o,a]=(0,_hooks_use_controllable_js__WEBPACK_IMPORTED_MODULE_6__.useControllable)(f,h,r),S=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_7__.useEvent)(()=>a==null?void 0:a(!o)),C=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_7__.useEvent)(e=>{if((0,_utils_bugs_js__WEBPACK_IMPORTED_MODULE_8__.isDisabledReactIssue7711)(e.currentTarget))return e.preventDefault();e.preventDefault(),S()}),L=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_7__.useEvent)(e=>{e.key===_keyboard_js__WEBPACK_IMPORTED_MODULE_9__.Keys.Space?(e.preventDefault(),S()):e.key===_keyboard_js__WEBPACK_IMPORTED_MODULE_9__.Keys.Enter&&(0,_utils_form_js__WEBPACK_IMPORTED_MODULE_10__.attemptSubmit)(e.currentTarget)}),v=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_7__.useEvent)(e=>e.preventDefault()),G=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({checked:o}),[o]),R={id:c,ref:D,role:"switch",type:(0,_hooks_use_resolve_button_type_js__WEBPACK_IMPORTED_MODULE_11__.useResolveButtonType)(s,u),tabIndex:0,"aria-checked":o,"aria-labelledby":t==null?void 0:t.labelledby,"aria-describedby":t==null?void 0:t.describedby,onClick:C,onKeyUp:L,onKeyPress:v},k=(0,_hooks_use_disposables_js__WEBPACK_IMPORTED_MODULE_12__.useDisposables)();return (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{var w;let e=(w=u.current)==null?void 0:w.closest("form");e&&r!==void 0&&k.addEventListener(e,"reset",()=>{a(r)})},[u,a]),react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment,null,l!=null&&o&&react__WEBPACK_IMPORTED_MODULE_0__.createElement(_internal_hidden_js__WEBPACK_IMPORTED_MODULE_13__.Hidden,{features:_internal_hidden_js__WEBPACK_IMPORTED_MODULE_13__.Features.Hidden,...(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_3__.compact)({as:"input",type:"checkbox",hidden:!0,readOnly:!0,form:b,checked:o,name:l,value:T})}),(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_3__.render)({ourProps:R,theirProps:d,slot:G,defaultTag:ee,name:"Switch"}))}let ne=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_3__.forwardRefWithAs)(te),re=Z,Ge=Object.assign(ne,{Group:re,Label:_label_label_js__WEBPACK_IMPORTED_MODULE_1__.Label,Description:_description_description_js__WEBPACK_IMPORTED_MODULE_2__.Description});
-
-
-/***/ }),
-
 /***/ "./node_modules/@headlessui/react/dist/components/tabs/tabs.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/@headlessui/react/dist/components/tabs/tabs.js ***!
@@ -68109,44 +68224,6 @@ const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(PlusIcon);
 
 /***/ }),
 
-/***/ "./node_modules/@heroicons/react/20/solid/esm/QuestionMarkCircleIcon.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@heroicons/react/20/solid/esm/QuestionMarkCircleIcon.js ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-function QuestionMarkCircleIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 20 20",
-    fill: "currentColor",
-    "aria-hidden": "true",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", {
-    id: titleId
-  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fillRule: "evenodd",
-    d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z",
-    clipRule: "evenodd"
-  }));
-}
-const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(QuestionMarkCircleIcon);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
-
-/***/ }),
-
 /***/ "./node_modules/@heroicons/react/20/solid/esm/StarIcon.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@heroicons/react/20/solid/esm/StarIcon.js ***!
@@ -68385,46 +68462,6 @@ const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(CheckIcon);
 
 /***/ }),
 
-/***/ "./node_modules/@heroicons/react/24/outline/esm/CogIcon.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@heroicons/react/24/outline/esm/CogIcon.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-function CogIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", {
-    id: titleId
-  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495"
-  }));
-}
-const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(CogIcon);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
-
-/***/ }),
-
 /***/ "./node_modules/@heroicons/react/24/outline/esm/CreditCardIcon.js":
 /*!************************************************************************!*\
   !*** ./node_modules/@heroicons/react/24/outline/esm/CreditCardIcon.js ***!
@@ -68621,46 +68658,6 @@ function HeartIcon({
   }));
 }
 const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(HeartIcon);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
-
-/***/ }),
-
-/***/ "./node_modules/@heroicons/react/24/outline/esm/KeyIcon.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@heroicons/react/24/outline/esm/KeyIcon.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-function KeyIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", {
-    id: titleId
-  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"
-  }));
-}
-const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(KeyIcon);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
 
 /***/ }),
