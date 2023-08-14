@@ -41,7 +41,7 @@ export default function Profile() {
       if (isAValidationError(err.response)) {
         setValidationErrors(err.response.data.errors)
 			}else if(err.response.status == 401){
-				navigate('/login')
+				navigate('/')
       } else {
         toast.error(err.response.data.error)
       }
@@ -51,7 +51,7 @@ export default function Profile() {
 	return (
 		<>
 			<ModalLoading open={isLoading || isPageLoading} />
-			<div className="space-y-6 sm:px-6 lg:col-span-9 lg:px-0">
+			<div className="space-y-6 sm:px-6 lg:px-0">
 				<section aria-labelledby="payment-details-heading">
 					<form action="#" method="POST" autoComplete="off" onSubmit={handelSubmit}>
 						<div className="shadow sm:overflow-hidden sm:rounded-md">
