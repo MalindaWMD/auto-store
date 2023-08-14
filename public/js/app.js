@@ -16248,6 +16248,8 @@ function Profile() {
       // Validation errors
       if ((0,_utils_connection__WEBPACK_IMPORTED_MODULE_4__.isAValidationError)(err.response)) {
         setValidationErrors(err.response.data.errors);
+      } else if (err.response.status == 401) {
+        navigate('/login');
       } else {
         react_toastify__WEBPACK_IMPORTED_MODULE_5__.toast.error(err.response.data.error);
       }

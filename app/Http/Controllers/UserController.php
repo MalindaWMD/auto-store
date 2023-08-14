@@ -17,9 +17,9 @@ class UserController extends Controller
     }
 
     public function update(Request $request)
-    {
+    {        
         if (!auth()->check()) {
-            return $this->fail('No auth user', 404);
+            return $this->fail('Unauthenticated', 401);
         }
 
         $request->validate($this->getRules($request));

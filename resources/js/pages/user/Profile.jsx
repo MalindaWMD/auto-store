@@ -40,6 +40,8 @@ export default function Profile() {
       // Validation errors
       if (isAValidationError(err.response)) {
         setValidationErrors(err.response.data.errors)
+			}else if(err.response.status == 401){
+				navigate('/login')
       } else {
         toast.error(err.response.data.error)
       }
