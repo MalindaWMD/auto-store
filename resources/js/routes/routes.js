@@ -11,18 +11,10 @@ import NotFound from '../pages/errors/NotFound'
 import { createBrowserRouter } from "react-router-dom"
 import ForgotPassword from "../pages/ForgotPassword"
 import ResetPassword from "../pages/ResetPassword"
-import Editor from "../pages/Editor"
+import UserProfile from "../pages/UserProfile"
 
 const routes = [
 
-  // TEMP
-  {
-    path: '/editor',
-    name: 'editor',
-    displayName: 'Editor',
-    element: <Editor/>,
-    index: false,
-  },
   {
     path: '/',
     name: 'home',
@@ -96,6 +88,12 @@ const routes = [
   {
     path: '/reset-password',
     element: <ResetPassword/>,
+    index: false,
+    errorElement: <NotFound/>
+  },
+  {
+    path: '/user/profile',
+    element: <UserProfile/>,
     index: false,
     errorElement: <NotFound/>
   },

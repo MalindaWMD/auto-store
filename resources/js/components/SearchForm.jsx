@@ -1,12 +1,68 @@
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { classNames } from '../utils/css'
 import { useQuery } from '../hooks/routes'
+import { InformationCircleIcon } from '@heroicons/react/20/solid'
+import { useState } from 'react'
+import Modal from './Modal'
 
 export default function SearchForm({ plain=false, className}) {
+
+  const [showHelpModal, setShowHelpModal] = useState(false)
 
   const query = useQuery()
 
   return (
+    <>
+    <Modal open={showHelpModal} setOpen={setShowHelpModal}>
+      
+      <div className="text-xs text-left">
+      <p className="mb-3">Search for spare parts using the following combinations.</p>
+
+      <table>
+        <thead>
+          <tr className="bg-indigo-400 text-white text-center">
+            <th className="py-1">Search type</th>
+            <th className="py-1">Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="py-1 font-medium">Car part</td>
+            <td className="py-1">Engine oil</td>
+          </tr>
+          <tr>
+            <td className="py-1 font-medium">Car part + car part manufacturer</td>
+            <td className="py-1">Engine Oil CASTROL</td>
+          </tr>
+          <tr>
+            <td className="py-1 font-medium">Car part + car brand</td>
+            <td className="py-1">Engine oil DAEWOO</td>
+          </tr>
+          <tr>
+            <td className="py-1 font-medium">Car part + item number</td>
+            <td className="py-1">Engine oil + 192.929</td>
+          </tr>
+          <tr>
+            <td className="py-1 font-medium">Item number</td>
+            <td className="py-1">8GA 002 071-121</td>
+          </tr>
+          <tr>
+            <td className="py-1 font-medium">Item number + car part manufacturer</td>
+            <td className="py-1">1219603500 CASTROL</td>
+          </tr>
+          <tr>
+            <td className="py-1 font-medium">OEN (original equipment number)</td>
+            <td className="py-1">1332645</td>
+          </tr>
+          <tr>
+            <td className="py-1 font-medium">OEN + car part manufacturer</td>
+            <td className="py-1">100109001 CASTROL</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </Modal>
+    
     <div className={ classNames(className,  !plain ? 'shadow-md border rounded-md p-6' : '') }>
       <form action="/shop" method="GET">
 
@@ -63,8 +119,11 @@ export default function SearchForm({ plain=false, className}) {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="q" className="block text-center text-sm font-medium leading-6 text-gray-900">
+          <label htmlFor="q" className="w-full justify-center items-center text-sm font-medium leading-6 text-gray-900 inline-flex">
             or enter what you need
+            <button type="button" onClick={() => setShowHelpModal( ! showHelpModal)}>
+              <InformationCircleIcon className="h-5 w-5 fill-blue-500"/>
+            </button>
           </label>
           <div className="mt-2">
             <input
@@ -87,5 +146,6 @@ export default function SearchForm({ plain=false, className}) {
       </form>
 
     </div>
+    </>
   )
 }
