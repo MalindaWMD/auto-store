@@ -40,9 +40,9 @@ export default function AddVehicleModal({ open, openAction }) {
 
 				e.target.reset()
 				setValidationErrors()
-				setMessage()
 
 				setTimeout(() => {
+					setMessage()
 					openAction()
 				}, 1000)
 			})
