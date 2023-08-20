@@ -35,7 +35,7 @@ class VehicleMake extends Model
         return $this->hasMany(VehicleModel::class, 'maker_id');
     }
 
-    public function getActive()
+    public static function getActive()
     {
         $key = self::CACHE_PREFIX;
 

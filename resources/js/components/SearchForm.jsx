@@ -1,67 +1,54 @@
-import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { classNames } from '../utils/css'
-import { useQuery } from '../hooks/routes'
+import { useEffect, useState } from 'react'
 import { InformationCircleIcon } from '@heroicons/react/20/solid'
-import { useState } from 'react'
-import Modal from './Modal'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import { useAxios, useAxiosPromise } from '../hooks/axios'
+import { useQuery } from '../hooks/routes'
+import { classNames } from '../utils/css'
+import SearchHelperModal from './SearchHelperModal'
+import { getCookie, setCookie } from '../utils/cookies'
 
 export default function SearchForm({ plain = false, className }) {
 
   const [showHelpModal, setShowHelpModal] = useState(false)
+  const [makes, setMakes] = useState([]);
+  const [models, setModels] = useState([]);
+  const [engines, setEngines] = useState([]);
 
   const query = useQuery()
 
+  useEffect(() => {
+    useAxiosPromise('/api/vehicles/makes', 'GET').then(res => {
+      if(res.status != 200){
+        return
+      }
+
+      setMakes(res.data?.data)
+    });
+  }, [])
+
+  const handleMakerChange = (e) => {
+    useAxiosPromise('/api/vehicles/models/' + e.target.value, 'GET').then(res => {
+      if(res.status != 200){
+        return
+      }
+      
+      setModels(res.data?.data);
+    });
+  }
+
+  const handleModelChange = (e) => {
+    useAxiosPromise('/api/vehicles/engines/' + e.target.value, 'GET').then(res => {
+      if(res.status != 200){
+        return
+      }
+      
+      setEngines(res.data?.data);
+    });
+  }
+
   return (
     <>
-      <Modal open={showHelpModal} setOpen={setShowHelpModal}>
-
-        <div className="text-xs text-left pt-3">
-          <p className="mb-3">Search for spare parts using the following combinations.</p>
-
-          <table>
-            <thead>
-              <tr className="bg-indigo-400 text-white text-center">
-                <th className="py-1">Search type</th>
-                <th className="py-1">Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="py-1 font-medium">Car part</td>
-                <td className="py-1">Engine oil</td>
-              </tr>
-              <tr>
-                <td className="py-1 font-medium">Car part + car part manufacturer</td>
-                <td className="py-1">Engine Oil CASTROL</td>
-              </tr>
-              <tr>
-                <td className="py-1 font-medium">Car part + car brand</td>
-                <td className="py-1">Engine oil DAEWOO</td>
-              </tr>
-              <tr>
-                <td className="py-1 font-medium">Car part + item number</td>
-                <td className="py-1">Engine oil + 192.929</td>
-              </tr>
-              <tr>
-                <td className="py-1 font-medium">Item number</td>
-                <td className="py-1">8GA 002 071-121</td>
-              </tr>
-              <tr>
-                <td className="py-1 font-medium">Item number + car part manufacturer</td>
-                <td className="py-1">1219603500 CASTROL</td>
-              </tr>
-              <tr>
-                <td className="py-1 font-medium">OEN (original equipment number)</td>
-                <td className="py-1">1332645</td>
-              </tr>
-              <tr>
-                <td className="py-1 font-medium">OEN + car part manufacturer</td>
-                <td className="py-1">100109001 CASTROL</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </Modal>
+      <SearchHelperModal open={showHelpModal} openAction={setShowHelpModal}/>
 
       <div className={classNames(className, !plain ? 'shadow-md border rounded-md p-6' : '')}>
         <form action="/shop" method="GET">
@@ -73,13 +60,16 @@ export default function SearchForm({ plain = false, className }) {
               Maker
             </label>
             <div className="mt-2">
-
               <select
                 name="make"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              >
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
+                disabled={ makes.length == 0 }
+                onChange={handleMakerChange}
+                >
                 <option value="" className="text-gray-100">Select make</option>
-
+                {makes && makes.map(make => {
+                  return <option key={make.id} value={make.id} className="text-gray-100">{make.name}</option>
+                })}
               </select>
             </div>
           </div>
@@ -89,15 +79,17 @@ export default function SearchForm({ plain = false, className }) {
               Model
             </label>
             <div className="mt-2">
-              <input
-                type="text"
-                name="model"
-                id="model"
-                autoComplete="model"
-                placeholder="Select model"
-                defaultValue={query.get('model')}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
+              <select
+                name="make"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
+                disabled={ models.length == 0 }
+                onChange={handleModelChange}
+                >
+                <option value="" className="text-gray-100">Select model</option>
+                {models.map(model => {
+                  return <option key={model.id} value={model.id} className="text-gray-100">{model.name}</option>
+                })}
+              </select>
             </div>
           </div>
 
@@ -106,15 +98,16 @@ export default function SearchForm({ plain = false, className }) {
               Engine
             </label>
             <div className="mt-2">
-              <input
-                type="text"
-                name="engine"
-                id="engine"
-                autoComplete="engine"
-                placeholder="Select engine"
-                defaultValue={query.get('engine')}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
+              <select
+                name="make"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
+                disabled={ engines.length == 0 }
+                >
+                <option value="" className="text-gray-100">Select engine</option>
+                {engines.map(engine => {
+                  return <option key={engine.id} value={engine.id} className="text-gray-100">{engine.name}</option>
+                })}
+              </select>
             </div>
           </div>
 

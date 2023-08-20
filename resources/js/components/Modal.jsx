@@ -1,6 +1,6 @@
-import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CheckIcon, ExclamationCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Fragment } from 'react'
 import { classNames } from '../utils/css'
 
 const icons = {
@@ -57,8 +57,9 @@ export default function Modal({ title, children, type, open=false, setOpen=()=>{
               <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
                   <button
                     type="button"
-                    className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none"
                     onClick={() => setOpen(false)}
+                    autoFocus={false}
                   >
                     <span className="sr-only">Close</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />

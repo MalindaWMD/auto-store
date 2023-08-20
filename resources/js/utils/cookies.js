@@ -1,5 +1,6 @@
 import Cookies from "js-cookie"
 
+// @param expire in days
 export const setCookie = (key, value, expire=1) => {
     value = JSON.stringify(value)
     return Cookies.set(key, value, {expires: expire})
