@@ -7597,6 +7597,37 @@ function getTargetMatch(matches, location) {
 
 /***/ }),
 
+/***/ "./resources/js/actions/OrderActions.js":
+/*!**********************************************!*\
+  !*** ./resources/js/actions/OrderActions.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   performOrdersQuery: () => (/* binding */ performOrdersQuery)
+/* harmony export */ });
+/* harmony import */ var _hooks_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../hooks/axios */ "./resources/js/hooks/axios.js");
+/* harmony import */ var _hooks_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/routes */ "./resources/js/hooks/routes.js");
+
+
+
+// If it's the search page, we need to perform search query
+var performOrdersQuery = function performOrdersQuery() {
+  return (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_0__.useAxios)('/api/user/orders', 'GET', getParams());
+};
+var getParams = function getParams() {
+  var query = (0,_hooks_routes__WEBPACK_IMPORTED_MODULE_1__.useQuery)();
+  var params = {};
+  query.forEach(function (value, key) {
+    params[key] = value;
+  });
+  return params;
+};
+
+/***/ }),
+
 /***/ "./resources/js/actions/ProductActions.js":
 /*!************************************************!*\
   !*** ./resources/js/actions/ProductActions.js ***!
@@ -8942,7 +8973,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Pagination(_ref) {
-  var pagination = _ref.pagination;
+  var route = _ref.route,
+    pagination = _ref.pagination;
   if (!pagination) {
     return null;
   }
@@ -8955,7 +8987,7 @@ function Pagination(_ref) {
   for (var page = 1; page <= totalPages; page++) {
     query.set('page', page);
     links.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-      href: '/shop?' + query.toString(),
+      href: route + '?' + query.toString(),
       className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_1__.classNames)("inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 cursor-pointer", page == pagination.current_page ? "border-indigo-500 text-indigo-600" : 'border-transparent'),
       children: page
     }, page));
@@ -15230,6 +15262,7 @@ function Shop() {
                   children: "No product found"
                 }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Pagination__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                    route: '/shop',
                     pagination: pagination
                   })
                 })]
@@ -16508,151 +16541,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_loaders_ModalLoading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/loaders/ModalLoading */ "./resources/js/components/loaders/ModalLoading.jsx");
 /* harmony import */ var _hooks_axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/axios */ "./resources/js/hooks/axios.js");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+/* harmony import */ var _components_Pagination__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Pagination */ "./resources/js/components/Pagination.jsx");
+/* harmony import */ var _actions_OrderActions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/OrderActions */ "./resources/js/actions/OrderActions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 
 
-// const orders = [
-// 	{
-// 		number: 'WU88191111',
-// 		href: '#',
-// 		invoiceHref: '#',
-// 		createdDate: 'Jul 6, 2021',
-// 		createdDatetime: '2021-07-06',
-// 		deliveredDate: 'July 12, 2021',
-// 		deliveredDatetime: '2021-07-12',
-// 		total: '$160.00',
-// 		products: [
-// 			{
-// 				id: 1,
-// 				name: 'Micro Backpack',
-// 				description:
-// 					'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
-// 				href: '#',
-// 				price: '$70.00',
-// 				imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
-// 				imageAlt:
-// 					'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
-// 			},
-// 			{
-// 				id: 2,
-// 				name: 'Micro Backpack',
-// 				description:
-// 					'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
-// 				href: '#',
-// 				price: '$70.00',
-// 				imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
-// 				imageAlt:
-// 					'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
-// 			},
-// 			{
-// 				id: 3,
-// 				name: 'Micro Backpack',
-// 				description:
-// 					'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
-// 				href: '#',
-// 				price: '$70.00',
-// 				imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
-// 				imageAlt:
-// 					'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
-// 			},
-// 			{
-// 				id: 4,
-// 				name: 'Micro Backpack',
-// 				description:
-// 					'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
-// 				href: '#',
-// 				price: '$70.00',
-// 				imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
-// 				imageAlt:
-// 					'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
-// 			},
-// 			{
-// 				id: 5,
-// 				name: 'Micro Backpack',
-// 				description:
-// 					'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
-// 				href: '#',
-// 				price: '$70.00',
-// 				imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
-// 				imageAlt:
-// 					'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
-// 			},
-// 			{
-// 				id: 6,
-// 				name: 'Micro Backpack',
-// 				description:
-// 					'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
-// 				href: '#',
-// 				price: '$70.00',
-// 				imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
-// 				imageAlt:
-// 					'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
-// 			},
-// 			// More products...
-// 		],
-// 	},
-// 	// More orders...
-// ]
+
 
 
 
 function Orders() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState2 = _slicedToArray(_useState, 2),
-    isLoading = _useState2[0],
-    setIsLoading = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState4 = _slicedToArray(_useState3, 2),
-    orders = _useState4[0],
-    setOrders = _useState4[1];
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_3__.useAxiosPromise)('/api/user/orders', 'GET').then(function (res) {
-      if (res.status != 200) {
-        react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.error('Error loading orders. Please try refreshing the page.', {
-          containerId: 'left-toast-container'
-        });
-        return;
-      }
-      setOrders(res.data.data);
-    })["catch"](function (err) {
-      react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.error('Error loading orders. Please try refreshing the page.', {
-        containerId: 'left-toast-container'
-      });
+  var _performOrdersQuery = (0,_actions_OrderActions__WEBPACK_IMPORTED_MODULE_6__.performOrdersQuery)(),
+    orders = _performOrdersQuery.data,
+    error = _performOrdersQuery.error,
+    isLoading = _performOrdersQuery.isLoading,
+    pagination = _performOrdersQuery.pagination;
+  if (error) {
+    react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.error('Error loading orders. Please try refreshing the page.', {
+      containerId: 'left-toast-container'
     });
-  }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_loaders_ModalLoading__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_loaders_ModalLoading__WEBPACK_IMPORTED_MODULE_2__["default"], {
       open: isLoading
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "space-y-6 sm:px-6 lg:col-span-9 lg:px-0",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("section", {
         "aria-labelledby": "payment-details-heading",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "mb-4",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
             className: "text-base font-semibold leading-7 text-gray-900",
             children: "Order history"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
             className: "mt-1 text-sm leading-6 text-gray-500",
             children: "Check the status of recent orders, manage returns, and discover similar products."
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "mx-auto max-w-2xl space-y-8 sm:px-4 lg:max-w-4xl lg:px-0",
-          children: orders.map(function (order) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_OrderCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          children: [orders && orders.map(function (order) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_OrderCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
               order: order
             }, order.id);
-          })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Pagination__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            route: '/user/orders',
+            pagination: pagination
+          })]
         })]
       })
     })]

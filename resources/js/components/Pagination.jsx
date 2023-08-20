@@ -1,17 +1,17 @@
 import { useQuery } from "../hooks/routes";
 import { classNames } from "../utils/css";
 
-export default function Pagination({pagination}) {
+export default function Pagination({ route, pagination }) {
 
-	if( ! pagination){
+	if (!pagination) {
 		return null
 	}
 
-	if( pagination.total <= pagination.per_page){
+	if (pagination.total <= pagination.per_page) {
 		return null
 	}
 
-	const totalPages = Math.ceil(pagination.total/pagination.per_page)
+	const totalPages = Math.ceil(pagination.total / pagination.per_page)
 
 	let query = useQuery()
 
@@ -23,11 +23,10 @@ export default function Pagination({pagination}) {
 		links.push(
 			<a
 				key={page}
-				href={'/shop?' + query.toString()}
-				className={classNames("inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 cursor-pointer", page == pagination.current_page ? "border-indigo-500 text-indigo-600" : 'border-transparent')}
-				>
+				href={route + '?' + query.toString()}
+				className={classNames("inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 cursor-pointer", page == pagination.current_page ? "border-indigo-500 text-indigo-600" : 'border-transparent')}>
 				{page}
-				</a>
+			</a>
 		)
 	}
 

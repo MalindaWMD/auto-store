@@ -33,7 +33,7 @@ export default function Shop() {
                   {!isLoading && !products ? <p>No product found</p> : null}
                   
                   <div>
-                    <Pagination pagination={pagination}/>
+                    <Pagination route={'/shop'} pagination={pagination}/>
                   </div>
                 </div>
               </section>

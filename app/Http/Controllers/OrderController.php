@@ -14,8 +14,8 @@ class OrderController extends Controller
             return $this->fail('No auth user', 401);
         }
 
-        $orders = Order::latest()->where('user_id', auth()->id())->paginate(15);
+        $orders = Order::latest()->where('user_id', auth()->id())->paginate(10);
 
-        return self::success(OrderResource::collection($orders));
+        return self::success(OrderResource::collection($orders), true);
     }
 }
