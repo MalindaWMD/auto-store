@@ -5,6 +5,7 @@ use App\Http\Livewire\Hub\Utils\ImageScrapper\ImageScrapperIndex;
 use App\Http\Livewire\Hub\Utils\Vehicles\Engines\VehicleEnginesEdit;
 use App\Http\Livewire\Hub\Utils\Vehicles\Models\VehicleModelsEdit;
 use App\Http\Livewire\Hub\Utils\Vehicles\Models\VehicleModelsIndex;
+use App\Http\Livewire\Hub\Utils\Vehicles\Requests\VehicleRequestsIndex;
 use App\Http\Livewire\Hub\Utils\Vehicles\VehiclesEdit;
 use App\Http\Livewire\Hub\Utils\Vehicles\VehiclesIndex;
 use Illuminate\Http\Request;
@@ -40,6 +41,9 @@ Route::group([
         Route::post('/image-scrapper/download', [ImageScrapperIndex::class, 'download']);
 
         // Vehicles
+
+        Route::get('/vehicles/requests', VehicleRequestsIndex::class)->name('hub.utils.vehicles.requests.index');
+
         Route::get('/vehicles', VehiclesIndex::class)->name('hub.utils.vehicles.index');
         Route::get('/vehicles/create?mode=create', VehiclesEdit::class)->name('hub.utils.vehicles.create');
         Route::get('/vehicles/{id}', VehiclesEdit::class)->name('hub.utils.vehicles.edit');

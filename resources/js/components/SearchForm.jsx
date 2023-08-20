@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
 import { InformationCircleIcon } from '@heroicons/react/20/solid'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
-import { useAxios, useAxiosPromise } from '../hooks/axios'
+import { useAxiosPromise } from '../hooks/axios'
 import { useQuery } from '../hooks/routes'
 import { classNames } from '../utils/css'
 import SearchHelperModal from './SearchHelperModal'
-import { getCookie, setCookie } from '../utils/cookies'
+import AddVehicleModal from './AddVehicleModal'
 
 export default function SearchForm({ plain = false, className }) {
 
   const [showHelpModal, setShowHelpModal] = useState(false)
+  const [showVehicleModal, setShowVehicleModal] = useState(false)
   const [makes, setMakes] = useState([]);
   const [models, setModels] = useState([]);
   const [engines, setEngines] = useState([]);
@@ -31,7 +32,7 @@ export default function SearchForm({ plain = false, className }) {
       if(res.status != 200){
         return
       }
-      
+
       setModels(res.data?.data);
     });
   }
@@ -41,7 +42,7 @@ export default function SearchForm({ plain = false, className }) {
       if(res.status != 200){
         return
       }
-      
+
       setEngines(res.data?.data);
     });
   }
@@ -49,6 +50,7 @@ export default function SearchForm({ plain = false, className }) {
   return (
     <>
       <SearchHelperModal open={showHelpModal} openAction={setShowHelpModal}/>
+      <AddVehicleModal open={showVehicleModal} openAction={setShowVehicleModal}/>
 
       <div className={classNames(className, !plain ? 'shadow-md border rounded-md p-6' : '')}>
         <form action="/shop" method="GET">
@@ -93,7 +95,7 @@ export default function SearchForm({ plain = false, className }) {
             </div>
           </div>
 
-          <div className="mb-3">
+          <div className="mb-1">
             <label htmlFor="engine" className="block text-sm font-medium leading-6 text-gray-900">
               Engine
             </label>
@@ -110,6 +112,8 @@ export default function SearchForm({ plain = false, className }) {
               </select>
             </div>
           </div>
+
+          <button type="button" className="text-xs text-indigo-600 font-medium" onClick={() => setShowVehicleModal(!showVehicleModal)}>Can't find your vehicle?</button>
 
           <div className="mb-3">
             <label htmlFor="q" className="w-full justify-center items-center text-sm font-medium leading-6 text-gray-900 inline-flex">

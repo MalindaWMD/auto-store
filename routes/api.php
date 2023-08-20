@@ -50,3 +50,4 @@ Route::post('checkout', [CheckoutController::class, 'store']);
 Route::get('vehicles/makes', [VehicleController::class, 'getMakes']);
 Route::get('vehicles/models/{id}', [VehicleController::class, 'getModels']);
 Route::get('vehicles/engines/{id}', [VehicleController::class, 'getEngines']);
+Route::post('vehicles/add', [VehicleController::class, 'add']);

@@ -44,5 +44,14 @@ class HubMenuServiceProvider extends ServiceProvider
                 ->gate('view-utils')
                 ->icon('truck');
         });
+
+        $utilsSection->addItem(function ($item) {
+            $item
+                ->name('Vehicle requests')
+                ->handle('hub.utils.vehicles.requests')
+                ->route('hub.utils.vehicles.requests.index')
+                ->gate('view-utils')
+                ->icon('save');
+        });
     }
 }

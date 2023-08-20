@@ -7709,6 +7709,226 @@ window.axios.defaults.withCredentials = true;
 
 /***/ }),
 
+/***/ "./resources/js/components/AddVehicleModal.jsx":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/AddVehicleModal.jsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AddVehicleModal)
+/* harmony export */ });
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
+/* harmony import */ var _hooks_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/axios */ "./resources/js/hooks/axios.js");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal */ "./resources/js/components/Modal.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _loaders_ModalLoading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./loaders/ModalLoading */ "./resources/js/components/loaders/ModalLoading.jsx");
+/* harmony import */ var _ValidationError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ValidationError */ "./resources/js/components/ValidationError.jsx");
+/* harmony import */ var _utils_connection__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/connection */ "./resources/js/utils/connection.js");
+/* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/css */ "./resources/js/utils/css.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+function AddVehicleModal(_ref) {
+  var open = _ref.open,
+    openAction = _ref.openAction;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    isLoading = _useState2[0],
+    setIsLoading = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)({}),
+    _useState4 = _slicedToArray(_useState3, 2),
+    validationErrors = _useState4[0],
+    setValidationErrors = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(),
+    _useState6 = _slicedToArray(_useState5, 2),
+    message = _useState6[0],
+    setMessage = _useState6[1];
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    setIsLoading(true);
+    setValidationErrors();
+    setMessage();
+    var data = new FormData(e.target);
+    (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_1__.useAxiosPromise)('/api/vehicles/add', 'POST', data).then(function (res) {
+      setIsLoading(false);
+      if (res.status != 200) {
+        setMessage({
+          type: 'error',
+          message: 'Error sending request. Please try again.'
+        });
+        return;
+      }
+      setMessage({
+        type: 'success',
+        message: 'Your request has been submitted.'
+      });
+      e.target.reset();
+      setValidationErrors();
+      setMessage();
+      setTimeout(function () {
+        openAction();
+      }, 1000);
+    })["catch"](function (err) {
+      setIsLoading(false);
+      if ((0,_utils_connection__WEBPACK_IMPORTED_MODULE_6__.isAValidationError)(err.response)) {
+        setValidationErrors(err.response.data.errors);
+      } else {
+        setMessage({
+          type: 'error',
+          message: 'Error sending request. Please try again.'
+        });
+      }
+    });
+  };
+  var Alert = function Alert() {
+    if (!message) {
+      return null;
+    }
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_7__.classNames)('text-white px-3 py-2 rounded text-xs', (message === null || message === void 0 ? void 0 : message.type) == 'error' ? 'bg-red-400' : 'bg-green-600'),
+        children: message.message
+      })
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Modal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      open: open,
+      setOpen: openAction,
+      size: "xl",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        className: "text-left",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
+          className: "text-lg font-bold mb-3",
+          children: "Can\u2019t find your car in the catalogue?"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+          className: "text-sm",
+          children: "Please provide the following information about your car and we will try to add it to our catalogue:"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
+          className: "mt-4",
+          onSubmit: handleSubmit,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            className: "mb-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+              htmlFor: "vin",
+              className: "block text-sm font-medium leading-6 text-gray-900",
+              children: "Vehicle Identification Number(VIN)"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              className: "mt-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                type: "text",
+                name: "vin",
+                className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ValidationError__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors.vin
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            className: "grid grid-cols-3 gap-4 mb-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+                htmlFor: "make",
+                className: "block text-sm font-medium leading-6 text-gray-900",
+                children: "Vehicle Make"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "mt-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                  type: "text",
+                  name: "make",
+                  className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400",
+                  required: true
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ValidationError__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                  errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors.make
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+                htmlFor: "model",
+                className: "block text-sm font-medium leading-6 text-gray-900",
+                children: "Model"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "mt-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                  type: "text",
+                  name: "model",
+                  className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400",
+                  required: true
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ValidationError__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                  errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors.model
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+                htmlFor: "year",
+                className: "block text-sm font-medium leading-6 text-gray-900",
+                children: "Year of manufacture"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "mt-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                  type: "text",
+                  name: "year",
+                  className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400",
+                  required: true
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ValidationError__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                  errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors.year
+                })]
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            className: "mb-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+              htmlFor: "maker",
+              className: "block text-sm font-medium leading-6 text-gray-900",
+              children: "Your email"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              className: "mt-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                type: "email",
+                name: "email",
+                className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ValidationError__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors.email
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("small", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
+                children: "You'll be notified as soon as your car has been added to the catelogue"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(Alert, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+              type: "submit",
+              disabled: isLoading,
+              className: "mt-5 w-full rounded-md border border-transparent bg-indigo-600 px-8 py-2 text-center text-white hover:bg-indigo-700 flex items-center justify-center",
+              children: isLoading ? 'Sending...' : 'Send'
+            })
+          })]
+        })]
+      })
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/Application.jsx":
 /*!*************************************************!*\
   !*** ./resources/js/components/Application.jsx ***!
@@ -8324,6 +8544,13 @@ var iconClasses = {
   error: 'bg-red-100',
   info: 'bg-blue-100'
 };
+var sizes = {
+  sm: 'max-w-sm',
+  md: 'max-w-md',
+  lg: 'max-w-lg',
+  xl: 'max-w-xl',
+  '2xl': 'max-w-2xl'
+};
 function Modal(_ref) {
   var title = _ref.title,
     children = _ref.children,
@@ -8331,7 +8558,9 @@ function Modal(_ref) {
     _ref$open = _ref.open,
     open = _ref$open === void 0 ? false : _ref$open,
     _ref$setOpen = _ref.setOpen,
-    setOpen = _ref$setOpen === void 0 ? function () {} : _ref$setOpen;
+    setOpen = _ref$setOpen === void 0 ? function () {} : _ref$setOpen,
+    _ref$size = _ref.size,
+    size = _ref$size === void 0 ? 'sm' : _ref$size;
   var Icon = function Icon() {
     if (!type) return null;
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -8344,7 +8573,7 @@ function Modal(_ref) {
     as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_7__.Dialog, {
       as: "div",
-      className: "relative z-40",
+      className: "relative z-30",
       onClose: setOpen,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_6__.Transition.Child, {
         as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
@@ -8370,7 +8599,7 @@ function Modal(_ref) {
             leaveFrom: "opacity-100 translate-y-0 sm:scale-100",
             leaveTo: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_7__.Dialog.Panel, {
-              className: "relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:px-6 sm:py-8",
+              className: 'relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:px-6 sm:py-8 ' + sizes[size],
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "absolute right-0 top-0 hidden pr-4 pt-4 sm:block",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
@@ -8891,7 +9120,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks_routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/routes */ "./resources/js/hooks/routes.js");
 /* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/css */ "./resources/js/utils/css.js");
 /* harmony import */ var _SearchHelperModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SearchHelperModal */ "./resources/js/components/SearchHelperModal.jsx");
-/* harmony import */ var _utils_cookies__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/cookies */ "./resources/js/utils/cookies.js");
+/* harmony import */ var _AddVehicleModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddVehicleModal */ "./resources/js/components/AddVehicleModal.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -8918,18 +9147,22 @@ function SearchForm(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     showHelpModal = _useState2[0],
     setShowHelpModal = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState4 = _slicedToArray(_useState3, 2),
-    makes = _useState4[0],
-    setMakes = _useState4[1];
+    showVehicleModal = _useState4[0],
+    setShowVehicleModal = _useState4[1];
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState6 = _slicedToArray(_useState5, 2),
-    models = _useState6[0],
-    setModels = _useState6[1];
+    makes = _useState6[0],
+    setMakes = _useState6[1];
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState8 = _slicedToArray(_useState7, 2),
-    engines = _useState8[0],
-    setEngines = _useState8[1];
+    models = _useState8[0],
+    setModels = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState10 = _slicedToArray(_useState9, 2),
+    engines = _useState10[0],
+    setEngines = _useState10[1];
   var query = (0,_hooks_routes__WEBPACK_IMPORTED_MODULE_2__.useQuery)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_1__.useAxiosPromise)('/api/vehicles/makes', 'GET').then(function (res) {
@@ -8962,6 +9195,9 @@ function SearchForm(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SearchHelperModal__WEBPACK_IMPORTED_MODULE_4__["default"], {
       open: showHelpModal,
       openAction: setShowHelpModal
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AddVehicleModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      open: showVehicleModal,
+      openAction: setShowVehicleModal
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_3__.classNames)(className, !plain ? 'shadow-md border rounded-md p-6' : ''),
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
@@ -9023,7 +9259,7 @@ function SearchForm(_ref) {
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "mb-3",
+          className: "mb-1",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             htmlFor: "engine",
             className: "block text-sm font-medium leading-6 text-gray-900",
@@ -9047,6 +9283,13 @@ function SearchForm(_ref) {
               })]
             })
           })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          type: "button",
+          className: "text-xs text-indigo-600 font-medium",
+          onClick: function onClick() {
+            return setShowVehicleModal(!showVehicleModal);
+          },
+          children: "Can't find your vehicle?"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "mb-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
@@ -10658,7 +10901,7 @@ function ModalLoading(_ref) {
     return null;
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "w-full h-screen flex justify-center items-center fixed top-0 right-0",
+    className: "w-full h-screen flex justify-center items-center fixed top-0 right-0 z-50",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
       className: "fixed inset-0 bg-gray-700 bg-opacity-95 transition-opacity"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
