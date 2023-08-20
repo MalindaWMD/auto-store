@@ -64,7 +64,5 @@
 		}
 
 		document.getElementById('images').innerHTML = main + others;
-
-		console.log('Clicked', productId);
 	});
 </script>

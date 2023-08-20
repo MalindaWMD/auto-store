@@ -35,7 +35,6 @@ export default function Cart() {
     useAxiosPromise('/api/cart/remove', 'POST', { variant: variantId })
       .then(res => {
         let cartLine = res.data.data
-        console.log(cartLine)
         removeItem(cartLine.removed_item)
         setIsLoading(false)
 

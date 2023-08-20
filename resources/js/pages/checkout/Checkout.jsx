@@ -39,8 +39,6 @@ export default function Checkout() {
       navigate('/shop')
     }
 
-    console.log(user);
-
     if (user) {
       useAxiosPromise('/api/cart/shipping-options', 'GET').then(res => {
         let options = res.data.data
