@@ -14,6 +14,17 @@ class VehicleModel extends Model
 
     public $timestamps = false;
 
+    protected $guarded = [];
+
+    protected static function booted()
+    {
+        parent::boot();
+
+        static::saving(function (VehicleModel $model) {
+            $model->alias = \Str::slug($model->name);
+        });
+    }
+    
     public function scopeActive(Builder $query) 
     {
         $query->where('active', true);

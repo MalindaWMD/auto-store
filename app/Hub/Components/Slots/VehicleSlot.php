@@ -149,7 +149,7 @@ class VehicleSlot extends Component implements AbstractSlot
 
     private function loadMakers()
     {
-        return VehicleMake::active()->get();
+        return VehicleMake::getActive();
     }
 
     private function loadModels()

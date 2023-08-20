@@ -10,7 +10,11 @@ class VehicleMake extends Model
 {
     use HasFactory;
 
+    CONST CACHE_PREFIX = 'vehicle_makers';
+
     public $timestamps = false;
+
+    protected $guarded = [];
 
     public function scopeActive(Builder $query) 
     {
@@ -20,5 +24,20 @@ class VehicleMake extends Model
     public function models()
     {
         return $this->hasMany(VehicleModel::class, 'maker_id');
+    }
+
+    public function getActive()
+    {
+        $key = self::CACHE_PREFIX;
+
+        if($result = \Cache::get($key)){
+            return $result;
+        }
+
+        $result = self::active()->get();
+
+        \Cache::forever($key, $result);
+
+        return $result;
     }
 }

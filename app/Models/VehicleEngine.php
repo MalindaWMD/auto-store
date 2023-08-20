@@ -14,6 +14,7 @@ class VehicleEngine extends Model
 
     public $timestamps = false;
 
+    protected $guarded = [];
 
     public function scopeActive(Builder $query) 
     {
