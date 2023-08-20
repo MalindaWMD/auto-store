@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Livewire\Hub\Utils\ImageScrapper\ImageScrapperIndex;
+use App\Http\Livewire\Hub\Utils\Vehicles\VehiclesTable;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -21,6 +22,6 @@ class HubComponentServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Livewire::component('hub.utils.image-scrapper', ImageScrapperIndex::class);
+        // Livewire::component('hub.utils.vehicles.table', VehiclesTable::class);
     }
 }

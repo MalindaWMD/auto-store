@@ -2,6 +2,11 @@
 
 use App\Http\Controllers\Hub\ImageScrapperController;
 use App\Http\Livewire\Hub\Utils\ImageScrapper\ImageScrapperIndex;
+use App\Http\Livewire\Hub\Utils\Vehicles\Engines\VehicleEnginesEdit;
+use App\Http\Livewire\Hub\Utils\Vehicles\Models\VehicleModelsEdit;
+use App\Http\Livewire\Hub\Utils\Vehicles\Models\VehicleModelsIndex;
+use App\Http\Livewire\Hub\Utils\Vehicles\VehiclesEdit;
+use App\Http\Livewire\Hub\Utils\Vehicles\VehiclesIndex;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\NewPasswordController;
@@ -30,8 +35,20 @@ Route::group([
             Authenticate::class,
         ],
     ], function ($router) {
+        // Scraper
         Route::get('/image-scrapper', ImageScrapperIndex::class)->name('hub.utils.scrappers.image.index');
         Route::post('/image-scrapper/download', [ImageScrapperIndex::class, 'download']);
+
+        // Vehicles
+        Route::get('/vehicles', VehiclesIndex::class)->name('hub.utils.vehicles.index');
+        Route::get('/vehicles/create?mode=create', VehiclesEdit::class)->name('hub.utils.vehicles.create');
+        Route::get('/vehicles/{id}', VehiclesEdit::class)->name('hub.utils.vehicles.edit');
+
+        Route::get('/vehicles/models/create?mode=create&maker_id={id}', VehicleModelsEdit::class)->name('hub.utils.vehicles.models.create');
+        Route::get('/vehicles/models/{id}', VehicleModelsEdit::class)->name('hub.utils.vehicles.models.edit');
+
+        Route::get('/vehicles/engines/create?mode=create&model_id={id}', VehicleModelsEdit::class)->name('hub.utils.vehicles.engines.create');
+        Route::get('/vehicles/engines/{id}', VehicleEnginesEdit::class)->name('hub.utils.vehicles.engines.edit');
     });
 });
 
