@@ -23,6 +23,10 @@ class VehicleModel extends Model
         static::saving(function (VehicleModel $model) {
             $model->alias = \Str::slug($model->name);
         });
+
+        static::saved(function (VehicleModel $model) {
+            \Cache::forget(self::CACHE_PREFIX.$model->maker_id);
+        });
     }
     
     public function scopeActive(Builder $query) 

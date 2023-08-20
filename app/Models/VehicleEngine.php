@@ -16,6 +16,15 @@ class VehicleEngine extends Model
 
     protected $guarded = [];
 
+    protected static function booted()
+    {
+        parent::boot();
+
+        static::saved(function (VehicleEngine $engine) {
+            \Cache::forget(self::CACHE_PREFIX.$engine->model_id);
+        });
+    }
+
     public function scopeActive(Builder $query) 
     {
         $query->where('active', true);

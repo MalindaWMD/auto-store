@@ -11,7 +11,7 @@ class VehicleController extends Controller
 {
     public function getMakes()
     {
-        return self::success(VehicleMake::active()->get());
+        return self::success(VehicleMake::getActive());
     }
 
     public function getModels($id)

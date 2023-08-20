@@ -16,6 +16,15 @@ class VehicleMake extends Model
 
     protected $guarded = [];
 
+    protected static function booted()
+    {
+        parent::boot();
+
+        static::saved(function (VehicleMake $make) {
+            \Cache::forget(self::CACHE_PREFIX);
+        });
+    }
+
     public function scopeActive(Builder $query) 
     {
         $query->where('active', true);
