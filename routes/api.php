@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GoogleLoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StorefrontController;
 use App\Http\Controllers\UserController;
@@ -12,11 +13,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    
+    Route::post('/user/update', [UserController::class, 'update']);
 
-Route::middleware('auth:sanctum')->post('/user/update', [UserController::class, 'update']);
+    Route::get('/user/orders', [OrderController::class, 'index']);
+});
 
 // Application data
 Route::get('app/data', [StorefrontController::class, 'getSiteData']);

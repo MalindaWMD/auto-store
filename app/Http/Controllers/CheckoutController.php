@@ -41,6 +41,8 @@ class CheckoutController extends Controller
             // Set shipping option
             $cart->setShippingOption($this->getShippingOption($cart, $request->shippingOption));
 
+            $cart->calculate();
+            
             // create order
             $order = $cart->createOrder();
 

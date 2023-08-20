@@ -138,12 +138,12 @@ export default function Cart() {
               </div>
             </div>
             <div className="mt-10">
-              <button className="w-full mb-3 rounded-md border border-transparent bg-white px-4 py-3 text-sm font-medium border-gray-400 text-black shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-grey-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+              <button className="w-full mb-3 rounded-md border border-transparent bg-indigo-300 px-4 py-3 text-sm text-white font-mediumshadow-sm hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-grey-500 focus:ring-offset-2 focus:ring-offset-indigo-50">
                 Clear cart
               </button>
-              <button className="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+              <Link to={'/checkout'} className="w-full block text-center rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
                 Checkout
-              </button>
+              </Link>
             </div>
 
             <div className="mt-6 text-center text-sm text-gray-500">
