@@ -24,7 +24,7 @@ export default function AddressForm({ address, inputChangeAction, validationErro
             type="text"
             id="first_name"
             name="first_name"
-            value={address?.first_name}
+            value={address?.first_name || ''}
             onChange={(e) => inputChangeAction(type, e.target.name, e.target.value)}
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
@@ -41,7 +41,7 @@ export default function AddressForm({ address, inputChangeAction, validationErro
             type="text"
             id="last_name"
             name="last_name"
-            value={address?.last_name}
+            value={address?.last_name || ''}
             onChange={(e) => inputChangeAction(type, e.target.name, e.target.value)}
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />

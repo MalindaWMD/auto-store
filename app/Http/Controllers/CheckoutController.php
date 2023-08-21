@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\OrderCreated;
 use App\Http\Controllers\Traits\CheckoutUtils;
 use App\Http\Requests\CheckoutRequest;
 use Lunar\Exceptions\Carts\CartException;
@@ -46,7 +47,23 @@ class CheckoutController extends Controller
             // create order
             $order = $cart->createOrder();
 
+            OrderCreated::dispatch($order);
+
             CartSession::forget();
+
+            // app(PaymentController::class)->store($order->id);
+
+            // $hash = strtoupper(
+            //     md5(
+            //         211526 . 
+            //         $order->reference . 
+            //         number_format($order->total->value, 2, '.', '') . 
+            //         'LKR' .  
+            //         strtoupper(md5('MjM4Mjk2NzMzOTI1ODgyOTg3NDkyMjE2MjEyNjMzNDE1MjE4NTMx')) 
+            //     ) 
+            // );
+
+            // $order->hash = $hash;
 
             return $this->success($order);
 
@@ -54,6 +71,7 @@ class CheckoutController extends Controller
             \Log::debug('CheckoutController(store): Order exists for the cart. ' . json_encode([$cart->id, $e->getMessage(), $e->getLine(), $e->getFile()]));
             return $this->fail($e->getMessage(), 422, self::CART_ERROR_ORDER_EXISTS);
         } catch (\Exception $e) {
+            dd($e);
             \Log::debug('CheckoutController(store): Error creating order. ' . json_encode([$cart->id, $e->getMessage(), $e->getLine(), $e->getFile()]));
         }
 

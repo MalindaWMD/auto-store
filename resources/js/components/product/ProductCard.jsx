@@ -61,10 +61,10 @@ const PriceDeatils = ({product}) => {
         {product.stock.available && <StockStatus />}
       </div>
       <div className="flex flex-col">
-        <a className="inline-flex items-center text-sm hover:text-blue-500 hover:cursor-pointer mb-4">
+        <span className="inline-flex items-center text-sm hover:text-blue-500 hover:cursor-pointer mb-4">
           <HeartIcon className="h-4 w-4 mr-1" />
           Add to wishlist
-        </a>
+        </span>
         <Link to={'/shop/product/' + product.slug}
           className="w-full text-center rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 z-20">
           View more
@@ -85,12 +85,12 @@ const StockStatus = () => {
 
 export default function ProductCard({ product }) {
   return (
-    <Link to={'/shop/product/' + product.slug}>
+    // <Link to={'/shop/product/' + product.slug}>
       <div className="grid grid-cols-4 grid-gap-6 py-5 hover:bg-gray-50 rounded-sm">
         <ProductImage image={product.image} brand={product.brand} />
         <ProductDeatils product={product}/>
         <PriceDeatils product={product}/>
       </div>
-    </Link>
+    // </Link>
   )
 }

@@ -23,10 +23,10 @@ const sizes = {
   '2xl': 'max-w-2xl',
 }
 
-export default function Modal({ title, children, type, open=false, setOpen=()=>{}, size='sm'}) {
+export default function Modal({ title, children, type, open = false, setOpen = () => { }, size = 'sm', closable=true}) {
 
   const Icon = () => {
-    if( ! type) return null
+    if (!type) return null
 
     return (
       <div className={classNames('mx-auto flex h-12 w-12 mb-4 items-center justify-center rounded-full bg-green-100', iconClasses[type])}>
@@ -37,7 +37,7 @@ export default function Modal({ title, children, type, open=false, setOpen=()=>{
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-30" onClose={setOpen}>
+      <Dialog as="div" className="relative z-30" onClose={ closable ? setOpen : () => {} }>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -62,7 +62,9 @@ export default function Modal({ title, children, type, open=false, setOpen=()=>{
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <Dialog.Panel className={'relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:px-6 sm:py-8 ' + sizes[size]}>
-              <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                {
+                closable &&
+                <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
                   <button
                     type="button"
                     className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none"
@@ -73,18 +75,16 @@ export default function Modal({ title, children, type, open=false, setOpen=()=>{
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
-                
+                }
+
                 <div>
                   <div className="text-center">
-                    <Icon/>
+                    <Icon />
                     <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
                       {title}
                     </Dialog.Title>
                     <div className="mt-2">
                       {children}
-                      {/* <p className="text-sm text-gray-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.
-                      </p> */}
                     </div>
                   </div>
                 </div>

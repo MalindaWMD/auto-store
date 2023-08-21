@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Livewire\ObjectPrybar;
 use Lunar\Facades\ModelManifest;
 use Lunar\Hub\Auth\Manifest;
+use Lunar\Facades\Payments;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -47,6 +48,10 @@ class AppServiceProvider extends ServiceProvider
             $permission->description= 'Allows the user to access util tools.';
             $permission->firstParty = true;
        }); 
+
+       Payments::extend('payhere', function ($app) {
+        return $app->make(PayherePayment::class);
+    });
     }
 
     protected function bypassMiddleware(array $middlewareToExclude)

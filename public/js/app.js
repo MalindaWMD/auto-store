@@ -8592,7 +8592,9 @@ function Modal(_ref) {
     _ref$setOpen = _ref.setOpen,
     setOpen = _ref$setOpen === void 0 ? function () {} : _ref$setOpen,
     _ref$size = _ref.size,
-    size = _ref$size === void 0 ? 'sm' : _ref$size;
+    size = _ref$size === void 0 ? 'sm' : _ref$size,
+    _ref$closable = _ref.closable,
+    closable = _ref$closable === void 0 ? true : _ref$closable;
   var Icon = function Icon() {
     if (!type) return null;
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -8606,7 +8608,7 @@ function Modal(_ref) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_7__.Dialog, {
       as: "div",
       className: "relative z-30",
-      onClose: setOpen,
+      onClose: closable ? setOpen : function () {},
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_6__.Transition.Child, {
         as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
         enter: "ease-out duration-300",
@@ -8632,7 +8634,7 @@ function Modal(_ref) {
             leaveTo: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_7__.Dialog.Panel, {
               className: 'relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:px-6 sm:py-8 ' + sizes[size],
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              children: [closable && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "absolute right-0 top-0 hidden pr-4 pt-4 sm:block",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
                   type: "button",
@@ -11742,7 +11744,7 @@ var PriceDeatils = function PriceDeatils(_ref4) {
       }), product.stock.available && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(StockStatus, {})]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "flex flex-col",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
         className: "inline-flex items-center text-sm hover:text-blue-500 hover:cursor-pointer mb-4",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_3__["default"], {
           className: "h-4 w-4 mr-1"
@@ -11767,9 +11769,10 @@ var StockStatus = function StockStatus() {
 };
 function ProductCard(_ref5) {
   var product = _ref5.product;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-    to: '/shop/product/' + product.slug,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  return (
+    /*#__PURE__*/
+    // <Link to={'/shop/product/' + product.slug}>
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "grid grid-cols-4 grid-gap-6 py-5 hover:bg-gray-50 rounded-sm",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ProductImage, {
         image: product.image,
@@ -11780,7 +11783,8 @@ function ProductCard(_ref5) {
         product: product
       })]
     })
-  });
+    // </Link>
+  );
 }
 
 /***/ }),
@@ -15435,7 +15439,7 @@ function AddressForm(_ref) {
           type: "text",
           id: "first_name",
           name: "first_name",
-          value: address === null || address === void 0 ? void 0 : address.first_name,
+          value: (address === null || address === void 0 ? void 0 : address.first_name) || '',
           onChange: function onChange(e) {
             return inputChangeAction(type, e.target.name, e.target.value);
           },
@@ -15456,7 +15460,7 @@ function AddressForm(_ref) {
           type: "text",
           id: "last_name",
           name: "last_name",
-          value: address === null || address === void 0 ? void 0 : address.last_name,
+          value: (address === null || address === void 0 ? void 0 : address.last_name) || '',
           onChange: function onChange(e) {
             return inputChangeAction(type, e.target.name, e.target.value);
           },
@@ -15825,19 +15829,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_use_cart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-use-cart */ "./node_modules/react-use-cart/dist/react-use-cart.esm.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var _contexts_AppContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contexts/AppContext */ "./resources/js/contexts/AppContext.js");
-/* harmony import */ var _hooks_axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/axios */ "./resources/js/hooks/axios.js");
-/* harmony import */ var _components_TContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/TContainer */ "./resources/js/components/TContainer.jsx");
-/* harmony import */ var _AddressForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddressForm */ "./resources/js/pages/checkout/AddressForm.jsx");
-/* harmony import */ var _CartItems__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CartItems */ "./resources/js/pages/checkout/CartItems.jsx");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
-/* harmony import */ var _components_ValidationError__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/ValidationError */ "./resources/js/components/ValidationError.jsx");
-/* harmony import */ var _utils_connection__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/connection */ "./resources/js/utils/connection.js");
-/* harmony import */ var _components_Modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../components/Modal */ "./resources/js/components/Modal.jsx");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_use_cart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-use-cart */ "./node_modules/react-use-cart/dist/react-use-cart.esm.js");
+/* harmony import */ var _components_Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Modal */ "./resources/js/components/Modal.jsx");
+/* harmony import */ var _components_TContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/TContainer */ "./resources/js/components/TContainer.jsx");
+/* harmony import */ var _contexts_AppContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../contexts/AppContext */ "./resources/js/contexts/AppContext.js");
+/* harmony import */ var _hooks_axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/axios */ "./resources/js/hooks/axios.js");
+/* harmony import */ var _utils_connection__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/connection */ "./resources/js/utils/connection.js");
+/* harmony import */ var _CheckoutInformation__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./CheckoutInformation */ "./resources/js/pages/checkout/CheckoutInformation.jsx");
+/* harmony import */ var _CheckoutItems__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./CheckoutItems */ "./resources/js/pages/checkout/CheckoutItems.jsx");
+/* harmony import */ var _PaymentModal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./PaymentModal */ "./resources/js/pages/checkout/PaymentModal.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -15866,15 +15870,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 function Checkout() {
-  var _checkoutData$shippin, _checkoutData$shippin2;
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_13__.useNavigate)();
-  var _useCart = (0,react_use_cart__WEBPACK_IMPORTED_MODULE_1__.useCart)(),
-    items = _useCart.items,
-    cartTotal = _useCart.cartTotal,
+  var _useCart = (0,react_use_cart__WEBPACK_IMPORTED_MODULE_3__.useCart)(),
     isEmpty = _useCart.isEmpty,
     emptyCart = _useCart.emptyCart;
-  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_AppContext__WEBPACK_IMPORTED_MODULE_2__.AppContext),
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_AppContext__WEBPACK_IMPORTED_MODULE_6__.AppContext),
     user = _useContext.user;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState2 = _slicedToArray(_useState, 2),
@@ -15914,7 +15917,7 @@ function Checkout() {
       navigate('/shop');
     }
     if (user) {
-      (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_3__.useAxiosPromise)('/api/cart/shipping-options', 'GET').then(function (res) {
+      (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_7__.useAxiosPromise)('/api/cart/shipping-options', 'GET').then(function (res) {
         var options = res.data.data;
         setPageData(_objectSpread(_objectSpread({}, pageData), {}, {
           shippingOptions: options
@@ -15939,7 +15942,9 @@ function Checkout() {
     setCheckoutData(_objectSpread(_objectSpread({}, checkoutData), {}, _defineProperty({}, field, value)));
   };
   var handleSubmit = function handleSubmit() {
-    (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_3__.useAxiosPromise)('/api/checkout', 'POST', checkoutData).then(function (res) {
+    setIsLoading(true);
+    (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_7__.useAxiosPromise)('/api/checkout', 'POST', checkoutData).then(function (res) {
+      setIsLoading(false);
       setOrder(res.data.data);
       setShowOrderStatus(true);
 
@@ -15947,179 +15952,361 @@ function Checkout() {
       emptyCart();
 
       // redirect to order success page
-      // navigate('/checkout/success?order_id=' + order.reference)
+      setTimeout(function () {
+        navigate('/user/orders?order_id=' + res.data.data.reference);
+      }, 2000);
     })["catch"](function (err) {
+      setIsLoading(false);
       // Validation errors
-      if ((0,_utils_connection__WEBPACK_IMPORTED_MODULE_10__.isAValidationError)(err.response)) {
+      if ((0,_utils_connection__WEBPACK_IMPORTED_MODULE_8__.isAValidationError)(err.response)) {
         setValidationErrors(err.response.data.errors);
       } else {
-        react_toastify__WEBPACK_IMPORTED_MODULE_8__.toast.error(err.response.data.error);
+        react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.error(err.response.data.error);
       }
     });
   };
-  if (isLoading || pageData.shippingOptions.length == 0) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
-      children: "Loading..."
-    });
-  }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-    className: "relative bg-white",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(_components_Modal__WEBPACK_IMPORTED_MODULE_11__["default"], {
-      open: showOrderStatus,
-      title: "Order placed successfully",
-      type: "success",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
-        className: "text-sm text-blue-600",
-        children: "Thank you!"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
-        className: "text-sm text-gray-500 mb-5",
-        children: "Your order is in transit. We'll notify you about further updates."
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Link, {
-        to: '/shop',
-        className: "justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500",
-        children: "Continue shopping"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_TContainer__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-      className: "absolute left-0 top-0 hidden  h-full w-1/2 bg-white lg:block",
-      "aria-hidden": "true"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-      className: "absolute right-0 top-0 hidden h-full w-1/2 bg-gray-100 lg:block",
-      "aria-hidden": "true"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("main", {
-      className: "relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h1", {
-        className: "sr-only",
-        children: "Order information"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("section", {
-        "aria-labelledby": "summary-heading",
-        className: "bg-gray-100 px-4 pb-10 pt-16 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_CartItems__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          items: items,
-          cartTotal: cartTotal,
-          shippingOption: checkoutData.shippingOption
+
+  // if (isLoading || pageData.shippingOptions.length == 0) {
+  //   return (
+  //     <div className="relative bg-white">
+  //       {/* Background color split screen for large screens */}
+  //       <div className="absolute left-0 top-0 hidden  h-full w-1/2 bg-white lg:block" aria-hidden="true" />
+  //       <div className="absolute right-0 top-0 hidden h-full w-1/2 bg-gray-100 lg:block" aria-hidden="true" />
+  //     </div>
+  //   )
+  // }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      className: "relative bg-white",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(_components_Modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        open: showOrderStatus,
+        title: "Order placed successfully",
+        type: "success",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+          className: "text-sm text-blue-600",
+          children: "Thank you!"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
-          className: "text-center text-sm text-gray-500 sm:text-left my-8",
-          children: "You won't be charged until the next step."
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-          className: "mt-6 border-t border-gray-200 pt-3 sm:flex sm:items-center sm:justify-between",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
-            type: "button",
-            className: "w-full rounded-md border border-transparent bg-green-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none  focus:ring-offset-gray-50 sm:order-last sm:w-auto",
-            onClick: function onClick() {
-              return navigate('/shop');
-            },
-            children: "Continue shopping"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
-            type: "button",
-            onClick: handleSubmit,
-            className: "w-full rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none  focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto",
-            children: "Place order"
+          className: "text-sm text-gray-500 mb-5",
+          children: "Your order is in transit. We'll notify you about further updates."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Link, {
+          to: '/shop',
+          className: "mx-2 justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500",
+          children: "Go to shop"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Link, {
+          to: '/user/orders',
+          className: "mx-2 justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500",
+          children: "Orders"
+        })]
+      }), isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        open: true,
+        title: "",
+        type: "info",
+        closable: false,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+          className: "text-sm text-gray-500 mb-5",
+          children: "Loading. Please wait!"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_TContainer__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        className: "absolute left-0 top-0 hidden  h-full w-1/2 bg-white lg:block",
+        "aria-hidden": "true"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        className: "absolute right-0 top-0 hidden h-full w-1/2 bg-gray-100 lg:block",
+        "aria-hidden": "true"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("main", {
+        className: "relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h1", {
+          className: "sr-only",
+          children: "Order information"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_CheckoutItems__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          shippingOption: checkoutData.shippingOption,
+          handleCheckout: handleSubmit
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_CheckoutInformation__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          shippingAddress: checkoutData.shippingAddress,
+          billingAddress: checkoutData.billingAddress,
+          sameBillingAddress: checkoutData.sameAsShipping,
+          handleAddressInputChange: handleAddressInputChange,
+          handleCheckoutDataChange: handleCheckoutDataChange,
+          validationErrors: validationErrors
+        })]
+      })]
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/checkout/CheckoutInformation.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/pages/checkout/CheckoutInformation.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CheckoutInformation)
+/* harmony export */ });
+/* harmony import */ var _components_ValidationError__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/ValidationError */ "./resources/js/components/ValidationError.jsx");
+/* harmony import */ var _AddressForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddressForm */ "./resources/js/pages/checkout/AddressForm.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function CheckoutInformation(_ref) {
+  var shippingAddress = _ref.shippingAddress,
+    billingAddress = _ref.billingAddress,
+    sameBillingAddress = _ref.sameBillingAddress,
+    handleAddressInputChange = _ref.handleAddressInputChange,
+    handleCheckoutDataChange = _ref.handleCheckoutDataChange,
+    validationErrors = _ref.validationErrors;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "px-4 pb-36 pt-16 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "mx-auto max-w-lg lg:max-w-none",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+        "aria-labelledby": "contact-info-heading",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          id: "contact-info-heading",
+          className: "text-lg font-medium text-gray-900",
+          children: "Contact information"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "mt-6",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "phone-no",
+            className: "block text-sm font-medium text-gray-700",
+            children: "Contact no"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "mt-1",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              type: "text",
+              id: "phone-no",
+              name: "phone-no",
+              autoComplete: "phone",
+              value: (shippingAddress === null || shippingAddress === void 0 ? void 0 : shippingAddress.contact_phone) || '',
+              onChange: function onChange(e) {
+                return handleAddressInputChange('shipping', 'contact_phone', e.target.value);
+              },
+              className: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_ValidationError__WEBPACK_IMPORTED_MODULE_0__["default"], {
+              errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors['shippingAddress.contact_phone']
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "mt-6",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "email-address",
+            className: "block text-sm font-medium text-gray-700",
+            children: "Email address"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "mt-1",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              type: "email",
+              id: "email-address",
+              name: "email-address",
+              autoComplete: "email",
+              value: (shippingAddress === null || shippingAddress === void 0 ? void 0 : shippingAddress.contact_email) || '',
+              onChange: function onChange(e) {
+                return handleAddressInputChange('shipping', 'contact_email', e.target.value);
+              },
+              className: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_ValidationError__WEBPACK_IMPORTED_MODULE_0__["default"], {
+              errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors['shippingAddress.contact_email']
+            })]
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-        className: "px-4 pb-36 pt-16 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-          className: "mx-auto max-w-lg lg:max-w-none",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("section", {
-            "aria-labelledby": "contact-info-heading",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
-              id: "contact-info-heading",
-              className: "text-lg font-medium text-gray-900",
-              children: "Contact information"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-              className: "mt-6",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
-                htmlFor: "phone-no",
-                className: "block text-sm font-medium text-gray-700",
-                children: "Contact no"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-                className: "mt-1",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
-                  type: "text",
-                  id: "phone-no",
-                  name: "phone-no",
-                  autoComplete: "phone",
-                  value: ((_checkoutData$shippin = checkoutData.shippingAddress) === null || _checkoutData$shippin === void 0 ? void 0 : _checkoutData$shippin.contact_phone) || '',
-                  onChange: function onChange(e) {
-                    return handleAddressInputChange('shipping', 'contact_phone', e.target.value);
-                  },
-                  className: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_ValidationError__WEBPACK_IMPORTED_MODULE_9__["default"], {
-                  errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors['shippingAddress.contact_phone']
-                })]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-              className: "mt-6",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
-                htmlFor: "email-address",
-                className: "block text-sm font-medium text-gray-700",
-                children: "Email address"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-                className: "mt-1",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
-                  type: "email",
-                  id: "email-address",
-                  name: "email-address",
-                  autoComplete: "email",
-                  value: ((_checkoutData$shippin2 = checkoutData.shippingAddress) === null || _checkoutData$shippin2 === void 0 ? void 0 : _checkoutData$shippin2.contact_email) || '',
-                  onChange: function onChange(e) {
-                    return handleAddressInputChange('shipping', 'contact_email', e.target.value);
-                  },
-                  className: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_ValidationError__WEBPACK_IMPORTED_MODULE_9__["default"], {
-                  errors: validationErrors === null || validationErrors === void 0 ? void 0 : validationErrors['shippingAddress.contact_email']
-                })]
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("section", {
-            "aria-labelledby": "shipping-heading",
-            className: "mt-10",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
-              id: "shipping-heading",
-              className: "text-lg font-medium text-gray-900",
-              children: "Shipping address"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_AddressForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              address: checkoutData.shippingAddress,
-              inputChangeAction: handleAddressInputChange,
-              validationErrors: validationErrors
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("section", {
-            "aria-labelledby": "billing-heading",
-            className: "mt-10",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
-              id: "billing-heading",
-              className: "text-lg font-medium text-gray-900",
-              children: "Billing information"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-              className: "mt-6 flex items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
-                id: "same-as-shipping",
-                name: "same-as-shipping",
-                type: "checkbox",
-                defaultChecked: true,
-                value: checkoutData.sameAsShipping,
-                onChange: function onChange() {
-                  return handleCheckoutDataChange('sameAsShipping', !checkoutData.sameAsShipping);
-                },
-                className: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-                className: "ml-2",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
-                  htmlFor: "same-as-shipping",
-                  className: "text-sm font-medium text-gray-900",
-                  children: "Same as shipping information"
-                })
-              })]
-            }), !checkoutData.sameAsShipping && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_AddressForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              type: "billing",
-              address: checkoutData.billingAddress,
-              inputChangeAction: handleAddressInputChange,
-              validationErrors: validationErrors
-            })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+        "aria-labelledby": "shipping-heading",
+        className: "mt-10",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          id: "shipping-heading",
+          className: "text-lg font-medium text-gray-900",
+          children: "Shipping address"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_AddressForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          address: shippingAddress,
+          inputChangeAction: handleAddressInputChange,
+          validationErrors: validationErrors
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+        "aria-labelledby": "billing-heading",
+        className: "mt-10",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          id: "billing-heading",
+          className: "text-lg font-medium text-gray-900",
+          children: "Billing information"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "mt-6 flex items-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            id: "same-as-shipping",
+            name: "same-as-shipping",
+            type: "checkbox",
+            defaultChecked: true,
+            value: sameBillingAddress,
+            onChange: function onChange() {
+              return handleCheckoutDataChange('sameAsShipping', !sameBillingAddress);
+            },
+            className: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "ml-2",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+              htmlFor: "same-as-shipping",
+              className: "text-sm font-medium text-gray-900",
+              children: "Same as shipping information"
+            })
           })]
-        })
+        }), !sameBillingAddress && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_AddressForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          type: "billing",
+          address: billingAddress,
+          inputChangeAction: handleAddressInputChange,
+          validationErrors: validationErrors
+        })]
+      })]
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/checkout/CheckoutItems.jsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/pages/checkout/CheckoutItems.jsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CheckoutItems)
+/* harmony export */ });
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _CartItems__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CartItems */ "./resources/js/pages/checkout/CartItems.jsx");
+/* harmony import */ var react_use_cart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-use-cart */ "./node_modules/react-use-cart/dist/react-use-cart.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function CheckoutItems(_ref) {
+  var shippingOption = _ref.shippingOption,
+    handleCheckout = _ref.handleCheckout;
+  var navigate = (0,react_router__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
+  var _useCart = (0,react_use_cart__WEBPACK_IMPORTED_MODULE_1__.useCart)(),
+    items = _useCart.items,
+    cartTotal = _useCart.cartTotal,
+    isEmpty = _useCart.isEmpty,
+    emptyCart = _useCart.emptyCart;
+  if (!shippingOption) {
+    return null;
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+    "aria-labelledby": "summary-heading",
+    className: "bg-gray-100 px-4 pb-10 pt-16 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_CartItems__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      items: items,
+      cartTotal: cartTotal,
+      shippingOption: shippingOption
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      className: "text-center text-sm text-gray-500 sm:text-left my-8",
+      children: "You won't be charged until the next step."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "mt-6 border-t border-gray-200 pt-3 sm:flex sm:items-center sm:justify-between",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        type: "button",
+        className: "w-full rounded-md border border-transparent bg-green-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none  focus:ring-offset-gray-50 sm:order-last sm:w-auto",
+        onClick: function onClick() {
+          return navigate('/shop');
+        },
+        children: "Continue shopping"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        type: "button",
+        onClick: handleCheckout,
+        className: "w-full rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none  focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto",
+        children: "Place order"
       })]
     })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/checkout/PaymentModal.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/pages/checkout/PaymentModal.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ PaymentModal)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Modal */ "./resources/js/components/Modal.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function PaymentModal(_ref) {
+  var open = _ref.open,
+    order = _ref.order;
+  var payment = {
+    "sandbox": true,
+    "merchant_id": "211526",
+    // Replace your Merchant ID
+    "return_url": 'http://localhost/checkout/success',
+    // Important
+    "cancel_url": 'http://localhost/checkout/failed',
+    // Important
+    "notify_url": 'http://localhost/api/checkout/notify',
+    "order_id": order.reference,
+    "items": "Door bell wireles, Other items 1 , other 2",
+    "amount": order.total / 100,
+    "currency": "LKR",
+    "hash": "45D3CBA93E9F2189BD630ADFE19AA6DC",
+    // *Replace with generated hash retrieved from backend
+    "first_name": "Saman",
+    "last_name": "Perera",
+    "email": "samanp@gmail.com",
+    "phone": "0771234567",
+    "address": "No.1, Galle Road",
+    "city": "Colombo",
+    "country": "Sri Lanka",
+    "delivery_address": "No. 46, Galle road, Kalutara South",
+    "delivery_city": "Kalutara",
+    "delivery_country": "Sri Lanka",
+    "custom_1": "",
+    "custom_2": ""
+  };
+  var init = function init() {
+    // Payment completed. It can be a successful failure.
+    window.payhere.onCompleted = function onCompleted(orderId) {
+      console.log("Payment completed. OrderID:" + orderId);
+      // Note: validate the payment and show success or failure page to the customer
+    };
+
+    // Payment window closed
+    window.payhere.onDismissed = function onDismissed() {
+      // Note: Prompt user to pay again or show an error page
+      console.log("Payment dismissed");
+    };
+
+    // Error occurred
+    window.payhere.onError = function onError(error) {
+      // Note: show an error page
+      console.log("Error:" + error);
+    };
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    init();
+    window.payhere.startPayment(payment);
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Modal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    open: open,
+    title: "Processing payment. Do not refresh the page.",
+    type: "info"
   });
 }
 
