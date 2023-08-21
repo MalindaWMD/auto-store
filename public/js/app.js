@@ -7619,6 +7619,7 @@ var performOrdersQuery = function performOrdersQuery() {
 };
 var getParams = function getParams() {
   var query = (0,_hooks_routes__WEBPACK_IMPORTED_MODULE_1__.useQuery)();
+  //
   var params = {};
   query.forEach(function (value, key) {
     params[key] = value;
@@ -8823,7 +8824,7 @@ function OrderCard(_ref) {
             })
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), order.status !== 'awaiting-payment' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "hidden lg:col-span-1 lg:flex lg:items-center lg:justify-end lg:space-x-4",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
           href: order.id,

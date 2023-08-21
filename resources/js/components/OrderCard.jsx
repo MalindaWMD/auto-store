@@ -5,12 +5,12 @@ import { classNames } from '../utils/css'
 import Price from './Price'
 import moment from 'moment'
 
-export default function OrderCard({order}) {
+export default function OrderCard({ order }) {
 
 	const name = order.shipping_address?.first_name + ' ' + order.shipping_address?.last_name
 
 	const getAddress = (address) => {
-		if( ! address){
+		if (!address) {
 			return null
 		}
 
@@ -21,7 +21,7 @@ export default function OrderCard({order}) {
 		return addr.join(',');
 	}
 
-	const Status = ({text, color='green'}) => {
+	const Status = ({ text, color = 'green' }) => {
 		return (
 			<span className={`inline-flex items-center rounded-md bg-${color}-50 px-2 py-1 text-xs font-medium text-${color}-700 ring-1 ring-inset ring-${color}-600`}>
 				{text}
@@ -46,20 +46,20 @@ export default function OrderCard({order}) {
 					<div className="hidden sm:block">
 						<dt className="font-medium text-gray-900">Date placed</dt>
 						<dd className="mt-1 text-gray-500">
-							<time dateTime={order.created_at}>{ moment(order.created_at).format('YYYY-MM-DD h:m A') }</time>
+							<time dateTime={order.created_at}>{moment(order.created_at).format('YYYY-MM-DD h:m A')}</time>
 						</dd>
 					</div>
-					{order.status == 'delivered' && 
+					{order.status == 'delivered' &&
 						<div className="hidden sm:block">
 							<dt className="font-medium text-gray-900">Date delivered</dt>
 							<dd className="mt-1 text-gray-500">
-								<time dateTime={order.updated_at}>{ moment(order.updated_at).format('YYYY-MM-DD h:m A') }</time>
+								<time dateTime={order.updated_at}>{moment(order.updated_at).format('YYYY-MM-DD h:m A')}</time>
 							</dd>
 						</div>
 					}
 
 					<div className="col-span-3 pt-3 text-green-600">
-						<Status text={order.status} color="green"/>
+						<Status text={order.status} color="green" />
 					</div>
 				</dl>
 
@@ -113,15 +113,17 @@ export default function OrderCard({order}) {
 					</Transition>
 				</Menu>
 
-				<div className="hidden lg:col-span-1 lg:flex lg:items-center lg:justify-end lg:space-x-4">
-					<a
-						href={order.id}
-						className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-2.5 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none "
-					>
-						<span>Request refund</span>
-						<span className="sr-only">{order.reference}</span>
-					</a>
-				</div>
+				{order.status !== 'awaiting-payment' &&
+					<div className="hidden lg:col-span-1 lg:flex lg:items-center lg:justify-end lg:space-x-4">
+						<a
+							href={order.id}
+							className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-2.5 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none "
+						>
+							<span>Request refund</span>
+							<span className="sr-only">{order.reference}</span>
+						</a>
+					</div>
+				}
 			</div>
 
 			<div className="grid grid-cols-4 gap-4">
@@ -187,7 +189,7 @@ export default function OrderCard({order}) {
 									<p className="text-xs text-gray-500">Qty: {line.quantity}</p>
 								</div>
 								<div>
-									<p className="text-sm mt-2 sm:mt-0"><Price value={line.unit_price}/></p>
+									<p className="text-sm mt-2 sm:mt-0"><Price value={line.unit_price} /></p>
 								</div>
 							</div>
 						))}

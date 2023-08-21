@@ -8,7 +8,7 @@ export const performOrdersQuery = () => {
 
 const getParams = () => {
     const query = useQuery()
-
+//
     let params = {};
     query.forEach((value, key) => {
         params[key] = value

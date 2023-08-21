@@ -28,7 +28,9 @@ return [
         'awaiting-payment' => [
             'label' => 'Awaiting Payment',
             'color' => '#848a8c',
-            'mailers' => [],
+            'mailers' => [
+                App\Mail\OrderPaymentAwaiting::class
+            ],
             'notifications' => [],
         ],
         'payment-offline' => [
@@ -40,7 +42,9 @@ return [
         'payment-received' => [
             'label' => 'Payment Received',
             'color' => '#6a67ce',
-            'mailers' => [],
+            'mailers' => [
+                App\Mail\OrderPaymentAwaiting::class
+            ],
             'notifications' => [],
         ],
         'dispatched' => [
