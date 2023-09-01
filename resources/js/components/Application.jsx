@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from 'react'
+import ReactGA from "react-ga4";
+import TagManager from 'react-gtm-module'
 import ReactDOM from 'react-dom/client'
-import { browserRouter } from '../routes/routes'
 import { RouterProvider } from "react-router-dom"
 import { CartProvider } from "react-use-cart"
+import { browserRouter } from '../routes/routes'
 import { AppProvider } from '../contexts/AppContext'
-import { useAxios, useAxiosPromise } from '../hooks/axios'
 
 function Application() {
+
+  useEffect(() => {
+    ReactGA.initialize(process.env.MIX_GA_MEASUREMENT_ID);
+    TagManager.initialize({
+      gtmId: process.env.MIX_GTM_ID
+    })
+  })
+
   return (
     <CartProvider>
       <AppProvider>

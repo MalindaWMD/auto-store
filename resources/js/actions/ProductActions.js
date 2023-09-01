@@ -1,5 +1,6 @@
 import { useAxios } from "../hooks/axios"
 import { useCurrentPath, useQuery } from "../hooks/routes"
+import ReactGA from "react-ga4";
 
 const acceptableParams = [
     'q',
@@ -13,8 +14,17 @@ const acceptableParams = [
 export const performProductQuery = () => {
     const currentPath = useCurrentPath()
 
+    const params = getParams()
+
     if(currentPath == '/shop/search' && searchQuery){
         return useAxios('/api/products/search', 'GET', getParams());
+    }
+
+    if(params){
+        ReactGA.event({
+            category: "Product search",
+            action: "Search searched",
+        });
     }
     
     return useAxios('/api/products', 'GET', getParams());
