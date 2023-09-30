@@ -16,7 +16,7 @@ class OrderResource extends JsonResource
     {
         $this->load('productLines', 'productLines.purchasable.product');
 
-        $data = $this->only(['id', 'reference', 'created_at', 'updated_at', 'status']);
+        $data = $this->only(['id', 'reference', 'created_at', 'updated_at', 'status', 'hash']);
 
         $data['shipping_total'] = $this->shipping_total->value;
         $data['sub_total'] = $this->sub_total->value - $data['shipping_total'];

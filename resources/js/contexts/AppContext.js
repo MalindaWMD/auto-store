@@ -1,80 +1,79 @@
-import { createContext, useEffect, useState } from "react"
-import { useAxios, useAxiosPromise } from "../hooks/axios"
-import PageLoading from "../components/loaders/PageLoading"
-import Cookies from "js-cookie"
-import { getCookie, setCookie } from "../utils/cookies"
-import { useCart } from "react-use-cart"
+import { createContext, useEffect, useState } from "react";
+import { useAxiosPromise } from "../hooks/axios";
+import PageLoading from "../components/loaders/PageLoading";
+import { getCookie, setCookie } from "../utils/cookies";
+import { useCart } from "react-use-cart";
 
-export const AppContext = createContext()
+export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [appData, setAppData] = useState()
-  const [user, setUser] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const {setItems, emptyCart} = useCart()
+  const [appData, setAppData] = useState(null);
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const { setItems, emptyCart } = useCart();
 
   const isLoggedIn = () => {
-    return user !== null && user !== undefined
-  }
+    return !!user;
+  };
 
   const loadAppData = async () => {
-    let cookieData = getCookie('app-data')
-    
-    if (cookieData) {
-      setAppData(cookieData)
-      setIsLoading(false)
-      return
-    }
+    try {
+      const cookieData = getCookie('app-data');
+      if (cookieData) {
+        setAppData(cookieData);
+        setIsLoading(false);
+        return;
+      }
 
-    await useAxiosPromise('/api/app/data', 'GET').then(res => {
-      setAppData(res.data.data)
-      setCookie('app-data', res.data.data)
-    }).catch(err => { })
-  }
+      const response = await useAxiosPromise('/api/app/data', 'GET');
+      const responseData = response.data.data;
+      setAppData(responseData);
+      setCookie('app-data', responseData);
+    } catch (error) {
+      console.error("Error loading app data:", error);
+    }
+  };
 
   const loadUser = async () => {
-    // let cookieData = getCookie('user')
-    // if ( ! cookieData) {
-    //   setUser(cookieData)
-    //   setIsLoading(false)
-    //   return
-    // }
+    try {
+      const response = await useAxiosPromise('/api/user', 'GET');
+      const userData = response.data.data;
+      setUser(userData);
+      setCookie('user', userData, 1 / 24);
+    } catch (error) {
+      console.error("Error loading user data:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    useAxiosPromise('/api/user', 'GET').then(res => {
-      setUser(res.data.data)
-      setCookie('user', res.data.data, 1/24)
-      setIsLoading(false)
-    }).catch(err => {
-      setIsLoading(false)
-    })
-  }
-
-  const loadCart = () => {
-    useAxiosPromise('/api/cart', 'GET').then(res => {
-      let cart = res.data.data
-      if(cart) {
-        setItems(cart.items)
-      }else{
-        emptyCart()
+  const loadCart = async () => {
+    try {
+      const response = await useAxiosPromise('/api/cart', 'GET');
+      const cartData = response.data.data;
+      if (cartData) {
+        setItems(cartData.items);
+      } else {
+        emptyCart();
       }
-    }).catch(err => { 
-      console.log(err)
-    })
-  }
+    } catch (error) {
+      console.error("Error loading cart data:", error);
+    }
+  };
 
   useEffect(() => {
-    loadAppData()
-    loadUser()
-    loadCart()
-  }, [])
+    loadAppData();
+    loadUser();
+    loadCart();
+  }, []);
 
   if (isLoading) {
-    return <PageLoading />
+    return <PageLoading />;
   }
 
   return (
-    <AppContext.Provider value={{ appData, user, setUser, isLoggedIn }}>
+    <AppContext.Provider value={{ appData, user, setUser, isLoggedIn, loadUser }}>
       {children}
     </AppContext.Provider>
-  )
-}
+  );
+};

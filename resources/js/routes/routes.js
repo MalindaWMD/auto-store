@@ -12,6 +12,9 @@ import { createBrowserRouter } from "react-router-dom"
 import ForgotPassword from "../pages/ForgotPassword"
 import ResetPassword from "../pages/ResetPassword"
 import UserProfile from "../pages/UserProfile"
+import ReturnPolicy from "../pages/ReturnPolicy"
+import PrivacyPolicy from "../pages/PrivacyPolicy"
+import TermsAndConditions from "../pages/TermsAndConditions"
 
 const routes = [
 
@@ -108,6 +111,24 @@ const routes = [
   {
     path: '/user/refunds',
     element: <UserProfile/>,
+    index: false,
+    errorElement: <NotFound/>
+  },
+  {
+    path: '/return-policy',
+    element: <ReturnPolicy/>,
+    index: false,
+    errorElement: <NotFound/>
+  },
+  {
+    path: '/privacy-policy',
+    element: <PrivacyPolicy/>,
+    index: false,
+    errorElement: <NotFound/>
+  },
+  {
+    path: '/terms-and-conditions',
+    element: <TermsAndConditions/>,
     index: false,
     errorElement: <NotFound/>
   },

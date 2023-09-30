@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\OrderCreated;
 use App\Http\Controllers\Traits\CheckoutUtils;
 use App\Http\Requests\CheckoutRequest;
+use App\Http\Resources\OrderResource;
 use Lunar\Exceptions\Carts\CartException;
 use Lunar\Facades\CartSession;
 
@@ -51,21 +52,21 @@ class CheckoutController extends Controller
 
             CartSession::forget();
 
-            // app(PaymentController::class)->store($order->id);
+            app(PaymentController::class)->store($order->id);
 
-            // $hash = strtoupper(
-            //     md5(
-            //         211526 . 
-            //         $order->reference . 
-            //         number_format($order->total->value, 2, '.', '') . 
-            //         'LKR' .  
-            //         strtoupper(md5('MjM4Mjk2NzMzOTI1ODgyOTg3NDkyMjE2MjEyNjMzNDE1MjE4NTMx')) 
-            //     ) 
-            // );
+            $hash = strtoupper(
+                md5(
+                    211526 . 
+                    $order->reference . 
+                    number_format($order->total->value, 2, '.', '') . 
+                    'LKR' .  
+                    strtoupper(md5('MjM4Mjk2NzMzOTI1ODgyOTg3NDkyMjE2MjEyNjMzNDE1MjE4NTMx')) 
+                ) 
+            );
 
-            // $order->hash = $hash;
+            $order->hash = $hash;
 
-            return $this->success($order);
+            return $this->success(new OrderResource($order));
 
         } catch(CartException $e){
             \Log::debug('CheckoutController(store): Order exists for the cart. ' . json_encode([$cart->id, $e->getMessage(), $e->getLine(), $e->getFile()]));
