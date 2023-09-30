@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import BannerSlider from "../components/BannerSlider"
 import Layout from "../components/Layout"
 import SearchForm from "../components/SearchForm"
@@ -27,7 +27,7 @@ export default function Home() {
     </div>
 
     <div className="bg-[#f4f4f4]">
-      <div dangerouslySetInnerHTML={{ __html: context?.appData['home-top-content'] }} />
+      <div dangerouslySetInnerHTML={{ __html: context && context.appData ? context.appData['home-top-content'] : null }} />
     </div>
 
     <TopBrands />
