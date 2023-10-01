@@ -8885,9 +8885,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function OrderCard(_ref) {
+var OrderAction = function OrderAction(_ref) {
+  var reference = _ref.reference,
+    status = _ref.status;
+  if (status == 'awaiting-payment') {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "hidden lg:col-span-1 lg:flex lg:items-center lg:justify-end lg:space-x-4",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
+        href: reference,
+        className: "flex items-center justify-center rounded-md border border-red-300 bg-white px-2.5 py-2 text-sm font-medium text-red-700 shadow-sm hover:bg-red-50 focus:outline-none ",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: "Cancel"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          className: "sr-only",
+          children: reference
+        })]
+      })
+    });
+  }
+  if (status == 'payment-offline' || status == 'payment-received') {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "hidden lg:col-span-1 lg:flex lg:items-center lg:justify-end lg:space-x-4",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
+        href: reference,
+        className: "flex items-center justify-center rounded-md border border-gray-300 bg-white px-2.5 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none ",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: "Request refund"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          className: "sr-only",
+          children: reference
+        })]
+      })
+    });
+  }
+};
+function OrderCard(_ref2) {
   var _order$shipping_addre, _order$shipping_addre2, _order$shipping_addre3, _order$shipping_addre4, _order$shipping_addre5, _order$shipping_addre6, _order$billing_addres, _order$billing_addres2;
-  var order = _ref.order;
+  var order = _ref2.order;
   var name = ((_order$shipping_addre = order.shipping_address) === null || _order$shipping_addre === void 0 ? void 0 : _order$shipping_addre.first_name) + ' ' + ((_order$shipping_addre2 = order.shipping_address) === null || _order$shipping_addre2 === void 0 ? void 0 : _order$shipping_addre2.last_name);
   var getAddress = function getAddress(address) {
     if (!address) {
@@ -8899,10 +8933,12 @@ function OrderCard(_ref) {
     });
     return addr.join(',');
   };
-  var Status = function Status(_ref2) {
-    var text = _ref2.text,
-      _ref2$color = _ref2.color,
-      color = _ref2$color === void 0 ? 'green' : _ref2$color;
+  var Status = function Status(_ref3) {
+    var text = _ref3.text,
+      _ref3$color = _ref3.color,
+      color = _ref3$color === void 0 ? 'green' : _ref3$color;
+    text = text.replaceAll('-', ' ');
+    text = text[0].toUpperCase() + text.slice(1);
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
       className: "inline-flex items-center rounded-md bg-".concat(color, "-50 px-2 py-1 text-xs font-medium text-").concat(color, "-700 ring-1 ring-inset ring-").concat(color, "-600"),
       children: text
@@ -8987,8 +9023,8 @@ function OrderCard(_ref) {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "py-1",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_5__.Menu.Item, {
-                children: function children(_ref3) {
-                  var active = _ref3.active;
+                children: function children(_ref4) {
+                  var active = _ref4.active;
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
                     href: order.id,
                     className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_1__.classNames)(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'),
@@ -8996,8 +9032,8 @@ function OrderCard(_ref) {
                   });
                 }
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_5__.Menu.Item, {
-                children: function children(_ref4) {
-                  var active = _ref4.active;
+                children: function children(_ref5) {
+                  var active = _ref5.active;
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
                     href: order.id,
                     className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_1__.classNames)(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'),
@@ -9008,18 +9044,9 @@ function OrderCard(_ref) {
             })
           })
         })]
-      }), order.status !== 'awaiting-payment' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "hidden lg:col-span-1 lg:flex lg:items-center lg:justify-end lg:space-x-4",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
-          href: order.id,
-          className: "flex items-center justify-center rounded-md border border-gray-300 bg-white px-2.5 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none ",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-            children: "Request refund"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-            className: "sr-only",
-            children: order.reference
-          })]
-        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(OrderAction, {
+        reference: order.reference,
+        status: order.status
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "grid grid-cols-4 gap-4",
@@ -14665,7 +14692,8 @@ function Register() {
   // Navigate to previous page if already logged in
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (isLoggedIn()) {
-      return navigate(-1);
+      react_toastify__WEBPACK_IMPORTED_MODULE_7__.toast.info('You are already logged in');
+      return navigate('/');
     }
   }, [user]);
   var handleRegistrationResponse = function handleRegistrationResponse(user) {
@@ -14691,11 +14719,12 @@ function Register() {
       password: form.password.value
     };
     (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_6__.useAxiosPromise)('/api/register', 'POST', data).then(function (res) {
-      if (res.status === 200) {
-        handleRegistrationResponse(res.data.data);
-      }
       setIsLoading(false);
-      throw new Error('Error authenticating user');
+      if (res.status !== 200) {
+        throw new Error('Error registering user');
+        return;
+      }
+      handleRegistrationResponse(res.data.data);
     })["catch"](function (err) {
       // Validation errors
       if ((0,_utils_connection__WEBPACK_IMPORTED_MODULE_8__.isAValidationError)(err.response)) {
@@ -17879,6 +17908,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   isAValidationError: () => (/* binding */ isAValidationError)
 /* harmony export */ });
 var isAValidationError = function isAValidationError(response) {
+  if (!response) {
+    return false;
+  }
   return response.status === 422 && !response.data.type;
 };
 

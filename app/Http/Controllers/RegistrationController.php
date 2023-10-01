@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 use Illuminate\Auth\Events\Registered;
-use Laravel\Fortify\Contracts\RegisterResponse;
+use App\Http\Responses\RegisterResponse;
 
 class RegistrationController extends RegisteredUserController
 {

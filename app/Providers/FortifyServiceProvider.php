@@ -18,6 +18,8 @@ use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Http\Controllers\PasswordResetLinkController as LunarPasswordResetLinkController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
+use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
+use App\Http\Responses\RegisterResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,7 @@ class FortifyServiceProvider extends ServiceProvider
     {
         $this->app->singleton(LunarPasswordResetLinkController::class, PasswordResetLinkController::class);
         $this->app->singleton(RegisteredUserController::class, RegistrationController::class);
+        $this->app->singleton(RegisterResponseContract::class, RegisterResponse::class);
     }
 
     /**

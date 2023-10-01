@@ -21,7 +21,8 @@ export default function Register() {
   // Navigate to previous page if already logged in
   useEffect(() => {
     if (isLoggedIn()) {
-      return navigate(-1)
+      toast.info('You are already logged in');
+      return navigate('/')
     }
   }, [user])
 
@@ -52,12 +53,14 @@ export default function Register() {
     }
 
     useAxiosPromise('/api/register', 'POST', data).then(res => {
-      if (res.status === 200) {
-        handleRegistrationResponse(res.data.data)
+      setIsLoading(false)
+
+      if (res.status !== 200) {
+        throw new Error('Error registering user')
+        return;
       }
 
-      setIsLoading(false)
-      throw new Error('Error authenticating user')
+      handleRegistrationResponse(res.data.data)
     }).catch(err => {
        // Validation errors
        if (isAValidationError(err.response)) {
