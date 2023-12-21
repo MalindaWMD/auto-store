@@ -45,7 +45,7 @@ class VehicleSlot extends Component implements AbstractSlot
 
         $this->loadRelatedVehicles();
 
-        $this->oeNumbers = explode(',', $this->slotModel->oe_numbers);
+        $this->oeNumbers = $this->slotModel->oe_numbers ? explode(',', $this->slotModel->oe_numbers) : [];
     }
 
     public static function getName()

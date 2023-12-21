@@ -2,9 +2,9 @@ $.when($.ready).then(function () {
 
 	$(document).on('scroll', function () {
 		$('#tax_class').closest('.grid').hide();
-		$('#identifiers, #urls, #variants').hide();
+		$('#identifiers, #urls, #variants, #shipping').hide();
 
-		$('a[href="#urls"], a[href="#identifiers"], a[href="#variants"]').hide();
+		$('a[href="#urls"], a[href="#identifiers"], a[href="#variants"], a[href="#shipping"]').hide();
 	});
 
 	addStorefrontLink();

@@ -16,7 +16,7 @@
       value = ''
     }
 
-    removeTag = (index) => {
+    removeTagName = (index) => {
       tags.splice(index, 1)
     }
 
@@ -35,7 +35,9 @@
         class="flex items-center px-2 py-1 my-1 mr-2 space-x-1 text-sm leading-none bg-purple-100 rounded"
       >
         <span x-text="tag" class="text-purple-700"></span>
-        <button type="button" @click.prevent="removeTag(tagIndex)" class="text-purple-400 hover:text-purple-900"><x-hub::icon ref="x" style="solid" class="w-4" /></button>
+        <button type="button" @click="removeTagName(tagIndex)" class="text-purple-400 hover:text-purple-900">
+          <x-hub::icon ref="x" class="w-4" />
+        </button>
       </span>
     </template>
     <input

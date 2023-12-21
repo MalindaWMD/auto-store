@@ -56,10 +56,9 @@ class HubSlotsServiceProvider extends ServiceProvider
 
     private function registerAssets()
     {
+        LunarHub::style('custom-hub', __DIR__.'/../../resources/views/hub/css/styles.css');
+
         LunarHub::remoteScript('https://code.jquery.com/jquery-3.7.0.min.js"');
-        LunarHub::script('custom-hub-scripts', __DIR__.'/../../resources/views/hub/js/script.js');
-
-        // LunarHub::style('custom-hub-styles', __DIR__.'/../../resources/views/hub/css/style.css');
-
+        LunarHub::script('custom-hub', __DIR__.'/../../resources/views/hub/js/script.js');
     }
 }
