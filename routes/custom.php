@@ -14,8 +14,7 @@ Route::post('/hub/download', function(Request $request) {
 
     try{
         $zip = new ZipArchive;
-        $zip->open($zipFilePath, \ZipArchive::CREATE);
-
+        $zip->open($zipFilePath, ZipArchive::CREATE);
         $zip->addFromString("h-preview.jpg", file_get_contents("https://media.autodoc.de/360_photos/$id/h-preview.jpg"));
 
         for ($i=1; $i < 5; $i++) { 
@@ -50,5 +49,6 @@ Route::post('/hub/download', function(Request $request) {
 
     $zip->close();
    
-    return response()->download($zipFilePath)->deleteFileAfterSend();
+    ob_end_clean();
+    return response()->download($zipFilePath);
 });

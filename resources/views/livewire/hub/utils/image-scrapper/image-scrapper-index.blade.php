@@ -1,10 +1,41 @@
 <div class="flex-col space-y-4">
+
+<div>
+		<strong class="text-xl font-bold md:text-2xl mb-4">
+			Product scrapper
+		</strong>
+
+		<p class="mb-4">Scrap product details from AutoDoc.</p>
+
+		<div class="overflow-hidden shadow sm:rounded-md">
+			<div class="flex-col px-4 py-5 space-y-4 bg-white sm:p-6">
+				<div class="mb-4">
+					<p>How to use?</p>
+					<small><i class="text-gray-500">This extenstion can be used with Chrome or Brave browsers only.</i></small>
+					<ol class="list-disc list-inside">
+						<li>- Download <a href="" class="text-purple-700">this file</a> and unzip it. You need to select the unzipped folder in the next step.</li>
+						<li>- You need to allow Chrome/Brave to load extention. Follow instructions on <a class="text-purple-700" href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked">this link</a>.</li>
+						<li>- Visit the product page. You'll see a overlay popup on the top right of the page.
+							<img class="w-80 border shadow-lg rounded-lg mt-2 mb-4 ml-4" src="/images/scrapper-guide-1.jpg" alt="">
+						</li>
+						<li>- Click on the popup to open.
+							<img class="w-80 border shadow-lg rounded-lg mt-2 mb-4 ml-4" src="/images/scrapper-guide-2.jpg" alt="">
+
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+</div>
+
+<hr>
+
 	<div>
 		<strong class="text-xl font-bold md:text-2xl mb-4">
 			Image scrapper
 		</strong>
 
-		<p class="mb-4">This page can be use to scrap product image from AutoDoc.</p>
+		<p class="mb-4">Scrap product image from AutoDoc.</p>
 
 		<div class="overflow-hidden shadow sm:rounded-md">
 			<div class="flex-col px-4 py-5 space-y-4 bg-white sm:p-6">
@@ -21,7 +52,7 @@
 					</ol>
 				</div>
 
-					<form class="flex justify-between items-center" method="post" action="/hub/download">
+					<form id="form" class="flex justify-between items-center" method="post" action="/hub/download">
 						{{ csrf_field() }}
 						<div class="flex justify-start items-end">
 							<div>
@@ -33,7 +64,7 @@
 							</button>
 						</div>
 
-						<button class="py-2 px-4 text-sm border-transparent ml-4 bg-sky-600 text-white hover:bg-sky-700 focus:ring-sky-500 disabled:cursor-not-allowed disabled:opacity-50 rounded-lg shadow-sm border inline-flex justify-center font-medium focus:outline-none focus:ring-offset-2 focus:ring-2">
+						<button id="btn-submit" type="submit" class="py-2 px-4 text-sm border-transparent ml-4 bg-sky-600 text-white hover:bg-sky-700 focus:ring-sky-500 disabled:cursor-not-allowed disabled:opacity-50 rounded-lg shadow-sm border inline-flex justify-center font-medium focus:outline-none focus:ring-offset-2 focus:ring-2">
 							Download all images
 						</button>
 					</form>
@@ -47,7 +78,6 @@
 <script>
 	let btnGetImages = document.getElementById('btn-get-images');
 	btnGetImages.addEventListener('click', function() {
-
 		document.getElementById('images').innerHTML = '';
 
 		let productId = document.getElementById('input-product-id').value;
@@ -64,5 +94,12 @@
 		}
 
 		document.getElementById('images').innerHTML = main + others;
+	});
+
+	let form = document.getElementById('form');
+	form.addEventListener('submit', function() {
+		let btnSubmit = document.getElementById('btn-submit');
+		btnSubmit.innerText = "Downloading...";
+		btnSubmit.disabled = true;
 	});
 </script>

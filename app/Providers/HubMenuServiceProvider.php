@@ -43,7 +43,7 @@ class HubMenuServiceProvider extends ServiceProvider
             ->name('Utils');
 
         $utilsGroup->addItem(function ($item) {
-            $item->name('Image scrapper')
+            $item->name('Product scrapper')
                 ->handle('hub.utils.scrappers.images')
                 ->route('hub.utils.scrappers.image.index')
                 ->gate('view-utils')
