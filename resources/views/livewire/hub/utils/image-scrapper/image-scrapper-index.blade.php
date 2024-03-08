@@ -64,9 +64,9 @@
 							</button>
 						</div>
 
-						<button id="btn-submit" type="submit" class="py-2 px-4 text-sm border-transparent ml-4 bg-sky-600 text-white hover:bg-sky-700 focus:ring-sky-500 disabled:cursor-not-allowed disabled:opacity-50 rounded-lg shadow-sm border inline-flex justify-center font-medium focus:outline-none focus:ring-offset-2 focus:ring-2">
+						<!-- <button id="btn-submit" type="submit" class="py-2 px-4 text-sm border-transparent ml-4 bg-sky-600 text-white hover:bg-sky-700 focus:ring-sky-500 disabled:cursor-not-allowed disabled:opacity-50 rounded-lg shadow-sm border inline-flex justify-center font-medium focus:outline-none focus:ring-offset-2 focus:ring-2">
 							Download all images
-						</button>
+						</button> -->
 					</form>
 
 				<div id="images" class="grid grid-cols-6 gap-4"></div>
