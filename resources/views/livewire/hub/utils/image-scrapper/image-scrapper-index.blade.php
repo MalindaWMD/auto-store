@@ -14,7 +14,7 @@
 					<small><i class="text-gray-500">This extenstion can be used with Chrome or Brave browsers only.</i></small>
 					<ol class="list-disc list-inside">
 						<li>- Download <a href="/downloads/ad-product-scraper.zip" class="text-purple-700">this file</a> and unzip it. You need to select the unzipped folder in the next step.</li>
-						<li>- You need to allow Chrome/Brave to load extention. Follow instructions on <a class="text-purple-700" href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked">this link</a>.</li>
+						<li>- You need to allow Chrome/Brave to load extention. Follow instructions on <a target="_blank" class="text-purple-700" href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked">this link</a>.</li>
 						<li>- Visit the product page. You'll see a overlay popup on the top right of the page.
 							<img class="w-80 border shadow-lg rounded-lg mt-2 mb-4 ml-4" src="/images/scrapper-guide-1.jpg" alt="">
 						</li>
