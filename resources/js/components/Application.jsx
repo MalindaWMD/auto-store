@@ -6,8 +6,11 @@ import { RouterProvider } from "react-router-dom"
 import { CartProvider } from "react-use-cart"
 import { browserRouter } from '../routes/routes'
 import { AppProvider } from '../contexts/AppContext'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 function Application() {
+
+  const queryClient = new QueryClient()
 
   useEffect(() => {
     ReactGA.initialize(process.env.MIX_GA_MEASUREMENT_ID);
@@ -17,11 +20,13 @@ function Application() {
   })
 
   return (
-    <CartProvider>
-      <AppProvider>
-        <RouterProvider router={browserRouter} />
-      </AppProvider>
-    </CartProvider>
+    <QueryClientProvider client={queryClient}>
+      <CartProvider>
+        <AppProvider>
+          <RouterProvider router={browserRouter} />
+        </AppProvider>
+      </CartProvider>
+    </QueryClientProvider>
   );
 }
 

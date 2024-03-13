@@ -8,3 +8,13 @@ export const getUser = async () => {
         return err.response.data;
     }
 }
+
+export const login = async (data) => {
+    return await axios.get('/sanctum/csrf-cookie').then(response => {
+        return axios.post('/api/login', data).then(res => {
+            return res.data
+        }).catch(err => {
+            throw err.response?.data
+        })
+    })
+}
