@@ -63,3 +63,8 @@ export const useQuery = () => {
 export const useCurrentPath = () => {
   return useLocation().pathname
 }
+
+export const useCurrentUrl = () => {
+  const { pathname, search } = useLocation()
+  return pathname+search
+}

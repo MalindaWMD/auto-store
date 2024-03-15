@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductFilterController;
 use App\Http\Controllers\StorefrontController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
@@ -27,6 +28,7 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get('app/data', [StorefrontController::class, 'getSiteData']);
 
 // Product
+Route::get('products/filters', [ProductFilterController::class, 'index']);
 Route::get('products/search', [ProductController::class, 'search']);
 Route::apiResource('products', ProductController::class)
         ->parameters([

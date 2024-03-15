@@ -14,6 +14,9 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+
+        dd($request->all());
+
         $query = Product::with('brand');
 
         // search
