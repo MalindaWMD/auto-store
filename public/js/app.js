@@ -9573,16 +9573,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _heroicons_react_20_solid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @heroicons/react/20/solid */ "./node_modules/@heroicons/react/20/solid/esm/InformationCircleIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/MagnifyingGlassIcon.js");
-/* harmony import */ var _hooks_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/axios */ "./resources/js/hooks/axios.js");
-/* harmony import */ var _hooks_routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/routes */ "./resources/js/hooks/routes.js");
-/* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/css */ "./resources/js/utils/css.js");
+/* harmony import */ var _heroicons_react_20_solid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @heroicons/react/20/solid */ "./node_modules/@heroicons/react/20/solid/esm/InformationCircleIcon.js");
+/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/MagnifyingGlassIcon.js");
+/* harmony import */ var _hooks_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/routes */ "./resources/js/hooks/routes.js");
+/* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/css */ "./resources/js/utils/css.js");
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @tanstack/react-query */ "./node_modules/@tanstack/react-query/build/modern/useQuery.js");
+/* harmony import */ var _actions_VehicleActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/VehicleActions */ "./resources/js/actions/VehicleActions.js");
 /* harmony import */ var _SearchHelperModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SearchHelperModal */ "./resources/js/components/SearchHelperModal.jsx");
 /* harmony import */ var _AddVehicleModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddVehicleModal */ "./resources/js/components/AddVehicleModal.jsx");
-/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tanstack/react-query */ "./node_modules/@tanstack/react-query/build/modern/useQuery.js");
-/* harmony import */ var _actions_VehicleActions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions/VehicleActions */ "./resources/js/actions/VehicleActions.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -9601,11 +9600,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 function SearchForm(_ref) {
   var _ref$plain = _ref.plain,
     plain = _ref$plain === void 0 ? false : _ref$plain,
     className = _ref.className;
+  var urlQuery = (0,_hooks_routes__WEBPACK_IMPORTED_MODULE_1__.useQuery)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     showHelpModal = _useState2[0],
@@ -9614,50 +9613,46 @@ function SearchForm(_ref) {
     _useState4 = _slicedToArray(_useState3, 2),
     showVehicleModal = _useState4[0],
     setShowVehicleModal = _useState4[1];
-  // const [makes, setMakes] = useState([]);
-  // const [models, setModels] = useState([]);
-  // const [engines, setEngines] = useState([]);
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(urlQuery.get('make')),
     _useState6 = _slicedToArray(_useState5, 2),
     make = _useState6[0],
     setMake = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(urlQuery.get('model')),
     _useState8 = _slicedToArray(_useState7, 2),
     model = _useState8[0],
     setModel = _useState8[1];
-  var urlQuery = (0,_hooks_routes__WEBPACK_IMPORTED_MODULE_2__.useQuery)();
 
   // get Makes
-  var _useQuery = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_8__.useQuery)({
+  var _useQuery = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_7__.useQuery)({
       retry: 1,
       queryKey: ['vehicles', 'makes'],
       queryFn: function queryFn() {
-        return (0,_actions_VehicleActions__WEBPACK_IMPORTED_MODULE_6__.fetchVehicleMakes)();
+        return (0,_actions_VehicleActions__WEBPACK_IMPORTED_MODULE_3__.fetchVehicleMakes)();
       }
     }),
     makes = _useQuery.data,
-    isMakesPending = _useQuery.isPending;
+    isMakesPending = _useQuery.isPending,
+    hasMakesLoaded = _useQuery.isSuccess;
 
   // get models
-  var _useQuery2 = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_8__.useQuery)({
+  var _useQuery2 = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_7__.useQuery)({
       enabled: !!make,
       retry: 1,
       queryKey: ['vehicles', 'models', make],
       queryFn: function queryFn() {
-        return (0,_actions_VehicleActions__WEBPACK_IMPORTED_MODULE_6__.fetchVehicleModels)(make);
+        return (0,_actions_VehicleActions__WEBPACK_IMPORTED_MODULE_3__.fetchVehicleModels)(make);
       }
     }),
     models = _useQuery2.data,
     isModelsPending = _useQuery2.isPending;
 
   // get engines
-  var _useQuery3 = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_8__.useQuery)({
+  var _useQuery3 = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_7__.useQuery)({
       enabled: !!model,
       retry: 1,
       queryKey: ['vehicles', 'models', model],
       queryFn: function queryFn() {
-        return (0,_actions_VehicleActions__WEBPACK_IMPORTED_MODULE_6__.fetchVehicleEngines)(model);
+        return (0,_actions_VehicleActions__WEBPACK_IMPORTED_MODULE_3__.fetchVehicleEngines)(model);
       }
     }),
     engines = _useQuery3.data,
@@ -9666,40 +9661,41 @@ function SearchForm(_ref) {
     setMake(e.target.value);
     setModel(null);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SearchHelperModal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SearchHelperModal__WEBPACK_IMPORTED_MODULE_4__["default"], {
       open: showHelpModal,
       openAction: setShowHelpModal
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_AddVehicleModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AddVehicleModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
       open: showVehicleModal,
       openAction: setShowVehicleModal
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_3__.classNames)(className, !plain ? 'shadow-md border rounded-md p-6' : ''),
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_2__.classNames)(className, !plain ? 'shadow-md border rounded-md p-6' : ''),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
         action: "/shop",
         method: "GET",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
           className: "mb-3 font-bold",
           children: "Select your vehicle to search for parts"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             htmlFor: "maker",
             className: "block text-sm font-medium leading-6 text-gray-900",
             children: "Maker"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
             className: "mt-2",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("select", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
               name: "make",
               className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400",
               disabled: isMakesPending,
               onChange: handleMakesChange,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
+              value: urlQuery.get('make') || '',
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                 value: "",
                 className: "text-gray-100",
                 children: "Select make"
               }), makes === null || makes === void 0 ? void 0 : makes.map(function (make) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                   value: make.id,
                   className: "text-gray-100",
                   children: make.name
@@ -9707,27 +9703,28 @@ function SearchForm(_ref) {
               })]
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             htmlFor: "model",
             className: "block text-sm font-medium leading-6 text-gray-900",
             children: "Model"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
             className: "mt-2",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("select", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
               name: "model",
               className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400",
               disabled: isModelsPending,
               onChange: function onChange(e) {
                 return setModel(e.target.value);
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
+              value: urlQuery.get('model') || '',
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                 value: "",
                 className: "text-gray-100",
                 children: "Select model"
               }), models === null || models === void 0 ? void 0 : models.map(function (model) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                   value: model.id,
                   className: "text-gray-100",
                   children: model.name
@@ -9735,24 +9732,25 @@ function SearchForm(_ref) {
               })]
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "mb-1",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             htmlFor: "engine",
             className: "block text-sm font-medium leading-6 text-gray-900",
             children: "Engine"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
             className: "mt-2",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("select", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
               name: "engine",
               className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400",
               disabled: isEnginessPending,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
+              value: urlQuery.get('engine') || '',
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                 value: "",
                 className: "text-gray-100",
                 children: "Select engine"
               }), engines === null || engines === void 0 ? void 0 : engines.map(function (engine) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                   value: engine.id,
                   className: "text-gray-100",
                   children: engine.name
@@ -9760,30 +9758,30 @@ function SearchForm(_ref) {
               })]
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
           type: "button",
           className: "text-xs text-indigo-600 font-medium",
           onClick: function onClick() {
             return setShowVehicleModal(!showVehicleModal);
           },
           children: "Can't find your vehicle?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
             htmlFor: "q",
             className: "w-full justify-center items-center text-sm font-medium leading-6 text-gray-900 inline-flex",
-            children: ["or enter what you need", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+            children: ["or enter what you need", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
               type: "button",
               onClick: function onClick() {
                 return setShowHelpModal(!showHelpModal);
               },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_heroicons_react_20_solid__WEBPACK_IMPORTED_MODULE_9__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_heroicons_react_20_solid__WEBPACK_IMPORTED_MODULE_8__["default"], {
                 className: "h-5 w-5 fill-blue-500"
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
             className: "mt-2",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
               type: "text",
               name: "q",
               id: "q",
@@ -9793,10 +9791,10 @@ function SearchForm(_ref) {
               className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
           type: "submit",
           className: "mt-5 w-full rounded-md border border-transparent bg-indigo-600 px-8 py-2 text-center text-white hover:bg-indigo-700 flex items-center justify-center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_9__["default"], {
             className: "h-5 w-5 mx-3",
             "aria-hidden": "true"
           }), "Search"]
