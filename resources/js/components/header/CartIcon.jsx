@@ -1,12 +1,11 @@
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { useCart } from 'react-use-cart'
 import Price from '../Price'
+import { useShoppingCart } from '../../hooks/useShoppingCart'
 
 
 export default function CartIcon({cartAction}) {
-  // const {data, isLoading} = useAxios('/api/cart', 'GET');
-
-  const { totalUniqueItems, cartTotal } = useCart()
+  const { totalUniqueItems, cartTotal } = useShoppingCart()
 
   return (
     <a href="#" onClick={cartAction} className="group -m-2 flex items-center p-2 rounded-md bg-[#ffffff1c]">

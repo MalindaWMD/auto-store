@@ -13,6 +13,7 @@ import { BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { classNames } from '../../utils/css'
 import UserMenu from '../UserMenu'
 import SigninLinks from '../SinginLinks'
+import { useAuthUser } from '../../hooks/useAuthUser'
 
 
 
@@ -21,7 +22,9 @@ const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
 export default function Header(props) {
   const [open, setOpen] = useState(false)
 
-  const { user, setUser } = useContext(AppContext)
+  // const { user, setUser } = useContext(AppContext)
+
+  const {data:user} = useAuthUser()
 
   return (
     <div className="relative z-40">

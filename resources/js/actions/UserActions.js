@@ -1,5 +1,10 @@
 import axios from "axios"
 
+export const fetchAuthUser = async () => {
+    const res = await axios.get('/api/user');
+    return res.data;
+}
+
 export const getUser = async () => {
     try {
         const res = await axios.get('/api/user');

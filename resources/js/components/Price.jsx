@@ -1,18 +1,11 @@
-import { useContext } from "react"
-import { AppContext } from "../contexts/AppContext"
-import getSymbolFromCurrency from "currency-symbol-map";
+import { useCurrency } from "../hooks/useCurrency";
 
 export default function Price({ value }) {
-
-  const {appData} = useContext(AppContext)
-
-  const getSymbol = () => {
-    return getSymbolFromCurrency(appData?.currency.code)
-  }
+  const currency = useCurrency()
 
   return (
     <>
-      {getSymbol() + (value/100).toFixed(2) }
+      {currency?.code + (value/100).toFixed(2) }
     </>
   )
 }

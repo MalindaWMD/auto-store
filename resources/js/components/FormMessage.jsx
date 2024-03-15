@@ -1,7 +1,7 @@
 let colors = {
   error: 'red',
   success: 'green',
-  info: 'indigo'
+  info: 'blue'
 }
 
 export default function FormMessage({ type, message, isShown=false }) {
@@ -15,7 +15,7 @@ export default function FormMessage({ type, message, isShown=false }) {
 
   let color = colors[type] || colors.info
 
-  return <div className={`rounded-md bg-${color}-100 px-3 py-3 mb-3 text-xs font-medium text-${color}-700`}>
+  return <div className={`rounded-md bg-${color}-500 px-3 py-3 mb-3 text-xs font-medium text-white`}>
     {message}
   </div>
 }

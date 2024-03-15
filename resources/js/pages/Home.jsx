@@ -1,17 +1,15 @@
-import { useContext, useEffect } from "react"
+import { useAppData } from "../hooks/useAppData"
+
 import BannerSlider from "../components/BannerSlider"
 import Layout from "../components/Layout"
 import SearchForm from "../components/SearchForm"
-import TopBrands from "../components/TopBrands"
-import TopCategories from "../components/TopCategories"
+import TopBrands from "../components/home/TopBrands"
 
 import "slick-carousel/slick/slick-theme.css"
 import "slick-carousel/slick/slick.css"
-import { AppContext } from "../contexts/AppContext"
 
 export default function Home() {
-
-  const context = useContext(AppContext)
+  const {data: appData} = useAppData()
 
   return <Layout>
     <div className="relative pb-30 pt-16 sm:pb-20 sm:pt-20 lg:pt-30 bg-[url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1366&q=80')]">
@@ -27,9 +25,14 @@ export default function Home() {
     </div>
 
     <div className="bg-[#f4f4f4]">
-      <div dangerouslySetInnerHTML={{ __html: context && context.appData ? context.appData['home-top-content'] : null }} />
+      <div dangerouslySetInnerHTML={{ __html: appData ? appData['home-top-content'] : null }} />
     </div>
 
     <TopBrands />
+
+    <div className="bg-[#f4f4f4]">
+      <div dangerouslySetInnerHTML={{ __html: appData ? appData['home-bottom-content'] : null }} />
+    </div>
+
   </Layout>
 }

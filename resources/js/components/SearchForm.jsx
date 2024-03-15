@@ -2,49 +2,52 @@ import { useEffect, useState } from 'react'
 import { InformationCircleIcon } from '@heroicons/react/20/solid'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { useAxiosPromise } from '../hooks/axios'
-import { useQuery } from '../hooks/routes'
+import { useQuery as useURLQuery } from '../hooks/routes'
 import { classNames } from '../utils/css'
 import SearchHelperModal from './SearchHelperModal'
 import AddVehicleModal from './AddVehicleModal'
+import { useQuery } from '@tanstack/react-query'
+import { fetchVehicleEngines, fetchVehicleMakes, fetchVehicleModels } from '../actions/VehicleActions'
 
 export default function SearchForm({ plain = false, className }) {
 
   const [showHelpModal, setShowHelpModal] = useState(false)
   const [showVehicleModal, setShowVehicleModal] = useState(false)
-  const [makes, setMakes] = useState([]);
-  const [models, setModels] = useState([]);
-  const [engines, setEngines] = useState([]);
+  // const [makes, setMakes] = useState([]);
+  // const [models, setModels] = useState([]);
+  // const [engines, setEngines] = useState([]);
 
-  const query = useQuery()
+  const [make, setMake] = useState()
+  const [model, setModel] = useState()
 
-  useEffect(() => {
-    useAxiosPromise('/api/vehicles/makes', 'GET').then(res => {
-      if(res.status != 200){
-        return
-      }
+  const urlQuery = useURLQuery()
 
-      setMakes(res.data?.data)
-    });
-  }, [])
+  // get Makes
+  const {data: makes, isPending: isMakesPending} =  useQuery({
+    retry: 1,
+    queryKey: ['vehicles', 'makes'],
+    queryFn: () => fetchVehicleMakes()
+  })
 
-  const handleMakerChange = (e) => {
-    useAxiosPromise('/api/vehicles/models/' + e.target.value, 'GET').then(res => {
-      if(res.status != 200){
-        return
-      }
+  // get models
+  const {data: models, isPending: isModelsPending} =  useQuery({
+    enabled: !!make,
+    retry: 1,
+    queryKey: ['vehicles', 'models', make],
+    queryFn: () => fetchVehicleModels(make)
+  })
 
-      setModels(res.data?.data);
-    });
-  }
+  // get engines
+  const {data: engines, isPending: isEnginessPending} =  useQuery({
+    enabled: !!model,
+    retry: 1,
+    queryKey: ['vehicles', 'models', model],
+    queryFn: () => fetchVehicleEngines(model)
+  })
 
-  const handleModelChange = (e) => {
-    useAxiosPromise('/api/vehicles/engines/' + e.target.value, 'GET').then(res => {
-      if(res.status != 200){
-        return
-      }
-
-      setEngines(res.data?.data);
-    });
+  const handleMakesChange = (e) => {
+    setMake(e.target.value)
+    setModel(null)
   }
 
   return (
@@ -65,11 +68,11 @@ export default function SearchForm({ plain = false, className }) {
               <select
                 name="make"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
-                disabled={ makes.length == 0 }
-                onChange={handleMakerChange}
+                disabled={ isMakesPending }
+                onChange={handleMakesChange}
                 >
                 <option value="" className="text-gray-100">Select make</option>
-                {makes && makes.map(make => {
+                {makes?.map(make => {
                   return <option key={make.id} value={make.id} className="text-gray-100">{make.name}</option>
                 })}
               </select>
@@ -84,11 +87,11 @@ export default function SearchForm({ plain = false, className }) {
               <select
                 name="make"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
-                disabled={ models.length == 0 }
-                onChange={handleModelChange}
+                disabled={ isModelsPending }
+                onChange={(e) => setModel(e.target.value)}
                 >
                 <option value="" className="text-gray-100">Select model</option>
-                {models.map(model => {
+                {models?.map(model => {
                   return <option key={model.id} value={model.id} className="text-gray-100">{model.name}</option>
                 })}
               </select>
@@ -103,10 +106,10 @@ export default function SearchForm({ plain = false, className }) {
               <select
                 name="make"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
-                disabled={ engines.length == 0 }
+                disabled={ isEnginessPending }
                 >
                 <option value="" className="text-gray-100">Select engine</option>
-                {engines.map(engine => {
+                {engines?.map(engine => {
                   return <option key={engine.id} value={engine.id} className="text-gray-100">{engine.name}</option>
                 })}
               </select>
@@ -129,7 +132,7 @@ export default function SearchForm({ plain = false, className }) {
                 id="q"
                 autoComplete="q"
                 placeholder="ex:- Wheel hub"
-                defaultValue={query.get('q')}
+                defaultValue={urlQuery.get('q')}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>

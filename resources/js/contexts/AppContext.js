@@ -3,13 +3,16 @@ import { useAxiosPromise } from "../hooks/axios";
 import PageLoading from "../components/loaders/PageLoading";
 import { getCookie, setCookie } from "../utils/cookies";
 import { useCart } from "react-use-cart";
+import { useAuthUser } from "../hooks/useAuthUser";
+import { useQueryClient } from "@tanstack/react-query";
+import { useShoppingCart } from "../hooks/useShoppingCart";
 
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [appData, setAppData] = useState(null);
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const { setItems, emptyCart } = useCart();
 
   const isLoggedIn = () => {
@@ -62,9 +65,9 @@ export const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    loadAppData();
-    loadUser();
-    loadCart();
+    // loadAppData();
+    // loadUser();
+    // loadCart();
   }, []);
 
   if (isLoading) {

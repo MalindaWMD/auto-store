@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import ReactGA from "react-ga4";
 import TagManager from 'react-gtm-module'
 import ReactDOM from 'react-dom/client'
@@ -8,10 +8,9 @@ import { browserRouter } from '../routes/routes'
 import { AppProvider } from '../contexts/AppContext'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+const queryClient = new QueryClient()
+
 function Application() {
-
-  const queryClient = new QueryClient()
-
   useEffect(() => {
     ReactGA.initialize(process.env.MIX_GA_MEASUREMENT_ID);
     TagManager.initialize({

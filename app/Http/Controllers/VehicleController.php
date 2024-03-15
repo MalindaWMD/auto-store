@@ -27,20 +27,20 @@ class VehicleController extends Controller
 
     public function add(Request $request)
     {
+        $request->validate([
+            'make' => 'required',
+            'model' => 'required',
+            'year' =>  'required|digits:4|integer|min:1900|max:' . date('Y'),
+            'email' => 'nullable|email',
+        ], [
+            'year.required' => 'Invalid year value',
+            'year.digits' => 'Invalid year value',
+            'year.integer' => 'Invalid year value',
+            'year.min' => 'Invalid year value',
+            'year.max' => 'Invalid year value',
+        ]);
+        
         try {
-            $request->validate([
-                'make' => 'required',
-                'model' => 'required',
-                'year' =>  'required|digits:4|integer|min:1900|max:' . date('Y'),
-                'email' => 'nullable|email',
-            ], [
-                'year.required' => 'Invalid year value',
-                'year.digits' => 'Invalid year value',
-                'year.integer' => 'Invalid year value',
-                'year.min' => 'Invalid year value',
-                'year.max' => 'Invalid year value',
-            ]);
-    
             VehicleRequest::create([
                 'make' => $request->make,
                 'model' => $request->model,
@@ -51,7 +51,7 @@ class VehicleController extends Controller
     
             return self::success('Your request has been submitted');
         } catch (\Exception $e) {
-            \Log::error('VehicleController(add): Error adding: ' . json_encode($e->getMessage(), $e->getFile(), $e->getLine()));
+            \Log::error('VehicleController(add): Error adding: ' . json_encode([$e->getMessage(), $e->getFile(), $e->getLine()]));
         }
 
         return self::success('Your request has been submitted');
