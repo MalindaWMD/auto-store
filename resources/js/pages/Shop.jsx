@@ -1,15 +1,12 @@
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import { performProductQuery } from '../actions/ProductActions'
 import Layout from '../components/Layout'
-import ProductCardLoading from '../components/loaders/ProductCardLoading'
-import MobileProductFilters from '../components/product/MobileProductFilters'
-import ProductCard from '../components/product/ProductCard'
-import ProductFilters from '../components/product/ProductFilters'
-import { useProductFilters } from '../hooks/productFilters'
 import Pagination from '../components/Pagination'
+import ProductFilters from '../components/product/filters/ProductFilters'
+import ProductList from '../components/product/ProductsList'
 
 export default function Shop() {
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  // const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const { data: products, isLoading, pagination } = performProductQuery()
 
   return (
@@ -23,12 +20,7 @@ export default function Shop() {
               <section aria-labelledby="product-heading" className="mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3">
                 <h2 id="product-heading" className="sr-only">Products</h2>
                 <div className="grid grid-cols-1 gap-y-4 divide-y divide-gray-200">
-                  {products && products.map((product, index) => (
-                    <ProductCard key={index} product={product} />
-                  ))}
-
-                  {isLoading ? <ProductCardLoading count={3} /> : null}
-                  {!isLoading && !products ? <p>No product found</p> : null}
+                  <ProductList isLoading={isLoading} products={products}/>
                   
                   <div>
                     <Pagination route={'/shop'} pagination={pagination}/>

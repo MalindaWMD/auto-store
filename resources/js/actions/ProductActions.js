@@ -2,14 +2,6 @@ import { useAxios } from "../hooks/axios"
 import { useCurrentPath, useQuery } from "../hooks/routes"
 import ReactGA from "react-ga4";
 
-// const acceptableParams = [
-//     'q',
-//     'type',
-//     'brand',
-//     'collection',
-//     'page',
-// ]
-
 // If it's the search page, we need to perform search query
 export const performProductQuery = () => {
   const currentPath = useCurrentPath()
@@ -31,12 +23,16 @@ export const performProductQuery = () => {
 }
 
 const getParams = () => {
-
   const query = useQuery()
 
-  let params = {};
-  query.forEach((value, key) => {
-    params[key] = value
-  });
-  return params;
+  return {
+    make: query.get('make'),
+    model: query.get('model'),
+    engine: query.get('engine'),
+    types: query.get('types'),
+    q: query.get('q'),
+    collection: query.get('collection'),
+    brand: query.getAll('brand[]'),
+    page: query.get('page'),
+  }
 }

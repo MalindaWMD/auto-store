@@ -14,9 +14,6 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-
-        dd($request->all());
-
         $query = Product::with('brand');
 
         // search
@@ -32,13 +29,13 @@ class ProductController extends Controller
 
         // type filter
         // ASSUMING IT"S AN INT
-        if($request->type){
-            $query->where('product_type_id', $request->type);
+        if($request->types){
+            $query->where('product_type_id', $request->types);
         }
 
         // brand
-        if($request->brand){
-            $query->where('brand_id', $request->brand);
+        if($request->brand && count($request->brand) > 0){
+            $query->whereIn('brand_id', $request->brand);
         }
 
         if($request->maker && $request->model && $request->engine){

@@ -2,30 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductType;
 use Illuminate\Http\Request;
 use Lunar\Models\Brand;
 
 class ProductFilterController extends Controller
 {
+    private $filters = [];
+
     public function index(Request $request)
     {
-        $brands = Brand::all();
+        $this->addFilter('types', 'Product types', 'select');
+        $this->addFilter('brands', 'Brands');
 
-        $filters = [
-            [
-                'key' => 'brand',
-                'name' => 'Brands',
-                'options' => $brands,
-            ]
-        ];
-
-        return self::success($filters, false);
+        return self::success($this->filters, false);
     }
 
-    public function getBrands(Request $request)
+    private function addFilter($key, $name, $inputType='checkbox')
     {
-        $brands = Brand::all();
+        $options = [];
 
-        return self::success($brands, false);
+        $filterFunction = 'get' . ucfirst($key);
+        if(method_exists($this, $filterFunction)){
+            $options = $this->{$filterFunction}();
+        }
+
+        $this->filters[] = [
+            'key' => $key,
+            'name' => $name,
+            'type' => $inputType,
+            'options' => $options,
+        ];
+    }
+
+    private function getBrands()
+    {
+        return Brand::select(['id', 'name'])->get();
+    }
+
+    private function getTypes()
+    {
+        return ProductType::select(['id', 'name'])->where('name', '!=', 'Stock')->get();
     }
 }
