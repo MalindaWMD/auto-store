@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { useQuery } from "../hooks/routes"
+import { useQueryParams } from "../hooks/routes"
 
 const products = [
     {
@@ -17,7 +17,7 @@ const products = [
   
   export default function OrderPlaced() {
 
-    let query = useQuery()
+    let query = useQueryParams()
 
     return (
       <main className="bg-white px-4 pb-24 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:py-32">

@@ -37,9 +37,8 @@ class Controller extends BaseController
     {
         if($data){
             return [
-                'per_page' => $data->perPage(), 
                 'current_page' => $data->currentPage(),
-                'total' => $data->total(),
+                'has_more' => $data->hasMorePages(),
             ];
         }
 

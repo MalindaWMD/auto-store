@@ -46,7 +46,7 @@ export const useCurrentRoute = () => {
   return { route, isCurrentPath }
 }
 
-export const useQuery = () => {
+export const useQueryParams = () => {
   const { search } = useLocation()
   return useMemo(() => new URLSearchParams(search), [search]);
 }

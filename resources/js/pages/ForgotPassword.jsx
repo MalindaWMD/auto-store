@@ -4,7 +4,7 @@ import { useAxiosPromise } from "../hooks/axios";
 import { AppContext } from "../contexts/AppContext";
 import { toast } from "react-toastify";
 import { useActionData, useNavigate } from "react-router-dom";
-import { useQuery } from "../hooks/routes";
+import { useQueryParams } from "../hooks/routes";
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import FacebookLogin from "@greatsumini/react-facebook-login";
 import ModalLoading from "../components/loaders/ModalLoading";

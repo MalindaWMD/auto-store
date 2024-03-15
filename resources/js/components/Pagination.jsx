@@ -1,4 +1,4 @@
-import { useQuery } from "../hooks/routes";
+import { useQueryParams } from "../hooks/routes";
 import { classNames } from "../utils/css";
 
 export default function Pagination({ route, pagination }) {
@@ -13,7 +13,7 @@ export default function Pagination({ route, pagination }) {
 
 	const totalPages = Math.ceil(pagination.total / pagination.per_page)
 
-	let query = useQuery()
+	let query = useQueryParams()
 
 	let links = []
 	for (let page = 1; page <= totalPages; page++) {

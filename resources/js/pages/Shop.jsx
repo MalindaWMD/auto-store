@@ -1,13 +1,19 @@
 import { useState } from 'react'
-import { performProductQuery } from '../actions/ProductActions'
+import { fetchProducts } from '../actions/ProductActions'
 import Layout from '../components/Layout'
 import Pagination from '../components/Pagination'
-import ProductFilters from '../components/product/filters/ProductFilters'
 import ProductList from '../components/product/ProductsList'
+import ProductFilters from '../components/product/filters/ProductFilters'
+import { useProductSearch } from '../hooks/useProductSearch'
+import { useCurrentUrl } from '../hooks/routes'
+import { useNavigate } from 'react-router-dom'
 
 export default function Shop() {
   // const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-  const { data: products, isLoading, pagination } = performProductQuery()
+  const [page, setPage] = useState(1)
+  const currentUrl = useCurrentUrl()
+  const { data, isPending, isError, isPlaceholderData } = useProductSearch(page)
+
 
   return (
     <Layout>
@@ -20,10 +26,35 @@ export default function Shop() {
               <section aria-labelledby="product-heading" className="mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3">
                 <h2 id="product-heading" className="sr-only">Products</h2>
                 <div className="grid grid-cols-1 gap-y-4 divide-y divide-gray-200">
-                  <ProductList isLoading={isLoading} products={products}/>
+                  <ProductList isLoading={isPending} isError={isError} products={data?.products}/>
                   
+                  
+
                   <div>
-                    <Pagination route={'/shop'} pagination={pagination}/>
+                    <nav className="flex items-center justify-center border-t border-gray-200 px-4 sm:px-0">
+                      <div className="hidden md:-mt-px md:flex">
+                        <button
+                          className="text-indigo-600 inline-flex items-center px-4 pt-4 text-sm font-medium disabled:text-gray-500  hover:text-gray-700 cursor-pointer"
+                          onClick={() => setPage((old) => Math.max(old - 1, 0))}
+                          disabled={page === 1}
+                        >
+                          Previous Page
+                        </button>{' '}
+                        <button
+                          className="text-indigo-600 inline-flex items-center px-4 pt-4 text-sm font-medium disabled:text-gray-500  hover:text-gray-700 cursor-pointer"
+                          onClick={() => {
+                            console.log('NEXT', !isPlaceholderData && data?.pagination?.has_more)
+                            if (!isPlaceholderData && data?.pagination?.has_more) {
+                              setPage((old) => old + 1)
+                            }
+                          }}
+                          // Disable the Next Page button until we know a next page is available
+                          disabled={isPlaceholderData || !data?.pagination?.has_more}
+                        >
+                          Next Page
+                        </button>
+                      </div>
+                    </nav>
                   </div>
                 </div>
               </section>

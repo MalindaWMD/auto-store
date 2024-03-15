@@ -1,5 +1,5 @@
 import { useAxios } from "../hooks/axios";
-import { useQuery } from "../hooks/routes";
+import { useQueryParams } from "../hooks/routes";
 
 // If it's the search page, we need to perform search query
 export const performOrdersQuery = () => {
@@ -7,7 +7,7 @@ export const performOrdersQuery = () => {
 }
 
 const getParams = () => {
-    const query = useQuery()
+    const query = useQueryParams()
 //
     let params = {};
     query.forEach((value, key) => {

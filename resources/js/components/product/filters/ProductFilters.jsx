@@ -1,7 +1,7 @@
 import { ChevronDownIcon, PlusIcon } from '@heroicons/react/20/solid'
 import SearchForm from '../../SearchForm'
 import { useProductFilters } from '../../../hooks/productFilters'
-import { useCurrentUrl, useQuery as useURLQuery } from '../../../hooks/routes'
+import { useCurrentUrl, useQueryParams as useURLQuery } from '../../../hooks/routes'
 import FilterCheckbox from './inputs/FilterCheckbox'
 import FilterSelect from './inputs/FilterSelect'
 

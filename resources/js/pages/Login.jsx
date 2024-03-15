@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import { AppContext } from "../contexts/AppContext";
 import { useNavigate } from "react-router-dom";
-import { useQuery } from "../hooks/routes";
+import { useQueryParams } from "../hooks/routes";
 import SocialLoginButtons from "../components/SocialLoginButtons";
 import { login } from "../actions/UserActions";
 import { useMutation } from "@tanstack/react-query";
@@ -12,7 +12,7 @@ import LoadingButton from "../components/LoadingButton";
 export default function Login() {
 
   const { user, setUser, isLoggedIn } = useContext(AppContext)
-  const query = useQuery()
+  const query = useQueryParams()
   const navigate = useNavigate()
 
   const mutation = useMutation({

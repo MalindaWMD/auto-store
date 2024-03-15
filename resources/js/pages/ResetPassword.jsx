@@ -4,13 +4,13 @@ import { useAxiosPromise } from "../hooks/axios";
 import { AppContext } from "../contexts/AppContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { useQuery } from "../hooks/routes";
+import { useQueryParams } from "../hooks/routes";
 import ModalLoading from "../components/loaders/ModalLoading";
 
 export default function ResetPassword() {
 
   const [isLoading, setIsLoading] = useState()
-  const query = useQuery()
+  const query = useQueryParams()
   const navigate = useNavigate()
 
   // Navigate to previous page if already logged in

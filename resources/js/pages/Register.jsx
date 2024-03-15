@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import ModalLoading from "../components/loaders/ModalLoading";
-import { useQuery } from "../hooks/routes";
+import { useQueryParams } from "../hooks/routes";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../contexts/AppContext";
 import SocialLoginButtons from "../components/SocialLoginButtons";
@@ -15,7 +15,7 @@ export default function Register() {
   const { user, setUser, isLoggedIn } = useContext(AppContext)
   const [isLoading, setIsLoading] = useState()
   const [validationErrors, setValidationErrors] = useState()
-  const query = useQuery()
+  const query = useQueryParams()
   const navigate = useNavigate()
 
   // Navigate to previous page if already logged in

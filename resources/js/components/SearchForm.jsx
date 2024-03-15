@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { InformationCircleIcon } from '@heroicons/react/20/solid'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
-import { useQuery as useURLQuery } from '../hooks/routes'
+import { useQueryParams as useURLQuery } from '../hooks/routes'
 import { classNames } from '../utils/css'
 import { useQuery } from '@tanstack/react-query'
 import { fetchVehicleEngines, fetchVehicleMakes, fetchVehicleModels } from '../actions/VehicleActions'

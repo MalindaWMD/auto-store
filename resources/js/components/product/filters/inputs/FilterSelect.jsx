@@ -1,4 +1,4 @@
-import { useQuery as useURLQuery } from "../../../../hooks/routes"
+import { useQueryParams as useURLQuery } from "../../../../hooks/routes"
 
 export default function FilterSelect({ filterName, options }) {
   const urlQuery = useURLQuery()
