@@ -8,26 +8,26 @@ import FilterSelect from './inputs/FilterSelect'
 const HiddenSearchFields = () => {
   const urlQuery = useURLQuery()
 
-  return(
+  return (
     <>
-      <input type="hidden" name="make" value={urlQuery.get('make') || undefined}/>
-      <input type="hidden" name="model" value={urlQuery.get('model') || undefined}/>
-      <input type="hidden" name="engine" value={urlQuery.get('engine') || undefined}/>
-      <input type="hidden" name="q" value={urlQuery.get('q') || undefined}/>
+      <input type="hidden" name="make" value={urlQuery.get('make') || undefined} />
+      <input type="hidden" name="model" value={urlQuery.get('model') || undefined} />
+      <input type="hidden" name="engine" value={urlQuery.get('engine') || undefined} />
+      <input type="hidden" name="q" value={urlQuery.get('q') || undefined} />
     </>
   )
 }
 
-const FilterInput = ({filterName, type, options}) => {
-  if(type == 'select'){
-    return <FilterSelect filterName={filterName} options={options}/>
+const FilterInput = ({ filterName, type, options }) => {
+  if (type == 'select') {
+    return <FilterSelect filterName={filterName} options={options} />
   }
 
-  return <FilterCheckbox filterName={filterName} options={options}/>
+  return <FilterCheckbox filterName={filterName} options={options} />
 }
 
 export default function ProductFilters() {
-  const {data:filters} = useProductFilters()
+  const { data: filters } = useProductFilters()
   const currentUrl = useCurrentUrl()
 
   return (
@@ -49,20 +49,22 @@ export default function ProductFilters() {
 
         <form action={currentUrl} method="get" className="space-y-5 divide-y divide-gray-200">
 
-          <HiddenSearchFields/>
+          <HiddenSearchFields />
 
           {filters?.map((section, sectionIdx) => {
             return <div key={section.name} className="pt-4">
               <fieldset>
                 <legend className="block text-sm font-medium text-gray-900">{section.name}</legend>
                 <div className="space-y-3 pt-6">
-                  <FilterInput filterName={section.key} type={section.type} options={section.options}/>
+                  <FilterInput filterName={section.key} type={section.type} options={section.options} />
                 </div>
               </fieldset>
             </div>
-      })}
+          })}
 
-          <button type="submit" className="border border-black"> filter</button>
+          <button type="submit" className="w-full text-center rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 z-20">
+            Apply filters
+          </button>
         </form>
       </div>
     </aside>

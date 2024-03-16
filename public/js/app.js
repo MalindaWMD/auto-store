@@ -12388,8 +12388,8 @@ function ProductFilters() {
           }, section.name);
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           type: "submit",
-          className: "border border-black",
-          children: " filter"
+          className: "w-full text-center rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 z-20",
+          children: "Apply filters"
         })]
       })]
     })]
