@@ -2,6 +2,7 @@ import { ArchiveBoxIcon, HeartIcon } from '@heroicons/react/24/outline'
 import ProductPriceCard from './ProductPriceCard'
 import { Link } from 'react-router-dom'
 import RatingBar from '../RatingBar'
+import UpdateWishlist from './UpdateWishList'
 
 const ProductImage = ({image, brand}) => {
   return (
@@ -60,11 +61,8 @@ const PriceDeatils = ({product}) => {
         <ProductPriceCard price={product.price} />
         {product.stock.available && <StockStatus />}
       </div>
-      <div className="flex flex-col">
-        <span className="inline-flex items-center text-sm hover:text-blue-500 hover:cursor-pointer mb-4">
-          <HeartIcon className="h-4 w-4 mr-1" />
-          Add to wishlist
-        </span>
+      <div className="flex flex-col w-full">
+        {/* <UpdateWishlist productId={product.id}/> */}
         <Link to={'/shop/product/' + product.slug}
           className="w-full text-center rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 z-20">
           View more

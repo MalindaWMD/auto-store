@@ -5,6 +5,11 @@ export const fetchAuthUser = async () => {
     return res.data;
 }
 
+export const postWishlistItem = async (item) => {
+    const res = await axios.post('/api/user/wishlist/update', item)
+    return res.data
+}
+
 export const getUser = async () => {
     try {
         const res = await axios.get('/api/user');

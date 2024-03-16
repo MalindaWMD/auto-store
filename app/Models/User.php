@@ -44,4 +44,9 @@ class User extends Authenticatable
     {
         return $this->customers->first();
     }
+
+    public function wishlist()
+    {
+        return $this->hasOne(Wishlist::class);
+    }
 }

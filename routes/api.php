@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductFilterController;
 use App\Http\Controllers\StorefrontController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
@@ -20,8 +21,8 @@ Route::middleware('auth:sanctum')->group(function () {
     });
     
     Route::post('/user/update', [UserController::class, 'update']);
-
     Route::get('/user/orders', [OrderController::class, 'index']);
+    Route::post('/user/wishlist/update', [WishlistController::class, 'update']);
 });
 
 // Application data
