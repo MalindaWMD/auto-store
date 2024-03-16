@@ -15,6 +15,7 @@ export default function SearchForm({ plain = false, className }) {
 
   const [make, setMake] = useState(urlQuery.get('make'))
   const [model, setModel] = useState(urlQuery.get('model'))
+  const [engine, setEngine] = useState(urlQuery.get('engine'))
 
   // get Makes
   const {data: makes, isPending: isMakesPending, isSuccess: hasMakesLoaded} =  useQuery({
@@ -32,10 +33,11 @@ export default function SearchForm({ plain = false, className }) {
   })
 
   // get engines
-  const {data: engines, isPending: isEnginessPending} =  useQuery({
+  const {data: engines, isPending: isEnginesPending} =  useQuery({
     enabled: !!model,
     retry: 1,
-    queryKey: ['vehicles', 'models', model],
+    staleTime: 1000 * 60 * 60 * 24,
+    queryKey: ['vehicles', 'engines', model],
     queryFn: () => fetchVehicleEngines(model)
   })
 
@@ -64,7 +66,7 @@ export default function SearchForm({ plain = false, className }) {
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
                 disabled={ isMakesPending }
                 onChange={handleMakesChange}
-                value={urlQuery.get('make') || ''}
+                value={make}
                 >
                 <option value="" className="text-gray-100">Select make</option>
                 {makes?.map(make => {
@@ -84,7 +86,7 @@ export default function SearchForm({ plain = false, className }) {
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
                 disabled={ isModelsPending }
                 onChange={(e) => setModel(e.target.value)}
-                value={urlQuery.get('model') || ''}
+                value={model}
                 >
                 <option value="" className="text-gray-100">Select model</option>
                 {models?.map(model => {
@@ -102,8 +104,9 @@ export default function SearchForm({ plain = false, className }) {
               <select
                 name="engine"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
-                disabled={ isEnginessPending }
-                value={urlQuery.get('engine') || ''}
+                disabled={ isEnginesPending }
+                onChange={(e) => setEngine(e.target.value)}
+                value={engine}
                 >
                 <option value="" className="text-gray-100">Select engine</option>
                 {engines?.map(engine => {

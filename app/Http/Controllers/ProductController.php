@@ -43,7 +43,7 @@ class ProductController extends Controller
             $query->where('related_vehicles', 'LIKE', "%$code%");
         }
 
-        $prodcuts = $query->where('status', 'published')->latest()->simplePaginate(2);
+        $prodcuts = $query->where('status', 'published')->latest()->simplePaginate(20);
 
         return self::success(SimpleProductResource::collection($prodcuts), true);
     }

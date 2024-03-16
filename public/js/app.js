@@ -9622,6 +9622,10 @@ function SearchForm(_ref) {
     _useState8 = _slicedToArray(_useState7, 2),
     model = _useState8[0],
     setModel = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(urlQuery.get('engine')),
+    _useState10 = _slicedToArray(_useState9, 2),
+    engine = _useState10[0],
+    setEngine = _useState10[1];
 
   // get Makes
   var _useQuery = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_7__.useQuery)({
@@ -9651,13 +9655,14 @@ function SearchForm(_ref) {
   var _useQuery3 = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_7__.useQuery)({
       enabled: !!model,
       retry: 1,
-      queryKey: ['vehicles', 'models', model],
+      staleTime: 1000 * 60 * 60 * 24,
+      queryKey: ['vehicles', 'engines', model],
       queryFn: function queryFn() {
         return (0,_actions_VehicleActions__WEBPACK_IMPORTED_MODULE_3__.fetchVehicleEngines)(model);
       }
     }),
     engines = _useQuery3.data,
-    isEnginessPending = _useQuery3.isPending;
+    isEnginesPending = _useQuery3.isPending;
   var handleMakesChange = function handleMakesChange(e) {
     setMake(e.target.value);
     setModel(null);
@@ -9690,7 +9695,7 @@ function SearchForm(_ref) {
               className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400",
               disabled: isMakesPending,
               onChange: handleMakesChange,
-              value: urlQuery.get('make') || '',
+              value: make,
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                 value: "",
                 className: "text-gray-100",
@@ -9719,7 +9724,7 @@ function SearchForm(_ref) {
               onChange: function onChange(e) {
                 return setModel(e.target.value);
               },
-              value: urlQuery.get('model') || '',
+              value: model,
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                 value: "",
                 className: "text-gray-100",
@@ -9744,8 +9749,11 @@ function SearchForm(_ref) {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
               name: "engine",
               className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400",
-              disabled: isEnginessPending,
-              value: urlQuery.get('engine') || '',
+              disabled: isEnginesPending,
+              onChange: function onChange(e) {
+                return setEngine(e.target.value);
+              },
+              value: engine,
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                 value: "",
                 className: "text-gray-100",
@@ -15935,7 +15943,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Shop() {
-  var _data$pagination3;
+  var _data$pagination2;
   // const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState2 = _slicedToArray(_useState, 2),
@@ -15985,17 +15993,14 @@ function Shop() {
                       }), ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                         className: "text-indigo-600 inline-flex items-center px-4 pt-4 text-sm font-medium disabled:text-gray-500  hover:text-gray-700 cursor-pointer",
                         onClick: function onClick() {
-                          var _data$pagination, _data$pagination2;
-                          console.log('NEXT', !isPlaceholderData && (data === null || data === void 0 ? void 0 : (_data$pagination = data.pagination) === null || _data$pagination === void 0 ? void 0 : _data$pagination.has_more));
-                          if (!isPlaceholderData && data !== null && data !== void 0 && (_data$pagination2 = data.pagination) !== null && _data$pagination2 !== void 0 && _data$pagination2.has_more) {
+                          var _data$pagination;
+                          if (!isPlaceholderData && data !== null && data !== void 0 && (_data$pagination = data.pagination) !== null && _data$pagination !== void 0 && _data$pagination.has_more) {
                             setPage(function (old) {
                               return old + 1;
                             });
                           }
-                        }
-                        // Disable the Next Page button until we know a next page is available
-                        ,
-                        disabled: isPlaceholderData || !(data !== null && data !== void 0 && (_data$pagination3 = data.pagination) !== null && _data$pagination3 !== void 0 && _data$pagination3.has_more),
+                        },
+                        disabled: isPlaceholderData || !(data !== null && data !== void 0 && (_data$pagination2 = data.pagination) !== null && _data$pagination2 !== void 0 && _data$pagination2.has_more),
                         children: "Next Page"
                       })]
                     })

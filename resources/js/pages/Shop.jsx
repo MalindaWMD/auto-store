@@ -43,12 +43,10 @@ export default function Shop() {
                         <button
                           className="text-indigo-600 inline-flex items-center px-4 pt-4 text-sm font-medium disabled:text-gray-500  hover:text-gray-700 cursor-pointer"
                           onClick={() => {
-                            console.log('NEXT', !isPlaceholderData && data?.pagination?.has_more)
                             if (!isPlaceholderData && data?.pagination?.has_more) {
                               setPage((old) => old + 1)
                             }
                           }}
-                          // Disable the Next Page button until we know a next page is available
                           disabled={isPlaceholderData || !data?.pagination?.has_more}
                         >
                           Next Page
