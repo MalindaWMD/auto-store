@@ -38,6 +38,7 @@ class Controller extends BaseController
         if($data){
             return [
                 'current_page' => $data->currentPage(),
+                'has_pages' => $data->hasPages(),
                 'has_more' => $data->hasMorePages(),
             ];
         }

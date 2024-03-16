@@ -1,40 +1,31 @@
-import { useQueryParams } from "../hooks/routes";
-import { classNames } from "../utils/css";
+export default function Pagination({ isPlaceholderData, pagination, page, setPage }) {
 
-export default function Pagination({ route, pagination }) {
+  if( ! pagination?.has_pages){
+    return null
+  }
 
-	if (!pagination) {
-		return null
-	}
-
-	if (pagination.total <= pagination.per_page) {
-		return null
-	}
-
-	const totalPages = Math.ceil(pagination.total / pagination.per_page)
-
-	let query = useQueryParams()
-
-	let links = []
-	for (let page = 1; page <= totalPages; page++) {
-
-		query.set('page', page)
-
-		links.push(
-			<a
-				key={page}
-				href={route + '?' + query.toString()}
-				className={classNames("inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 cursor-pointer", page == pagination.current_page ? "border-indigo-500 text-indigo-600" : 'border-transparent')}>
-				{page}
-			</a>
-		)
-	}
-
-	return (
-		<nav className="flex items-center justify-center border-t border-gray-200 px-4 sm:px-0">
-			<div className="hidden md:-mt-px md:flex">
-				{links}
-			</div>
-		</nav>
-	)
+  return (
+    <nav className="flex items-center justify-center border-t border-gray-200 px-4 sm:px-0">
+      <div className="hidden md:-mt-px md:flex">
+        <button
+          className="text-indigo-600 inline-flex items-center px-4 pt-4 text-sm font-medium disabled:text-gray-500  hover:text-gray-700 cursor-pointer"
+          onClick={() => setPage((old) => Math.max(old - 1, 0))}
+          disabled={page === 1}
+        >
+          Previous Page
+        </button>{' '}
+        <button
+          className="text-indigo-600 inline-flex items-center px-4 pt-4 text-sm font-medium disabled:text-gray-500  hover:text-gray-700 cursor-pointer"
+          onClick={() => {
+            if (!isPlaceholderData && pagination?.has_more) {
+              setPage((old) => old + 1)
+            }
+          }}
+          disabled={isPlaceholderData || !pagination?.has_more}
+        >
+          Next Page
+        </button>
+      </div>
+    </nav>
+  )
 }

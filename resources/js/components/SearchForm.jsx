@@ -66,7 +66,7 @@ export default function SearchForm({ plain = false, className }) {
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
                 disabled={ isMakesPending }
                 onChange={handleMakesChange}
-                value={make}
+                value={make || ''}
                 >
                 <option value="" className="text-gray-100">Select make</option>
                 {makes?.map(make => {
@@ -86,7 +86,7 @@ export default function SearchForm({ plain = false, className }) {
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
                 disabled={ isModelsPending }
                 onChange={(e) => setModel(e.target.value)}
-                value={model}
+                value={model || ''}
                 >
                 <option value="" className="text-gray-100">Select model</option>
                 {models?.map(model => {
@@ -106,7 +106,7 @@ export default function SearchForm({ plain = false, className }) {
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400"
                 disabled={ isEnginesPending }
                 onChange={(e) => setEngine(e.target.value)}
-                value={engine}
+                value={engine || ''}
                 >
                 <option value="" className="text-gray-100">Select engine</option>
                 {engines?.map(engine => {

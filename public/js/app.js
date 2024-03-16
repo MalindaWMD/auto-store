@@ -9368,37 +9368,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Pagination)
 /* harmony export */ });
-/* harmony import */ var _hooks_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../hooks/routes */ "./resources/js/hooks/routes.js");
-/* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/css */ "./resources/js/utils/css.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function Pagination(_ref) {
-  var route = _ref.route,
-    pagination = _ref.pagination;
-  if (!pagination) {
+  var isPlaceholderData = _ref.isPlaceholderData,
+    pagination = _ref.pagination,
+    page = _ref.page,
+    setPage = _ref.setPage;
+  if (!(pagination !== null && pagination !== void 0 && pagination.has_pages)) {
     return null;
   }
-  if (pagination.total <= pagination.per_page) {
-    return null;
-  }
-  var totalPages = Math.ceil(pagination.total / pagination.per_page);
-  var query = (0,_hooks_routes__WEBPACK_IMPORTED_MODULE_0__.useQueryParams)();
-  var links = [];
-  for (var page = 1; page <= totalPages; page++) {
-    query.set('page', page);
-    links.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-      href: route + '?' + query.toString(),
-      className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_1__.classNames)("inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 cursor-pointer", page == pagination.current_page ? "border-indigo-500 text-indigo-600" : 'border-transparent'),
-      children: page
-    }, page));
-  }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("nav", {
     className: "flex items-center justify-center border-t border-gray-200 px-4 sm:px-0",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: "hidden md:-mt-px md:flex",
-      children: links
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+        className: "text-indigo-600 inline-flex items-center px-4 pt-4 text-sm font-medium disabled:text-gray-500  hover:text-gray-700 cursor-pointer",
+        onClick: function onClick() {
+          return setPage(function (old) {
+            return Math.max(old - 1, 0);
+          });
+        },
+        disabled: page === 1,
+        children: "Previous Page"
+      }), ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+        className: "text-indigo-600 inline-flex items-center px-4 pt-4 text-sm font-medium disabled:text-gray-500  hover:text-gray-700 cursor-pointer",
+        onClick: function onClick() {
+          if (!isPlaceholderData && pagination !== null && pagination !== void 0 && pagination.has_more) {
+            setPage(function (old) {
+              return old + 1;
+            });
+          }
+        },
+        disabled: isPlaceholderData || !(pagination !== null && pagination !== void 0 && pagination.has_more),
+        children: "Next Page"
+      })]
     })
   });
 }
@@ -9695,7 +9700,7 @@ function SearchForm(_ref) {
               className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 disabled:ring-gray-200 disabled:cursor-not-allowed placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:text-gray-400",
               disabled: isMakesPending,
               onChange: handleMakesChange,
-              value: make,
+              value: make || '',
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                 value: "",
                 className: "text-gray-100",
@@ -9724,7 +9729,7 @@ function SearchForm(_ref) {
               onChange: function onChange(e) {
                 return setModel(e.target.value);
               },
-              value: model,
+              value: model || '',
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                 value: "",
                 className: "text-gray-100",
@@ -9753,7 +9758,7 @@ function SearchForm(_ref) {
               onChange: function onChange(e) {
                 return setEngine(e.target.value);
               },
-              value: engine,
+              value: engine || '',
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                 value: "",
                 className: "text-gray-100",
@@ -15943,7 +15948,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Shop() {
-  var _data$pagination2;
   // const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState2 = _slicedToArray(_useState, 2),
@@ -15977,33 +15981,11 @@ function Shop() {
                   isError: isError,
                   products: data === null || data === void 0 ? void 0 : data.products
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("nav", {
-                    className: "flex items-center justify-center border-t border-gray-200 px-4 sm:px-0",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                      className: "hidden md:-mt-px md:flex",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                        className: "text-indigo-600 inline-flex items-center px-4 pt-4 text-sm font-medium disabled:text-gray-500  hover:text-gray-700 cursor-pointer",
-                        onClick: function onClick() {
-                          return setPage(function (old) {
-                            return Math.max(old - 1, 0);
-                          });
-                        },
-                        disabled: page === 1,
-                        children: "Previous Page"
-                      }), ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                        className: "text-indigo-600 inline-flex items-center px-4 pt-4 text-sm font-medium disabled:text-gray-500  hover:text-gray-700 cursor-pointer",
-                        onClick: function onClick() {
-                          var _data$pagination;
-                          if (!isPlaceholderData && data !== null && data !== void 0 && (_data$pagination = data.pagination) !== null && _data$pagination !== void 0 && _data$pagination.has_more) {
-                            setPage(function (old) {
-                              return old + 1;
-                            });
-                          }
-                        },
-                        disabled: isPlaceholderData || !(data !== null && data !== void 0 && (_data$pagination2 = data.pagination) !== null && _data$pagination2 !== void 0 && _data$pagination2.has_more),
-                        children: "Next Page"
-                      })]
-                    })
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Pagination__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                    isPlaceholderData: isPlaceholderData,
+                    pagination: data === null || data === void 0 ? void 0 : data.pagination,
+                    page: page,
+                    setPage: setPage
                   })
                 })]
               })]
