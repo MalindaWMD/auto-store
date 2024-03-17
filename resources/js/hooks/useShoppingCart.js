@@ -14,8 +14,8 @@ export const useShoppingCart = () => {
   })
 
   useEffect(() => {
-      if(isSuccess){
-        cart.setItems(data?.items)
+      if(isSuccess && data){
+        cart.setItems(data.items)
         return
       }
       
