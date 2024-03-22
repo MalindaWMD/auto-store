@@ -34,7 +34,19 @@ class CartResource extends JsonResource
 
         return [
             'id' => $this->id,
-            'items' => $items
+            'items' => $items,
+            'items_count' => count($items),
+            // 'total' => $this->total ? $this->total->value : 0,
+            // 'discount_total' => $this->discountTotal ? $this->discountTotal->value : 0,
+            // 'sub_total' => $this->subTotal ? $this->subTotal->value : 0,
+            // 'sub_total_discounted' => $this->subTotalDiscounted ? $this->subTotalDiscounted->value : 0,
+            'total' => $this->total ? $this->total->value : 0,
+'subTotal' => $this->subTotal ? $this->subTotal->value : 0,
+'subTotalDiscounted' => $this->subTotalDiscounted ? $this->subTotalDiscounted->value : 0,
+'shippingTotal' => $this->shippingTotal ? $this->shippingTotal->value : 0,
+'discountTotal' => $this->discountTotal ? $this->discountTotal->value : 0,
+'shippingSubTotal' => $this->shippingSubTotal ? $this->shippingSubTotal->value : 0,
+'shippingTotal' => $this->shippingTotal ? $this->shippingTotal->value : 0,
         ];
     }
 }

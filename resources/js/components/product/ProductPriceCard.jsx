@@ -40,14 +40,14 @@ export default function ProductPriceCard({ price }) {
     discountedPrice = price.discounted_price
   }
 
-  const save = (oldPrice - discountedPrice).toFixed(2);
-  const percentage = Math.ceil((save / oldPrice) * 100);
+  const save = (discountedPrice - oldPrice).toFixed(2);
+  const percentage = Math.ceil((save / discountedPrice) * 100);
 
   return (
     <>
-      <Component value={oldPrice} type={'price'} />
+      <Component value={discountedPrice} type={'price'} />
       <Component value={percentage} type={'percentage'} />
-      <Component value={discountedPrice} type={'discounted-price'} />
+      <Component value={oldPrice} type={'discounted-price'} />
       <Component value={save} type={'save'} />
     </>
   )

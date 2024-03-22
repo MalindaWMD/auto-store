@@ -7718,7 +7718,9 @@ var getParams = function getParams() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   fetchProducts: () => (/* binding */ fetchProducts)
+/* harmony export */   fetchProducts: () => (/* binding */ fetchProducts),
+/* harmony export */   fetchSingleProduct: () => (/* binding */ fetchSingleProduct),
+/* harmony export */   postAddToCart: () => (/* binding */ postAddToCart)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -7754,6 +7756,51 @@ var fetchProducts = /*#__PURE__*/function () {
   }));
   return function fetchProducts(_x) {
     return _ref.apply(this, arguments);
+  };
+}();
+var fetchSingleProduct = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(productId) {
+    var _response$data;
+    var response;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return axios__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/products/' + productId);
+        case 2:
+          response = _context2.sent;
+          return _context2.abrupt("return", (_response$data = response.data) === null || _response$data === void 0 ? void 0 : _response$data.data);
+        case 4:
+        case "end":
+          return _context2.stop();
+      }
+    }, _callee2);
+  }));
+  return function fetchSingleProduct(_x2) {
+    return _ref2.apply(this, arguments);
+  };
+}();
+var postAddToCart = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(variantId) {
+    var response;
+    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+      while (1) switch (_context3.prev = _context3.next) {
+        case 0:
+          _context3.next = 2;
+          return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/cart/add', {
+            product_id: variantId
+          });
+        case 2:
+          response = _context3.sent;
+          return _context3.abrupt("return", response.data);
+        case 4:
+        case "end":
+          return _context3.stop();
+      }
+    }, _callee3);
+  }));
+  return function postAddToCart(_x3) {
+    return _ref3.apply(this, arguments);
   };
 }();
 
@@ -9451,6 +9498,7 @@ __webpack_require__.r(__webpack_exports__);
 function Price(_ref) {
   var value = _ref.value;
   var currency = (0,_hooks_useCurrency__WEBPACK_IMPORTED_MODULE_0__.useCurrency)();
+  value = !value ? 0 : value;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: (currency === null || currency === void 0 ? void 0 : currency.code) + (value / 100).toFixed(2)
   });
@@ -10461,8 +10509,9 @@ __webpack_require__.r(__webpack_exports__);
 function CartIcon(_ref) {
   var cartAction = _ref.cartAction;
   var _useShoppingCart = (0,_hooks_useShoppingCart__WEBPACK_IMPORTED_MODULE_2__.useShoppingCart)(),
-    totalUniqueItems = _useShoppingCart.totalUniqueItems,
-    cartTotal = _useShoppingCart.cartTotal;
+    cart = _useShoppingCart.data,
+    isSuccess = _useShoppingCart.isSuccess,
+    isError = _useShoppingCart.isError;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
     href: "#",
     onClick: cartAction,
@@ -10472,11 +10521,11 @@ function CartIcon(_ref) {
       "aria-hidden": "true"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
       className: "ml-1 text-sm font-medium text-white",
-      children: totalUniqueItems
+      children: cart === null || cart === void 0 ? void 0 : cart.items_count
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
       className: "ml-1 text-sm font-medium text-[#f37c2e] text-md",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Price__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        value: cartTotal
+        value: cart === null || cart === void 0 ? void 0 : cart.total
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
       className: "sr-only",
@@ -11980,6 +12029,71 @@ function ProductDescription(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/product/ProductDetailsError.jsx":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/product/ProductDetailsError.jsx ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ProductDetailsError)
+/* harmony export */ });
+/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/ExclamationCircleIcon.js");
+/* harmony import */ var react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-loading-skeleton */ "./node_modules/react-loading-skeleton/dist/index.js");
+/* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Layout */ "./resources/js/components/Layout.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function ProductDetailsError() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "bg-white",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "mx-auto max-w-2xl px-8  pb-16 sm:px-6 sm:pt-16 sm:pb-24 lg:max-w-7xl lg:px-8 relative",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 blur-md",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              className: "w-1/3 pb-[50%] lg:w-1/2 lg:pb-[100%] mb-5"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              className: "h-8"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_loading_skeleton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              className: "h-14 mt-4"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "absolute w-full h-full flex justify-center items-center flex-col z-10 top-0",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            className: "h-12 w-12 stroke-red-400"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+            className: "text-xl font-bold",
+            children: "There was an error loading product details."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            className: "text-gray-600",
+            children: "Please try reloading the page."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            type: "button",
+            className: "mt-4 rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+            onClick: function onClick() {
+              return window.location.reload();
+            },
+            children: "Reload"
+          })]
+        })]
+      })
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/product/ProductImageGallery.jsx":
 /*!*****************************************************************!*\
   !*** ./resources/js/components/product/ProductImageGallery.jsx ***!
@@ -12005,6 +12119,9 @@ __webpack_require__.r(__webpack_exports__);
 
 function ProductImageGallery(_ref) {
   var images = _ref.images;
+  if (!images) {
+    return null;
+  }
   Object.keys(images);
   if (!images || images.length === 0) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
@@ -12127,17 +12244,17 @@ function ProductPriceCard(_ref2) {
     oldPrice = price.price;
     discountedPrice = price.discounted_price;
   }
-  var save = (oldPrice - discountedPrice).toFixed(2);
-  var percentage = Math.ceil(save / oldPrice * 100);
+  var save = (discountedPrice - oldPrice).toFixed(2);
+  var percentage = Math.ceil(save / discountedPrice * 100);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Component, {
-      value: oldPrice,
+      value: discountedPrice,
       type: 'price'
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Component, {
       value: percentage,
       type: 'percentage'
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Component, {
-      value: discountedPrice,
+      value: oldPrice,
       type: 'discounted-price'
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Component, {
       value: save,
@@ -12581,13 +12698,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _hooks_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/axios */ "./resources/js/hooks/axios.js");
-/* harmony import */ var _components_loaders_PageLoading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/loaders/PageLoading */ "./resources/js/components/loaders/PageLoading.jsx");
+/* harmony import */ var _components_loaders_PageLoading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/loaders/PageLoading */ "./resources/js/components/loaders/PageLoading.jsx");
+/* harmony import */ var _hooks_axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/axios */ "./resources/js/hooks/axios.js");
 /* harmony import */ var _utils_cookies__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/cookies */ "./resources/js/utils/cookies.js");
-/* harmony import */ var react_use_cart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-use-cart */ "./node_modules/react-use-cart/dist/react-use-cart.esm.js");
-/* harmony import */ var _hooks_useAuthUser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../hooks/useAuthUser */ "./resources/js/hooks/useAuthUser.js");
-/* harmony import */ var _hooks_useShoppingCart__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../hooks/useShoppingCart */ "./resources/js/hooks/useShoppingCart.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -12603,148 +12717,59 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-
-
-
 var AppContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();
 var AppProvider = function AppProvider(_ref) {
   var children = _ref.children;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState2 = _slicedToArray(_useState, 2),
-    appData = _useState2[0],
-    setAppData = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    user = _useState2[0],
+    setUser = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState4 = _slicedToArray(_useState3, 2),
-    user = _useState4[0],
-    setUser = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState6 = _slicedToArray(_useState5, 2),
-    isLoading = _useState6[0],
-    setIsLoading = _useState6[1];
-  var _useCart = (0,react_use_cart__WEBPACK_IMPORTED_MODULE_4__.useCart)(),
-    setItems = _useCart.setItems,
-    emptyCart = _useCart.emptyCart;
+    isLoading = _useState4[0],
+    setIsLoading = _useState4[1];
   var isLoggedIn = function isLoggedIn() {
     return !!user;
   };
-  var loadAppData = /*#__PURE__*/function () {
+  var loadUser = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var cookieData, response, responseData;
+      var response, userData;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            cookieData = (0,_utils_cookies__WEBPACK_IMPORTED_MODULE_3__.getCookie)('app-data');
-            if (!cookieData) {
-              _context.next = 6;
-              break;
-            }
-            setAppData(cookieData);
-            setIsLoading(false);
-            return _context.abrupt("return");
-          case 6:
-            _context.next = 8;
-            return (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_1__.useAxiosPromise)('/api/app/data', 'GET');
-          case 8:
-            response = _context.sent;
-            responseData = response.data.data;
-            setAppData(responseData);
-            (0,_utils_cookies__WEBPACK_IMPORTED_MODULE_3__.setCookie)('app-data', responseData);
-            _context.next = 17;
-            break;
-          case 14:
-            _context.prev = 14;
-            _context.t0 = _context["catch"](0);
-            console.error("Error loading app data:", _context.t0);
-          case 17:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee, null, [[0, 14]]);
-    }));
-    return function loadAppData() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-  var loadUser = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-      var response, userData;
-      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.prev = 0;
-            _context2.next = 3;
-            return (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_1__.useAxiosPromise)('/api/user', 'GET');
+            _context.next = 3;
+            return (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_2__.useAxiosPromise)('/api/user', 'GET');
           case 3:
-            response = _context2.sent;
+            response = _context.sent;
             userData = response.data.data;
             setUser(userData);
             (0,_utils_cookies__WEBPACK_IMPORTED_MODULE_3__.setCookie)('user', userData, 1 / 24);
-            _context2.next = 12;
+            _context.next = 12;
             break;
           case 9:
-            _context2.prev = 9;
-            _context2.t0 = _context2["catch"](0);
-            console.error("Error loading user data:", _context2.t0);
+            _context.prev = 9;
+            _context.t0 = _context["catch"](0);
+            console.error('Error loading user data:', _context.t0);
           case 12:
-            _context2.prev = 12;
+            _context.prev = 12;
             setIsLoading(false);
-            return _context2.finish(12);
+            return _context.finish(12);
           case 15:
           case "end":
-            return _context2.stop();
+            return _context.stop();
         }
-      }, _callee2, null, [[0, 9, 12, 15]]);
+      }, _callee, null, [[0, 9, 12, 15]]);
     }));
     return function loadUser() {
-      return _ref3.apply(this, arguments);
+      return _ref2.apply(this, arguments);
     };
   }();
-  var loadCart = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-      var response, cartData;
-      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            _context3.prev = 0;
-            _context3.next = 3;
-            return (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_1__.useAxiosPromise)('/api/cart', 'GET');
-          case 3:
-            response = _context3.sent;
-            cartData = response.data.data;
-            if (cartData) {
-              setItems(cartData.items);
-            } else {
-              emptyCart();
-            }
-            _context3.next = 11;
-            break;
-          case 8:
-            _context3.prev = 8;
-            _context3.t0 = _context3["catch"](0);
-            console.error("Error loading cart data:", _context3.t0);
-          case 11:
-          case "end":
-            return _context3.stop();
-        }
-      }, _callee3, null, [[0, 8]]);
-    }));
-    return function loadCart() {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // loadAppData();
-    // loadUser();
-    // loadCart();
-  }, []);
   if (isLoading) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_loaders_PageLoading__WEBPACK_IMPORTED_MODULE_2__["default"], {});
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_loaders_PageLoading__WEBPACK_IMPORTED_MODULE_1__["default"], {});
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(AppContext.Provider, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(AppContext.Provider, {
     value: {
-      appData: appData,
       user: user,
       setUser: setUser,
       isLoggedIn: isLoggedIn,
@@ -12786,7 +12811,7 @@ var useAxios = function useAxios(url, method, payload) {
     _useState2 = _slicedToArray(_useState, 2),
     data = _useState2[0],
     setData = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState4 = _slicedToArray(_useState3, 2),
     error = _useState4[0],
     setError = _useState4[1];
@@ -12870,43 +12895,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_ProductFilterActions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/ProductFilterActions */ "./resources/js/actions/ProductFilterActions.js");
 
 
-var filters = [
-  // {
-  //   id: 'color',
-  //   name: 'Color',
-  //   options: [
-  //     { value: 'white', label: 'White' },
-  //     { value: 'beige', label: 'Beige' },
-  //     { value: 'blue', label: 'Blue' },
-  //     { value: 'brown', label: 'Brown' },
-  //     { value: 'green', label: 'Green' },
-  //     { value: 'purple', label: 'Purple' },
-  //   ],
-  // },
-  // {
-  //   id: 'category',
-  //   name: 'Category',
-  //   options: [
-  //     { value: 'new-arrivals', label: 'All New Arrivals' },
-  //     { value: 'tees', label: 'Tees' },
-  //     { value: 'crewnecks', label: 'Crewnecks' },
-  //     { value: 'sweatshirts', label: 'Sweatshirts' },
-  //     { value: 'pants-shorts', label: 'Pants & Shorts' },
-  //   ],
-  // },
-  // {
-  //   id: 'sizes',
-  //   name: 'Sizes',
-  //   options: [
-  //     { value: 'xs', label: 'XS' },
-  //     { value: 's', label: 'S' },
-  //     { value: 'm', label: 'M' },
-  //     { value: 'l', label: 'L' },
-  //     { value: 'xl', label: 'XL' },
-  //     { value: '2xl', label: '2XL' },
-  //   ],
-  // },
-];
 var useProductFilters = function useProductFilters() {
   return (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_1__.useQuery)({
     queryKey: ['product', 'filters'],
@@ -12933,12 +12921,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   useNavigationLinks: () => (/* binding */ useNavigationLinks),
 /* harmony export */   useQueryParams: () => (/* binding */ useQueryParams)
 /* harmony export */ });
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/@remix-run/router/dist/router.js");
-/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../routes/routes */ "./resources/js/routes/routes.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router */ "./node_modules/@remix-run/router/dist/router.js");
+/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../routes/routes */ "./resources/js/routes/routes.js");
+/* harmony import */ var _icons_shop_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../icons/shop.svg */ "./resources/icons/shop.svg");
+/* harmony import */ var _icons_brakes_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../icons/brakes.svg */ "./resources/icons/brakes.svg");
+/* harmony import */ var _icons_accessories_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../icons/accessories.svg */ "./resources/icons/accessories.svg");
+/* harmony import */ var _icons_oils_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../icons/oils.svg */ "./resources/icons/oils.svg");
+/* harmony import */ var _icons_tools_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../icons/tools.svg */ "./resources/icons/tools.svg");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -12950,97 +12942,59 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
+
 var useNavigationLinks = function useNavigationLinks() {
   var navigation = {
     pages: [{
       path: '/shop',
       name: 'Spare parts',
-      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-        viewBox: "0 0 24 24",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-          d: "M4.69 17.94c.168 0 .34.016.506-.004.134-.016.324.02.379-.139.065-.187-.114-.286-.238-.367a8.074 8.074 0 0 0-3.257-1.26c-.166-.024-.35-.037-.448.152-.097.184.012.341.109.477.36.506.784.91 1.436.997.503.067 1.005.138 1.512.145m14.497.02c.555-.021 1.018-.089 1.484-.136.659-.067 1.14-.407 1.524-.926.122-.165.298-.342.18-.57-.123-.234-.36-.182-.562-.147-1.103.192-2.125.606-3.08 1.198a1.029 1.029 0 0 0-.184.148c-.073.073-.163.148-.128.27.033.116.147.1.23.112.206.028.414.04.536.052m-15.004-3.82c.422.044.891.065 1.355-.032.308-.064.577-.2.642-.557.065-.363-.15-.574-.424-.737-.1-.06-.21-.108-.319-.15-.673-.255-1.37-.419-2.075-.558-.476-.093-.952-.166-1.433-.074-.478.091-.746.41-.787.91-.033.403.16.692.603.874.168.069.346.118.524.154.616.126 1.243.133 1.914.17m15.69-.003c.286-.015.574-.021.86-.045.545-.044 1.096-.07 1.605-.306.35-.163.572-.429.532-.845-.04-.416-.217-.742-.642-.861-.125-.035-.254-.073-.382-.075-1.246-.016-2.42.323-3.562.793-.357.147-.508.452-.427.836.072.342.372.418.652.48.452.098.909.063 1.364.023m-7.878 3.985c.808 0 1.616.011 2.424-.004a6.796 6.796 0 0 0 1.51-.188c.63-.156.775-.35.773-1.002-.002-.71-.238-1.356-.518-1.995-.22-.5-.588-.803-1.083-.965a3.728 3.728 0 0 0-.918-.186c-1.289-.085-2.58-.005-3.87-.033a3.986 3.986 0 0 0-1.386.212c-.404.14-.775.341-.986.739a5.611 5.611 0 0 0-.621 1.886c-.125.916.09 1.23.97 1.388 1.226.222 2.468.17 3.705.148m.015-13.045l-5.757.001c-.165 0-.327-.032-.45.156-.572.88-1.113 1.776-1.445 2.783-.286.869-.072 1.248.792 1.531.702.23 1.426.33 2.154.387 2.88.226 5.765.212 8.648.059.962-.051 1.925-.133 2.854-.433.944-.304 1.142-.692.813-1.647-.31-.902-.811-1.702-1.296-2.511-.144-.242-.311-.336-.596-.334-1.905.014-3.811.007-5.717.008M2.917 8.61c.67-1.196 1.297-2.32 1.961-3.422.328-.544.747-.842 1.37-.918a33.506 33.506 0 0 1 3.162-.225c2.689-.073 5.376-.083 8.058.188.792.08 1.374.382 1.78 1.137.497.922 1.047 1.817 1.557 2.734.062.112.101.265.27.248.159-.015.213-.162.238-.284.106-.532.413-.68.923-.626.49.052.99.018 1.487.008.218-.004.325.058.256.297-.003.013-.003.027-.005.04-.135 1.032-.136 1.02-1.165 1.15-.261.034-.588-.098-.776.238-.084.15-.093.224.095.28 1.185.347 1.494 1.287 1.464 2.243-.056 1.766-.232 3.52-.425 5.274-.105.946-.026 1.896-.046 2.844-.013.633-.166.797-.793.798-.588 0-1.175.003-1.762-.003-.475-.005-.655-.198-.662-.685-.01-.851-.01-.85-.839-.85H4.771c-.668 0-.668 0-.67.664 0 .067 0 .134-.002.2-.01.471-.185.665-.634.67a82.51 82.51 0 0 1-1.958 0c-.402-.004-.592-.2-.623-.611-.001-.013-.003-.027-.002-.04.141-2.524-.336-5.01-.44-7.518-.016-.374-.036-.75-.02-1.122.04-.916.501-1.53 1.332-1.833.103-.037.32.009.268-.196-.04-.156-.133-.31-.352-.32-.378-.016-.754-.077-1.131-.092-.258-.01-.373-.113-.386-.379-.016-.339-.28-.754-.075-.985.18-.204.619-.051.943-.059.391-.009.783.006 1.175-.005.185-.005.284.063.348.243.102.285.227.562.373.917",
-          fill: "#F37C2E",
-          fillRule: "evenodd"
-        })
-      })
+      icon: _icons_shop_svg__WEBPACK_IMPORTED_MODULE_2__["default"]
     }, {
       path: '/shop?types=7',
       name: 'Brakes',
-      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-        viewBox: "0 0 24 24",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-          d: "M11.698 1.995c5.333 0 9.702 4.368 9.702 9.703 0 5.333-4.368 9.702-9.702 9.702s-9.703-4.368-9.703-9.702 4.368-9.703 9.703-9.703zm0 18.268c4.723 0 8.565-3.842 8.565-8.565 0-4.724-3.842-8.566-8.565-8.566-4.724 0-8.566 3.842-8.566 8.566 0 4.723 3.842 8.565 8.566 8.565zm0-14.592a6.033 6.033 0 0 1 6.026 6.027c0 3.333-2.716 6.026-6.026 6.026-3.31 0-6.027-2.692-6.027-6.026a6.033 6.033 0 0 1 6.027-6.027zm0 7.277a1.25 1.25 0 1 0 .001-2.5 1.25 1.25 0 0 0-.002 2.5zm-4.89-1.25c0 .687.143 1.341.4 1.935l2.197-1.268a2.38 2.38 0 0 1 0-1.334L7.208 9.762a4.861 4.861 0 0 0-.4 1.936zm7.182-.667a2.38 2.38 0 0 1 0 1.334l2.197 1.268a4.86 4.86 0 0 0 .4-1.935c0-.688-.143-1.342-.4-1.936l-2.197 1.269zm1.627-2.253a4.89 4.89 0 0 0-3.35-1.936v2.537c.446.11.844.345 1.153.668l2.197-1.269zm-4.488-1.936a4.89 4.89 0 0 0-3.35 1.936l2.196 1.269a2.387 2.387 0 0 1 1.154-.668V6.842zm-3.35 7.775a4.89 4.89 0 0 0 3.35 1.936v-2.537a2.387 2.387 0 0 1-1.154-.668l-2.197 1.269zm4.487 1.936a4.89 4.89 0 0 0 3.351-1.936l-2.197-1.269a2.387 2.387 0 0 1-1.154.668v2.537z",
-          fill: "#F47D2F",
-          fillRule: "evenodd"
-        })
-      })
+      icon: _icons_brakes_svg__WEBPACK_IMPORTED_MODULE_3__["default"]
     }, {
       path: '/shop?collection=7',
       name: 'Accessories',
-      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-        viewBox: "0 0 24 24",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
-          fill: "none",
-          fillRule: "evenodd",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-            d: "M0 0h24v24H0z"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-            d: "M12.54 9.81h1.61A2.15 2.15 0 0 1 16.3 12v8c0 .294-.06.575-.166.83h2.626V9.43a3.12 3.12 0 0 0-5.697-1.773 3.115 3.115 0 0 0-.523 1.733zm-1.28 0v-.37a4.379 4.379 0 0 1 2.52-4V3.11H12.5a3.13 3.13 0 0 0-3.11 3.15H8.15a4.35 4.35 0 0 1 4.35-4.38h5.63a.62.62 0 0 1 .43-.6L22.31 0a.64.64 0 0 1 .57.12.63.63 0 0 1 .27.51v3.74a.63.63 0 0 1-.27.51.61.61 0 0 1-.37.12h-.2l-3.79-1.29a.62.62 0 0 1-.43-.6h-.6v2.34A4.38 4.38 0 0 1 20 9.4v12a.65.65 0 0 1-.62.67h-4.647c-.185.052-.38.08-.583.08h-12A2.15 2.15 0 0 1 0 20v-8a2.15 2.15 0 0 1 2.15-2.19zM1.3 12v8c0 .47.38.85.85.85h12c.47 0 .85-.38.85-.85v-8a.85.85 0 0 0-.85-.85h-12a.85.85 0 0 0-.85.85zM7 19.11v-2H5v-2.3h2v-2h2.3v2h2v2.3h-2v2zm9.25-14.05V3.11h-1.24v1.95a3.87 3.87 0 0 1 1.24 0zm5.66-1.55V1.49l-2.51.84v.35z",
-            fill: "#f37c2e",
-            fillRule: "nonzero"
-          })]
-        })
-      })
+      icon: _icons_accessories_svg__WEBPACK_IMPORTED_MODULE_4__["default"]
     }, {
       path: '/shop?types=4',
       name: 'Oils',
-      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-        viewBox: "0 0 24 24",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-          d: "M19.835 12.676a.568.568 0 0 1-.329.598l-8.445 3.808c-.5.227-1.083.198-1.557-.076l-6.386-3.687a1.707 1.707 0 0 1-.624-2.33l1.5-2.598-1.57-1.77a1.703 1.703 0 0 1-.2-1.985l.507-.878a1.704 1.704 0 0 1 2.753-.279L6.76 4.92l2.382 1.375.568-.984-1.477-.853a.568.568 0 0 1 .569-.985l3.938 2.274a.568.568 0 0 1-.568.985l-1.477-.853-.569.985 2.054 1.185c.395.228.677.596.795 1.036l.613 2.288 5.764.82c.25.036.447.233.482.483zm-16.56-6.81l1.319 1.487L5.7 5.437 4.633 4.234a.568.568 0 0 0-.917.093l-.507.878a.568.568 0 0 0 .067.661zm7.317 10.18l1.01-.455-7.839-4.525-.284.492a.57.57 0 0 0 .208.776l6.385 3.687a.57.57 0 0 0 .52.025zm2.286-1.03l4.375-1.973-4.196-.597a.569.569 0 0 1-.47-.416l-.71-2.651a.565.565 0 0 0-.264-.345L6.605 6.143 4.331 10.08l8.547 4.934zm8.251 2.731a2.276 2.276 0 0 1-2.004 3.349 2.276 2.276 0 0 1-2.004-3.349l1.49-3.147a.568.568 0 0 1 1.028 0l1.49 3.147zm-2.004 2.212a1.138 1.138 0 0 0 .983-1.711l-.983-2.077-.983 2.077a1.121 1.121 0 0 0-.154.574c0 .627.51 1.137 1.137 1.137z",
-          fill: "#F47D2F",
-          fillRule: "evenodd"
-        })
-      })
+      icon: _icons_oils_svg__WEBPACK_IMPORTED_MODULE_5__["default"]
     }, {
       path: '/shop?collection=8',
       name: 'Tools',
-      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-        viewBox: "0 0 24 24",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-          d: "M5.555 18.88a.525.525 0 1 1 0-1.05.525.525 0 0 1 0 1.05zm14.071-3.816a3.26 3.26 0 1 1-4.555 4.572l-3.588-4.383-4.172 4.811a2.46 2.46 0 0 1-3.764-.016 2.37 2.37 0 0 1-.526-1.846 2.63 2.63 0 0 1 .911-1.677l5.565-4.799-2.505-2.505-2.111-.704a.525.525 0 0 1-.303-.261L3.057 5.249a.525.525 0 0 1 .097-.609L4.64 3.154c.16-.16.406-.2.609-.097l3.006 1.521a.526.526 0 0 1 .262.303l.703 2.11 2.67 2.67.698-.6.004-.004c.118-.1.18-.246.18-.4v-2.05c0-.42.17-.817.467-1.114l1.723-1.723a2.625 2.625 0 0 1 3.715 0 .525.525 0 0 1 0 .743L17.19 5.999a.525.525 0 1 0 .743.743l1.486-1.486a.525.525 0 0 1 .742 0 2.63 2.63 0 0 1 0 3.714l-1.722 1.723a1.566 1.566 0 0 1-1.115.462h-2.049a.524.524 0 0 0-.4.186l-.005.005-.178.205 4.923 3.505a.443.443 0 0 1 .01.008zM7.646 8.39l2.649 2.648.798-.688L8.39 7.647a.525.525 0 0 1-.127-.205l-.675-2.024-2.474-1.251-.948.947L5.418 7.59l2.024.674a.54.54 0 0 1 .205.127zm-1.13 10.988l7.56-8.719c.3-.353.737-.548 1.2-.548h2.05c.14 0 .272-.061.37-.16l1.724-1.723a1.579 1.579 0 0 0 .307-1.794l-1.05 1.05a1.578 1.578 0 0 1-2.23 0 1.578 1.578 0 0 1 0-2.228L17.5 4.205a1.577 1.577 0 0 0-1.794.308l-1.723 1.723a.526.526 0 0 0-.16.371v2.05c0 .463-.196.9-.55 1.2-1.154.996-3.99 3.448-8.656 7.465l-.003.003c-.627.53-.746 1.468-.26 2.048.57.682 1.599.67 2.158.01l.004-.005zm5.666-4.931l.699.854 1.962-2.354-.841-.599-1.82 2.099zm7.05 4.786a2.209 2.209 0 0 0-.231-3.325l-3.3-2.35-2.142 2.571 2.331 2.85.014.017a2.21 2.21 0 0 0 3.328.237z",
-          fill: "#F47D2F",
-          fillRule: "evenodd"
-        })
-      })
+      icon: _icons_tools_svg__WEBPACK_IMPORTED_MODULE_6__["default"]
     }],
     categories: []
   };
   return navigation;
 };
 var useCurrentRoute = function useCurrentRoute() {
-  var location = (0,react_router__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
-  var _matchRoutes = (0,react_router__WEBPACK_IMPORTED_MODULE_4__.matchRoutes)(_routes_routes__WEBPACK_IMPORTED_MODULE_0__.routes, location.pathname),
+  var location = (0,react_router__WEBPACK_IMPORTED_MODULE_7__.useLocation)();
+  var _matchRoutes = (0,react_router__WEBPACK_IMPORTED_MODULE_8__.matchRoutes)(_routes_routes__WEBPACK_IMPORTED_MODULE_1__.routes, location.pathname),
     _matchRoutes2 = _slicedToArray(_matchRoutes, 1),
     route = _matchRoutes2[0].route;
-  var isCurrentPath = (0,react_router__WEBPACK_IMPORTED_MODULE_4__.matchPath)(route.path, location.pathname) !== null;
+  var isCurrentPath = (0,react_router__WEBPACK_IMPORTED_MODULE_8__.matchPath)(route.path, location.pathname) !== null;
   return {
     route: route,
     isCurrentPath: isCurrentPath
   };
 };
 var useQueryParams = function useQueryParams() {
-  var _useLocation = (0,react_router__WEBPACK_IMPORTED_MODULE_3__.useLocation)(),
+  var _useLocation = (0,react_router__WEBPACK_IMPORTED_MODULE_7__.useLocation)(),
     search = _useLocation.search;
-  return (0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(function () {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
     return new URLSearchParams(search);
   }, [search]);
 };
 var useCurrentPath = function useCurrentPath() {
-  return (0,react_router__WEBPACK_IMPORTED_MODULE_3__.useLocation)().pathname;
+  return (0,react_router__WEBPACK_IMPORTED_MODULE_7__.useLocation)().pathname;
 };
 var useCurrentUrl = function useCurrentUrl() {
-  var _useLocation2 = (0,react_router__WEBPACK_IMPORTED_MODULE_3__.useLocation)(),
+  var _useLocation2 = (0,react_router__WEBPACK_IMPORTED_MODULE_7__.useLocation)(),
     pathname = _useLocation2.pathname,
     search = _useLocation2.search;
   return pathname + search;
@@ -13116,17 +13070,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _useAppData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./useAppData */ "./resources/js/hooks/useAppData.js");
 
-
 var defaultCurrency = {
-  "id": 1,
-  "code": "LKR",
-  "name": "Sri Lankan rupee",
-  "exchange_rate": "1.0000",
-  "decimal_places": 2,
-  "enabled": 1,
-  "default": 1,
-  "created_at": "2023-06-03T14:57:37.000000Z",
-  "updated_at": "2023-07-30T16:30:17.000000Z"
+  'id': 1,
+  'code': 'LKR',
+  'name': 'Sri Lankan rupee',
+  'exchange_rate': '1.0000',
+  'decimal_places': 2,
+  'enabled': 1,
+  'default': 1,
+  'created_at': '2023-06-03T14:57:37.000000Z',
+  'updated_at': '2023-07-30T16:30:17.000000Z'
 };
 var useCurrency = function useCurrency() {
   var _useAppData = (0,_useAppData__WEBPACK_IMPORTED_MODULE_0__.useAppData)(),
@@ -13197,36 +13150,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   useShoppingCart: () => (/* binding */ useShoppingCart)
 /* harmony export */ });
-/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @tanstack/react-query */ "./node_modules/@tanstack/react-query/build/modern/useQuery.js");
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tanstack/react-query */ "./node_modules/@tanstack/react-query/build/modern/useQuery.js");
 /* harmony import */ var _actions_CartActions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/CartActions */ "./resources/js/actions/CartActions.js");
-/* harmony import */ var react_use_cart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-use-cart */ "./node_modules/react-use-cart/dist/react-use-cart.esm.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-
-
 
 
 var useShoppingCart = function useShoppingCart() {
-  var cart = (0,react_use_cart__WEBPACK_IMPORTED_MODULE_1__.useCart)();
-  var _useQuery = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_3__.useQuery)({
-      retry: 1,
-      staleTime: 1000 * 60 * 20,
-      enabled: cart.isEmpty,
-      queryKey: ['cart'],
-      queryFn: function queryFn() {
-        return (0,_actions_CartActions__WEBPACK_IMPORTED_MODULE_0__.fetchCart)();
-      }
-    }),
-    data = _useQuery.data,
-    isSuccess = _useQuery.isSuccess;
-  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-    if (isSuccess && data) {
-      cart.setItems(data.items);
-      return;
+  return (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_1__.useQuery)({
+    retry: 1,
+    staleTime: 1000 * 60 * 20,
+    queryKey: ['cart'],
+    queryFn: function queryFn() {
+      return (0,_actions_CartActions__WEBPACK_IMPORTED_MODULE_0__.fetchCart)();
     }
-    cart.emptyCart();
-  }, []);
-  return cart;
+  });
 };
 
 /***/ }),
@@ -14705,27 +14641,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ProductDeatils)
 /* harmony export */ });
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/tabs/tabs.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/HeartIcon.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/tabs/tabs.js");
+/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/HeartIcon.js");
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @tanstack/react-query */ "./node_modules/@tanstack/react-query/build/modern/useQuery.js");
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @tanstack/react-query */ "./node_modules/@tanstack/react-query/build/modern/useMutation.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_use_cart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-use-cart */ "./node_modules/react-use-cart/dist/react-use-cart.esm.js");
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Layout */ "./resources/js/components/Layout.jsx");
-/* harmony import */ var _components_RatingBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/RatingBar */ "./resources/js/components/RatingBar.jsx");
-/* harmony import */ var _components_RelatedProducts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/RelatedProducts */ "./resources/js/components/RelatedProducts.jsx");
-/* harmony import */ var _components_ShareButtons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/ShareButtons */ "./resources/js/components/ShareButtons.jsx");
-/* harmony import */ var _components_loaders_ProductLoading__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/loaders/ProductLoading */ "./resources/js/components/loaders/ProductLoading.jsx");
-/* harmony import */ var _components_product_CustomerReviews__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/product/CustomerReviews */ "./resources/js/components/product/CustomerReviews.jsx");
-/* harmony import */ var _components_product_ProductDescription__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/product/ProductDescription */ "./resources/js/components/product/ProductDescription.jsx");
-/* harmony import */ var _components_product_ProductImageGallery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/product/ProductImageGallery */ "./resources/js/components/product/ProductImageGallery.jsx");
-/* harmony import */ var _components_product_ProductPriceCard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/product/ProductPriceCard */ "./resources/js/components/product/ProductPriceCard.jsx");
-/* harmony import */ var _components_product_ProductVariants__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/product/ProductVariants */ "./resources/js/components/product/ProductVariants.jsx");
-/* harmony import */ var _hooks_axios__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../hooks/axios */ "./resources/js/hooks/axios.js");
-/* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../utils/css */ "./resources/js/utils/css.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
-/* harmony import */ var _components_Price__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/Price */ "./resources/js/components/Price.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
+/* harmony import */ var _actions_ProductActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/ProductActions */ "./resources/js/actions/ProductActions.js");
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Layout */ "./resources/js/components/Layout.jsx");
+/* harmony import */ var _components_Price__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Price */ "./resources/js/components/Price.jsx");
+/* harmony import */ var _components_RatingBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/RatingBar */ "./resources/js/components/RatingBar.jsx");
+/* harmony import */ var _components_RelatedProducts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/RelatedProducts */ "./resources/js/components/RelatedProducts.jsx");
+/* harmony import */ var _components_ShareButtons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/ShareButtons */ "./resources/js/components/ShareButtons.jsx");
+/* harmony import */ var _components_loaders_ProductLoading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/loaders/ProductLoading */ "./resources/js/components/loaders/ProductLoading.jsx");
+/* harmony import */ var _components_product_CustomerReviews__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/product/CustomerReviews */ "./resources/js/components/product/CustomerReviews.jsx");
+/* harmony import */ var _components_product_ProductDescription__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/product/ProductDescription */ "./resources/js/components/product/ProductDescription.jsx");
+/* harmony import */ var _components_product_ProductDetailsError__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/product/ProductDetailsError */ "./resources/js/components/product/ProductDetailsError.jsx");
+/* harmony import */ var _components_product_ProductImageGallery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/product/ProductImageGallery */ "./resources/js/components/product/ProductImageGallery.jsx");
+/* harmony import */ var _components_product_ProductPriceCard__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/product/ProductPriceCard */ "./resources/js/components/product/ProductPriceCard.jsx");
+/* harmony import */ var _components_product_ProductVariants__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/product/ProductVariants */ "./resources/js/components/product/ProductVariants.jsx");
+/* harmony import */ var _hooks_useShoppingCart__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../hooks/useShoppingCart */ "./resources/js/hooks/useShoppingCart.js");
+/* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../utils/css */ "./resources/js/utils/css.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -14754,216 +14693,185 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var CartSuccessMessage = function CartSuccessMessage(_ref) {
-  var total = _ref.total;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("p", {
-      children: "Cart updated"
-    }), total && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("small", {
-      children: ["Your total is ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_Price__WEBPACK_IMPORTED_MODULE_15__["default"], {
-        value: total
-      })]
-    })]
-  });
-};
+
 function ProductDeatils() {
-  var _useParams = (0,react_router__WEBPACK_IMPORTED_MODULE_17__.useParams)(),
+  var _product$additional_d;
+  var _useParams = (0,react_router__WEBPACK_IMPORTED_MODULE_18__.useParams)(),
     id = _useParams.id;
-  var navigate = (0,react_router__WEBPACK_IMPORTED_MODULE_17__.useNavigate)();
+  var _useShoppingCart = (0,_hooks_useShoppingCart__WEBPACK_IMPORTED_MODULE_15__.useShoppingCart)(),
+    refetchCart = _useShoppingCart.refetch;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState2 = _slicedToArray(_useState, 2),
     selectedVariant = _useState2[0],
     setSelectedVariant = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-    _useState4 = _slicedToArray(_useState3, 2),
-    product = _useState4[0],
-    setProduct = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-    _useState6 = _slicedToArray(_useState5, 2),
-    isLoading = _useState6[0],
-    setIsLoading = _useState6[1];
-  var _useCart = (0,react_use_cart__WEBPACK_IMPORTED_MODULE_1__.useCart)(),
-    addItem = _useCart.addItem,
-    cartTotal = _useCart.cartTotal;
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    loadData();
-  }, []);
-
-  // Loading product data
-  var loadData = function loadData() {
-    (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_12__.useAxiosPromise)('/api/products/' + id, 'GET').then(function (res) {
-      var data = res.data.data;
-
-      // set product
-      setProduct(data);
-
-      // set default selected variant
-      if (data && data.variants && data.variants.length > 0) {
-        setSelectedVariant(data.variants[0]);
+  var _useQuery = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_19__.useQuery)({
+      retry: 2,
+      queryKey: ["product", "single", id],
+      queryFn: function queryFn() {
+        return (0,_actions_ProductActions__WEBPACK_IMPORTED_MODULE_2__.fetchSingleProduct)(id);
       }
-      setIsLoading(false);
-    })["catch"](function (err) {
-      setIsLoading(false);
-    });
-  };
-  if (isLoading || !product) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_loaders_ProductLoading__WEBPACK_IMPORTED_MODULE_6__["default"], {});
-  }
-  var handleAddToCart = function handleAddToCart() {
-    (0,_hooks_axios__WEBPACK_IMPORTED_MODULE_12__.useAxiosPromise)('/api/cart/add', 'POST', {
-      variant: selectedVariant.id
-    }).then(function (res) {
-      var data = res.data.data;
-      addItem(data, data.qty || 1);
-      react_toastify__WEBPACK_IMPORTED_MODULE_14__.toast.info( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(CartSuccessMessage, {
-        total: cartTotal + data.price
-      }), {
-        containerId: 'left-toast-container'
+    }),
+    product = _useQuery.data,
+    isSuccess = _useQuery.isSuccess,
+    isPending = _useQuery.isPending,
+    isError = _useQuery.isError;
+  var addToCartMutation = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_20__.useMutation)({
+    mutationFn: function mutationFn(variantId) {
+      return (0,_actions_ProductActions__WEBPACK_IMPORTED_MODULE_2__.postAddToCart)(variantId);
+    },
+    onSuccess: function onSuccess() {
+      refetchCart();
+      react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.info("Your cart is updated.", {
+        containerId: "left-toast-container"
       });
-    })["catch"](function (err) {
-      if (err.response.status === 401) {
-        return navigate('/login?redirect_to=/shop/product/' + id);
-      }
-      console.log(err);
-    });
+    }
+  });
+  var handleAddToCart = function handleAddToCart() {
+    addToCartMutation.mutate(id);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+  if (isError) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_product_ProductDetailsError__WEBPACK_IMPORTED_MODULE_11__["default"], {});
+  }
+  if (isPending) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_loaders_ProductLoading__WEBPACK_IMPORTED_MODULE_8__["default"], {});
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
       className: "bg-white",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
         className: "mx-auto max-w-2xl px-8  pb-16 sm:px-6 sm:pt-16 sm:pb-24 lg:max-w-7xl lg:px-8",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
           className: "lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_product_ProductImageGallery__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_product_ProductImageGallery__WEBPACK_IMPORTED_MODULE_12__["default"], {
               images: product.images
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
               className: "mx-auto mt-16 pt-10 w-full max-w-2xl lg:col-span-4 lg:mt-0 lg:max-w-none",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_18__.Tab.Group, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_21__.Tab.Group, {
                 as: "div",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
                   className: "border-b border-gray-200",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_18__.Tab.List, {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_21__.Tab.List, {
                     className: "-mb-px flex space-x-8",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_18__.Tab, {
-                      className: function className(_ref2) {
-                        var selected = _ref2.selected;
-                        return (0,_utils_css__WEBPACK_IMPORTED_MODULE_13__.classNames)(selected ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-800', 'whitespace-nowrap border-b-2 py-6 text-sm font-medium');
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_21__.Tab, {
+                      className: function className(_ref) {
+                        var selected = _ref.selected;
+                        return (0,_utils_css__WEBPACK_IMPORTED_MODULE_16__.classNames)(selected ? "border-indigo-600 text-indigo-600" : "border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-800", "whitespace-nowrap border-b-2 py-6 text-sm font-medium");
                       },
                       children: "Product Details"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_18__.Tab, {
-                      className: function className(_ref3) {
-                        var selected = _ref3.selected;
-                        return (0,_utils_css__WEBPACK_IMPORTED_MODULE_13__.classNames)(selected ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-800', 'whitespace-nowrap border-b-2 py-6 text-sm font-medium');
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_21__.Tab, {
+                      className: function className(_ref2) {
+                        var selected = _ref2.selected;
+                        return (0,_utils_css__WEBPACK_IMPORTED_MODULE_16__.classNames)(selected ? "border-indigo-600 text-indigo-600" : "border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-800", "whitespace-nowrap border-b-2 py-6 text-sm font-medium");
                       },
                       children: "Customer Reviews"
                     })]
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_18__.Tab.Panels, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_21__.Tab.Panels, {
                   as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_18__.Tab.Panel, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_21__.Tab.Panel, {
                     className: "pt-10",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_product_ProductDescription__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_product_ProductDescription__WEBPACK_IMPORTED_MODULE_10__["default"], {
                       description: product.description
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_18__.Tab.Panel, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_21__.Tab.Panel, {
                     className: "-mb-10",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_product_CustomerReviews__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_product_CustomerReviews__WEBPACK_IMPORTED_MODULE_9__["default"], {
                       reviews: product.ratings
                     })
                   })]
                 })]
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
             className: "mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h1", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("h1", {
               className: "text-3xl font-bold tracking-tight text-gray-900 mb-2",
               children: product.name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("p", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("p", {
               className: "text-gray-500 text-sm",
               children: ["Serial No: ", product.serial_no]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
               className: "mt-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h2", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("h2", {
                 className: "sr-only",
                 children: "Product information"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
                 className: "flex justify-start items-center py-5",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_product_ProductPriceCard__WEBPACK_IMPORTED_MODULE_10__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_product_ProductPriceCard__WEBPACK_IMPORTED_MODULE_13__["default"], {
                     className: "",
-                    price: product.prices[0]
+                    price: product.prices ? product.prices[0] : 0
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
                   className: "ml-4 border-l border-gray-300 pl-4",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h2", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("h2", {
                     className: "sr-only",
                     children: "Reviews"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_RatingBar__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_RatingBar__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
               className: "mt-4",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h3", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("h3", {
                 className: "sr-only",
                 children: "Description"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
                 className: "space-y-6 text-sm text-gray-500",
                 children: product.short_description
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
               className: "mt-6",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
                 className: "mt-10",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_product_ProductVariants__WEBPACK_IMPORTED_MODULE_11__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_product_ProductVariants__WEBPACK_IMPORTED_MODULE_14__["default"], {
                   selected: selectedVariant,
                   onChange: setSelectedVariant,
                   variants: product.variants
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
                 className: "mt-10 flex",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("button", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("button", {
                   type: "button",
                   onClick: handleAddToCart,
                   className: "flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none  focus:ring-offset-gray-50 sm:w-full",
                   children: "Add to bag"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("button", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("button", {
                   type: "button",
                   className: "ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500",
                   disabled: !selectedVariant || !selectedVariant.id,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_19__["default"], {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_22__["default"], {
                     className: "h-6 w-6 flex-shrink-0",
                     "aria-hidden": "true"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("span", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("span", {
                     className: "sr-only",
                     children: "Add to favorites"
                   })]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_ShareButtons__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("section", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_ShareButtons__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("section", {
               "aria-labelledby": "details-heading",
               className: "mt-12",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h2", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("h2", {
                 id: "details-heading",
                 className: "sr-only",
                 children: "Additional details"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
                 className: "divide-y divide-gray-200 border-t",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
                   className: "pt-10",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h3", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("h3", {
                     className: "font-medium text-gray-900 mb-3",
                     children: "Additional details"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("table", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("tbody", {
-                      children: product.additional_data.map(function (detail, i) {
-                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("tr", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("table", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("tbody", {
+                      children: (_product$additional_d = product.additional_data) === null || _product$additional_d === void 0 ? void 0 : _product$additional_d.map(function (detail, i) {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("tr", {
                           className: "text-sm",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("td", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("td", {
                             className: "py-1 font-medium",
                             children: [detail.name, ":"]
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("td", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("td", {
                             className: "text-right py-1 text-gray-500",
                             children: detail.value
                           })]
@@ -14975,7 +14883,7 @@ function ProductDeatils() {
               })]
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_RelatedProducts__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_RelatedProducts__WEBPACK_IMPORTED_MODULE_6__["default"], {
           products: product.associations
         })]
       })
@@ -17307,354 +17215,6 @@ function NotFound() {
 
 /***/ }),
 
-/***/ "./resources/js/pages/profile/OrderHistory.jsx":
-/*!*****************************************************!*\
-  !*** ./resources/js/pages/profile/OrderHistory.jsx ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ OrderHistory)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/menu/menu.js");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/transitions/transition.js");
-/* harmony import */ var _heroicons_react_20_solid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @heroicons/react/20/solid */ "./node_modules/@heroicons/react/20/solid/esm/EllipsisVerticalIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/UserCircleIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/FingerPrintIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/BellIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/CubeIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/CreditCardIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/UsersIcon.js");
-/* harmony import */ var _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @heroicons/react/24/outline */ "./node_modules/@heroicons/react/24/outline/esm/CheckCircleIcon.js");
-/* harmony import */ var _utils_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/css */ "./resources/js/utils/css.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-var navigation = [{
-  name: 'Home',
-  href: '#'
-}, {
-  name: 'Invoices',
-  href: '#'
-}, {
-  name: 'Clients',
-  href: '#'
-}, {
-  name: 'Expenses',
-  href: '#'
-}];
-var secondaryNavigation = [{
-  name: 'General',
-  href: '#',
-  icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_3__["default"],
-  current: true
-}, {
-  name: 'Security',
-  href: '#',
-  icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_4__["default"],
-  current: false
-}, {
-  name: 'Notifications',
-  href: '#',
-  icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_5__["default"],
-  current: false
-}, {
-  name: 'Plan',
-  href: '#',
-  icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_6__["default"],
-  current: false
-}, {
-  name: 'Billing',
-  href: '#',
-  icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_7__["default"],
-  current: false
-}, {
-  name: 'Team members',
-  href: '#',
-  icon: _heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_8__["default"],
-  current: false
-}];
-var orders = [{
-  number: 'WU88191111',
-  href: '#',
-  invoiceHref: '#',
-  createdDate: 'Jul 6, 2021',
-  createdDatetime: '2021-07-06',
-  deliveredDate: 'July 12, 2021',
-  deliveredDatetime: '2021-07-12',
-  total: '$160.00',
-  products: [{
-    id: 1,
-    name: 'Micro Backpack',
-    description: 'Are you a minimalist looking for a compact carry option? The Micro Backpack is the perfect size for your essential everyday carry items. Wear it like a backpack or carry it like a satchel for all-day use.',
-    href: '#',
-    price: '$70.00',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/order-history-page-03-product-01.jpg',
-    imageAlt: 'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.'
-  }
-  // More products...
-  ]
-}
-// More orders...
-];
-
-function OrderHistory() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState2 = _slicedToArray(_useState, 2),
-    mobileMenuOpen = _useState2[0],
-    setMobileMenuOpen = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-    _useState4 = _slicedToArray(_useState3, 2),
-    automaticTimezoneEnabled = _useState4[0],
-    setAutomaticTimezoneEnabled = _useState4[1];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "mx-auto max-w-7xl lg:flex lg:gap-x-16 lg:px-8",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("aside", {
-      className: "flex overflow-x-auto border-b border-gray-900/5 py-4 lg:block lg:w-64 lg:flex-none lg:border-0 lg:py-20",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
-        className: "flex-none px-4 sm:px-6 lg:px-0",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-          role: "list",
-          className: "flex gap-x-3 gap-y-1 whitespace-nowrap lg:flex-col",
-          children: secondaryNavigation.map(function (item) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-                href: item.href,
-                className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_1__.classNames)(item.current ? 'bg-gray-50 text-indigo-600' : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50', 'group flex gap-x-3 rounded-md py-2 pl-2 pr-3 text-sm leading-6 font-semibold'),
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(item.icon, {
-                  className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_1__.classNames)(item.current ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600', 'h-6 w-6 shrink-0'),
-                  "aria-hidden": "true"
-                }), item.name]
-              })
-            }, item.name);
-          })
-        })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("main", {
-      className: "px-4 py-16 sm:px-6 lg:flex-auto lg:px-0 lg:py-20",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "mx-auto max-w-7xl",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "mb-5",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-              className: "text-base font-semibold leading-7 text-gray-900",
-              children: "Order history"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "mt-1 text-sm leading-6 text-gray-500",
-              children: "Check the status of recent orders, manage returns, and discover similar products."
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "mx-auto max-w-2xl space-y-8 sm:px-4 lg:max-w-4xl lg:px-0",
-            children: orders.map(function (order) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "border-b border-t border-gray-200 bg-white shadow-sm sm:rounded-lg sm:border",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
-                  className: "sr-only",
-                  children: ["Order placed on ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("time", {
-                    dateTime: order.createdDatetime,
-                    children: order.createdDate
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                  className: "flex items-center border-b border-gray-200 p-4 sm:grid sm:grid-cols-4 sm:gap-x-6 sm:p-6",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("dl", {
-                    className: "grid flex-1 grid-cols-2 gap-x-6 text-sm sm:col-span-3 sm:grid-cols-3 lg:col-span-2",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dt", {
-                        className: "font-medium text-gray-900",
-                        children: "Order number"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dd", {
-                        className: "mt-1 text-gray-500",
-                        children: order.number
-                      })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                      className: "hidden sm:block",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dt", {
-                        className: "font-medium text-gray-900",
-                        children: "Date placed"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dd", {
-                        className: "mt-1 text-gray-500",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("time", {
-                          dateTime: order.createdDatetime,
-                          children: order.createdDate
-                        })
-                      })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dt", {
-                        className: "font-medium text-gray-900",
-                        children: "Total amount"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dd", {
-                        className: "mt-1 font-medium text-gray-900",
-                        children: order.total
-                      })]
-                    })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_9__.Menu, {
-                    as: "div",
-                    className: "relative flex justify-end lg:hidden",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                      className: "flex items-center",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_9__.Menu.Button, {
-                        className: "-m-2 flex items-center p-2 text-gray-400 hover:text-gray-500",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-                          className: "sr-only",
-                          children: ["Options for order ", order.number]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_heroicons_react_20_solid__WEBPACK_IMPORTED_MODULE_10__["default"], {
-                          className: "h-6 w-6",
-                          "aria-hidden": "true"
-                        })]
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_11__.Transition, {
-                      as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
-                      enter: "transition ease-out duration-100",
-                      enterFrom: "transform opacity-0 scale-95",
-                      enterTo: "transform opacity-100 scale-100",
-                      leave: "transition ease-in duration-75",
-                      leaveFrom: "transform opacity-100 scale-100",
-                      leaveTo: "transform opacity-0 scale-95",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_9__.Menu.Items, {
-                        className: "absolute right-0 z-10 mt-2 w-40 origin-bottom-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                          className: "py-1",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_9__.Menu.Item, {
-                            children: function children(_ref) {
-                              var active = _ref.active;
-                              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                                href: order.href,
-                                className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_1__.classNames)(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'),
-                                children: "View"
-                              });
-                            }
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_9__.Menu.Item, {
-                            children: function children(_ref2) {
-                              var active = _ref2.active;
-                              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                                href: order.invoiceHref,
-                                className: (0,_utils_css__WEBPACK_IMPORTED_MODULE_1__.classNames)(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'),
-                                children: "Invoice"
-                              });
-                            }
-                          })]
-                        })
-                      })
-                    })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                    className: "hidden lg:col-span-2 lg:flex lg:items-center lg:justify-end lg:space-x-4",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-                      href: order.href,
-                      className: "flex items-center justify-center rounded-md border border-gray-300 bg-white px-2.5 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none ",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                        children: "View Order"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                        className: "sr-only",
-                        children: order.number
-                      })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-                      href: order.invoiceHref,
-                      className: "flex items-center justify-center rounded-md border border-gray-300 bg-white px-2.5 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none ",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                        children: "View Invoice"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-                        className: "sr-only",
-                        children: ["for order ", order.number]
-                      })]
-                    })]
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-                  className: "sr-only",
-                  children: "Items"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-                  role: "list",
-                  className: "divide-y divide-gray-200",
-                  children: order.products.map(function (product) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                      className: "p-4 sm:p-6",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                        className: "flex items-center sm:items-start",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                          className: "h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-gray-200 sm:h-40 sm:w-40",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-                            src: product.imageSrc,
-                            alt: product.imageAlt,
-                            className: "h-full w-full object-cover object-center"
-                          })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                          className: "ml-6 flex-1 text-sm",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                            className: "font-medium text-gray-900 sm:flex sm:justify-between",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
-                              children: product.name
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                              className: "mt-2 sm:mt-0",
-                              children: product.price
-                            })]
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                            className: "hidden text-gray-500 sm:mt-2 sm:block",
-                            children: product.description
-                          })]
-                        })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                        className: "mt-6 sm:flex sm:justify-between",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                          className: "flex items-center",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_heroicons_react_24_outline__WEBPACK_IMPORTED_MODULE_12__["default"], {
-                            className: "h-5 w-5 text-green-500",
-                            "aria-hidden": "true"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
-                            className: "ml-2 text-sm font-medium text-gray-500",
-                            children: ["Delivered on ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("time", {
-                              dateTime: order.deliveredDatetime,
-                              children: order.deliveredDate
-                            })]
-                          })]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                          className: "mt-6 flex items-center space-x-4 divide-x divide-gray-200 border-t border-gray-200 pt-4 text-sm font-medium sm:ml-4 sm:mt-0 sm:border-none sm:pt-0",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                            className: "flex flex-1 justify-center",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                              href: product.href,
-                              className: "whitespace-nowrap text-indigo-600 hover:text-indigo-500",
-                              children: "View product"
-                            })
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                            className: "flex flex-1 justify-center pl-4",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                              href: "#",
-                              className: "whitespace-nowrap text-indigo-600 hover:text-indigo-500",
-                              children: "Buy again"
-                            })
-                          })]
-                        })]
-                      })]
-                    }, product.id);
-                  })
-                })]
-              }, order.number);
-            })
-          })]
-        })
-      })
-    })]
-  });
-}
-
-/***/ }),
-
 /***/ "./resources/js/pages/user/Orders.jsx":
 /*!********************************************!*\
   !*** ./resources/js/pages/user/Orders.jsx ***!
@@ -17998,17 +17558,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   browserRouter: () => (/* binding */ browserRouter),
 /* harmony export */   routes: () => (/* binding */ routes)
 /* harmony export */ });
-/* harmony import */ var _pages_Cart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/Cart */ "./resources/js/pages/Cart.jsx");
-/* harmony import */ var _pages_checkout_Checkout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/checkout/Checkout */ "./resources/js/pages/checkout/Checkout.jsx");
-/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/pages/Home.jsx");
-/* harmony import */ var _pages_OrderPlaced__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/OrderPlaced */ "./resources/js/pages/OrderPlaced.jsx");
-/* harmony import */ var _pages_profile_OrderHistory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/profile/OrderHistory */ "./resources/js/pages/profile/OrderHistory.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var _pages_Cart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/Cart */ "./resources/js/pages/Cart.jsx");
+/* harmony import */ var _pages_checkout_Checkout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/checkout/Checkout */ "./resources/js/pages/checkout/Checkout.jsx");
+/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/pages/Home.jsx");
+/* harmony import */ var _pages_OrderPlaced__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/OrderPlaced */ "./resources/js/pages/OrderPlaced.jsx");
 /* harmony import */ var _pages_Shop__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Shop */ "./resources/js/pages/Shop.jsx");
 /* harmony import */ var _pages_Login__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/Login */ "./resources/js/pages/Login.jsx");
 /* harmony import */ var _pages_Register__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/Register */ "./resources/js/pages/Register.jsx");
 /* harmony import */ var _pages_ProductDetails__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pages/ProductDetails */ "./resources/js/pages/ProductDetails.jsx");
 /* harmony import */ var _pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/errors/NotFound */ "./resources/js/pages/errors/NotFound.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _pages_ForgotPassword__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/ForgotPassword */ "./resources/js/pages/ForgotPassword.jsx");
 /* harmony import */ var _pages_ResetPassword__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../pages/ResetPassword */ "./resources/js/pages/ResetPassword.jsx");
 /* harmony import */ var _pages_UserProfile__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../pages/UserProfile */ "./resources/js/pages/UserProfile.jsx");
@@ -18022,6 +17583,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import OrderHistory from '../pages/profile/OrderHistory';
 
 
 
@@ -18038,7 +17600,7 @@ var routes = [{
   path: '/',
   name: 'home',
   displayName: 'Home',
-  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {}),
+  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_3__["default"], {}),
   index: true,
   indexOrder: 1,
   errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
@@ -18064,15 +17626,15 @@ var routes = [{
   errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
 }, {
   path: '/cart',
-  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_Cart__WEBPACK_IMPORTED_MODULE_0__["default"], {}),
+  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_Cart__WEBPACK_IMPORTED_MODULE_1__["default"], {}),
   errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
 }, {
   path: '/checkout',
-  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_checkout_Checkout__WEBPACK_IMPORTED_MODULE_1__["default"], {}),
+  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_checkout_Checkout__WEBPACK_IMPORTED_MODULE_2__["default"], {}),
   errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
 }, {
   path: '/checkout/success',
-  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_OrderPlaced__WEBPACK_IMPORTED_MODULE_3__["default"], {}),
+  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_OrderPlaced__WEBPACK_IMPORTED_MODULE_4__["default"], {}),
   errorElement: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_errors_NotFound__WEBPACK_IMPORTED_MODULE_9__["default"], {})
 }, {
   path: '/login',
@@ -18182,48 +17744,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   'Western': {
-    'colombo': ["Colombo 01 - Fort", "Colombo 02 - Slave Island &amp; Union Place", "Colombo 03 - Kollupitiya", "Colombo 04 - Bambalapitiya", "Colombo 05 - Havelock Town &amp; Kirulapona", "Colombo 06 - Wellawatte &amp; Pamankada", "Colombo 07 - Cinnamon Gardens", "Colombo 08 - Borella", "Colombo 09 - Dematagoda", "Colombo 10 - Maradana", "Colombo 11 - Pettah", "Colombo 12 - Hultsdorf", "Colombo 13 - Kotahena &amp; Kochchikade", "Colombo 14 - Grandpass", "Colombo 15 - Modera &amp; Mattakkuliya"],
-    'Colombo Greater': ["Aggona", "Angoda", "Angulana", "Athurugriya", "Attidiya", "Avissawella", "Battaramulla", "Beddagana", "Bellanvila", "Bokundara", "Bope", "Bopitiya", "Boralesgamuwa", "Dedigamuwa", "Dehiwala", "Delkanda", "Egoda Uyana", "Embuldeniya", "Gangodawila", "Godagama", "Gothatuwa", "Habarakada", "Hanwella", "Himbutana", "Hiripitya", "Hokandara", "Homagama", "Jambugasmulla", "Kaduwela", "Kahathuduwa", "Kalubowila", "Katubedda", "Kawdana", "Kesbewa", "Kiriwattuduwa", "Kohuwala", "Kolonnawa", "Kosgama", "Koswatta", "Kotikawatta", "Kottawa", "Kotte", "Lunawa", "Madapatha", "Madiwela", "Maharagama", "Malabe", "Mattegoda", "Meegoda", "Mirihana", "Moratuwa", "Mount Lavinia", "Mullegama", "Mulleriyawa", "Mulleriyawa New Town", "Napawela", "Nawala", "Nawinna", "Nedimala", "Nugegoda", "Obesekarapura", "Orugodawatta", "Padukka", "Pagoda", "Paliyagoda", "Pannipitiya", "Pelawatta", "Pepiliyana", "Piliyandala", "Pitipana Homagama", "Polgasowita", "Rajagiriya", "Rathmalana", "Ratmalana", "Rattanapitiya", "Sapugaskande", "Sedawatte", "Siddamulla", "Sri Jayawardenapura Kotte", "Talangama", "Talawatugoda", "Thalawathugoda", "Udahamulla", "Waga", "Watareka", "Welikada", "Welivita", "Wellampitiya", "Werahera", "Wijerama"],
-    'Gampaha': ["Alawala", "Ambagaspitiya", "Ambepussa", "Amuhena", "Andiambalama", "Attanagalla", "Badalgama", "Bemmulla", "Biyagama", "Buthpitiya", "Danowita", "Debahera", "Dekatana", "Delgoda", "Demalagama", "Dewalapola", "Divulapitiya", "Divuldeniya", "Dompe", "Dunagaha", "Ekala", "Ellakkala", "Essella", "Gampaha Town", "Ganemulla", "Gonawala", "Heiyanthuduwa", "Hendala", "Henegama", "Ihala Madampella", "Ja-Ela", "Kadawatha", "Kalagedihena", "Kaleliya", "Kaluaggala", "Kandana", "Katana", "Katunayake", "Kelaniya", "Kimbulapitiya", "Kiribathgoda", "Kirindiwela", "Kitulwala", "Kotadeniyawa", "Kotugada", "Lunugama", "Mabodala", "Mabole", "Madelgamuwa", "Mahabage", "Makola", "Malwana", "Mawaramandiya", "Mellawagedara", "Minuwangoda", "Mirigama", "Mudungoda", "Naiwella", "Negombo", "Nikahetikanda", "Nittambuwa", "Pallewela", "Pamunugama", "Pamunuwatta", "Pasyala", "Peliyagoda", "Pugoda", "Radawadunna", "Raddolugama", "Ragama", "Ranala", "Rukmale", "Seeduwa", "Siyambalape", "Udugampola", "Urapola", "Uswetakeiyawa", "Vayangoda", "Veyangoda", "Walpita", "Walpola", "Wanaluwewa", "Wattala", "Weliweriya", "Weweldeniya", "Yakkala", "Yatiyana"],
-    'Kalutara': ["Agalawatta", "Alubomulla", "Aluthgama", "Arukgoda", "Athwelthota", "Aubomulla", "Awiththawa", "Baduraliya", "Bandaragama", "Bekkegama", "Bellana", "Beruwala", "Bolossagama", "Bombuwala", "Boralugoda", "Bulathsinhala", "China Fort", "Daluwatta", "Dediyawala", "Delduwa", "Dharga Town", "Dibbedda", "Diggala", "Diyalagoda", "Dodamgoda", "Dodangoda", "Dombagoda", "Egal Oya", "Eluwila", "Galpatha", "Galthude", "Gamagoda", "Gonapola Junction", "Gorakana", "Goraka Pola", "Govinna", "Halkandawila", "Haltota", "Halwatura", "Handapangoda", "Hedigalla Colony", "Hirana", "Horana", "Horawala", "Horethuduwa", "Ingiriya", "Ittapana", "Kalamulla", "Kaludewala", "Kalugala", "Kalutara", "Kalutara Town", "Kaluwamodara", "Kananwila", "Katukurunda", "Kehelwatta", "Keselwatta", "Kethhena", "Kiriberiya", "Kitulgoda", "Koholana", "Kuruppu Mulla", "Maggona", "Mahagama", "Mahakalupahana", "Malamulla", "Malegoda", "Maradana", "Mathugama", "Matugama", "Meegahatenna", "Meegama", "Melegama", "Millaniya", "Millewa", "Miwanapalana", "Molkawa", "Molligoda", "Moragalla", "Morontuduwa", "Mun Hena", "Nagas Handiya", "Narthupana", "Neboda", "Omaththa", "Owitigala", "Paiyagala", "Panadura", "Pannila", "Paragastota", "Paragoda", "Paraigama", "Paraththa", "Pibura", "Pohaddaramulla", "Pokunuwita", "Polgampola", "Poruwedanda", "Pothuwila", "Remunagoda", "Serupita", "Tebuwana", "Thalpitiya", "Thanthirimulla", "Thebuwana", "Thudugala", "Uduwara", "Wadduwa", "Walallawita", "Walana", "Walathara", "Waskaduwa", "Wehada", "Welipenna", "Welmilla Junction", "Weththewa", "Wettumakade", "Yagirala", "Yatadolawatta", "Yatawara Junction"]
+    'colombo': ['Colombo 01 - Fort', 'Colombo 02 - Slave Island &amp; Union Place', 'Colombo 03 - Kollupitiya', 'Colombo 04 - Bambalapitiya', 'Colombo 05 - Havelock Town &amp; Kirulapona', 'Colombo 06 - Wellawatte &amp; Pamankada', 'Colombo 07 - Cinnamon Gardens', 'Colombo 08 - Borella', 'Colombo 09 - Dematagoda', 'Colombo 10 - Maradana', 'Colombo 11 - Pettah', 'Colombo 12 - Hultsdorf', 'Colombo 13 - Kotahena &amp; Kochchikade', 'Colombo 14 - Grandpass', 'Colombo 15 - Modera &amp; Mattakkuliya'],
+    'Colombo Greater': ['Aggona', 'Angoda', 'Angulana', 'Athurugriya', 'Attidiya', 'Avissawella', 'Battaramulla', 'Beddagana', 'Bellanvila', 'Bokundara', 'Bope', 'Bopitiya', 'Boralesgamuwa', 'Dedigamuwa', 'Dehiwala', 'Delkanda', 'Egoda Uyana', 'Embuldeniya', 'Gangodawila', 'Godagama', 'Gothatuwa', 'Habarakada', 'Hanwella', 'Himbutana', 'Hiripitya', 'Hokandara', 'Homagama', 'Jambugasmulla', 'Kaduwela', 'Kahathuduwa', 'Kalubowila', 'Katubedda', 'Kawdana', 'Kesbewa', 'Kiriwattuduwa', 'Kohuwala', 'Kolonnawa', 'Kosgama', 'Koswatta', 'Kotikawatta', 'Kottawa', 'Kotte', 'Lunawa', 'Madapatha', 'Madiwela', 'Maharagama', 'Malabe', 'Mattegoda', 'Meegoda', 'Mirihana', 'Moratuwa', 'Mount Lavinia', 'Mullegama', 'Mulleriyawa', 'Mulleriyawa New Town', 'Napawela', 'Nawala', 'Nawinna', 'Nedimala', 'Nugegoda', 'Obesekarapura', 'Orugodawatta', 'Padukka', 'Pagoda', 'Paliyagoda', 'Pannipitiya', 'Pelawatta', 'Pepiliyana', 'Piliyandala', 'Pitipana Homagama', 'Polgasowita', 'Rajagiriya', 'Rathmalana', 'Ratmalana', 'Rattanapitiya', 'Sapugaskande', 'Sedawatte', 'Siddamulla', 'Sri Jayawardenapura Kotte', 'Talangama', 'Talawatugoda', 'Thalawathugoda', 'Udahamulla', 'Waga', 'Watareka', 'Welikada', 'Welivita', 'Wellampitiya', 'Werahera', 'Wijerama'],
+    'Gampaha': ['Alawala', 'Ambagaspitiya', 'Ambepussa', 'Amuhena', 'Andiambalama', 'Attanagalla', 'Badalgama', 'Bemmulla', 'Biyagama', 'Buthpitiya', 'Danowita', 'Debahera', 'Dekatana', 'Delgoda', 'Demalagama', 'Dewalapola', 'Divulapitiya', 'Divuldeniya', 'Dompe', 'Dunagaha', 'Ekala', 'Ellakkala', 'Essella', 'Gampaha Town', 'Ganemulla', 'Gonawala', 'Heiyanthuduwa', 'Hendala', 'Henegama', 'Ihala Madampella', 'Ja-Ela', 'Kadawatha', 'Kalagedihena', 'Kaleliya', 'Kaluaggala', 'Kandana', 'Katana', 'Katunayake', 'Kelaniya', 'Kimbulapitiya', 'Kiribathgoda', 'Kirindiwela', 'Kitulwala', 'Kotadeniyawa', 'Kotugada', 'Lunugama', 'Mabodala', 'Mabole', 'Madelgamuwa', 'Mahabage', 'Makola', 'Malwana', 'Mawaramandiya', 'Mellawagedara', 'Minuwangoda', 'Mirigama', 'Mudungoda', 'Naiwella', 'Negombo', 'Nikahetikanda', 'Nittambuwa', 'Pallewela', 'Pamunugama', 'Pamunuwatta', 'Pasyala', 'Peliyagoda', 'Pugoda', 'Radawadunna', 'Raddolugama', 'Ragama', 'Ranala', 'Rukmale', 'Seeduwa', 'Siyambalape', 'Udugampola', 'Urapola', 'Uswetakeiyawa', 'Vayangoda', 'Veyangoda', 'Walpita', 'Walpola', 'Wanaluwewa', 'Wattala', 'Weliweriya', 'Weweldeniya', 'Yakkala', 'Yatiyana'],
+    'Kalutara': ['Agalawatta', 'Alubomulla', 'Aluthgama', 'Arukgoda', 'Athwelthota', 'Aubomulla', 'Awiththawa', 'Baduraliya', 'Bandaragama', 'Bekkegama', 'Bellana', 'Beruwala', 'Bolossagama', 'Bombuwala', 'Boralugoda', 'Bulathsinhala', 'China Fort', 'Daluwatta', 'Dediyawala', 'Delduwa', 'Dharga Town', 'Dibbedda', 'Diggala', 'Diyalagoda', 'Dodamgoda', 'Dodangoda', 'Dombagoda', 'Egal Oya', 'Eluwila', 'Galpatha', 'Galthude', 'Gamagoda', 'Gonapola Junction', 'Gorakana', 'Goraka Pola', 'Govinna', 'Halkandawila', 'Haltota', 'Halwatura', 'Handapangoda', 'Hedigalla Colony', 'Hirana', 'Horana', 'Horawala', 'Horethuduwa', 'Ingiriya', 'Ittapana', 'Kalamulla', 'Kaludewala', 'Kalugala', 'Kalutara', 'Kalutara Town', 'Kaluwamodara', 'Kananwila', 'Katukurunda', 'Kehelwatta', 'Keselwatta', 'Kethhena', 'Kiriberiya', 'Kitulgoda', 'Koholana', 'Kuruppu Mulla', 'Maggona', 'Mahagama', 'Mahakalupahana', 'Malamulla', 'Malegoda', 'Maradana', 'Mathugama', 'Matugama', 'Meegahatenna', 'Meegama', 'Melegama', 'Millaniya', 'Millewa', 'Miwanapalana', 'Molkawa', 'Molligoda', 'Moragalla', 'Morontuduwa', 'Mun Hena', 'Nagas Handiya', 'Narthupana', 'Neboda', 'Omaththa', 'Owitigala', 'Paiyagala', 'Panadura', 'Pannila', 'Paragastota', 'Paragoda', 'Paraigama', 'Paraththa', 'Pibura', 'Pohaddaramulla', 'Pokunuwita', 'Polgampola', 'Poruwedanda', 'Pothuwila', 'Remunagoda', 'Serupita', 'Tebuwana', 'Thalpitiya', 'Thanthirimulla', 'Thebuwana', 'Thudugala', 'Uduwara', 'Wadduwa', 'Walallawita', 'Walana', 'Walathara', 'Waskaduwa', 'Wehada', 'Welipenna', 'Welmilla Junction', 'Weththewa', 'Wettumakade', 'Yagirala', 'Yatadolawatta', 'Yatawara Junction']
   },
   'Central': {
-    'Kandy': ["Akurana", "Aladeniya", "Alawatugoda", "Aludeniya", "Ambatenna", "Ampitiya", "Ankubura", "Ankumbura", "Aruppola", "Atabage", "Balana", "Batugoda", "Bawlana", "Bopana", "Danthure", "Daulagala", "Dedunupitiya", "Deltota", "Digana", "Doluwa", "Doragamuwa", "Etulgama", "Galaboda", "Galagedara", "Galaha", "Galhinna", "Gampola", "Gelioya", "Godamunna", "Gonagantenna", "Guhagoda", "Gunnepana", "Gurudeniya", "Haguranketha", "Halloluwa", "Handaganawa", "Handessa", "Hanguranketha", "Haragama", "Harankahawa", "Harispattuwa", "Hasalaka", "Hatharaliyadda", "Hewaheta", "Hindagala", "Hondiyadeniya", "Hunnasgiriya", "Jambugahapitiya", "Kadugannawa", "Kahataliyadda", "Kalugala", "Kandy Town", "Kapuliyadde", "Karandagolla", "Katugastota", "Kengalla", "Ketakumbura", "Kiribathkumbura", "Kolongoda", "Kulugammana", "Kumbukkandura", "Kundasale", "Leemagahakotuwa", "Lewella", "Lunuketiya Maditta", "Madawala", "Madugalla", "Madulkele", "Mahadoraliyadda", "Mahaiyawa", "Mahamedagama", "Mailapitiya", "Makuldeniya", "Mandaram Nuwara", "Marassana", "Maturata", "Mawatura", "Mawilmada", "Medamahanuwara", "Medawala Harispattuwa", "Menikdiwela", "Menikhinne", "Mimure", "Minigamuwa", "Minipe", "Muruthalawa", "Naranpanawa", "Nattarampotha", "Nawalapitiya", "Nugaliyadda", "Nugawela", "Pallekele", "Pallekotuwa", "Panwilatenna", "Paradeka", "Pasbage", "Pattitalawa", "Peradeniya", "Pilawala", "Pilimthalawa", "Poholiyadda", "Polgolla", "Poththapitiya", "Pujapitiya", "Pupuressa", "Pussellawa", "Rajawella", "Rambukpitiya", "Rangala", "Rantembe", "Rathukohodigala", "Rikillagaskada", "Sangarajapura", "Senarathwela", "Talatuoya", "Teldeniya", "Thalatuoya", "Thawalanthenna", "Thennekubura", "Udahentenna", "Udahingulwala", "Uda Peradeniya", "Udawatta", "Ududumbara", "Uduwa", "Uduwahinna", "Uduwela", "Ulapane", "Ulpothagama", "Unuwinna", "Velamboda", "Wattappola", "Wattegama", "Weligalla", "Weligampola", "Wendaruwa", "Werellagama", "Wettawa", "Wilanagama", "Yahalatenna", "Yatihalagala"],
-    'Matale': ["Akuramboda", "Alawatta", "Ambana", "Ataragallewa", "Bambaragaswewa", "Beligamuwa", "Dambulla", "Dankanda", "Devagiriya", "Dewahuwa", "Dullewa", "Dunkolawatta", "Dunuwilapitiya", "Elkaduwa", "Erawula Junction", "Etanawala", "Galewela", "Gammaduwa", "Gangala Puwakpitiya", "Handungamuwa", "Hattota Amuna", "Hettipola", "Illukkumbura", "Imbulgolla", "Inamaluwa", "Kaikawala", "Kalundawa", "Kandalama", "Karagahinna", "Katudeniya", "Kavudupelella", "Kibissa", "Kiwula", "Kongahawela", "Laggala Pallegama", "Leliambe", "Lenadora", "Madawala Ulpotha", "Madipola", "Mahawela", "Mananwatta", "Maraka", "Matale", "Matale Town", "Melipitiya", "Metihakka", "Millawana", "Muwandeniya", "Nalanda", "Na ula", "Nugagolla", "Opalgala", "Ovilikanda", "Palapathwela", "Pallepola", "Perakanatta", "Pubbiliya", "Ranamuregama", "Rattota", "Selagama", "Sigiriya", "Talagoda Junction", "Talakiriyagama", "Udasgiriya", "Udatenna", "Ukuwela", "Wahacotte", "Walawela", "Wehigala", "Welangahawatte", "Wewalawewa", "Wilgamuwa", "Yatawatta"],
-    'Nuwara Eliya': ["Adhikarigama", "Agarapatana", "Ambagamuwa Udabulathgama", "Ambatalawa", "Ambewela", "Bambarakelle", "Barawardhanaoya", "Bogawantalawa", "Bopattalawa", "Dagampitiya", "Dayagama Bazaar", "Degampitiya", "Dikoya", "Doragala", "Dunukedeniya", "Ginigathena", "Gonakele", "Hakgala", "Halgran Oya", "Hangarapitiya", "Hapugastalawa", "Harangalagama", "Harasbedda", "Hatton", "Hawa Eliya", "Hedunuwewa", "Hitigegama", "Idamegama", "Kalaganwatta", "Kandapola", "Katukitula", "Keerthi Bandarapura", "Kelanigama", "Ketaboola", "Kotagala", "Kotmale", "Kottellena", "Kumbalgamuwa", "Kumbukwela", "Kurupanawela", "Labookelle", "Labukele", "Laxapana", "Lindula", "Madulla", "Magastota", "Maldeniya", "Maskeliya", "Maswela", "Meethalawa", "Mipanawa", "Mipilimana", "Morahenagama", "Munwatta", "Nanuoya", "Nawathispane", "Nildandahinna", "Norwood", "Nuwara Eliya", "Nuwara Eliya Town", "Padiyapelella", "Palena", "Patana", "Pitawala", "Pundaluoya", "Pussalamankada", "Radella", "Ragala", "Ramboda", "Rozella", "Rupaha", "Ruwaneliya", "Sadathenna", "Santhipura", "Talawakele", "Teripeha", "Udamadura", "Udapussallawa", "Walapane", "Watagoda", "Watagoda Hanspattuwa", "Watawala", "Widulipura", "Wijebahukanda"]
+    'Kandy': ['Akurana', 'Aladeniya', 'Alawatugoda', 'Aludeniya', 'Ambatenna', 'Ampitiya', 'Ankubura', 'Ankumbura', 'Aruppola', 'Atabage', 'Balana', 'Batugoda', 'Bawlana', 'Bopana', 'Danthure', 'Daulagala', 'Dedunupitiya', 'Deltota', 'Digana', 'Doluwa', 'Doragamuwa', 'Etulgama', 'Galaboda', 'Galagedara', 'Galaha', 'Galhinna', 'Gampola', 'Gelioya', 'Godamunna', 'Gonagantenna', 'Guhagoda', 'Gunnepana', 'Gurudeniya', 'Haguranketha', 'Halloluwa', 'Handaganawa', 'Handessa', 'Hanguranketha', 'Haragama', 'Harankahawa', 'Harispattuwa', 'Hasalaka', 'Hatharaliyadda', 'Hewaheta', 'Hindagala', 'Hondiyadeniya', 'Hunnasgiriya', 'Jambugahapitiya', 'Kadugannawa', 'Kahataliyadda', 'Kalugala', 'Kandy Town', 'Kapuliyadde', 'Karandagolla', 'Katugastota', 'Kengalla', 'Ketakumbura', 'Kiribathkumbura', 'Kolongoda', 'Kulugammana', 'Kumbukkandura', 'Kundasale', 'Leemagahakotuwa', 'Lewella', 'Lunuketiya Maditta', 'Madawala', 'Madugalla', 'Madulkele', 'Mahadoraliyadda', 'Mahaiyawa', 'Mahamedagama', 'Mailapitiya', 'Makuldeniya', 'Mandaram Nuwara', 'Marassana', 'Maturata', 'Mawatura', 'Mawilmada', 'Medamahanuwara', 'Medawala Harispattuwa', 'Menikdiwela', 'Menikhinne', 'Mimure', 'Minigamuwa', 'Minipe', 'Muruthalawa', 'Naranpanawa', 'Nattarampotha', 'Nawalapitiya', 'Nugaliyadda', 'Nugawela', 'Pallekele', 'Pallekotuwa', 'Panwilatenna', 'Paradeka', 'Pasbage', 'Pattitalawa', 'Peradeniya', 'Pilawala', 'Pilimthalawa', 'Poholiyadda', 'Polgolla', 'Poththapitiya', 'Pujapitiya', 'Pupuressa', 'Pussellawa', 'Rajawella', 'Rambukpitiya', 'Rangala', 'Rantembe', 'Rathukohodigala', 'Rikillagaskada', 'Sangarajapura', 'Senarathwela', 'Talatuoya', 'Teldeniya', 'Thalatuoya', 'Thawalanthenna', 'Thennekubura', 'Udahentenna', 'Udahingulwala', 'Uda Peradeniya', 'Udawatta', 'Ududumbara', 'Uduwa', 'Uduwahinna', 'Uduwela', 'Ulapane', 'Ulpothagama', 'Unuwinna', 'Velamboda', 'Wattappola', 'Wattegama', 'Weligalla', 'Weligampola', 'Wendaruwa', 'Werellagama', 'Wettawa', 'Wilanagama', 'Yahalatenna', 'Yatihalagala'],
+    'Matale': ['Akuramboda', 'Alawatta', 'Ambana', 'Ataragallewa', 'Bambaragaswewa', 'Beligamuwa', 'Dambulla', 'Dankanda', 'Devagiriya', 'Dewahuwa', 'Dullewa', 'Dunkolawatta', 'Dunuwilapitiya', 'Elkaduwa', 'Erawula Junction', 'Etanawala', 'Galewela', 'Gammaduwa', 'Gangala Puwakpitiya', 'Handungamuwa', 'Hattota Amuna', 'Hettipola', 'Illukkumbura', 'Imbulgolla', 'Inamaluwa', 'Kaikawala', 'Kalundawa', 'Kandalama', 'Karagahinna', 'Katudeniya', 'Kavudupelella', 'Kibissa', 'Kiwula', 'Kongahawela', 'Laggala Pallegama', 'Leliambe', 'Lenadora', 'Madawala Ulpotha', 'Madipola', 'Mahawela', 'Mananwatta', 'Maraka', 'Matale', 'Matale Town', 'Melipitiya', 'Metihakka', 'Millawana', 'Muwandeniya', 'Nalanda', 'Na ula', 'Nugagolla', 'Opalgala', 'Ovilikanda', 'Palapathwela', 'Pallepola', 'Perakanatta', 'Pubbiliya', 'Ranamuregama', 'Rattota', 'Selagama', 'Sigiriya', 'Talagoda Junction', 'Talakiriyagama', 'Udasgiriya', 'Udatenna', 'Ukuwela', 'Wahacotte', 'Walawela', 'Wehigala', 'Welangahawatte', 'Wewalawewa', 'Wilgamuwa', 'Yatawatta'],
+    'Nuwara Eliya': ['Adhikarigama', 'Agarapatana', 'Ambagamuwa Udabulathgama', 'Ambatalawa', 'Ambewela', 'Bambarakelle', 'Barawardhanaoya', 'Bogawantalawa', 'Bopattalawa', 'Dagampitiya', 'Dayagama Bazaar', 'Degampitiya', 'Dikoya', 'Doragala', 'Dunukedeniya', 'Ginigathena', 'Gonakele', 'Hakgala', 'Halgran Oya', 'Hangarapitiya', 'Hapugastalawa', 'Harangalagama', 'Harasbedda', 'Hatton', 'Hawa Eliya', 'Hedunuwewa', 'Hitigegama', 'Idamegama', 'Kalaganwatta', 'Kandapola', 'Katukitula', 'Keerthi Bandarapura', 'Kelanigama', 'Ketaboola', 'Kotagala', 'Kotmale', 'Kottellena', 'Kumbalgamuwa', 'Kumbukwela', 'Kurupanawela', 'Labookelle', 'Labukele', 'Laxapana', 'Lindula', 'Madulla', 'Magastota', 'Maldeniya', 'Maskeliya', 'Maswela', 'Meethalawa', 'Mipanawa', 'Mipilimana', 'Morahenagama', 'Munwatta', 'Nanuoya', 'Nawathispane', 'Nildandahinna', 'Norwood', 'Nuwara Eliya', 'Nuwara Eliya Town', 'Padiyapelella', 'Palena', 'Patana', 'Pitawala', 'Pundaluoya', 'Pussalamankada', 'Radella', 'Ragala', 'Ramboda', 'Rozella', 'Rupaha', 'Ruwaneliya', 'Sadathenna', 'Santhipura', 'Talawakele', 'Teripeha', 'Udamadura', 'Udapussallawa', 'Walapane', 'Watagoda', 'Watagoda Hanspattuwa', 'Watawala', 'Widulipura', 'Wijebahukanda']
   },
   'Eastern': {
-    'Ampara': ["Addalaichenai", "Akkaraipattu", "Ampara", "Ampara Town", "Bakmitiyawa", "Dadayamtalawa", "Damana", "Deegawapiya", "Dehiattakandiya", "Digamadulla", "Dorakumbura", "Gonagolla", "Hingurana", "Hulannuge", "Irakkamama", "Kalmunai", "Karativu", "Koknahara", "Kolamanthalawa", "Komari", "Lahugala", "Mahaoya", "Malwatta", "Mangalagama", "Marathamune", "Mawanagama", "Moragahapallama", "Namaloya", "Navithanveli", "Nawamedagama", "Nintavur", "Oluvil", "Padiyathalawa", "Pahalalanda", "Palamunai", "Panama", "Pannalagama", "Periyaneelavanai", "Pottuvil", "Rajagalatenna", "Sainthamaruthu", "Sammanthurai", "Serankada", "Siripura", "Siyambalawewa", "Tempitiya", "Thambiluvil", "Tirukkovil", "Uhana"],
-    'Batticaloa': ["Batticaloa Town", "Chenkaladi", "Eravur", "Kalkudah", "Karadiyanaru", "Kattankudy", "Koddamunai", "Mankemi", "Puliyanthivu", "Puthur", "Vakarai"],
-    'Trincomalee': ["Agbopura", "Anna Nagar", "Arunagiri Nagar", "Buckmigama", "Chinabay", "Dehiwatte", "Deva Nagar", "Echchilampattai", "Galmetiyawa", "Gomarankadawala", "Kaddaiparichchan", "Kanniya", "Kantale", "Kavaddikudah", "Kiliveddy", "Kinniya", "Kuchchaveli", "Kumburupiddy", "Kurinchakemy", "Lankapatuna", "Linganagar", "Mahadivulwewa", "Maharugiramam", "Mallikativu", "Matikali", "Mawadichchenai", "Mihindapura", "Mullipothana", "Murugapuri", "Mutur", "Neelapola", "Nelsonpura", "Nilaveli", "Nithiyapuri", "Orrs Hill", "Palaiyoothu", "Pankulam", "Rottawewa", "Sampaltivu", "Sampur", "Samudragama", "Serunuwara", "Seruwila", "Sirajnagar", "Somapura", "Tampalakamam", "Thirukadaloor", "Tiriyayi", "Toppur", "Trincomalee Town", "Uppaveli", "Vellamanal", "Wanela"]
+    'Ampara': ['Addalaichenai', 'Akkaraipattu', 'Ampara', 'Ampara Town', 'Bakmitiyawa', 'Dadayamtalawa', 'Damana', 'Deegawapiya', 'Dehiattakandiya', 'Digamadulla', 'Dorakumbura', 'Gonagolla', 'Hingurana', 'Hulannuge', 'Irakkamama', 'Kalmunai', 'Karativu', 'Koknahara', 'Kolamanthalawa', 'Komari', 'Lahugala', 'Mahaoya', 'Malwatta', 'Mangalagama', 'Marathamune', 'Mawanagama', 'Moragahapallama', 'Namaloya', 'Navithanveli', 'Nawamedagama', 'Nintavur', 'Oluvil', 'Padiyathalawa', 'Pahalalanda', 'Palamunai', 'Panama', 'Pannalagama', 'Periyaneelavanai', 'Pottuvil', 'Rajagalatenna', 'Sainthamaruthu', 'Sammanthurai', 'Serankada', 'Siripura', 'Siyambalawewa', 'Tempitiya', 'Thambiluvil', 'Tirukkovil', 'Uhana'],
+    'Batticaloa': ['Batticaloa Town', 'Chenkaladi', 'Eravur', 'Kalkudah', 'Karadiyanaru', 'Kattankudy', 'Koddamunai', 'Mankemi', 'Puliyanthivu', 'Puthur', 'Vakarai'],
+    'Trincomalee': ['Agbopura', 'Anna Nagar', 'Arunagiri Nagar', 'Buckmigama', 'Chinabay', 'Dehiwatte', 'Deva Nagar', 'Echchilampattai', 'Galmetiyawa', 'Gomarankadawala', 'Kaddaiparichchan', 'Kanniya', 'Kantale', 'Kavaddikudah', 'Kiliveddy', 'Kinniya', 'Kuchchaveli', 'Kumburupiddy', 'Kurinchakemy', 'Lankapatuna', 'Linganagar', 'Mahadivulwewa', 'Maharugiramam', 'Mallikativu', 'Matikali', 'Mawadichchenai', 'Mihindapura', 'Mullipothana', 'Murugapuri', 'Mutur', 'Neelapola', 'Nelsonpura', 'Nilaveli', 'Nithiyapuri', 'Orrs Hill', 'Palaiyoothu', 'Pankulam', 'Rottawewa', 'Sampaltivu', 'Sampur', 'Samudragama', 'Serunuwara', 'Seruwila', 'Sirajnagar', 'Somapura', 'Tampalakamam', 'Thirukadaloor', 'Tiriyayi', 'Toppur', 'Trincomalee Town', 'Uppaveli', 'Vellamanal', 'Wanela']
   },
   'North Central': {
-    'Anuradhapura': ["Andiyagala", "Anuradhapura Town", "Awukana", "Dematawewa", "Dunumadalawa", "Elayapattuwa", "Eppawala", "Etaweeragollewa", "Galenbindunuwewa", "Galkadawala", "Galkiriyagama", "Galnewa", "Gambirigaswewa", "Gemunupura", "Gonahaddenawa", "Habarana", "Halmillawetiya", "Halmillewa", "Hidogama", "Horowpothana", "Hurulunikawewa", "Ihalagama", "Ipalogama", "Kahatagasdigiliya", "Kahatagasdigliya", "Kalaoya", "Kalawedi Ulpotha", "Karagahawewa", "Kebithigollawa", "Kekirawa", "Kendewa", "Kirigalwewa", "Madatugama", "Mahabulankulama", "Maha Elagamuwa", "Mahailluppallama", "Mahawilachchiya", "Mailagaswewa", "Maneruwa", "Maradankadawala", "Medawachchiya", "Meegodawewa", "Megodawewa", "Mihintale", "Morakewa", "Nachchaduwa", "Nochchiyagama", "Nuwaragam Palatha", "Padavi Siripura", "Padavi Siritissapura", "Padaviya", "Parakumpura", "Parangiyawadiya", "Parasangahawewa", "Pemaduwa", "Pulmoddai", "Rajanganaya", "Rambewa", "Ranorawa", "Saliyapura", "Siyambalewa", "Talawa", "Tambuttegama", "Telhiriyawa", "Thalawa", "Thambuttegama", "Thanthirimale", "Thirappane", "Tittagonewa", "Udunuwara Colony", "Wahalkada", "Welimuwapotana", "Welioya Project"],
-    'Polonnaruwa': ["Aluthwewa", "Alutwewa", "Aralangawila", "Aselapura", "Attanakadawala", "Bakamuna", "Dalukana", "Damminna", "Dewagala", "Dimbulagala", "Divulankadawala", "Divuldamana", "Diyabeduma", "Diyasenpura", "Elahera", "Ellewewa", "Galamuna", "Galoya Junction", "Giritale", "Hansayapalama", "Hingurakdamana", "Hingurakgoda", "Jayanthipura", "Jayasiripura", "Kalingaela", "Kalukele Badanagala", "Kashyapapura", "Kawudulla", "Kawuduluwewa", "Kottapitiya", "Kumaragama", "Lakshauyana", "Maduruoya", "Maha Ambagaswewa", "Mahatalakolawewa", "Mahawela Sinhapura", "Mampitiya", "Manampitiya", "Medirigiriya", "Meegaswewa", "Minneriya", "Mutugala", "Nawasenapura", "Nelumwewa", "Nuwaragala", "Onegama", "Orubendi Siyambalawa", "Palugasdamana", "Parakrama Samudraya", "Pelatiyawa", "Pimburattewa", "Polonnaruwa Town", "Pulastigama", "Sevanapitiya", "Sinhagama", "Sungavila", "Talpotha", "Tamankaduwa", "Tambala", "Unagalavehera", "Welikanda", "Wijayabapura", "Yodaela", "Yudaganawa"]
+    'Anuradhapura': ['Andiyagala', 'Anuradhapura Town', 'Awukana', 'Dematawewa', 'Dunumadalawa', 'Elayapattuwa', 'Eppawala', 'Etaweeragollewa', 'Galenbindunuwewa', 'Galkadawala', 'Galkiriyagama', 'Galnewa', 'Gambirigaswewa', 'Gemunupura', 'Gonahaddenawa', 'Habarana', 'Halmillawetiya', 'Halmillewa', 'Hidogama', 'Horowpothana', 'Hurulunikawewa', 'Ihalagama', 'Ipalogama', 'Kahatagasdigiliya', 'Kahatagasdigliya', 'Kalaoya', 'Kalawedi Ulpotha', 'Karagahawewa', 'Kebithigollawa', 'Kekirawa', 'Kendewa', 'Kirigalwewa', 'Madatugama', 'Mahabulankulama', 'Maha Elagamuwa', 'Mahailluppallama', 'Mahawilachchiya', 'Mailagaswewa', 'Maneruwa', 'Maradankadawala', 'Medawachchiya', 'Meegodawewa', 'Megodawewa', 'Mihintale', 'Morakewa', 'Nachchaduwa', 'Nochchiyagama', 'Nuwaragam Palatha', 'Padavi Siripura', 'Padavi Siritissapura', 'Padaviya', 'Parakumpura', 'Parangiyawadiya', 'Parasangahawewa', 'Pemaduwa', 'Pulmoddai', 'Rajanganaya', 'Rambewa', 'Ranorawa', 'Saliyapura', 'Siyambalewa', 'Talawa', 'Tambuttegama', 'Telhiriyawa', 'Thalawa', 'Thambuttegama', 'Thanthirimale', 'Thirappane', 'Tittagonewa', 'Udunuwara Colony', 'Wahalkada', 'Welimuwapotana', 'Welioya Project'],
+    'Polonnaruwa': ['Aluthwewa', 'Alutwewa', 'Aralangawila', 'Aselapura', 'Attanakadawala', 'Bakamuna', 'Dalukana', 'Damminna', 'Dewagala', 'Dimbulagala', 'Divulankadawala', 'Divuldamana', 'Diyabeduma', 'Diyasenpura', 'Elahera', 'Ellewewa', 'Galamuna', 'Galoya Junction', 'Giritale', 'Hansayapalama', 'Hingurakdamana', 'Hingurakgoda', 'Jayanthipura', 'Jayasiripura', 'Kalingaela', 'Kalukele Badanagala', 'Kashyapapura', 'Kawudulla', 'Kawuduluwewa', 'Kottapitiya', 'Kumaragama', 'Lakshauyana', 'Maduruoya', 'Maha Ambagaswewa', 'Mahatalakolawewa', 'Mahawela Sinhapura', 'Mampitiya', 'Manampitiya', 'Medirigiriya', 'Meegaswewa', 'Minneriya', 'Mutugala', 'Nawasenapura', 'Nelumwewa', 'Nuwaragala', 'Onegama', 'Orubendi Siyambalawa', 'Palugasdamana', 'Parakrama Samudraya', 'Pelatiyawa', 'Pimburattewa', 'Polonnaruwa Town', 'Pulastigama', 'Sevanapitiya', 'Sinhagama', 'Sungavila', 'Talpotha', 'Tamankaduwa', 'Tambala', 'Unagalavehera', 'Welikanda', 'Wijayabapura', 'Yodaela', 'Yudaganawa']
   },
   'Northern': {
-    'Jaffna': ["Chavakachcheri", "Delft Island", "Jaffna Town", "Kankesanthurai", "Karainagar", "Kayts", "Kokuvil", "Mandaitivu", "Maviddapuram", "Nallur", "Point Pedro", "Puloly", "Vadamaradchy", "Valikamam East", "Valikamam North", "Valikamam South", "Valikamam West", "Valvettithurai"],
-    'Kilinochchi': ["Aliyavalai", "Kilinochchi", "Parantan", "Pooneryn"],
-    'Mannar': ["Mannar", "Pesalai", "Thalaimannar"],
-    'Mulativu': ["Mulativu Town"],
-    'Vavuniya': ["Omanthai", "Puliyankulam", "Vavuniya Town"]
+    'Jaffna': ['Chavakachcheri', 'Delft Island', 'Jaffna Town', 'Kankesanthurai', 'Karainagar', 'Kayts', 'Kokuvil', 'Mandaitivu', 'Maviddapuram', 'Nallur', 'Point Pedro', 'Puloly', 'Vadamaradchy', 'Valikamam East', 'Valikamam North', 'Valikamam South', 'Valikamam West', 'Valvettithurai'],
+    'Kilinochchi': ['Aliyavalai', 'Kilinochchi', 'Parantan', 'Pooneryn'],
+    'Mannar': ['Mannar', 'Pesalai', 'Thalaimannar'],
+    'Mulativu': ['Mulativu Town'],
+    'Vavuniya': ['Omanthai', 'Puliyankulam', 'Vavuniya Town']
   },
   'North Western': {
-    'Kurunegala': ["Alawwa", "Ambanpola", "Ataragalla", "Awulegama", "Balalla", "Bamunukotuwa", "Bandara Koswatta", "Bogahamulla", "Bopitiya", "Bujjomuwa", "Dambadeniya", "Deegalla", "Demataluwa", "Diddeniya", "Divullegoda", "Dodangaslanda", "Etungahakotuwa", "Galgamuwa", "Giriulla", "Gokaralla", "Halmillawewa", "Heraliyawela", "Hindagolla", "Hiruwalpola", "Horambawa", "Hulogedara", "Hulugalla", "Ibbagamuwa", "Ilukhena", "Indulgodakanda", "Inguruwatta", "Iriyagolla", "Ithanawatta", "Kadigawa", "Kahapathwala", "Kalugamuwa", "Kanadeniyawala", "Kanattewewa", "Katupota", "Kekunagolla", "Keppitiwalana", "Kirimetiyawa", "Kirindigalla", "Kithalawa", "Kobeigane", "Kohilagedara", "Konwewa", "Kosdeniya", "Kosgolla", "Kotawehera", "Kudagalagamuwa", "Kudakathnoruwa", "Kuliyapitiya", "Kumbukgeta", "Kumbukwewa", "Kuratihena", "Kurunegala Town", "Labbala", "Lbbagamuwa", "Lonahettiya", "Madahapola", "Madakumburumulla", "Maduragoda", "Maeliya", "Mahagalkadawala", "Mahagirilla", "Mahamukalanyaya", "Mahananneriya", "Maharachchimulla", "Maho", "Makulpotha", "Makulwewa", "Malagane", "Malkaduwawa", "Malpitiya", "Mandapola", "Maspotha", "Mawathagama", "Meegalawa", "Meewellawa", "Melsiripura", "Metikumbura", "Metiyagane", "Minhettiya", "Minuwangete", "Mirihanegama", "Moragane", "Moragollagama", "Munamaldeniya", "Nabadewa", "Nagollagama", "Nagollagoda", "Nakkawatta", "Narammala", "Narangoda", "Nawatalwatta", "Nelliya", "Nikadalupotha", "Nikaweratiya", "Padeniya", "Padiwela", "Pahalagiribawa", "Pahamune", "Palukadawala", "Panadaragama", "Panagamuwa", "Panaliya", "Panliyadda", "Pannala", "Pansiyagama", "Periyakadneluwa", "Pihimbiya Ratmale", "Pihimbuwa", "Pilessa", "Polgahawela", "Polpitigama", "Pothuhera", "Puswelitenna", "Ridigama", "Sandalankawa", "Sirisethagama", "Siyambalagamuwa", "Solewewa", "Sunandapura", "Talawattegedara", "Tambutta", "Thalahitimulla", "Thalakolawewa", "Thalwita", "Thambagalla", "Tharana Udawela", "Thimbiriyawa", "Thorayaya", "Tisogama", "Torayaya", "Tuttiripitigama", "Udubaddawa", "Uhumiya", "Usgala Siyabmalangamuwa", "Wadakada", "Wadumunnegedara", "Wannilhalagama", "Wannirasnayakapura", "Warawewa", "Wariyapola", "Watuwatta", "Welawa Junction", "Welipennagahamulla", "Wellagala", "Wellarawa", "Wellawa", "Wennoruwa", "Weuda", "Wewagama", "Yakwila"],
-    'Puttalam': ["Adippala", "Anamaduwa", "Andigama", "Angunawila", "Bangadeniya", "Baranankattuwa", "Battuluoya", "Bingiriya", "Bujjampola", "Chilaw", "Dankotuwa", "Dunkannawa", "Eluwankulama", "Ettale", "Ihala Kottaramulla", "Ihala Puliyankulama", "Kakkapalliya", "Kalpitiya", "Karativponparappi", "Karuwalagaswewa", "Katuneriya", "Kirimundalama", "Kudawewa", "Kumarakattuwa", "Kuruketiyawa", "Lihiriyagama", "Lunuwila", "Madampe", "Madurankuliya", "Mahauswewa", "Marawila", "Mundel", "Muttibendivila", "Nainamadama", "Nalladarankattuwa", "Nattandiya", "Nawagattegama", "Norachcholai", "Palaviya", "Pallama", "Palliwasalturai", "Pothuwatawana", "Puttalam Town", "Rajakadaluwa", "Saliyawewa Junction", "Tabbowa", "Talawila Church", "Toduwawa", "Udappu", "Udappuwa", "Uridyawa", "Uriyawa", "Vanathawilluwa", "Waikkal", "Watugahamulla", "Wennappuwa", "Wilpotha", "Yogiyana"]
+    'Kurunegala': ['Alawwa', 'Ambanpola', 'Ataragalla', 'Awulegama', 'Balalla', 'Bamunukotuwa', 'Bandara Koswatta', 'Bogahamulla', 'Bopitiya', 'Bujjomuwa', 'Dambadeniya', 'Deegalla', 'Demataluwa', 'Diddeniya', 'Divullegoda', 'Dodangaslanda', 'Etungahakotuwa', 'Galgamuwa', 'Giriulla', 'Gokaralla', 'Halmillawewa', 'Heraliyawela', 'Hindagolla', 'Hiruwalpola', 'Horambawa', 'Hulogedara', 'Hulugalla', 'Ibbagamuwa', 'Ilukhena', 'Indulgodakanda', 'Inguruwatta', 'Iriyagolla', 'Ithanawatta', 'Kadigawa', 'Kahapathwala', 'Kalugamuwa', 'Kanadeniyawala', 'Kanattewewa', 'Katupota', 'Kekunagolla', 'Keppitiwalana', 'Kirimetiyawa', 'Kirindigalla', 'Kithalawa', 'Kobeigane', 'Kohilagedara', 'Konwewa', 'Kosdeniya', 'Kosgolla', 'Kotawehera', 'Kudagalagamuwa', 'Kudakathnoruwa', 'Kuliyapitiya', 'Kumbukgeta', 'Kumbukwewa', 'Kuratihena', 'Kurunegala Town', 'Labbala', 'Lbbagamuwa', 'Lonahettiya', 'Madahapola', 'Madakumburumulla', 'Maduragoda', 'Maeliya', 'Mahagalkadawala', 'Mahagirilla', 'Mahamukalanyaya', 'Mahananneriya', 'Maharachchimulla', 'Maho', 'Makulpotha', 'Makulwewa', 'Malagane', 'Malkaduwawa', 'Malpitiya', 'Mandapola', 'Maspotha', 'Mawathagama', 'Meegalawa', 'Meewellawa', 'Melsiripura', 'Metikumbura', 'Metiyagane', 'Minhettiya', 'Minuwangete', 'Mirihanegama', 'Moragane', 'Moragollagama', 'Munamaldeniya', 'Nabadewa', 'Nagollagama', 'Nagollagoda', 'Nakkawatta', 'Narammala', 'Narangoda', 'Nawatalwatta', 'Nelliya', 'Nikadalupotha', 'Nikaweratiya', 'Padeniya', 'Padiwela', 'Pahalagiribawa', 'Pahamune', 'Palukadawala', 'Panadaragama', 'Panagamuwa', 'Panaliya', 'Panliyadda', 'Pannala', 'Pansiyagama', 'Periyakadneluwa', 'Pihimbiya Ratmale', 'Pihimbuwa', 'Pilessa', 'Polgahawela', 'Polpitigama', 'Pothuhera', 'Puswelitenna', 'Ridigama', 'Sandalankawa', 'Sirisethagama', 'Siyambalagamuwa', 'Solewewa', 'Sunandapura', 'Talawattegedara', 'Tambutta', 'Thalahitimulla', 'Thalakolawewa', 'Thalwita', 'Thambagalla', 'Tharana Udawela', 'Thimbiriyawa', 'Thorayaya', 'Tisogama', 'Torayaya', 'Tuttiripitigama', 'Udubaddawa', 'Uhumiya', 'Usgala Siyabmalangamuwa', 'Wadakada', 'Wadumunnegedara', 'Wannilhalagama', 'Wannirasnayakapura', 'Warawewa', 'Wariyapola', 'Watuwatta', 'Welawa Junction', 'Welipennagahamulla', 'Wellagala', 'Wellarawa', 'Wellawa', 'Wennoruwa', 'Weuda', 'Wewagama', 'Yakwila'],
+    'Puttalam': ['Adippala', 'Anamaduwa', 'Andigama', 'Angunawila', 'Bangadeniya', 'Baranankattuwa', 'Battuluoya', 'Bingiriya', 'Bujjampola', 'Chilaw', 'Dankotuwa', 'Dunkannawa', 'Eluwankulama', 'Ettale', 'Ihala Kottaramulla', 'Ihala Puliyankulama', 'Kakkapalliya', 'Kalpitiya', 'Karativponparappi', 'Karuwalagaswewa', 'Katuneriya', 'Kirimundalama', 'Kudawewa', 'Kumarakattuwa', 'Kuruketiyawa', 'Lihiriyagama', 'Lunuwila', 'Madampe', 'Madurankuliya', 'Mahauswewa', 'Marawila', 'Mundel', 'Muttibendivila', 'Nainamadama', 'Nalladarankattuwa', 'Nattandiya', 'Nawagattegama', 'Norachcholai', 'Palaviya', 'Pallama', 'Palliwasalturai', 'Pothuwatawana', 'Puttalam Town', 'Rajakadaluwa', 'Saliyawewa Junction', 'Tabbowa', 'Talawila Church', 'Toduwawa', 'Udappu', 'Udappuwa', 'Uridyawa', 'Uriyawa', 'Vanathawilluwa', 'Waikkal', 'Watugahamulla', 'Wennappuwa', 'Wilpotha', 'Yogiyana']
   },
   'Sabaragamuwa': {
-    'Kegalle': ["Alawatura", "Algama", "Aluthnuwara", "Ambalakanda", "Ambulugala", "Amitirigala", "Ampagala", "Anhettigama", "Aranayake", "Aruggammana", "Atale", "Batuwita", "Beligala", "Berannawa", "Bopitiya", "Boralankada", "Bossella", "Bulathkohupitiya", "Damunupola", "Daraniyagala", "Debathgama", "Dedigama", "Dedugala", "Deewala Pallegama", "Dehiowita", "Deldeniya", "Deloluwa", "Deraniyagala", "Dewalegama", "Dewanagala", "Dombemada", "Dorawaka", "Dunumala", "Galapitamada", "Galatara", "Galigamuwa", "Galpatha", "Gantuna", "Gonagala", "Hakabellawaka", "Hakahinna", "Hakbellawaka", "Hawadiwela", "Helamada", "Hemmatagama", "Hettimulla", "Hewadiwela", "Hingula", "Hinguralakanda", "Hiriwadunna", "Imbulana", "Imbulgasdeniya", "Kabagamuwa", "Kannattota", "Kegalle Town", "Kehelpannala", "Kithulgala", "Kitulgala", "Kondeniya", "Kotiyakumbura", "Lewangama", "Mahapallegama", "Maharangalla", "Makehelwala", "Malalpola", "Maliboda", "Malmaduwa", "Mawanella", "Migastenna", "Miyanawita", "Molagoda", "Morontota", "Nelumdeniya", "Niyadurupola", "Noori", "Parape", "Pattampitiya", "Pitagaldeniya", "Rambukkana", "Ruwanwella", "Seaforth Colony", "Talgaspitiya", "Teligama", "Thatawella", "Tholangamuwa", "Thotawella", "Tulhiriya", "Tuntota", "Udagaldeniya", "Udapotha", "Udumulla", "Undugoda", "Ussapitiya", "Wahakula", "Waharaka", "Warakapola", "Watura", "Weeoya", "Wegalla", "Welihelatenna", "Weragala", "Yatagama", "Yatapana", "Yatiyantota", "Yattogoda"],
-    'Ratnapura': ["Akarella", "Atakalanapnna", "Ayagama", "Balangoda", "Batatota", "Belihuloya", "Bolthumbe", "Bulutota", "Dambuluwana", "Dela", "Delwala", "Demuwatha", "Dodampe", "Doloswalakanda", "Dumbara Manana", "Eheliyagoda", "Ekamuthugama", "Elapatha", "Ellagawa", "Ellawala", "Embilipitiya", "Erepola", "Gabbela", "Gallella", "Gangeyaya", "Gawaragiriya", "Getahetta", "Gillimale", "Godagampola", "Godakawela", "Gurubewilagama", "Halpe", "Halwinna", "Handagiriya", "Hapugastenna", "Hatangala", "Hatarabage", "Hiramadagama", "Ihalagalagama", "Imbulpe", "Ittakanda", "Kahangama", "Kahawatte", "Kalawana", "Kalthota", "Kaltota", "Karandana", "Karangoda", "Karawita", "Kella Junction", "Kiribbanwewa", "Kiriella", "Kolambageara", "Kolombugama", "Kolonna", "Kudawa", "Kuruwita", "Madalagama", "Madampe", "Mahagamakoloniya", "Mahawalatenna", "Makandura Sabara", "Matuwagalagama", "Meddekanda", "Minipura Dumbara", "Mitipola", "Morahela", "Mulendiyawala", "Nawalakanda", "Nivithigala", "Omalpe", "Opanayaka", "Padalangala", "Pallebedda", "Pambagolla", "Panamura", "Panawala", "Parakaduwa", "Pebotuwa", "Pelmadulla", "Pimbura", "Pinnawala", "Rajawaka", "Rakwana", "Ranwala", "Rassagala", "Ratna Hangamuwa", "Ratnapura Town", "Samanalawewa", "Sevanagala", "Sri Palabaddala", "Sudagala", "Teppanawa", "Tunkama", "Udakarawita", "Udaniriella", "Udawalawe", "Ullinduwawa", "Veddagala", "Vijeriya", "Waleboda", "Watapotha", "Waturawa", "Weligepola", "Welipathayaya", "Wewelwatta", "Wikiliya"]
+    'Kegalle': ['Alawatura', 'Algama', 'Aluthnuwara', 'Ambalakanda', 'Ambulugala', 'Amitirigala', 'Ampagala', 'Anhettigama', 'Aranayake', 'Aruggammana', 'Atale', 'Batuwita', 'Beligala', 'Berannawa', 'Bopitiya', 'Boralankada', 'Bossella', 'Bulathkohupitiya', 'Damunupola', 'Daraniyagala', 'Debathgama', 'Dedigama', 'Dedugala', 'Deewala Pallegama', 'Dehiowita', 'Deldeniya', 'Deloluwa', 'Deraniyagala', 'Dewalegama', 'Dewanagala', 'Dombemada', 'Dorawaka', 'Dunumala', 'Galapitamada', 'Galatara', 'Galigamuwa', 'Galpatha', 'Gantuna', 'Gonagala', 'Hakabellawaka', 'Hakahinna', 'Hakbellawaka', 'Hawadiwela', 'Helamada', 'Hemmatagama', 'Hettimulla', 'Hewadiwela', 'Hingula', 'Hinguralakanda', 'Hiriwadunna', 'Imbulana', 'Imbulgasdeniya', 'Kabagamuwa', 'Kannattota', 'Kegalle Town', 'Kehelpannala', 'Kithulgala', 'Kitulgala', 'Kondeniya', 'Kotiyakumbura', 'Lewangama', 'Mahapallegama', 'Maharangalla', 'Makehelwala', 'Malalpola', 'Maliboda', 'Malmaduwa', 'Mawanella', 'Migastenna', 'Miyanawita', 'Molagoda', 'Morontota', 'Nelumdeniya', 'Niyadurupola', 'Noori', 'Parape', 'Pattampitiya', 'Pitagaldeniya', 'Rambukkana', 'Ruwanwella', 'Seaforth Colony', 'Talgaspitiya', 'Teligama', 'Thatawella', 'Tholangamuwa', 'Thotawella', 'Tulhiriya', 'Tuntota', 'Udagaldeniya', 'Udapotha', 'Udumulla', 'Undugoda', 'Ussapitiya', 'Wahakula', 'Waharaka', 'Warakapola', 'Watura', 'Weeoya', 'Wegalla', 'Welihelatenna', 'Weragala', 'Yatagama', 'Yatapana', 'Yatiyantota', 'Yattogoda'],
+    'Ratnapura': ['Akarella', 'Atakalanapnna', 'Ayagama', 'Balangoda', 'Batatota', 'Belihuloya', 'Bolthumbe', 'Bulutota', 'Dambuluwana', 'Dela', 'Delwala', 'Demuwatha', 'Dodampe', 'Doloswalakanda', 'Dumbara Manana', 'Eheliyagoda', 'Ekamuthugama', 'Elapatha', 'Ellagawa', 'Ellawala', 'Embilipitiya', 'Erepola', 'Gabbela', 'Gallella', 'Gangeyaya', 'Gawaragiriya', 'Getahetta', 'Gillimale', 'Godagampola', 'Godakawela', 'Gurubewilagama', 'Halpe', 'Halwinna', 'Handagiriya', 'Hapugastenna', 'Hatangala', 'Hatarabage', 'Hiramadagama', 'Ihalagalagama', 'Imbulpe', 'Ittakanda', 'Kahangama', 'Kahawatte', 'Kalawana', 'Kalthota', 'Kaltota', 'Karandana', 'Karangoda', 'Karawita', 'Kella Junction', 'Kiribbanwewa', 'Kiriella', 'Kolambageara', 'Kolombugama', 'Kolonna', 'Kudawa', 'Kuruwita', 'Madalagama', 'Madampe', 'Mahagamakoloniya', 'Mahawalatenna', 'Makandura Sabara', 'Matuwagalagama', 'Meddekanda', 'Minipura Dumbara', 'Mitipola', 'Morahela', 'Mulendiyawala', 'Nawalakanda', 'Nivithigala', 'Omalpe', 'Opanayaka', 'Padalangala', 'Pallebedda', 'Pambagolla', 'Panamura', 'Panawala', 'Parakaduwa', 'Pebotuwa', 'Pelmadulla', 'Pimbura', 'Pinnawala', 'Rajawaka', 'Rakwana', 'Ranwala', 'Rassagala', 'Ratna Hangamuwa', 'Ratnapura Town', 'Samanalawewa', 'Sevanagala', 'Sri Palabaddala', 'Sudagala', 'Teppanawa', 'Tunkama', 'Udakarawita', 'Udaniriella', 'Udawalawe', 'Ullinduwawa', 'Veddagala', 'Vijeriya', 'Waleboda', 'Watapotha', 'Waturawa', 'Weligepola', 'Welipathayaya', 'Wewelwatta', 'Wikiliya']
   },
   'Southern': {
-    'Galle': ["Agaliya", "Ahangama", "Ahungalla", "Akmeemana", "Akuressa", "Aluthwala", "Ambalangoda", "Ampegama", "Amugoda", "Anangoda", "Angulugaha", "Ankokkawala", "Atakohota", "Avittawa", "Baddegama", "Balapitiya", "Banagala", "Batapola", "Benthota", "Boossa", "Dikkumbura", "Dodanduwa", "Elipitiya", "Ella Tanabaddegama", "Elpitiya", "Ethkandura", "Galle Town", "Gintota", "Godahena", "Gonagalpura", "Habaraduwa", "Haburugala", "Halvitigala Colony", "Hawpe", "Hikkaduwa", "Hiniduma", "Hiyare", "Ihalahewessa", "Ihala Walpola", "Imaduwa", "Induruwa", "Kahaduwa", "Kahawa", "Kananke Bazaar", "Karagoda", "Karandeniya", "Ketandola", "Koggala", "Kosgoda", "Kothalawala", "Kottawagama", "Kurundugahahethakma", "Madakumburamulla", "Magala North", "Magala South", "Magedara", "Malamura", "Malgalla Talangalla", "Mapalagama", "Mapalagama Central", "Mattaka", "Meda Keembiya", "Meetiyagoda", "Miriswatta", "Nagoda", "Nakiyadeniya", "Nawadagala", "Neluwa", "Nindana", "Opatha", "Panangala", "Pannimulla Panagoda", "Parana Thanayamgoda", "Pitigala", "Pitigala - North", "Porawagama", "Rantotuvila", "Talagampola", "Tawalama", "Thalgaswala", "Udalamatta", "Udugama", "Unawatuna", "Uragasmanhandiya", "Wackwella", "Walahanduwa", "Wanchawela", "Wanduramba", "Warukandeniya", "Weihena", "Yakkalamulla", "Yatalamatta"],
-    'Hambantota': ["Ambalantota", "Angunakolapalassa", "Beliatta", "Beragama", "Bundala", "Hambantota", "Hambantota Town", "Hungama", "Ittademaliya", "Julampitiya", "Kirinda", "Lunugamwehera", "Magama", "Middeniya", "Ranna", "Ridiyagama", "Sooriyawewa", "Tangalle", "Tissamaharama", "Walasmulla", "Weeraketiya", "Weerawila"],
-    'Matara': ["Akuressa", "Alapaladeniya", "Aparekka", "Aturaliya", "Bengamuwa", "Beralapanathara", "Bopagoda", "Dampahala", "Deegala Lenama", "Deiyandara", "Dellawa", "Denagama", "Denipitiya", "Deniyaya", "Derangala", "Devinuwara", "Devundara", "Dikwella", "Diyagaha", "Diyalape", "Gandara", "Godagama", "Godapitiya", "Gomila Mawarala", "Hakmana", "Handugala", "Hithetiya", "Horapawita", "Kalubowitiyana", "Kamburugamuwa", "Kamburupitiya", "Karagoda Uyangoda", "Karaputugala", "Karatota", "Kekanadura", "Kiriweldola", "Kiriwelkele", "Kolawenigma", "Kotapola", "Kottegoda", "Lankagama", "Makandura", "Maliduwa", "Malimboda", "Maramba", "Matara", "Matara Town", "Mediripitiya", "Miella", "Mirissa", "Modara", "Moragala Kirillapone", "Morawaka", "Mulatiyana Junction", "Nadugala", "Naimana", "Narawelpita", "Nawimana", "Nupe", "Pahala Millawa", "Palatuwa", "Pamburana", "Paragala", "Parapamulla", "Pasgoda", "Penetiyana", "Pitabeddara", "Pothdeniya", "Puhulwella", "Radawela", "Ransegoda", "Ratmale", "Rotumba", "Siyambalagoda", "Sultanagoda", "Talaramba", "Thelijjawila", "Thihagoda", "Thudawa", "Urubokka", "Urugamuwa", "Urumutta", "Uyanwatta", "Viharahena", "Walakanda", "Walasgala", "Walgama", "Wallasmulla", "Waralla", "Weligama", "Welihinda", "Wilpita", "Yatiyana"]
+    'Galle': ['Agaliya', 'Ahangama', 'Ahungalla', 'Akmeemana', 'Akuressa', 'Aluthwala', 'Ambalangoda', 'Ampegama', 'Amugoda', 'Anangoda', 'Angulugaha', 'Ankokkawala', 'Atakohota', 'Avittawa', 'Baddegama', 'Balapitiya', 'Banagala', 'Batapola', 'Benthota', 'Boossa', 'Dikkumbura', 'Dodanduwa', 'Elipitiya', 'Ella Tanabaddegama', 'Elpitiya', 'Ethkandura', 'Galle Town', 'Gintota', 'Godahena', 'Gonagalpura', 'Habaraduwa', 'Haburugala', 'Halvitigala Colony', 'Hawpe', 'Hikkaduwa', 'Hiniduma', 'Hiyare', 'Ihalahewessa', 'Ihala Walpola', 'Imaduwa', 'Induruwa', 'Kahaduwa', 'Kahawa', 'Kananke Bazaar', 'Karagoda', 'Karandeniya', 'Ketandola', 'Koggala', 'Kosgoda', 'Kothalawala', 'Kottawagama', 'Kurundugahahethakma', 'Madakumburamulla', 'Magala North', 'Magala South', 'Magedara', 'Malamura', 'Malgalla Talangalla', 'Mapalagama', 'Mapalagama Central', 'Mattaka', 'Meda Keembiya', 'Meetiyagoda', 'Miriswatta', 'Nagoda', 'Nakiyadeniya', 'Nawadagala', 'Neluwa', 'Nindana', 'Opatha', 'Panangala', 'Pannimulla Panagoda', 'Parana Thanayamgoda', 'Pitigala', 'Pitigala - North', 'Porawagama', 'Rantotuvila', 'Talagampola', 'Tawalama', 'Thalgaswala', 'Udalamatta', 'Udugama', 'Unawatuna', 'Uragasmanhandiya', 'Wackwella', 'Walahanduwa', 'Wanchawela', 'Wanduramba', 'Warukandeniya', 'Weihena', 'Yakkalamulla', 'Yatalamatta'],
+    'Hambantota': ['Ambalantota', 'Angunakolapalassa', 'Beliatta', 'Beragama', 'Bundala', 'Hambantota', 'Hambantota Town', 'Hungama', 'Ittademaliya', 'Julampitiya', 'Kirinda', 'Lunugamwehera', 'Magama', 'Middeniya', 'Ranna', 'Ridiyagama', 'Sooriyawewa', 'Tangalle', 'Tissamaharama', 'Walasmulla', 'Weeraketiya', 'Weerawila'],
+    'Matara': ['Akuressa', 'Alapaladeniya', 'Aparekka', 'Aturaliya', 'Bengamuwa', 'Beralapanathara', 'Bopagoda', 'Dampahala', 'Deegala Lenama', 'Deiyandara', 'Dellawa', 'Denagama', 'Denipitiya', 'Deniyaya', 'Derangala', 'Devinuwara', 'Devundara', 'Dikwella', 'Diyagaha', 'Diyalape', 'Gandara', 'Godagama', 'Godapitiya', 'Gomila Mawarala', 'Hakmana', 'Handugala', 'Hithetiya', 'Horapawita', 'Kalubowitiyana', 'Kamburugamuwa', 'Kamburupitiya', 'Karagoda Uyangoda', 'Karaputugala', 'Karatota', 'Kekanadura', 'Kiriweldola', 'Kiriwelkele', 'Kolawenigma', 'Kotapola', 'Kottegoda', 'Lankagama', 'Makandura', 'Maliduwa', 'Malimboda', 'Maramba', 'Matara', 'Matara Town', 'Mediripitiya', 'Miella', 'Mirissa', 'Modara', 'Moragala Kirillapone', 'Morawaka', 'Mulatiyana Junction', 'Nadugala', 'Naimana', 'Narawelpita', 'Nawimana', 'Nupe', 'Pahala Millawa', 'Palatuwa', 'Pamburana', 'Paragala', 'Parapamulla', 'Pasgoda', 'Penetiyana', 'Pitabeddara', 'Pothdeniya', 'Puhulwella', 'Radawela', 'Ransegoda', 'Ratmale', 'Rotumba', 'Siyambalagoda', 'Sultanagoda', 'Talaramba', 'Thelijjawila', 'Thihagoda', 'Thudawa', 'Urubokka', 'Urugamuwa', 'Urumutta', 'Uyanwatta', 'Viharahena', 'Walakanda', 'Walasgala', 'Walgama', 'Wallasmulla', 'Waralla', 'Weligama', 'Welihinda', 'Wilpita', 'Yatiyana']
   },
   'Uva': {
-    'Badulla': ["Akkarasiyaya", "Aluketiyawa", "Aluththaramma", "Aluttaramma", "Ambadandegama", "Ambagahawatte", "Ambagasdowa", "Amunumulla", "Arawa", "Arawakumbura", "Arawatta", "Atakiriya", "Badulla Town", "Baduluoya", "Ballaketuwa", "Bambarapana", "Bandarawela", "Beramada", "Bibilegama", "Bogahakumbura", "Boragas", "Boralanda", "Bowela", "Dambana", "Demodara", "Diganatenna", "Dikkapitiya", "Dimbulana", "Divulapelessa", "Diyathalawa", "Dulgolla", "Egodawela", "Ella", "Ettempitiya", "Gadunna", "Galauda", "Galedanda", "Galporuyaya", "Gamewela", "Gawarawela", "Girandurukotte", "Godunna", "Guruthalawa", "Haldummulla", "Hali", "Hali-ela", "Hangunnawa", "Haputale", "Hawanakumbura", "Hebarawa", "Heeloya", "Helahalpe", "Helapupula", "Hewanakumbura", "Hingurukaduwa", "Hopton", "Idalgashinna", "Jangulla", "Kabillawela", "Kahataruppa", "Kalubululanda", "Kalugahakandura", "Kalupahana", "Kandaketiya", "Kandegedara", "Kandepuhulpola", "Kebillawela", "Kendagolla", "Keppetipola", "Keselpotha", "Ketawatta", "Kiriwanagama", "Koslanda", "Kotamuduna", "Kuruwitenna", "Kuttiyagolla", "Landewela", "Liyanagahawela", "Lunugala", "Lunuwatta", "Madulsima", "Mahiyangana", "Mahiyanganaya", "Makulella", "Malgoda", "Maliyadda", "Mapakadawewa", "Maspanna", "Maussagolla", "Medawelagama", "Medawela Udukinda", "Meegahakivula", "Metigahatenna", "Mirahawatta", "Miriyabedda", "Miyanakandura", "Namunukula", "Narangala", "Nelumgama", "Nikapotha", "Nugatalawa", "Ohiya", "Pahalarathkinda", "Pallekiruwa", "Passara", "Pathanewatta", "Pattiyagedara", "Pelagahatenna", "Perawella", "Pitamaruwa", "Pitapola", "Poonagala", "Puhulpola", "Ratkarawwa", "Rideemaliyadda", "Rilpola", "Silmiyapura", "Sirimalgoda", "Sorabora Colony", "Soragune", "Soranathota", "Spring Valley", "Taldena", "Tennepanguwa", "Timbirigaspitiya", "Uduhawara", "Uraniya", "Uva Deegalla", "Uva Karandagolla", "Uva Mawelagama", "Uvaparanagama", "Uva Tenna", "Uva Tissapura", "Uva Uduwara", "Welimada", "Wewatta", "Wineethagama", "Yalagamuwa", "Yalwela"],
-    'Monaragala': ["Angunakolawewa", "Ayiwela", "Badalkumbura", "Baduluwela", "Bakinigahawela", "Balaharuwa", "Bibile", "Buddama", "Buttala", "Dambagalla", "Diyakobala", "Dombagahawela", "Ekamutugama", "Ekiriyankumbura", "Ethimalewewa", "Ettiliwewa", "Galabedda", "Hambegamuwa", "Hulandawa", "Inginiyagala", "Kandaudapanguwa", "Kandawinna", "Kataragama", "Kiriibbanwewa", "Kotagama", "Kotawehera Mankada", "Kotiyagala", "Kudaoya", "Kumbukkana", "Mahagama Colony", "Marawa", "Mariarawa", "Medagana", "Monaragala", "Monaragala Town", "Moretuwegama", "Nakkala", "Nannapurawa", "Nelliyadda", "Nilgala", "Obbegoda", "Okkampitiya", "Pangura", "Pitakumbura", "Randeniya", "Ruwalwela", "Sella Kataragama", "Sewanagala", "Siyambalagane", "Siyambalanduwa", "Suriara", "Tanamalila", "Tanamalwila", "Uva Gangodagama", "Uva Kudaoya", "Uva Pelwatta", "Warunagama", "Wedikumbura", "Weherayaya Handapanagala", "Wellawaya", "Wilaoya"]
+    'Badulla': ['Akkarasiyaya', 'Aluketiyawa', 'Aluththaramma', 'Aluttaramma', 'Ambadandegama', 'Ambagahawatte', 'Ambagasdowa', 'Amunumulla', 'Arawa', 'Arawakumbura', 'Arawatta', 'Atakiriya', 'Badulla Town', 'Baduluoya', 'Ballaketuwa', 'Bambarapana', 'Bandarawela', 'Beramada', 'Bibilegama', 'Bogahakumbura', 'Boragas', 'Boralanda', 'Bowela', 'Dambana', 'Demodara', 'Diganatenna', 'Dikkapitiya', 'Dimbulana', 'Divulapelessa', 'Diyathalawa', 'Dulgolla', 'Egodawela', 'Ella', 'Ettempitiya', 'Gadunna', 'Galauda', 'Galedanda', 'Galporuyaya', 'Gamewela', 'Gawarawela', 'Girandurukotte', 'Godunna', 'Guruthalawa', 'Haldummulla', 'Hali', 'Hali-ela', 'Hangunnawa', 'Haputale', 'Hawanakumbura', 'Hebarawa', 'Heeloya', 'Helahalpe', 'Helapupula', 'Hewanakumbura', 'Hingurukaduwa', 'Hopton', 'Idalgashinna', 'Jangulla', 'Kabillawela', 'Kahataruppa', 'Kalubululanda', 'Kalugahakandura', 'Kalupahana', 'Kandaketiya', 'Kandegedara', 'Kandepuhulpola', 'Kebillawela', 'Kendagolla', 'Keppetipola', 'Keselpotha', 'Ketawatta', 'Kiriwanagama', 'Koslanda', 'Kotamuduna', 'Kuruwitenna', 'Kuttiyagolla', 'Landewela', 'Liyanagahawela', 'Lunugala', 'Lunuwatta', 'Madulsima', 'Mahiyangana', 'Mahiyanganaya', 'Makulella', 'Malgoda', 'Maliyadda', 'Mapakadawewa', 'Maspanna', 'Maussagolla', 'Medawelagama', 'Medawela Udukinda', 'Meegahakivula', 'Metigahatenna', 'Mirahawatta', 'Miriyabedda', 'Miyanakandura', 'Namunukula', 'Narangala', 'Nelumgama', 'Nikapotha', 'Nugatalawa', 'Ohiya', 'Pahalarathkinda', 'Pallekiruwa', 'Passara', 'Pathanewatta', 'Pattiyagedara', 'Pelagahatenna', 'Perawella', 'Pitamaruwa', 'Pitapola', 'Poonagala', 'Puhulpola', 'Ratkarawwa', 'Rideemaliyadda', 'Rilpola', 'Silmiyapura', 'Sirimalgoda', 'Sorabora Colony', 'Soragune', 'Soranathota', 'Spring Valley', 'Taldena', 'Tennepanguwa', 'Timbirigaspitiya', 'Uduhawara', 'Uraniya', 'Uva Deegalla', 'Uva Karandagolla', 'Uva Mawelagama', 'Uvaparanagama', 'Uva Tenna', 'Uva Tissapura', 'Uva Uduwara', 'Welimada', 'Wewatta', 'Wineethagama', 'Yalagamuwa', 'Yalwela'],
+    'Monaragala': ['Angunakolawewa', 'Ayiwela', 'Badalkumbura', 'Baduluwela', 'Bakinigahawela', 'Balaharuwa', 'Bibile', 'Buddama', 'Buttala', 'Dambagalla', 'Diyakobala', 'Dombagahawela', 'Ekamutugama', 'Ekiriyankumbura', 'Ethimalewewa', 'Ettiliwewa', 'Galabedda', 'Hambegamuwa', 'Hulandawa', 'Inginiyagala', 'Kandaudapanguwa', 'Kandawinna', 'Kataragama', 'Kiriibbanwewa', 'Kotagama', 'Kotawehera Mankada', 'Kotiyagala', 'Kudaoya', 'Kumbukkana', 'Mahagama Colony', 'Marawa', 'Mariarawa', 'Medagana', 'Monaragala', 'Monaragala Town', 'Moretuwegama', 'Nakkala', 'Nannapurawa', 'Nelliyadda', 'Nilgala', 'Obbegoda', 'Okkampitiya', 'Pangura', 'Pitakumbura', 'Randeniya', 'Ruwalwela', 'Sella Kataragama', 'Sewanagala', 'Siyambalagane', 'Siyambalanduwa', 'Suriara', 'Tanamalila', 'Tanamalwila', 'Uva Gangodagama', 'Uva Kudaoya', 'Uva Pelwatta', 'Warunagama', 'Wedikumbura', 'Weherayaya Handapanagala', 'Wellawaya', 'Wilaoya']
   }
 });
 
@@ -18315,6 +17877,7 @@ function classNames() {
   }
   return classes.filter(Boolean).join(' ');
 }
+;
 
 /***/ }),
 
@@ -25474,6 +25037,81 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/vendor/slick-carousel/slick/ajax-loader.gif?fb6f3c230cb846e25247dfaa1da94d8f");
+
+/***/ }),
+
+/***/ "./resources/icons/accessories.svg":
+/*!*****************************************!*\
+  !*** ./resources/icons/accessories.svg ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/accessories.svg?72eef564bcd3f39dfe034ca98b0e0d07");
+
+/***/ }),
+
+/***/ "./resources/icons/brakes.svg":
+/*!************************************!*\
+  !*** ./resources/icons/brakes.svg ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/brakes.svg?7840d32116e25bd12d330b04e4a0c0fb");
+
+/***/ }),
+
+/***/ "./resources/icons/oils.svg":
+/*!**********************************!*\
+  !*** ./resources/icons/oils.svg ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/oils.svg?6b56abdfd08a42b3e96bcc2e4cc87866");
+
+/***/ }),
+
+/***/ "./resources/icons/shop.svg":
+/*!**********************************!*\
+  !*** ./resources/icons/shop.svg ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/shop.svg?e066ccdc8ffa7cddbe8b7ff7a8fa6046");
+
+/***/ }),
+
+/***/ "./resources/icons/tools.svg":
+/*!***********************************!*\
+  !*** ./resources/icons/tools.svg ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/tools.svg?d62a7a89a99e21d1f908e07ffe5e626d");
 
 /***/ }),
 
@@ -91971,86 +91609,6 @@ const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(Bars3Icon);
 
 /***/ }),
 
-/***/ "./node_modules/@heroicons/react/24/outline/esm/BellIcon.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@heroicons/react/24/outline/esm/BellIcon.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-function BellIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", {
-    id: titleId
-  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
-  }));
-}
-const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(BellIcon);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
-
-/***/ }),
-
-/***/ "./node_modules/@heroicons/react/24/outline/esm/CheckCircleIcon.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@heroicons/react/24/outline/esm/CheckCircleIcon.js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-function CheckCircleIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", {
-    id: titleId
-  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-  }));
-}
-const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(CheckCircleIcon);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
-
-/***/ }),
-
 /***/ "./node_modules/@heroicons/react/24/outline/esm/CheckIcon.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@heroicons/react/24/outline/esm/CheckIcon.js ***!
@@ -92087,86 +91645,6 @@ function CheckIcon({
   }));
 }
 const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(CheckIcon);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
-
-/***/ }),
-
-/***/ "./node_modules/@heroicons/react/24/outline/esm/CreditCardIcon.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@heroicons/react/24/outline/esm/CreditCardIcon.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-function CreditCardIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", {
-    id: titleId
-  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
-  }));
-}
-const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(CreditCardIcon);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
-
-/***/ }),
-
-/***/ "./node_modules/@heroicons/react/24/outline/esm/CubeIcon.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@heroicons/react/24/outline/esm/CubeIcon.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-function CubeIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", {
-    id: titleId
-  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
-  }));
-}
-const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(CubeIcon);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
 
 /***/ }),
@@ -92247,46 +91725,6 @@ function FaceFrownIcon({
   }));
 }
 const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(FaceFrownIcon);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
-
-/***/ }),
-
-/***/ "./node_modules/@heroicons/react/24/outline/esm/FingerPrintIcon.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@heroicons/react/24/outline/esm/FingerPrintIcon.js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-function FingerPrintIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", {
-    id: titleId
-  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33"
-  }));
-}
-const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(FingerPrintIcon);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
 
 /***/ }),
@@ -92447,46 +91885,6 @@ function UserCircleIcon({
   }));
 }
 const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(UserCircleIcon);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
-
-/***/ }),
-
-/***/ "./node_modules/@heroicons/react/24/outline/esm/UsersIcon.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@heroicons/react/24/outline/esm/UsersIcon.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-function UsersIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", {
-    id: titleId
-  }, title) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
-  }));
-}
-const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(UsersIcon);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForwardRef);
 
 /***/ }),

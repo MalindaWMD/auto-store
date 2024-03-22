@@ -1,27 +1,38 @@
 <?php
+
 use Lunar\Facades\CartSession;
 use Lunar\Models\Cart;
 
-if (! function_exists('cart')) {
-    function cart() {
-        $cart = CartSession::current();
+if (!function_exists('cart')) {
+    function cart()
+    {
 
-        if (!$cart && auth()->check()) {
-            $cart = Cart::firstOrCreate(
-                [
-                    'user_id' => auth()->id(),
-                    'order_id' => null,
-                ],
-                [
-                    'currency_id' => CartSession::getCurrency()->id,
-                    'channel_id' => CartSession::getChannel()->id,
-                ]
-            );
+        $cartToken = request()->cookie(config('lunar.cart.cookie_key'));
 
-            CartSession::use($cart);
+        if ($cartToken) {
+            $cart = Cart::where('id', $cartToken)->first();
+            if ($cart) {
+                $cart->calculate();
+                CartSession::use($cart);
+                return $cart;
+            }
         }
+
+        $cart = Cart::firstOrCreate(
+            [
+                'user_id' => null,
+                'order_id' => null,
+            ],
+            [
+                'currency_id' => CartSession::getCurrency()->id,
+                'channel_id' => CartSession::getChannel()->id,
+            ]
+        );
+
+        $cart->calculate();
+
+        CartSession::use($cart);
 
         return $cart;
     }
 }
-

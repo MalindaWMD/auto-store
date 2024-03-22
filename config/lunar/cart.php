@@ -9,7 +9,7 @@ return [
     | Specify the session key used when fetching the cart.
     |
     */
-    'session_key' => 'lunar_cart',
+    'session_key' => 'sh_cart',
 
     /*
     |--------------------------------------------------------------------------
@@ -132,4 +132,6 @@ return [
         'lines.purchasable.product',
         'lines.cart',
     ],
+
+    'cookie_key' => 'sh_cart_token',
 ];

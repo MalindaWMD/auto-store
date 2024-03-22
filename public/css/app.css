@@ -2243,6 +2243,9 @@ select {
 .stroke-gray-500 {
   stroke: #6b7280;
 }
+.stroke-red-400 {
+  stroke: #f87171;
+}
 .stroke-2 {
   stroke-width: 2;
 }
@@ -2721,6 +2724,10 @@ select {
 }
 .ring-offset-2 {
   --tw-ring-offset-width: 2px;
+}
+.blur-md {
+  --tw-blur: blur(12px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);

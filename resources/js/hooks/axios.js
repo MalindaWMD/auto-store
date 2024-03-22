@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from "react";
+import {useState, useRef, useEffect} from 'react';
 
 export const useAxios = (url, method, payload) => {
   const [data, setData] = useState(null);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const controllerRef = useRef(new AbortController());
   const cancel = () => {
@@ -12,23 +12,21 @@ export const useAxios = (url, method, payload) => {
   useEffect(() => {
     (async () => {
       try {
-
-        let requestData = {
+        const requestData = {
           signal: controllerRef.current.signal,
           method,
           url,
-        }
+        };
 
         if (method == 'GET') {
-          requestData['params'] = payload
+          requestData['params'] = payload;
         } else {
-          requestData['data'] = payload
+          requestData['data'] = payload;
         }
 
         const response = await axios.request(requestData);
 
-        setData(response.data)
-
+        setData(response.data);
       } catch (error) {
         setError(error.response);
       } finally {
@@ -42,7 +40,7 @@ export const useAxios = (url, method, payload) => {
     error,
     isLoading,
     cancel,
-    pagination: data?.pagination
+    pagination: data?.pagination,
   };
 };
 
@@ -52,4 +50,4 @@ export const useAxiosPromise = (url, method, payload) => {
     method,
     url,
   });
-}
+};

@@ -5,6 +5,10 @@ import 'react-medium-image-zoom/dist/styles.css'
 
 export default function ProductImageGallery({ images }) {
 
+  if(!images){
+    return null
+  }
+
   Object.keys(images)
 
   if( !images || images.length === 0 ){
