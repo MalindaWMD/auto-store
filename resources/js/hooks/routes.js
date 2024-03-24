@@ -3,9 +3,6 @@
 import {useMemo} from 'react';
 import {matchPath, matchRoutes, useLocation} from 'react-router';
 import {routes} from '../routes/routes';
-import ShopIcon from '../../icons/shop.svg';
-
-console.log(ShopIcon);
 
 export const useNavigationLinks = () => {
   const navigation = {
