@@ -1,18 +1,18 @@
-import { Bars3Icon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
-import { Fragment, useState } from 'react'
-import CartIcon from './CartIcon'
-import FlyoutMenus from './FlyOutMenus'
-import MobileMenu from './MobileMenu'
+import React, {Fragment, useState} from 'react';
+import {Bars3Icon, MagnifyingGlassIcon} from '@heroicons/react/24/outline';
+import CartIcon from './CartIcon';
+import FlyoutMenus from './FlyOutMenus';
+import MobileMenu from './MobileMenu';
 
-import { useAuthUser } from '../../hooks/useAuthUser'
-import SigninLinks from '../SinginLinks'
-import UserMenu from '../UserMenu'
+import {useAuthUser} from '../../hooks/useAuthUser';
+import SigninLinks from '../SinginLinks';
+import UserMenu from '../UserMenu';
 
-const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
+const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP'];
 
 export default function Header(props) {
-  const [open, setOpen] = useState(false)
-  const {data:user} = useAuthUser()
+  const [open, setOpen] = useState(false);
+  const {data: user} = useAuthUser();
 
   return (
     <div className="relative z-40">
@@ -56,25 +56,14 @@ export default function Header(props) {
                   </a>
                 </div>
 
-                {/* Logo (lg-) */}
-                <a href="/" className="lg:hidden">
-                  <span className="sr-only">Sparehouse</span>
-                  <img
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt=""
-                    className="h-8 w-auto"
-                  />
-                </a>
-
                 <div className="flex flex-1 items-center justify-end">
                   <div className="flex items-center lg:ml-8">
                     {/* Cart */}
                     <div className="flex justify-end items-center ml-4 lg:ml-8">
-
-                      { ! user && <SigninLinks />}
-
+                      <div className="hidden lg:block">
+                        { ! user && <SigninLinks />}
+                      </div>
                       <CartIcon cartAction={props.cartAction} />
-
                       {user && <UserMenu user={user} />}
                     </div>
                   </div>
@@ -85,5 +74,5 @@ export default function Header(props) {
         </nav>
       </header>
     </div>
-  )
+  );
 }
