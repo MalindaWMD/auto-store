@@ -18,7 +18,6 @@ import PrivacyPolicy from '../pages/PrivacyPolicy';
 import TermsAndConditions from '../pages/TermsAndConditions';
 
 const routes = [
-
   {
     path: '/',
     name: 'home',

@@ -1,30 +1,30 @@
-import { Popover, Transition } from '@headlessui/react'
-import { classNames } from '../../utils/css'
-import { useNavigationLinks } from '../../hooks/routes';
+import React from 'react';
+import {Popover, Transition} from '@headlessui/react';
+import {classNames} from '../../utils/css';
+import {useNavigationLinks} from '../../hooks/routes';
 
-export default function FlyoutMenus({ as }) {
-
-  const navigation = useNavigationLinks()
+export default function FlyoutMenus({as}) {
+  const navigation = useNavigationLinks();
 
   return (
     <Popover.Group className="inset-x-0 bottom-0 px-4">
       <div className="flex h-full justify-center space-x-8">
         {navigation.categories.map((category) => (
           <Popover key={category.name} className="flex">
-            {({ open }) => (
+            {({open}) => (
               <>
                 <div className="relative flex">
                   <Popover.Button
                     className={classNames(
                       open ? 'text-indigo-600' : 'text-white hover:text-gray-800',
-                      'relative flex items-center justify-center text-sm font-medium transition-colors duration-200 ease-out'
+                      'relative flex items-center justify-center text-sm font-medium transition-colors duration-200 ease-out',
                     )}
                   >
                     {category.name}
                     <span
                       className={classNames(
                         open ? 'bg-indigo-600' : '',
-                        'absolute inset-x-0 -bottom-px z-20 h-0.5 transition duration-200 ease-out'
+                        'absolute inset-x-0 -bottom-px z-20 h-0.5 transition duration-200 ease-out',
                       )}
                       aria-hidden="true"
                     />
@@ -41,7 +41,6 @@ export default function FlyoutMenus({ as }) {
                   leaveTo="opacity-0"
                 >
                   <Popover.Panel className="absolute inset-x-0 top-full z-10 bg-white text-sm text-gray-500">
-                    {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                     <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
                     {/* Fake border when menu is open */}
                     <div
@@ -51,7 +50,7 @@ export default function FlyoutMenus({ as }) {
                       <div
                         className={classNames(
                           open ? 'bg-gray-200' : 'bg-transparent',
-                          'h-px w-full transition-colors duration-200 ease-out'
+                          'h-px w-full transition-colors duration-200 ease-out',
                         )}
                       />
                     </div>
@@ -88,12 +87,12 @@ export default function FlyoutMenus({ as }) {
         ))}
 
         {navigation.pages.map((page) => (
-            <a key={page.name} href={page.path} className="flex items-center text-sm font-medium text-white hover:text-gray-100">
-              <span className="h-5 w-5 mr-1">{page.icon}</span>
-              {page.name}
-            </a>
+          <a key={page.name} href={page.path} className="flex items-center text-sm font-medium text-white hover:text-gray-100">
+            <span className="h-5 w-5 mr-1">{page.icon}</span>
+            {page.name}
+          </a>
         ))}
       </div>
     </Popover.Group>
-  )
+  );
 }
