@@ -30,6 +30,7 @@ module.exports = {
   'rules': {
     'react/prop-types': 'off',
     'require-jsdoc': 'off',
+    'max-len': ['error', {'code': 120}],
   },
   'settings': {
     'react': {
